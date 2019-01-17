@@ -12,12 +12,12 @@ class Ring extends Component {
     if (now - this.time < 100) return;
     if (evt.keyCode === 38 || evt.keyCode === 39) {
       const { onRingClick, progress } = this.props;
-      const result = progress <= 95 ? +progress + 5 : progress;
+      const result = progress <= 95 ? +progress + 5 : 100;
       onRingClick(result);
     }
     if (evt.keyCode === 37 || evt.keyCode === 40) {
       const { onRingClick, progress } = this.props;
-      const result = progress >= 5 ? +progress - 5 : progress;
+      const result = progress >= 5 ? +progress - 5 : 0;
       onRingClick(result);
     }
     this.time = now;
