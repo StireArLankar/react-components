@@ -4,7 +4,6 @@ import './style.scss';
 import Slider from './slider.js';
 
 const Presenter = ({ array, charDict, numDict }) => {
-  array.forEach(key => console.log(key));
   return (
     <ul className="result list">
       {array.map((kee, index) => (

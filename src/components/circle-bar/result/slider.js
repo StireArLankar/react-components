@@ -7,7 +7,6 @@ for (let i = 0; i < 10; i++) {
 }
 
 const Slider = ({ kee, charDict, numDict }) => {
-  console.log(kee, charDict, numDict);
   const number = charDict[kee] || numDict[kee];
   return (
     <ul
