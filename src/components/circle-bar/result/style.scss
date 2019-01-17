@@ -1,0 +1,40 @@
+.result {
+  display: flex;
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Roboto, 'sans-serif';
+  overflow: hidden;
+  height: 80px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result__item {
+  width: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.result__slider {
+  transition: transform 0.5s ease-in-out;
+}
+
+.result__slide {
+  height: 80px;
+  $color: rgb(71, 3, 3);
+
+  &--char {
+    text-shadow: 6px 0 5px rgba($color, 0.4);
+      transform: translateX(40%);
+      text-align: center;
+  }
+
+  &--num {
+    text-shadow: -6px 0 10px rgba($color, 0.5);
+  }
+}

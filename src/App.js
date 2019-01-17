@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import './App.scss';
+import {Route, Switch, Link} from 'react-router-dom';
+import Home from './components/home';
+import CircleBar from './components/circle-bar';
+import Random from './components/random';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <Fragment>
+        <header className="header">
+          <ul className="header__list">
+            <li><Link to='/circle-bar'>Circle bar</Link></li>
+            <li><Link to='/random'>Random</Link></li>
+          </ul>
         </header>
-      </div>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/circle-bar' component={CircleBar} />
+          <Route path='/random' component={Random} />
+          <Route path="*" component={() => "404 NOT FOUND"} />
+        </Switch>
+      </Fragment>
     );
   }
 }
