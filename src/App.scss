@@ -1,5 +1,13 @@
+:root {
+  --bg-color: rgb(145, 181, 240);
+  // color: rgb(251, 219, 211);
+}
+
+.body {
+  background-color: var(--bg-color);
+}
+
 header {
-  background-color: rgb(123, 157, 189);
   position: fixed;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -25,11 +33,11 @@ header {
   border-radius: 30px;
   text-align: center;
   display: flex;
-  background-color: rgb(51, 31, 31);
+  background-color: var(--bg-color);
 }
 
 .header__list a {
-  color: rgb(181, 187, 194);
+  color: black;
   text-decoration: none;
   font-size: 30px;
   flex-grow: 1;

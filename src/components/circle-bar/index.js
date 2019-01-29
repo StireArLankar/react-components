@@ -8,6 +8,11 @@ class CircleBar extends Component {
     progress: 100
   };
 
+  componentWillMount() {
+    const root = document.documentElement;
+    root.style.setProperty('--bg-color', 'rgb(223, 211, 251)');
+  }
+
   onRingClick = (value) => {
     this.setState({progress: value});
   };
