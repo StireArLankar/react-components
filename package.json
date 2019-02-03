@@ -1,8 +1,8 @@
 {
-  "name": "components-react",
+  "name": "react-components",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stirearlankar.github.io/react-components/",
+  "homepage": "https://stirearlankar.github.io/react-components",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
