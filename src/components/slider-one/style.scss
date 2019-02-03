@@ -1,10 +1,15 @@
 $size: 200px;
 
+.slider1__wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 200px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
 .slider1__stage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   perspective: 500px;
   width: $size;
   height: $size;
@@ -50,8 +55,6 @@ $size: 200px;
   background: 0;
   padding: 0;
   cursor: pointer;
-  position: absolute;
-
   font-size: 18px;
   text-align: center;
   border-radius: 50px;
@@ -59,19 +62,9 @@ $size: 200px;
   background-color: white;
   color: red;
   transition: box-shadow 0.3s ease-in-out;
-  top: 50%;
-  transform: translate(-50%, -50%);
 
   &:hover {
     box-shadow: 0px 0px 27px 0px rgba(255, 0, 0, 0.863);
-  }
-
-  &--frwd {
-    left: 65%;
-  }
-
-  &--back {
-    left: 35%;
   }
 }
 

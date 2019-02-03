@@ -38,15 +38,7 @@ class Controller extends Component {
 
   render() {
     return (
-      <Fragment>
-        <Slider index={this.state.index} components={array} onComplete={this.beReady}/>
-        <button
-          type="button"
-          className="slider1__btn slider1__btn--frwd"
-          onClick={this.increaseIndex}
-        >
-          Forward
-        </button>
+      <div className='slider1__wrapper'>
         <button
           type="button"
           className="slider1__btn slider1__btn--back"
@@ -54,7 +46,18 @@ class Controller extends Component {
         >
           Backward
         </button>
-      </Fragment>
+
+        <Slider index={this.state.index} components={array} onComplete={this.beReady}/>
+        
+        <button
+          type="button"
+          className="slider1__btn slider1__btn--frwd"
+          onClick={this.increaseIndex}
+        >
+          Forward
+        </button>
+        
+      </div>
     );
   }
 }

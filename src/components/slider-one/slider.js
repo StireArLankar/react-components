@@ -99,12 +99,6 @@ class Slider extends Component {
             ))}
           </ul>
         </div>
-        <button type="button" className="slider1__btn slider1__btn--frwd">
-          Forward
-        </button>
-        <button type="button" className="slider1__btn slider1__btn--back">
-          Backward
-        </button>
       </Fragment>
     );
   }

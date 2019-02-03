@@ -20,7 +20,6 @@ class CircleBar extends Component {
   render() {
     return (
       <div className='circle-bar'>
-        <h1>CircleBar</h1>
         <Ring radius={200} stroke={30} progress={this.state.progress} onRingClick={this.onRingClick}>
           <Result progress={this.state.progress} />
         </Ring>
