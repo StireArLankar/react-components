@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Slider from './slider';
 import ImgSlide from './img-slide';
 import './style.scss';
