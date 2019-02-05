@@ -1,8 +1,12 @@
+.slider2 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
 .slider2__window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 300px;
   height: 300px;
   overflow: hidden;

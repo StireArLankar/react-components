@@ -6,6 +6,7 @@ import CircleBar from './components/circle-bar';
 import SliderOne from './components/slider-one';
 import SliderTwo from './components/slider-two';
 import Autocomplete from './components/autocomplete';
+import Lense from './components/lense';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <li><Link to='/slider-one'>Slider One</Link></li>
             <li><Link to='/slider-two'>Slider Two</Link></li>
             <li><Link to='/autocomplete'>Autocomplete</Link></li>
+            <li><Link to='/lense'>Lense</Link></li>
           </ul>
         </header>
         <Switch>
@@ -25,6 +27,7 @@ class App extends Component {
           <Route path='/slider-one' component={SliderOne} />
           <Route path='/slider-two' component={SliderTwo} />
           <Route path='/autocomplete' component={Autocomplete} />
+          <Route path='/lense' component={Lense} />
           <Route path="*" component={() => "404 NOT FOUND"} />
         </Switch>
       </Fragment>

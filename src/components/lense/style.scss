@@ -1,0 +1,79 @@
+.lense {
+  padding-top: 150px;
+}
+
+.lense__wrapper {
+  height: var(--size);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.lense__controls {
+  max-width: 400px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.lense__label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lense__handler {
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid black;
+  position: relative;
+}
+
+.lense__handler-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}
+
+.lense__border {
+  position: absolute;
+  top: calc(var(--lense-size) / 2);
+  left: calc(var(--lense-size) / 2);
+  bottom: calc(var(--lense-size) / 2);
+  right: calc(var(--lense-size) / 2);
+}
+
+.lense__lense {
+  position: absolute;
+  width: var(--lense-size);
+  height: var(--lense-size);
+  border: 1px solid black;
+  transform: translate(-50%, -50%);
+}
+
+.lense__view {
+  overflow: hidden;
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid black;
+  position: relative;
+}
+
+.lense__view-wrapper {
+  width: calc(var(--size) * var(--size) / var(--lense-size));
+  height: calc(var(--size) * var(--size) / var(--lense-size));
+  position: absolute;
+}
+
+.lense__view-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}

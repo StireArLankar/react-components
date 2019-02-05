@@ -14,7 +14,9 @@ class Controller extends Component {
 
   render() {
     return(
-      <Slider components={array} width={100}/>
+      <div className='slider2'>
+        <Slider components={array} width={100}/>
+      </div>
     );
   }
 }
