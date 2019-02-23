@@ -7,6 +7,7 @@ import SliderOne from './components/slider-one';
 import SliderTwo from './components/slider-two';
 import Autocomplete from './components/autocomplete';
 import Lense from './components/lense';
+import DndSorting from './components/dnd-sorting';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <li><Link to='/slider-two'>Slider Two</Link></li>
             <li><Link to='/autocomplete'>Autocomplete</Link></li>
             <li><Link to='/lense'>Lense</Link></li>
+            <li><Link to='/dnd-sorting'>DndSorting</Link></li>
           </ul>
         </header>
         <Switch>
@@ -28,6 +30,7 @@ class App extends Component {
           <Route path='/slider-two' component={SliderTwo} />
           <Route path='/autocomplete' component={Autocomplete} />
           <Route path='/lense' component={Lense} />
+          <Route path='/dnd-sorting' component={DndSorting} />
           <Route path="*" component={() => "404 NOT FOUND"} />
         </Switch>
       </Fragment>

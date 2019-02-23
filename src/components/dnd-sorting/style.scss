@@ -1,0 +1,41 @@
+.dnd-sorting__wrapper {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dnd-sorting__content {
+  background-color: #383838;
+  color: #fff;
+  padding: 10px;
+}
+
+.dnd-sorting__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dnd-sorting__item {
+  background-color: #383838;
+  padding: 10px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.dnd-sorting__handler {
+  margin-right: 15px;
+  cursor: move;
+}
+
+.dnd-sorting__svg {
+  height: 2rem;
+  color: #fff;
+}
