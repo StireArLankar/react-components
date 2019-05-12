@@ -89,7 +89,7 @@ class Slider extends Component {
         <div className="slider1__stage">
           <ul
             className="slider1__spinner"
-            style={{transform: `rotateY(${-90*index}deg)`}}
+            style={{transform: `translateZ(-150px) rotateY(${-90*index}deg)`}}
             onTransitionEnd={this.onTransitionEnd}
           >
             {array.map((el, index) => (

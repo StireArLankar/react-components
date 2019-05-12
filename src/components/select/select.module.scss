@@ -1,0 +1,108 @@
+$max-height: 210px;
+$blue-color: #1E88E5;
+$dark-blue-color: #0053ba;
+$border-radius: 5px;
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  max-height: $max-height;
+  overflow-x: hidden;
+  overflow-y: auto;
+  animation: expand 0.3s ease-in-out;
+  padding-right: 3px;
+}
+
+@keyframes expand {
+  from { max-height: 0 }
+  to { max-height: $max-height }
+}
+
+.item {
+  display: flex;
+  color: black;
+  border-radius: $border-radius;
+  padding: 5px 10px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.15s ease-in-out;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.item:hover,
+.item:focus {
+  color: white;
+  background-color: $blue-color;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.wrapper {
+  width: 300px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.inputWrapper {
+  display: flex;
+  color: black;
+  margin-bottom: 3px;
+  border-radius: $border-radius;
+  background-color: white;
+}
+
+.input {
+  flex-grow: 1;
+  font-size: 1.5rem;
+  width: 100%;
+  border-radius: $border-radius;
+  padding: 5px 20px 5px 10px;
+  outline: none;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.input:hover,
+.input:focus {
+  color: white;
+  background-color: $blue-color;
+}
+
+.button {
+  width: 100%;
+  height: 38px;
+  border: 0;
+  border-radius: $border-radius;
+  background: $blue-color;
+  text-align: left;
+  color: white;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+    background: $dark-blue-color;
+    outline: none;
+}
+
+.button:active {
+    transform: scale(0.99);
+}
+
+.placeholder {
+  opacity: 0.5;
+}

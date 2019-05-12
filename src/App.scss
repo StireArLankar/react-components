@@ -55,3 +55,64 @@ header {
     outline: none;
   }
 }
+
+.custom-scroll::-webkit-scrollbar{
+  -webkit-overflow-scrolling:touch;
+  height:10px;
+  width:10px
+}
+
+.custom-scroll::-webkit-scrollbar:hover{
+  background-color:#E9E9E9;
+  border:1px solid #dbdbdb
+}
+
+.custom-scroll::-webkit-scrollbar-button:end:increment,
+.custom-scroll::-webkit-scrollbar-button:start:decrement{
+  background:0 0;
+  display:block;
+  height:0
+}
+
+.custom-scroll::-webkit-scrollbar-track{
+  background-clip:padding-box;
+  border:solid transparent
+}
+
+.custom-scroll::-webkit-scrollbar-track-piece{
+  -moz-border-radius:0;
+  -ms-border-radius:0;
+  -o-border-radius:0;
+  -webkit-border-radius:0
+  ;background-color:transparent;
+  border-radius:0
+}
+
+.custom-scroll::-webkit-scrollbar-thumb{
+  -moz-box-shadow:inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+  -webkit-box-shadow:inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+  background-clip:padding-box;background-color:rgba(0,0,0,.2);
+  border:none;
+  box-shadow:inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07)
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:horizontal,
+.custom-scroll::-webkit-scrollbar-thumb:vertical{
+  -moz-border-radius:0;
+  -ms-border-radius:0;
+  -o-border-radius:0;
+  -webkit-border-radius:0;
+  background-color:#bfbfbf;
+  border-radius:0
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:active{
+  -moz-box-shadow:inset 1px 1px 3px rgba(0,0,0,.33);
+  -webkit-box-shadow:inset 1px 1px 3px rgba(0,0,0,.33);
+  background-color:rgba(0,0,0,.44);
+  box-shadow:inset 1px 1px 3px rgba(0,0,0,.33)
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover{
+  background-color:#959595
+}
