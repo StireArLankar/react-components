@@ -1,0 +1,25 @@
+.wrapper {
+  padding-top: 210px;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.json {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin-bottom: 10px;
+}

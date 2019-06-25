@@ -10,8 +10,9 @@ import Lense from './components/lense'
 import DndSorting from './components/dnd-sorting'
 import Select from './components/select'
 import Color from './components/color'
+import FormFields from './components/form-fields'
 
-const App = props => {
+const App = (props) => {
   return (
     <Fragment>
       <header className="header">
@@ -24,6 +25,7 @@ const App = props => {
           <li><Link to='/dnd-sorting'>DndSorting</Link></li>
           <li><Link to='/select'>Select</Link></li>
           <li><Link to='/color'>Color</Link></li>
+          <li><Link to='/form-fields'>Form Fields</Link></li>
         </ul>
       </header>
       <Switch>
@@ -36,6 +38,7 @@ const App = props => {
         <Route path='/dnd-sorting' component={DndSorting} />
         <Route path='/select' component={Select} />
         <Route path='/color' component={Color} />
+        <Route path='/form-fields' component={FormFields} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
     </Fragment>
