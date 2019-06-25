@@ -1,0 +1,77 @@
+$color: darken( rgb(210, 208, 233), 50% );
+$border-color: rgb(172, 26, 177);
+
+.wrapper {
+  padding-top: 210px;
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.canvas {
+  cursor: default;
+}
+
+.square {
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 500px;
+  height: 500px;
+}
+
+.colorWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $color;
+  margin-bottom: 10px;
+}
+
+.text {
+  width: 150px;
+  color: white;
+  font-size: 1.3rem;
+}
+
+.labelWrapper {
+  margin: 0 auto;
+}
+
+.label {
+  background-color: $color;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.label:hover,
+.input:focus + .label {
+  border-color: $border-color;
+  box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.1)
+}
+
+.input {
+  position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding:0 !important;
+	border:0 !important;
+	height: 1px !important; 
+	width: 1px !important; 
+	overflow: hidden;
+}
