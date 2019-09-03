@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import useBGColor from '../../hook/useBGColor'
 import FieldsSelect from './FieldsSelect'
 import Fields from './Fields'
 import TextDisplay from './TextDisplay'
@@ -9,10 +10,7 @@ import types from './types'
 const FormFields = () => {
   const [fields, setFields] = useState([])
 
-  useEffect(() => {
-    const root = document.documentElement
-    root.style.setProperty('--bg-color', 'rgb(210, 208, 210)')
-  }, [])
+  useBGColor(210, 208, 210)
 
   const updateField = (index) => (value) => {
     const foundField = fields[index]

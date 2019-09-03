@@ -36,7 +36,7 @@ const Pagination = props => {
   }, [])
 
   const renderTitle = () => {
-    return `Helo world`
+    return `Pagination with page query and pushing new instances to history`
   }
 
   const renderNumberButtons = () => {

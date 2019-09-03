@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useState } from 'react'
+import useBGColor from '../../hook/useBGColor'
 import List from './list'
 
 import items from './countries';
@@ -12,10 +13,7 @@ const Select = props => {
   const [ search, setSearch ] = useState('')
   const ref = useRef()
 
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty('--bg-color', 'rgb(220, 208, 220)');
-  }, [])
+  useBGColor(220, 208, 220)
 
   const closeList = () => {
     setIsOpen(false)

@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, Fragment } from 'react'
+import React, { useRef, useState, Fragment } from 'react'
+import useBGColor from '../../hook/useBGColor'
 import ColorDisplay from './ColorDisplay'
 import FileInput from './FileInput'
 import style from './color.module.scss'
@@ -14,10 +15,7 @@ const Color = (props) => {
 
   const canvas = useRef()
 
-  useEffect(() => {
-    const root = document.documentElement
-    root.style.setProperty('--bg-color', 'rgb(210, 208, 233)')
-  }, [])
+  useBGColor(210, 208, 233)
 
   const getEventLocation = (element, event) => {
     const bound = element.getBoundingClientRect()
