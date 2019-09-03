@@ -1,6 +1,6 @@
 # Set of simple react widgets
 ## [Link](https://stirearlankar.github.io/react-components)
-### Изменения по сравнению с прошлой версией:
+### Content:
 1. Pagination with query updating and proper history.
 2. Box-slider
 3. Dynamic form fields
