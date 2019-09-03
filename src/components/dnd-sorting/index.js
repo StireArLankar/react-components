@@ -1,66 +1,66 @@
-import React, { Component } from 'react';
-import './style.scss';
-import { ReactComponent as Hamburger } from "./hamburger.svg";
+import React, { useState, useRef } from 'react'
+import useBGColor from '../../hook/useBGColor'
+import style from './dnd.module.scss'
+import { ReactComponent as Hamburger } from './hamburger.svg'
 
-const prefix = 'dnd-sorting';
+const initialItems = ['🍰 Cake', '🍩 Donut', '🍎 Apple', '🍕 Pizza']
 
-class DndSorting extends Component {
-  state = {
-    items: ["🍰 Cake", "🍩 Donut", "🍎 Apple", "🍕 Pizza"]
-  };
+const DnDSorting = (props) => {
+  const [items, setItems] = useState(initialItems)
+  useBGColor(220, 208, 233)
+  const draggedItem = useRef(null)
 
-  componentWillMount() {
-    const root = document.documentElement;
-    root.style.setProperty('--bg-color', 'rgb(220, 208, 233)');
+  const onDragStart = (index) => (evt) => {
+    draggedItem.current = items[index]
+    evt.dataTransfer.effectAllowed = 'move'
+    evt.dataTransfer.setData('text/html', evt.target.parentNode)
+    evt.dataTransfer.setDragImage(evt.target.parentNode, 20, 20)
   }
 
-  onDragStart = (evt, index) => {
-    this.draggedItem = this.state.items[index];
-    evt.dataTransfer.effectAllowed = "move";
-    evt.dataTransfer.setData("text/html", evt.target.parentNode);
-    evt.dataTransfer.setDragImage(evt.target.parentNode, 20, 20);
-  };
+  const onDragOver = (index) => (evt) => {
+    const draggedOverItem = items[index]
+    if (draggedItem.current === draggedOverItem) return
 
-  onDragOver = index => {
-    const draggedOverItem = this.state.items[index];
-    if (this.draggedItem === draggedOverItem) return;
+    const arr = items.filter(item => item !== draggedItem.current)
+    const newItems = [
+      ...arr.slice(0, index),
+      draggedItem.current,
+      ...arr.slice(index)
+    ]
 
-    let items = this.state.items.filter(item => item !== this.draggedItem);
+    setItems(newItems)
+  }
 
-    items.splice(index, 0, this.draggedItem);
+  const onDragEnd = () => {
+    draggedItem.current = null
+  }
 
-    this.setState({ items });
-  };
-
-  onDragEnd = () => {
-    this.draggedItem = null;
-  };
-
-  render() {
-    const { items } = this.state;
-    return (
-      <div className={`${prefix}__wrapper`}>
-        <div className={`${prefix}__content`}>
-          <h3>List of items</h3>
-          <ul className={`${prefix}__list`}>
-            {items.map((item, index) => (
-              <li key={item} className={`${prefix}__item`} onDragOver={() => this.onDragOver(index)}>
-                <div
-                  className={`${prefix}__handler`}
-                  draggable
-                  onDragStart={evt => this.onDragStart(evt, index)}
-                  onDragEnd={this.onDragEnd}
-                >
-                  <Hamburger className={`${prefix}__svg`} />
-                </div>
-                <span className={`${prefix}__content`}>{item}</span>
-              </li>
-            ))}
-          </ul>
+  const renderItems = () => (
+    items.map((item, index) => (
+      <li key={item} className={style.item} onDragOver={onDragOver(index)}>
+        <div
+          className={style.handler}
+          draggable
+          onDragStart={onDragStart(index)}
+          onDragEnd={onDragEnd}
+        >
+          <Hamburger className={style.svg} />
         </div>
+        <span className={style.content}>{item}</span>
+      </li>
+    ))
+  )
+
+  return (
+    <div className={style.wrapper}>
+      <div className={style.content}>
+        <h3>List of items</h3>
+        <ul className={style.list}>
+          {renderItems()}
+        </ul>
       </div>
-    );
-  }
+    </div>
+  )
 }
 
-export default DndSorting;
+export default DnDSorting
