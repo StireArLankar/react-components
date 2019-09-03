@@ -11,6 +11,7 @@ import DndSorting from './components/dnd-sorting'
 import Select from './components/select'
 import Color from './components/color'
 import FormFields from './components/form-fields'
+import Pagination from './components/pagination'
 
 const App = (props) => {
   return (
@@ -26,6 +27,7 @@ const App = (props) => {
           <li><Link to='/select'>Select</Link></li>
           <li><Link to='/color'>Color</Link></li>
           <li><Link to='/form-fields'>Form Fields</Link></li>
+          <li><Link to='/pagination'>Pagination</Link></li>
         </ul>
       </header>
       <Switch>
@@ -39,6 +41,7 @@ const App = (props) => {
         <Route path='/select' component={Select} />
         <Route path='/color' component={Color} />
         <Route path='/form-fields' component={FormFields} />
+        <Route path='/pagination' component={Pagination} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
     </Fragment>

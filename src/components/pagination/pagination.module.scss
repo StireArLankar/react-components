@@ -1,0 +1,96 @@
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper * {
+  box-sizing: border-box;
+}
+
+.bar {
+  position: relative;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.list {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.item {
+  margin: 0 5px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.page {
+  width: 50px;
+  height: 50px;
+  color: black;
+}
+
+.link {
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font: inherit;
+
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  border-radius: 50%;
+  user-select: none;
+  cursor: inherit;
+  outline: none;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.page:not(.disabled):hover .link,
+.page:not(.disabled) .link:focus {
+  background: rgb(114, 114, 114);
+  color: #fff;
+}
+
+.page.active .link {
+  background: #333;
+  color: #fff;
+}
+
+.prev {
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+.prev:hover .link,
+.prev .link:focus {
+  transform: skew(10deg, 10deg);
+}
+
+.next {
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.next:hover .link,
+.next .link:focus {
+  transform: skew(10deg, 10deg);
+}
+
+.disabled {
+  color: rgb(167, 164, 164);
+  cursor: not-allowed;
+}
