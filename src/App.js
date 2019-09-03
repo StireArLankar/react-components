@@ -20,6 +20,7 @@ const App = (props) => {
         <ul className="header__list">
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/pagination'>Pagination</Link></li>
+          <li><Link to='/slider-one'>Slider One</Link></li>
           <li><Link to='/form-fields'>Form Fields</Link></li>
           <li><Link to='/color'>Color</Link></li>
           <li><Link to='/select'>Select</Link></li>
@@ -27,7 +28,6 @@ const App = (props) => {
           <li><Link to='/lense'>Lense</Link></li>
           <li><Link to='/autocomplete'>Autocomplete</Link></li>
           <li><Link to='/slider-two'>Slider Two</Link></li>
-          <li><Link to='/slider-one'>Slider One</Link></li>
           <li><Link to='/circle-bar'>Circle bar</Link></li>
         </ul>
       </header>

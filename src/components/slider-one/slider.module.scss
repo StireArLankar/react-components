@@ -1,6 +1,6 @@
 $size: 300px;
 
-.slider1__wrapper {
+.wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -9,14 +9,14 @@ $size: 300px;
   max-width: 1000px;
 }
 
-.slider1__stage {
+.stage {
   perspective: 500px;
   width: $size;
   height: $size;
   color: black;
 }
 
-.slider1__spinner {
+.spinner {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ $size: 300px;
   transition: transform 0.3s ease-in-out;
 }
 
-.slider1__box {
+.box {
   width: $size;
   height: $size;
   position: absolute;
@@ -49,7 +49,7 @@ $size: 300px;
   }
 }
 
-.slider1__btn {
+.btn {
   border: 0;
   outline: 0;
   background: 0;
@@ -63,19 +63,20 @@ $size: 300px;
   color: red;
   transition: box-shadow 0.3s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:focus {
     box-shadow: 0px 0px 27px 0px rgba(255, 0, 0, 0.863);
   }
 }
 
-.slider1__img-wrapper {
+.imgWrapper {
   margin: 2% auto 0;
   width: 60%;
   padding-top: 60%;
   position: relative;
 }
 
-.slider1__img {
+.img {
   position: absolute;
   width: 100%;
   height: auto;
@@ -84,8 +85,9 @@ $size: 300px;
   transform: translate(-50%, -50%);
 }
 
-.slider1__text {
+.text {
   margin: 10px auto 0;
-  font-size: 18px;
+  font-size: 60px;
+  font-weight: bold;
   text-align: center;
 }

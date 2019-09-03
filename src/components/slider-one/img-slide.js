@@ -1,14 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react'
 
-const ImgSlide = ({url}) => {
+import style from './slider.module.scss'
+
+const ImgSlide = (props) => {
   return(
-    <Fragment>
-      <div className='slider1__img-wrapper'>
-        <img src={url} alt='' className='slider1__img'/>
+    <>
+      <div className={style.imgWrapper}>
+        <img src={props.url} alt='' className={style.img} />
       </div>
-      <p className='slider1__text'>{url}</p>
-    </Fragment>
-  );
-};
+      <p className={style.text}>{props.text}</p>
+    </>
+  )
+}
 
-export default ImgSlide;
+export default ImgSlide

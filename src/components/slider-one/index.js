@@ -1,65 +1,53 @@
-import React, { Component } from 'react';
-import Slider from './slider';
-import ImgSlide from './img-slide';
-import './style.scss';
+import React, { useState } from 'react'
+import useBGColor from '../../hook/useBGColor'
+import Slider from './slider'
+import ImgSlide from './img-slide'
+import style from './slider.module.scss'
 
-const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`;
-const numbers = [1, 2, 3, 4, 5, 6];
-const reg = /\/1\./g;
-const urls = numbers.map(num => url.replace(reg, `/${num}.`));
-const array = urls.map(url => <ImgSlide url={url} />);
+const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`
+const numbers = [1, 2, 3, 4, 5, 6, 7]
+const reg = /\/1\./g
+const urls = numbers.map(num => url.replace(reg, `/${num}.`))
+const array = urls.map((url, index) => <ImgSlide url={url} text={index + 1} />)
 
-class Controller extends Component {
-  state = {
-    index: 0,
-    isReady: true
-  };
+const Controller = (props) => {
+  const [index, setIndex] = useState(0)
+  const [isReady, setIsReady] = useState(true)
 
-  componentWillMount() {
-    const root = document.documentElement;
-    root.style.setProperty('--bg-color', 'rgb(251, 219, 211)');
+  useBGColor(251, 219, 211)
+
+  const updateIndexBy = (number) => () => {
+    if (!isReady) return
+    setIndex(index + number)
+    setIsReady(false)
   }
 
-  increaseIndex = () => {
-    if (!this.state.isReady) return;
-    const { index } = this.state;
-    this.setState({index: index + 1, isReady: false})
-  };
+  const increaseIndex = updateIndexBy(1)
+  const decreaseIndex = updateIndexBy(-1)
 
-  decreaseIndex = () => {
-    if (!this.state.isReady) return;
-    const { index } = this.state;
-    this.setState({index: index - 1, isReady: false})
-  };
+  const beReady = () => setIsReady(true)
 
-  beReady = () => {
-    this.setState({isReady: true})
-  };
+  return (
+    <div className={style.wrapper}>
+      <button
+        type='button'
+        className={style.btn}
+        onClick={decreaseIndex}
+      >
+        Backward
+      </button>
 
-  render() {
-    return (
-      <div className='slider1__wrapper'>
-        <button
-          type="button"
-          className="slider1__btn slider1__btn--back"
-          onClick={this.decreaseIndex}
-        >
-          Backward
-        </button>
-
-        <Slider index={this.state.index} components={array} onComplete={this.beReady}/>
-        
-        <button
-          type="button"
-          className="slider1__btn slider1__btn--frwd"
-          onClick={this.increaseIndex}
-        >
-          Forward
-        </button>
-        
-      </div>
-    );
-  }
+      <Slider index={index} components={array} onComplete={beReady}/>
+      
+      <button
+        type='button'
+        className={style.btn}
+        onClick={increaseIndex}
+      >
+        Forward
+      </button>
+    </div>
+  )
 }
 
-export default Controller;
+export default Controller
