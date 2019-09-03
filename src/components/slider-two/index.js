@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import Slider from './slider';
-import Slide from './slide';
-import './style.scss';
+import React from 'react'
+import useBGColor from '../../hook/useBGColor'
+import Slider from './slider'
+import Slide from './slide'
 
-const numbers = [1, 2, 3, 4, 5];
-const array = numbers.map(number => <Slide content={number} />);
+import style from './slider.module.scss'
 
-class Controller extends Component {
-  componentWillMount() {
-    const root = document.documentElement;
-    root.style.setProperty('--bg-color', 'rgb(217, 236, 199)');
-  }
+const strings = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'Aenean auctor metus a est ullamcorper iaculis at quis mauris.',
+  'Quisque nec est auctor, pellentesque nisl ac, porta arcu.',
+  'Donec porta magna id massa convallis fermentum.',
+  'Morbi pharetra leo vitae quam gravida accumsan.',
+  'Suspendisse in leo sit amet elit malesuada gravida.'
+]
 
-  render() {
-    return(
-      <div className='slider2'>
-        <Slider components={array} width={100}/>
-      </div>
-    );
-  }
+const array = strings.map((string, index) => <Slide title={index + 1} content={string}/>)
+
+const Controller = (props) => {
+  useBGColor(217, 236, 199)
+
+  return(
+    <div className={style.wrapper}>
+      <Slider components={array} width={100}/>
+    </div>
+  )
 }
 
-export default Controller;
+export default Controller
