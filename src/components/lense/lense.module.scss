@@ -1,0 +1,79 @@
+.container {
+  padding-top: 150px;
+}
+
+.wrapper {
+  height: var(--size);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.controls {
+  max-width: 400px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.handler {
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid black;
+  position: relative;
+}
+
+.handlerImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}
+
+.border {
+  position: absolute;
+  top: calc(var(--lense-size) / 2);
+  left: calc(var(--lense-size) / 2);
+  bottom: calc(var(--lense-size) / 2);
+  right: calc(var(--lense-size) / 2);
+}
+
+.lense {
+  position: absolute;
+  width: var(--lense-size);
+  height: var(--lense-size);
+  border: 1px solid black;
+  transform: translate(-50%, -50%);
+}
+
+.view {
+  overflow: hidden;
+  width: var(--size);
+  height: var(--size);
+  border: 1px solid black;
+  position: relative;
+}
+
+.viewWrapper {
+  width: calc(var(--size) * var(--size) / var(--lense-size));
+  height: calc(var(--size) * var(--size) / var(--lense-size));
+  position: absolute;
+}
+
+.viewImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}

@@ -1,63 +1,57 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react'
+import style from './lense.module.scss'
 
-class Handler extends Component {
-  constructor(props) {
-    super(props);
-    this.handler = React.createRef();
-  }
- 
-  onMouseDown = (evt) => {
-    evt.preventDefault();
-    const handler = this.handler.current;
-    const { x: handlerX, y: handlerY} = handler.getBoundingClientRect();
-    const { clientHeight: height, clientWidth: width } = handler;
+const Handler = (props) => {
+  const ref = useRef()
+
+  const onMouseDown = (downE) => {
+    downE.preventDefault()
+    const handler = ref.current
+    const { x: handlerX, y: handlerY } = handler.getBoundingClientRect()
+    const { clientHeight, clientWidth } = handler
     
-    let x = getX(evt);
-    let y = getY(evt);
+    const width = clientWidth - props.lenseSize
+    const height = clientHeight - props.lenseSize
 
-    const onMouseMove = (evt) => {
-      x = getX(evt);
-      y = getY(evt);
+    const getX = (e) => ((e.clientX - handlerX - props.lenseSize/2) / width)
+    const getY = (e) =>  ((e.clientY - handlerY - props.lenseSize/2) / height)
+    
+    let x = getX(downE)
+    let y = getY(downE)
+
+    const onMouseMove = (moveE) => {
+      x = getX(moveE)
+      y = getY(moveE)
       
-      const xCheck = x >= 0 ? x <= 1 ? x : 1 : 0;
-      const yCheck = y >= 0 ? y <= 1 ? y : 1 : 0;
+      const xCheck = x >= 0 ? x <= 1 ? x : 1 : 0
+      const yCheck = y >= 0 ? y <= 1 ? y : 1 : 0
 
-      this.props.changeCoords(xCheck, yCheck);
+      props.changeCoords(xCheck, yCheck)
     }
 
     const onMouseUp = () => {
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mousemove', onMouseMove)
+      document.removeEventListener('mouseup', onMouseUp)
     }
 
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-
-    function getX(evt) {
-      return (evt.clientX - handlerX) / width;
-    }
-
-    function getY(evt) {
-      return (evt.clientY - handlerY) / height;
-    }
+    document.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mouseup', onMouseUp)
   }
 
-  render() {
-    const { url, x, y } = this.props;
-    const style = {
-      top: `${y * 100}%`,
-      left: `${x * 100}%`
-    };
+  const { url, x, y } = props
+  const dynamicStyle = {
+    top: `${y * 100}%`,
+    left: `${x * 100}%`
+  }
 
-    return(
-      <div className='lense__handler' onMouseDown={this.onMouseDown} ref={this.handler}>
-        <img src={url} alt='' className='lense__handler-img' />
-        <div className='lense__border'>
-          <div className='lense__lense' style={style}></div>
-        </div>
+  return (
+    <div className={style.handler} onMouseDown={onMouseDown} ref={ref}>
+      <img src={url} alt='' className={style.handlerImg} />
+      <div className={style.border}>
+        <div className={style.lense} style={dynamicStyle} />
       </div>
-    );
-  }
+    </div>
+  )
 }
 
-export default Handler;
+export default Handler
