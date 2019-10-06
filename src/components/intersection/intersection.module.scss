@@ -1,0 +1,80 @@
+$transform-offset: 100px;
+$grid-gap: 20px;
+
+.wrapper {
+  padding: 150px 0 0;
+}
+
+.list {
+  padding: 0 50px 0;
+  margin: 0 auto;
+  overflow: hidden;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: $grid-gap;
+  grid-row-gap: $grid-gap;
+  max-width: 600px;
+  max-height: calc(90vh - 150px);
+  overflow-y: auto;
+}
+
+.imgWrapper {
+  width: 100%;
+  position: relative;
+  padding-bottom: 100%;
+
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+
+  &:nth-child(2n).enter {
+    animation-name: SlideFromRight;
+  }
+
+  &:nth-child(2n).leave {
+    opacity: 0;
+    transform: $transform-offset;
+  }
+
+  &:nth-child(2n + 1).enter {
+    animation-name: SlideFromLeft;
+  }
+
+  &:nth-child(2n + 1).leave {
+    opacity: 0;
+    transform: -$transform-offset;
+  }
+}
+
+.img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes SlideFromRight {
+  from {
+    transform: translateX($transform-offset);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes SlideFromLeft {
+  from {
+    transform: translateX(-$transform-offset);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

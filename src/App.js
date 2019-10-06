@@ -12,38 +12,93 @@ import Select from './components/select'
 import Color from './components/color'
 import FormFields from './components/form-fields'
 import Pagination from './components/pagination'
+import Intersection from './components/intersection'
 
-const App = (props) => {
+const items = [
+  {
+    path: '/',
+    component: Home,
+    title: 'Home',
+    exact: true
+  },
+  {
+    path: '/pagination',
+    component: Pagination,
+    title: 'Pagination'
+  },
+  {
+    path: '/intersection',
+    component: Intersection,
+    title: 'Intersection'
+  },
+  {
+    path: '/slider-one',
+    component: SliderOne,
+    title: 'Slider One'
+  },
+  {
+    path: '/form-fields',
+    component: FormFields,
+    title: 'Form Fields'
+  },
+  {
+    path: '/color',
+    component: Color,
+    title: 'Color'
+  },
+  {
+    path: '/select',
+    component: Select,
+    title: 'Select'
+  },
+  {
+    path: '/dnd-sorting',
+    component: DndSorting,
+    title: 'DndSorting'
+  },
+  {
+    path: '/lense',
+    component: Lense,
+    title: 'Lense'
+  },
+  {
+    path: '/autocomplete',
+    component: Autocomplete,
+    title: 'Autocomplete'
+  },
+  {
+    path: '/slider-two',
+    component: SliderTwo,
+    title: 'Slider Two'
+  },
+  {
+    path: '/circle-bar',
+    component: CircleBar,
+    title: 'Circle bar'
+  }
+]
+
+const App = () => {
+  const renderLinks = () =>
+    items.map((item) => (
+      <li key={item.title}>
+        <Link to={item.path}>{item.title}</Link>
+      </li>
+    ))
+
+  const renderRoutes = () =>
+    items.map((item) => (
+      <Route path={item.path} component={item.component} exact={item.exact} />
+    ))
+
   return (
     <Fragment>
-      <header className="header">
-        <ul className="header__list">
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/pagination'>Pagination</Link></li>
-          <li><Link to='/slider-one'>Slider One</Link></li>
-          <li><Link to='/form-fields'>Form Fields</Link></li>
-          <li><Link to='/color'>Color</Link></li>
-          <li><Link to='/select'>Select</Link></li>
-          <li><Link to='/dnd-sorting'>DndSorting</Link></li>
-          <li><Link to='/lense'>Lense</Link></li>
-          <li><Link to='/autocomplete'>Autocomplete</Link></li>
-          <li><Link to='/slider-two'>Slider Two</Link></li>
-          <li><Link to='/circle-bar'>Circle bar</Link></li>
-        </ul>
+      <header className='header'>
+        <ul className='header__list'>{renderLinks()}</ul>
       </header>
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/circle-bar' component={CircleBar} />
-        <Route path='/slider-one' component={SliderOne} />
-        <Route path='/slider-two' component={SliderTwo} />
-        <Route path='/autocomplete' component={Autocomplete} />
-        <Route path='/lense' component={Lense} />
-        <Route path='/dnd-sorting' component={DndSorting} />
-        <Route path='/select' component={Select} />
-        <Route path='/color' component={Color} />
-        <Route path='/form-fields' component={FormFields} />
-        <Route path='/pagination' component={Pagination} />
-        <Route path="*" component={() => "404 NOT FOUND"} />
+        {renderRoutes()}
+        <Route path='*' component={() => '404 NOT FOUND'} />
       </Switch>
     </Fragment>
   )
