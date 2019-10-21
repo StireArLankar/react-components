@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import './App.scss'
-import { Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Home from './components/home'
 import CircleBar from './components/circle-bar'
 import SliderOne from './components/slider-one'
@@ -13,6 +13,7 @@ import Color from './components/color'
 import FormFields from './components/form-fields'
 import Pagination from './components/pagination'
 import Intersection from './components/intersection'
+import Layout from './components/layout'
 
 const items = [
   {
@@ -79,28 +80,16 @@ const items = [
 ]
 
 const App = () => {
-  const renderLinks = () =>
-    items.map((item) => (
-      <li key={item.title}>
-        <Link to={item.path}>{item.title}</Link>
-      </li>
-    ))
-
   const renderRoutes = () =>
-    items.map((item) => (
-      <Route path={item.path} component={item.component} exact={item.exact} />
-    ))
+    items.map((item) => <Route path={item.path} component={item.component} exact={item.exact} />)
 
   return (
-    <Fragment>
-      <header className='header'>
-        <ul className='header__list'>{renderLinks()}</ul>
-      </header>
+    <Layout links={items}>
       <Switch>
         {renderRoutes()}
-        <Route path='*' component={() => '404 NOT FOUND'} />
+        <Redirect to='/' />
       </Switch>
-    </Fragment>
+    </Layout>
   )
 }
 
