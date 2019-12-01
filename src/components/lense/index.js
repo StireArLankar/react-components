@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useBGColor from '../../hook/useBGColor'
-import style from './lense.module.scss'
+import classes from './lense.module.scss'
 import Controller from './controller'
 
 const Container = (props) => {
@@ -21,17 +21,17 @@ const Container = (props) => {
 
   return (
     <>
-      <div className={style.container}>
-        <Controller size={size} lenseSize={lenseSize} url={url}/>
+      <div className={classes.container}>
+        <Controller size={size} lenseSize={lenseSize} url={url} />
       </div>
-      <div className={style.controls}>
-        <label className={style.label}>
-          <span>Размер изображений</span>
-          <input type='text' value={size} onChange={onSizeChange} /> 
+      <div className={classes.controls}>
+        <label className={classes.label}>
+          <span className={classes.labelText}>Размер изображений</span>
+          <input type='text' value={size} onChange={onSizeChange} />
         </label>
-        <label className={style.label}>
-          <span>Размер линзы</span>
-          <input type='text' value={lenseSize} onChange={onLenseSizeChange} /> 
+        <label className={classes.label}>
+          <span className={classes.labelText}>Размер линзы</span>
+          <input type='text' value={lenseSize} onChange={onLenseSizeChange} />
         </label>
       </div>
     </>

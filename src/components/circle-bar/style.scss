@@ -1,5 +1,4 @@
 .circle-bar {
-  padding-top: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +75,6 @@
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: inset 0 0 40px 10px rgba(white, 0.5),
-      0 0 40px 5px rgba(white, 0.5);
+    box-shadow: inset 0 0 40px 10px rgba(white, 0.5), 0 0 40px 5px rgba(white, 0.5);
   }
 }

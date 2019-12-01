@@ -2,11 +2,20 @@ $size: 300px;
 
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding-top: 200px;
   margin: 0 auto;
-  max-width: 1000px;
+  flex-wrap: wrap;
+  min-width: 320px;
+}
+
+.stageWrapper {
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
 }
 
 .stage {
@@ -30,7 +39,7 @@ $size: 300px;
   width: $size;
   height: $size;
   position: absolute;
-  background-color: rgba(0,255,255,0.8);
+  background-color: rgba(0, 255, 255, 0.8);
 
   &--0 {
     transform: rotateY(-90deg) translateZ($size/2);
@@ -50,6 +59,7 @@ $size: 300px;
 }
 
 .btn {
+  margin: 0 35px;
   border: 0;
   outline: 0;
   background: 0;
@@ -66,6 +76,11 @@ $size: 300px;
   &:hover,
   &:focus {
     box-shadow: 0px 0px 27px 0px rgba(255, 0, 0, 0.863);
+  }
+
+  @media (max-width: 768px) {
+    order: 1;
+    margin-bottom: 35px;
   }
 }
 

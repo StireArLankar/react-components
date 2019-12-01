@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import useBGColor from '../../hook/useBGColor'
 import Slider from './slider'
 import ImgSlide from './img-slide'
-import style from './slider.module.scss'
+import classes from './slider.module.scss'
 
 const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`
 const numbers = [1, 2, 3, 4, 5, 6, 7]
 const reg = /\/1\./g
-const urls = numbers.map(num => url.replace(reg, `/${num}.`))
+const urls = numbers.map((num) => url.replace(reg, `/${num}.`))
 const array = urls.map((url, index) => <ImgSlide url={url} text={index + 1} />)
 
 const Controller = (props) => {
@@ -28,22 +28,16 @@ const Controller = (props) => {
   const beReady = () => setIsReady(true)
 
   return (
-    <div className={style.wrapper}>
-      <button
-        type='button'
-        className={style.btn}
-        onClick={decreaseIndex}
-      >
+    <div className={classes.wrapper}>
+      <button type='button' className={classes.btn} onClick={decreaseIndex}>
         Backward
       </button>
 
-      <Slider index={index} components={array} onComplete={beReady}/>
-      
-      <button
-        type='button'
-        className={style.btn}
-        onClick={increaseIndex}
-      >
+      <div className={classes.stageWrapper}>
+        <Slider index={index} components={array} onComplete={beReady} />
+      </div>
+
+      <button type='button' className={classes.btn} onClick={increaseIndex}>
         Forward
       </button>
     </div>

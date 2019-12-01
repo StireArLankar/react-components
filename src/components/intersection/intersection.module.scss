@@ -2,7 +2,7 @@ $transform-offset: 100px;
 $grid-gap: 20px;
 
 .wrapper {
-  padding: 150px 0 0;
+  position: relative;
 }
 
 .list {
@@ -14,7 +14,8 @@ $grid-gap: 20px;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: $grid-gap;
   grid-row-gap: $grid-gap;
-  max-width: 600px;
+  width: 600px;
+  min-height: 400px;
   max-height: calc(90vh - 150px);
   overflow-y: auto;
 }

@@ -1,5 +1,5 @@
 $max-height: 210px;
-$blue-color: #1E88E5;
+$blue-color: #1e88e5;
 $dark-blue-color: #0053ba;
 $border-radius: 5px;
 
@@ -18,8 +18,12 @@ $border-radius: 5px;
 }
 
 @keyframes expand {
-  from { max-height: 0 }
-  to { max-height: $max-height }
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: $max-height;
+  }
 }
 
 .item {
@@ -47,10 +51,7 @@ $border-radius: 5px;
 
 .wrapper {
   width: 300px;
-  position: absolute;
-  top: 200px;
-  left: 50%;
-  transform: translateX(-50%)
+  position: relative;
 }
 
 .inputWrapper {
@@ -95,12 +96,12 @@ $border-radius: 5px;
 
 .button:hover,
 .button:focus {
-    background: $dark-blue-color;
-    outline: none;
+  background: $dark-blue-color;
+  outline: none;
 }
 
 .button:active {
-    transform: scale(0.99);
+  transform: scale(0.99);
 }
 
 .placeholder {

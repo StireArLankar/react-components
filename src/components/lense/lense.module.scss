@@ -1,5 +1,5 @@
 .container {
-  padding-top: 150px;
+  position: relative;
 }
 
 .wrapper {
@@ -21,6 +21,10 @@
 .label {
   display: flex;
   justify-content: space-between;
+}
+
+.labelText {
+  margin-right: 10px;
 }
 
 .handler {

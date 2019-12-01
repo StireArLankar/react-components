@@ -2,13 +2,13 @@ import React, { useRef, useState, Fragment } from 'react'
 import useBGColor from '../../hook/useBGColor'
 import ColorDisplay from './ColorDisplay'
 import FileInput from './FileInput'
-import style from './color.module.scss'
+import classes from './color.module.scss'
 
 const Color = (props) => {
-  const [ moveColor, setMoveColor ] = useState(false)
-  const [ clickColor, setClickColor ] = useState(false)
-  const [ uploaded, setUploaded ] = useState(false)
-  const [ sizes, setSizes ] = useState({
+  const [moveColor, setMoveColor] = useState([0, 0, 0])
+  const [clickColor, setClickColor] = useState([0, 0, 0])
+  const [uploaded, setUploaded] = useState(false)
+  const [sizes, setSizes] = useState({
     width: 0,
     height: 0
   })
@@ -21,21 +21,21 @@ const Color = (props) => {
     const bound = element.getBoundingClientRect()
     const x = bound.x
     const y = bound.y + document.documentElement.scrollTop
-    
+
     return {
-      x: (event.pageX - x),
-      y: (event.pageY - y)
+      x: event.pageX - x,
+      y: event.pageY - y
     }
   }
 
   const getImgSizes = (img) => {
     const { width, height } = img
     if (width > height && width > 500) {
-      return [ 500, (500 * height / width) ]
+      return [500, (500 * height) / width]
     } else if (height > width && height > 500) {
-      return [ (500 * width / height), 500 ]
+      return [(500 * width) / height, 500]
     } else {
-      return [ width, height ]
+      return [width, height]
     }
   }
 
@@ -43,21 +43,16 @@ const Color = (props) => {
     var img = new Image()
 
     img.onload = () => {
-      const [ width, height ] = getImgSizes(img)
+      const [width, height] = getImgSizes(img)
       setSizes({ width, height })
-      canvas
-        .current
-        .getContext('2d')
-        .drawImage(img, 0, 0, width, height)
+      canvas.current.getContext('2d').drawImage(img, 0, 0, width, height)
     }
 
     img.setAttribute('src', url)
   }
 
   const getColorFrom = (name) => {
-    const setColor = name === 'move'
-      ? setMoveColor
-      : setClickColor
+    const setColor = name === 'move' ? setMoveColor : setClickColor
 
     return (e) => {
       const eventLocation = getEventLocation(canvas.current, e)
@@ -72,42 +67,41 @@ const Color = (props) => {
     const reader = new FileReader()
 
     reader.onload = () => {
-      const url = reader.result;
+      const url = reader.result
       setUploaded(true)
       drawImageFromWebUrl(url)
     }
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file)
   }
 
   const renderField = () => {
     return (
       <Fragment>
-        <div className={style.left}>
+        <div className={classes.left}>
           <canvas
-            width={ sizes.width }
-            height={ sizes.height }
-            onMouseMove={ getColorFrom('move') }
-            onClick= { getColorFrom('click') }
-            ref={ canvas }
-            className={ style.canvas }
+            width={sizes.width}
+            height={sizes.height}
+            onMouseMove={getColorFrom('move')}
+            onClick={getColorFrom('click')}
+            ref={canvas}
+            className={classes.canvas}
           />
         </div>
-        <div>
-          {moveColor && <ColorDisplay color={moveColor} />}
-          {clickColor && <ColorDisplay color={clickColor} />}
+        <div className={classes.right}>
+          <ColorDisplay color={moveColor} />
+          <ColorDisplay color={clickColor} />
         </div>
+        <FileInput onFileUpload={onFileUpload} />
       </Fragment>
     )
   }
 
   return (
-    <div className={style.wrapper}>
-      { uploaded ? renderField() : <FileInput onFileUpload={onFileUpload} /> }
+    <div className={classes.wrapper}>
+      {uploaded ? renderField() : <FileInput onFileUpload={onFileUpload} />}
     </div>
   )
 }
 
 export default Color
-
-

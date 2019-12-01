@@ -1,12 +1,15 @@
-$color: darken( rgb(210, 208, 233), 50% );
+$color: darken(rgb(210, 208, 233), 50%);
 $border-color: rgb(172, 26, 177);
 
 .wrapper {
-  padding-top: 210px;
-  width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  & > * {
+    margin-bottom: 10px;
+  }
 }
 
 .canvas {
@@ -22,9 +25,16 @@ $border-color: rgb(172, 26, 177);
 .left {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 500px;
   height: 500px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .colorWrapper {
@@ -46,6 +56,9 @@ $border-color: rgb(172, 26, 177);
 
 .labelWrapper {
   margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .label {
@@ -62,16 +75,16 @@ $border-color: rgb(172, 26, 177);
 .label:hover,
 .input:focus + .label {
   border-color: $border-color;
-  box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 3px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .input {
   position: absolute !important;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
-	padding:0 !important;
-	border:0 !important;
-	height: 1px !important; 
-	width: 1px !important; 
-	overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }

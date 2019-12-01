@@ -2,17 +2,21 @@
   --bg-color: rgb(145, 181, 240);
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: var(--bg-color);
   transition: background-color 0.3s ease-in-out;
   min-width: 320px;
   display: flex;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100%;
 }
 
 .overflow {
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 * {

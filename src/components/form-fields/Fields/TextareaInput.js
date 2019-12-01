@@ -1,13 +1,13 @@
 import React from 'react'
 
-import styles from './fields.module.scss'
+import classes from './fields.module.scss'
 
 const TextareaInput = (props) => {
   const onChange = (e) => {
     const { value } = e.target
     props.onChange(value)
   }
-  
+
   return (
     <textarea
       type='text'
@@ -16,7 +16,7 @@ const TextareaInput = (props) => {
       value={props.value}
       onChange={onChange}
       placeholder={props.placeholder}
-      className={styles.textarea}
+      className={classes.textarea}
       rows={4}
     />
   )
