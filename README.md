@@ -1,6 +1,11 @@
 # Set of simple react widgets
+
 ## [Link](https://stirearlankar.github.io/react-components)
-### Content:
+
+## Content:
+
+### Native:
+
 1. Pagination with query updating and proper history.
 2. Box-slider
 3. Dynamic form fields
@@ -11,3 +16,8 @@
 8. Text autocomplete
 9. Slider with mouse/touch control
 10. Mad range slider (with bad performance)
+
+### Springs
+
+1. Accordion
+2. Toggle
