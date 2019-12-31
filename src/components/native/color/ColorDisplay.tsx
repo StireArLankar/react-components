@@ -1,11 +1,11 @@
 import React from 'react'
 import style from './color.module.scss'
 
-interface ColorDisplayProps {
+export interface ColorDisplayProps {
   color: [number, number, number]
 }
 
-const ColorDisplay = (props: ColorDisplayProps) => {
+export const ColorDisplay = (props: ColorDisplayProps) => {
   const { color } = props
 
   const rgbToHex = (r: number, g: number, b: number) => {

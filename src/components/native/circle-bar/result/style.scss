@@ -18,6 +18,10 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  &:last-child {
+    width: 67px;
+  }
 }
 
 .result__slider {
@@ -30,8 +34,8 @@
 
   &--char {
     text-shadow: 6px 0 5px rgba($color, 0.4);
-      transform: translateX(40%);
-      text-align: center;
+    transform: translateX(40%);
+    text-align: center;
   }
 
   &--num {

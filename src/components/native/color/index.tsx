@@ -4,13 +4,13 @@ import FileInput from './FileInput'
 import classes from './color.module.scss'
 import useBGColor from '../../../hook/useBgColor'
 
-const Color = () => {
+export const Color = () => {
   const [moveColor, setMoveColor] = useState<[number, number, number]>([0, 0, 0])
   const [clickColor, setClickColor] = useState<[number, number, number]>([0, 0, 0])
   const [uploaded, setUploaded] = useState(false)
   const [sizes, setSizes] = useState({
     width: 0,
-    height: 0
+    height: 0,
   })
 
   const canvas = useRef<HTMLCanvasElement>(null)
@@ -24,7 +24,7 @@ const Color = () => {
 
     return {
       x: evt.pageX - x,
-      y: evt.pageY - y
+      y: evt.pageY - y,
     }
   }
 

@@ -9,7 +9,7 @@ const charDict = {
   'M': 13,
   ' ': 14,
   'I': 15,
-  'N': 16
+  'N': 16,
 }
 
 const numDict = {
@@ -23,12 +23,12 @@ const numDict = {
   '7': 7,
   '8': 8,
   '9': 9,
-  '%': 10
+  '%': 10,
 }
 
 const CtxValue = {
   charDict,
-  numDict
+  numDict,
 }
 
 interface CtxModel {
@@ -46,7 +46,7 @@ const Result = (props: ResultProps) => {
   const { progress } = props
 
   const array =
-    progress === 0
+    progress <= 0
       ? ['M', 'I', 'N']
       : progress >= 100
       ? ['M', 'A', 'X']

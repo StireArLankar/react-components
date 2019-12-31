@@ -1,6 +1,6 @@
 import React from 'react'
 import array from './countries'
-import Autocomplete from './autocomplete'
+import Autocomplete from './Autocomplete'
 import useBGColor from '../../../hook/useBgColor'
 
 export const AutocompleteContainer = () => {

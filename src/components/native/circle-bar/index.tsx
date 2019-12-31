@@ -4,7 +4,7 @@ import Ring from './progress-ring'
 import Result from './result'
 import './style.scss'
 
-const CircleBar = () => {
+export const CircleBar = () => {
   const [progress, setProgress] = useState(100)
 
   useBGColor(223, 211, 251)

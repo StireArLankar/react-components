@@ -5,7 +5,7 @@ import InfoNotice from './info-notice.svg'
 import { useStyles } from './useStyles'
 import { useTransition, animated } from 'react-spring'
 
-const Toggle = () => {
+export const Toggle = () => {
   const [toggle, setToggle] = useState(false)
   const classes = useStyles()
 

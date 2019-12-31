@@ -1,13 +1,13 @@
 import React, { useRef, PropsWithChildren, MouseEvent, useMemo } from 'react'
 
-interface RingProps {
+export interface RingProps {
   radius: number
   stroke: number
   progress: number
   onRingClick: (arg: number) => void
 }
 
-const Ring = (props: PropsWithChildren<RingProps>) => {
+export const Ring = (props: PropsWithChildren<RingProps>) => {
   const { radius, stroke, progress, onRingClick, children } = props
 
   const myRef = useRef(null)
@@ -78,11 +78,11 @@ const Ring = (props: PropsWithChildren<RingProps>) => {
 
   const container_style = {
     width: 2 * radius * 0.99,
-    height: 2 * radius * 0.99
+    height: 2 * radius * 0.99,
   }
   const inner_style = {
     width: 2 * (radius - stroke) * 1.05,
-    height: 2 * (radius - stroke) * 1.05
+    height: 2 * (radius - stroke) * 1.05,
   }
 
   return (
