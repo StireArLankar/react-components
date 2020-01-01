@@ -18,6 +18,7 @@
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/addon-viewport": "^5.2.8",
     "@storybook/react": "^5.2.8",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -44,7 +45,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "story": "start-storybook -p 9017"
+    "story": "start-storybook -p 9017",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "husky": {
     "hooks": {
