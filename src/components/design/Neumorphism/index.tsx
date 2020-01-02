@@ -1,19 +1,19 @@
-import React from "react";
-import cn from "classnames";
-import useStyles from "./useStyles";
+import React from 'react'
+import cn from 'classnames'
+import useStyles from './useStyles'
 
 export interface NeumorphismProps {
-  isActive?: boolean;
+  isActive?: boolean
 }
 
 export const Neumorphism = (props: NeumorphismProps) => {
-  const { isActive: active } = props;
-  const classes = useStyles();
+  const { isActive: active } = props
+  const classes = useStyles()
 
   const wrapperClass = cn({
     [classes.wrapper]: true,
-    active
-  });
+    active,
+  })
 
-  return <div className={wrapperClass} />;
-};
+  return <div className={wrapperClass} />
+}

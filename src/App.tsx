@@ -29,79 +29,84 @@ const items: LinkItem[] = [
     path: '/',
     component: Home,
     title: 'Home',
-    exact: true
+    exact: true,
   },
   {
     path: '/pagination',
     component: Pagination,
-    title: 'Pagination'
+    title: 'Pagination',
   },
   {
     path: '/intersection',
     component: Intersection,
-    title: 'Intersection'
+    title: 'Intersection',
   },
   {
     path: '/slider-one',
     component: SliderOne,
-    title: 'Slider One'
+    title: 'Slider One',
   },
   {
     path: '/form-fields',
     component: FormFields,
-    title: 'Form Fields'
+    title: 'Form Fields',
   },
   {
     path: '/color',
     component: Color,
-    title: 'Color'
+    title: 'Color',
   },
   {
     path: '/select',
     component: Select,
-    title: 'Select'
+    title: 'Select',
   },
   {
     path: '/dnd-sorting',
     component: DndSorting,
-    title: 'DndSorting'
+    title: 'DndSorting',
   },
   {
     path: '/lense',
     component: Lense,
-    title: 'Lense'
+    title: 'Lense',
   },
   {
     path: '/autocomplete',
     component: Autocomplete,
-    title: 'Autocomplete'
+    title: 'Autocomplete',
   },
   {
     path: '/slider-two',
     component: SliderTwo,
-    title: 'Slider Two'
+    title: 'Slider Two',
   },
   {
     path: '/circle-bar',
     component: CircleBar,
-    title: 'Circle bar'
+    title: 'Circle bar',
   },
   {
     path: '/spring/accordion',
     component: AccordionContainer,
-    title: 'Accordion'
+    title: 'Accordion',
   },
   {
     path: '/spring/toggle',
     component: Toggle,
-    title: 'Toggle'
-  }
+    title: 'Toggle',
+  },
 ]
 
 const App = () => {
   const renderRoutes = () =>
     items.map((item) => (
-      <Route key={item.path} path={item.path} component={item.component} exact={item.exact} />
+      <Route
+        key={item.path}
+        path={item.path}
+        component={item.component}
+        exact={item.exact}
+      />
     ))
 
   return (

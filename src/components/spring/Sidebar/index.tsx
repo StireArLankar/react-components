@@ -1,73 +1,73 @@
-import React, { useRef, Fragment, PropsWithChildren } from "react";
-import cn from "classnames";
+import React, { useRef, Fragment, PropsWithChildren } from 'react'
+import cn from 'classnames'
 import {
   useTransition,
   useChain,
   animated,
   config,
   ReactSpringHook,
-  useTrail
-} from "react-spring";
+  useTrail,
+} from 'react-spring'
 
-import useStyles from "./useStyles";
+import useStyles from './useStyles'
 
 export interface SidebarProps {
-  isOpen: boolean;
-  right?: boolean;
+  isOpen: boolean
+  right?: boolean
 }
 
 export const sidebarTransform = (right?: boolean) =>
-  right ? "translateX(100%)" : "translateX(-100%)";
+  right ? 'translateX(100%)' : 'translateX(-100%)'
 
 export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
-  const { isOpen, children = [], right } = props;
+  const { isOpen, children = [], right } = props
 
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const sidebarRef = useRef<ReactSpringHook>(null);
+  const sidebarRef = useRef<ReactSpringHook>(null)
   const transition = useTransition(isOpen, null, {
     from: {
-      transform: sidebarTransform(right)
+      transform: sidebarTransform(right),
     },
     enter: {
-      transform: "translateX(0%)"
+      transform: 'translateX(0%)',
     },
     leave: {
-      transform: sidebarTransform(right)
+      transform: sidebarTransform(right),
     },
     unique: true,
     config: config.stiff,
-    ref: sidebarRef
-  });
+    ref: sidebarRef,
+  })
 
-  const childrenArray = React.Children.map(children, child => child);
-  const items = childrenArray.map((_, index) => index);
+  const childrenArray = React.Children.map(children, (child) => child)
+  const items = childrenArray.map((_, index) => index)
 
-  const itemsRef = useRef<ReactSpringHook>(null);
+  const itemsRef = useRef<ReactSpringHook>(null)
 
   const trail = useTrail(items.length, {
     opacity: isOpen ? 1 : 0,
-    transform: isOpen ? "translateX(0%)" : sidebarTransform(right),
-    ref: itemsRef
-  });
+    transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
+    ref: itemsRef,
+  })
 
   useChain(
     isOpen ? [sidebarRef, itemsRef] : [itemsRef, sidebarRef],
     isOpen ? [0, 0.4] : [0, 0.6]
-  );
+  )
 
   const renderItems = () =>
     trail.map((props, index) => (
       <animated.div key={items[index]} style={props} className={classes.item}>
         {childrenArray[items[index]]}
       </animated.div>
-    ));
+    ))
 
   const sidebarClass = cn({
     [classes.sidebar]: true,
     right,
-    "custom-scroll": true
-  });
+    'custom-scroll': true,
+  })
 
   const renderContent = () =>
     transition.map(
@@ -77,7 +77,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
             {renderItems()}
           </animated.div>
         )
-    );
+    )
 
-  return <Fragment>{renderContent()}</Fragment>;
-};
+  return <Fragment>{renderContent()}</Fragment>
+}

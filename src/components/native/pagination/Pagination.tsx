@@ -46,10 +46,13 @@ const Pagination = (props: PaginationProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) //FIXME
 
-  const renderTitle = () => `Pagination with page query and pushing new instances to history`
+  const renderTitle = () =>
+    `Pagination with page query and pushing new instances to history`
 
   const renderNumberButtons = () => {
-    let arr = Array.from({ length: totalPages }, (_, index) => String(index + 1))
+    let arr = Array.from({ length: totalPages }, (_, index) =>
+      String(index + 1)
+    )
     if (arr.length > 7) {
       if (currentPage <= 5) {
         arr = [...arr.slice(0, 7), '...', ...arr.slice(-1)]
@@ -61,7 +64,7 @@ const Pagination = (props: PaginationProps) => {
           '...',
           ...arr.slice(currentPage - 3, currentPage + 2),
           '...',
-          ...arr.slice(-1)
+          ...arr.slice(-1),
         ]
       }
     }
@@ -71,7 +74,7 @@ const Pagination = (props: PaginationProps) => {
         [style.item]: true,
         [style.page]: true,
         [style.active]: page === String(currentPage),
-        [style.disabled]: page === '...'
+        [style.disabled]: page === '...',
       })
 
       return (
@@ -103,7 +106,7 @@ const Pagination = (props: PaginationProps) => {
     const cName = cn({
       [style.item]: true,
       [style.next]: true,
-      [style.disabled]: currentPage === totalPages
+      [style.disabled]: currentPage === totalPages,
     })
 
     return (
@@ -127,7 +130,7 @@ const Pagination = (props: PaginationProps) => {
     const cName = cn({
       [style.item]: true,
       [style.prev]: true,
-      [style.disabled]: currentPage === 1
+      [style.disabled]: currentPage === 1,
     })
 
     return (

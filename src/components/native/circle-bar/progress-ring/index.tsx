@@ -95,7 +95,11 @@ export const Ring = (props: PropsWithChildren<RingProps>) => {
       tabIndex={0}
     >
       <ProgressRing radius={radius} stroke={stroke} progress={progress} />
-      <div className='circle-bar__inner' style={inner_style} onMouseDown={stopProp}>
+      <div
+        className='circle-bar__inner'
+        style={inner_style}
+        onMouseDown={stopProp}
+      >
         {children}
       </div>
     </div>
@@ -126,7 +130,14 @@ const ProgressRing = (props: ProgressRingProps) => {
         <stop id='stop2' offset='100%' stopColor='green' />
       </linearGradient>
 
-      <linearGradient id='gradient2' x1='0' x2='0' y1='0' y2='1' xlinkHref='#gradient1' />
+      <linearGradient
+        id='gradient2'
+        x1='0'
+        x2='0'
+        y1='0'
+        y2='1'
+        xlinkHref='#gradient1'
+      />
 
       <circle
         stroke='url(#gradient1)'

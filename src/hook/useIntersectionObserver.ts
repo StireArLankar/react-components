@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from 'react'
 
-export const useIntersectionObserver = <T>(): [boolean, React.MutableRefObject<T>] => {
+export const useIntersectionObserver = <T>(): [
+  boolean,
+  React.MutableRefObject<T>
+] => {
   const [isIntersecting, setisIntersecting] = useState(false)
   const ref = useRef<T>(null as any)
 
@@ -14,7 +17,7 @@ export const useIntersectionObserver = <T>(): [boolean, React.MutableRefObject<T
     const observer = new IntersectionObserver(cb, {
       root: null,
       rootMargin: '0px',
-      threshold: 0.1
+      threshold: 0.1,
     })
 
     ref.current && observer.observe(ref.current as any)

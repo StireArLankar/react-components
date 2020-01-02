@@ -4,7 +4,8 @@ import { useStyles } from './useStyles'
 
 const fast = { tension: 1200, friction: 40 }
 const slow = { mass: 10, tension: 200, friction: 50 }
-const trans = (x: number, y: number) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
+const trans = (x: number, y: number) =>
+  `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
 const color = (i: number) => `hsl(${i * 100}, 60%, 60%)`
 
 export interface MouseFollowerProps {
@@ -26,7 +27,10 @@ export const MouseFollower = (props: MouseFollowerProps) => {
       <svg className={classes.svg}>
         <filter id='goo'>
           <feGaussianBlur in='SourceGraphic' result='blur' stdDeviation='30' />
-          <feColorMatrix in='blur' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -7' />
+          <feColorMatrix
+            in='blur'
+            values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 30 -7'
+          />
         </filter>
       </svg>
       <div

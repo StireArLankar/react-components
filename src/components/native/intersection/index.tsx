@@ -12,11 +12,13 @@ const Intersection = () => {
   useBGColor(197, 241, 246)
 
   const renderItems = () =>
-    new Array(10).fill(1).map((_, index) => <ListItem url={getUrl(index)} key={index} />)
+    new Array(10)
+      .fill(1)
+      .map((_, index) => <ListItem url={getUrl(index)} key={index} />)
 
   const listClass = cn({
     [classes.list]: true,
-    'custom-scroll': true
+    'custom-scroll': true,
   })
 
   return (

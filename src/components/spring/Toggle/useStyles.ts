@@ -8,15 +8,15 @@ export const useStyles = makeStyles((theme: Theme) =>
       position: 'relative',
       width: 36,
       height: 36,
-      marginRight: theme.spacing(2)
+      marginRight: theme.spacing(2),
     },
     img: {
       position: 'absolute',
       top: 0,
       left: 0,
       right: 0,
-      bottom: 0
-    }
+      bottom: 0,
+    },
   })
 )
 

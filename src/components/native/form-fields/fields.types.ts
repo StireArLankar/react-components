@@ -44,9 +44,9 @@ const text: TextField = {
   options: {
     defaultValue: '',
     placeholder: 'Placeholder',
-    label: 'Text label'
+    label: 'Text label',
   },
-  type: 'text'
+  type: 'text',
 }
 
 const textarea: TextAreaField = {
@@ -56,9 +56,9 @@ const textarea: TextAreaField = {
   options: {
     defaultValue: '',
     placeholder: 'Another placeholder',
-    label: 'Textarea label'
+    label: 'Textarea label',
   },
-  type: 'textarea'
+  type: 'textarea',
 }
 
 const select: SelectField = {
@@ -68,15 +68,15 @@ const select: SelectField = {
   options: {
     defaultValue: 'test1',
     label: 'Select label',
-    data: ['test1', 'test2']
+    data: ['test1', 'test2'],
   },
-  type: 'select'
+  type: 'select',
 }
 
 export const defaultFields = {
   text,
   textarea,
-  select
+  select,
 }
 
 export default defaultFields

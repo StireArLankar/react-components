@@ -15,25 +15,34 @@ const FormFields = () => {
   const updateField = (index: number) => (value: any) => {
     const foundField = fields[index]
     const updatedField = { ...foundField, value }
-    const updatedFields = [...fields.slice(0, index), updatedField, ...fields.slice(index + 1)]
+    const updatedFields = [
+      ...fields.slice(0, index),
+      updatedField,
+      ...fields.slice(index + 1),
+    ]
     setFields(updatedFields)
   }
 
-  const addField = (name: 'text' | 'textarea' | 'select') => (e: MouseEvent) => {
+  const addField = (name: 'text' | 'textarea' | 'select') => (
+    e: MouseEvent
+  ) => {
     e.preventDefault()
     const { options } = types[name]
     const newField: any = {
       options,
       name: `${name}_${Date.now()}`,
       type: name,
-      value: options.defaultValue
+      value: options.defaultValue,
     }
     setFields([...fields, newField])
   }
 
   const removeField = (index: number) => (e: MouseEvent) => {
     e.preventDefault()
-    const updatedFields = [...fields.slice(0, index), ...fields.slice(index + 1)]
+    const updatedFields = [
+      ...fields.slice(0, index),
+      ...fields.slice(index + 1),
+    ]
     setFields(updatedFields)
   }
 
@@ -41,7 +50,11 @@ const FormFields = () => {
     <div className={style.wrapper}>
       <div className={style.column}>
         <FieldsSelect addField={addField} />
-        <Fields fields={fields} updateField={updateField} removeField={removeField} />
+        <Fields
+          fields={fields}
+          updateField={updateField}
+          removeField={removeField}
+        />
       </div>
       <TextDisplay fields={fields} />
     </div>

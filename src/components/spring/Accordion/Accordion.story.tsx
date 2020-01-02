@@ -1,61 +1,61 @@
-import { text, boolean } from "@storybook/addon-knobs";
-import React from "react";
-import { withCenteredStyle } from "../../../_storybook/withCenteredStyle";
-import { withCustomTheme } from "../../../_storybook/withCustomTheme";
+import { text, boolean } from '@storybook/addon-knobs'
+import React from 'react'
+import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
+import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
-import { Accordion, AccordionProps } from ".";
-import { MorphArrow } from "./Arrow";
+import { Accordion, AccordionProps } from '.'
+import { MorphArrow } from './Arrow'
 
 export default {
-  title: "Spring|Accordion",
+  title: 'Spring|Accordion',
   component: Accordion,
-  decorators: [withCenteredStyle({ width: 600 }), withCustomTheme]
-};
+  decorators: [withCenteredStyle({ width: 600 }), withCustomTheme],
+}
 
 export const accordion = () => {
   const props: AccordionProps = {
-    title: text("title", "Title"),
-    hideArrow: boolean("hideArrow", false)
-  };
+    title: text('title', 'Title'),
+    hideArrow: boolean('hideArrow', false),
+  }
 
-  const height = 300;
+  const height = 300
   return (
     <div
       style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column"
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
       <Accordion {...props}>
-        <div style={{ height, backgroundColor: "grey" }} />
+        <div style={{ height, backgroundColor: 'grey' }} />
       </Accordion>
-      <div style={{ height: 10, backgroundColor: "red" }} />
+      <div style={{ height: 10, backgroundColor: 'red' }} />
     </div>
-  );
-};
+  )
+}
 
 export const accordionWithMorph = () => {
   const props: AccordionProps = {
-    title: text("title", "Title"),
-    arrowComponent: MorphArrow
-  };
+    title: text('title', 'Title'),
+    arrowComponent: MorphArrow,
+  }
 
-  const height = 300;
+  const height = 300
   return (
     <div
       style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column"
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
       }}
     >
       <Accordion {...props}>
-        <div style={{ height, backgroundColor: "grey" }} />
+        <div style={{ height, backgroundColor: 'grey' }} />
       </Accordion>
-      <div style={{ height: 10, backgroundColor: "red" }} />
+      <div style={{ height: 10, backgroundColor: 'red' }} />
     </div>
-  );
-};
+  )
+}

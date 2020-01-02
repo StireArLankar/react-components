@@ -36,13 +36,13 @@ const Header = (props: HeaderProps) => {
 
   const navClass = cn({
     [classes.nav]: true,
-    [classes.open]: isOpen
+    [classes.open]: isOpen,
   })
 
   const listClass = cn({
     [classes.list]: true,
     [classes.open]: isOpen,
-    'custom-scroll': true
+    'custom-scroll': true,
   })
 
   return (

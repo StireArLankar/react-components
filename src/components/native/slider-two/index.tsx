@@ -14,7 +14,9 @@ const strings = [
   'Suspendisse in leo sit amet elit malesuada gravida.',
 ]
 
-const array = strings.map((string, index) => <Slide title={String(index + 1)} content={string} />)
+const array = strings.map((string, index) => (
+  <Slide title={String(index + 1)} content={string} />
+))
 
 export const SliderTwo = () => {
   useBGColor(217, 236, 199)

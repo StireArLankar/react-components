@@ -12,7 +12,14 @@ interface ListProps {
 }
 
 const List = (props: ListProps) => {
-  const { search, closeList, items, onChange, onEscPress, onSearchChange } = props
+  const {
+    search,
+    closeList,
+    items,
+    onChange,
+    onEscPress,
+    onSearchChange,
+  } = props
   useEffect(() => {
     if (ref.current) {
       ref.current.scrollTop = 0
@@ -77,7 +84,11 @@ const List = (props: ListProps) => {
   }
 
   return (
-    <ul className={style.list + ' custom-scroll'} onClick={onListClick} ref={ref}>
+    <ul
+      className={style.list + ' custom-scroll'}
+      onClick={onListClick}
+      ref={ref}
+    >
       <li className={style.inputWrapper}>
         <input
           type='text'

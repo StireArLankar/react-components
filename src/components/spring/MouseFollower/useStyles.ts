@@ -15,14 +15,14 @@ export const useStyles = makeStyles((theme: Theme) =>
       overflow: 'hidden',
     },
     goo: {
-      'position': 'absolute',
-      'willChange': 'transform',
-      'borderRadius': '50%',
-      'background': 'lightcoral',
-      'boxShadow': '10px 10px 5px 0px rgba(0, 0, 0, 0.75)',
-      'opacity': 0.6,
-      'width': 100,
-      'height': 100,
+      position: 'absolute',
+      willChange: 'transform',
+      borderRadius: '50%',
+      background: 'lightcoral',
+      boxShadow: '10px 10px 5px 0px rgba(0, 0, 0, 0.75)',
+      opacity: 0.6,
+      width: 100,
+      height: 100,
 
       '&::after': {
         content: "''",

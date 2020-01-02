@@ -10,7 +10,12 @@ const FileInput = (props: FileInputProps) => {
 
   return (
     <label className={style.labelWrapper}>
-      <input type='file' accept='image/*' onChange={onFileUpload} className={style.input} />
+      <input
+        type='file'
+        accept='image/*'
+        onChange={onFileUpload}
+        className={style.input}
+      />
       <span className={style.label}>Выберите изображение</span>
     </label>
   )

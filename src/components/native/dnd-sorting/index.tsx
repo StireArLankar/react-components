@@ -27,7 +27,11 @@ const DnDSorting = () => {
 
     const arr = items.filter((item) => item !== draggedItem.current)
 
-    const newItems = [...arr.slice(0, index), draggedItem.current as string, ...arr.slice(index)]
+    const newItems = [
+      ...arr.slice(0, index),
+      draggedItem.current as string,
+      ...arr.slice(index),
+    ]
 
     setItems(newItems)
   }

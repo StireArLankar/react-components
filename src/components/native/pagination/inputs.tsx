@@ -16,7 +16,11 @@ const Inputs = (props: InputsProps) => {
   return (
     <div className={style.bar}>
       <Input value={items} setValue={setItems} title='Items' />
-      <Input value={itemsPerPage} setValue={setItemsPerPage} title='Items Per Page' />
+      <Input
+        value={itemsPerPage}
+        setValue={setItemsPerPage}
+        title='Items Per Page'
+      />
     </div>
   )
 }

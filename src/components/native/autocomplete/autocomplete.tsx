@@ -15,7 +15,9 @@ const Autocomplete = (props: AutocompleteProps) => {
     if (value.length > 0) {
       const reg = new RegExp(`^${value}`, `i`)
       const reg2 = new RegExp(`^${value}$`, `i`)
-      const it = props.items.filter((v) => reg.test(v)).filter((v) => !reg2.test(v))
+      const it = props.items
+        .filter((v) => reg.test(v))
+        .filter((v) => !reg2.test(v))
       setSuggestion(it)
     } else {
       setSuggestion([])
@@ -44,7 +46,12 @@ const Autocomplete = (props: AutocompleteProps) => {
 
   return (
     <div className={style.wrapper}>
-      <input type='text' className={style.input} onChange={onTextInput} value={value} />
+      <input
+        type='text'
+        className={style.input}
+        onChange={onTextInput}
+        value={value}
+      />
       {renderList()}
     </div>
   )

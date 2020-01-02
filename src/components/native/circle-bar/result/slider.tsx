@@ -21,7 +21,10 @@ const Slider = (props: SliderProps) => {
   const number = charDict[kee] || numDict[kee]
 
   return (
-    <ul className='result__slider list' style={{ transform: `translateY(-${number * 80}px)` }}>
+    <ul
+      className='result__slider list'
+      style={{ transform: `translateY(-${number * 80}px)` }}
+    >
       {Object.keys(numDict).map((key) => (
         <li key={key} className='result__slide result__slide--num'>
           {key}

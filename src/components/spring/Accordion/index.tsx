@@ -1,40 +1,40 @@
-import React, { PropsWithChildren, useState } from "react";
-import { useSpring, animated } from "react-spring";
-import useMeasure from "react-use-measure";
+import React, { PropsWithChildren, useState } from 'react'
+import { useSpring, animated } from 'react-spring'
+import useMeasure from 'react-use-measure'
 
-import { useAccordionStyles } from "./useAccordionStyles";
-import { SimpleArrow, ArrowProps } from "./Arrow";
+import { useAccordionStyles } from './useAccordionStyles'
+import { SimpleArrow, ArrowProps } from './Arrow'
 
 export interface AccordionProps {
-  title: string;
-  hideArrow?: boolean;
-  arrowComponent?: (props: ArrowProps) => JSX.Element;
+  title: string
+  hideArrow?: boolean
+  arrowComponent?: (props: ArrowProps) => JSX.Element
 }
 
 export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
-  const { title, children, hideArrow, arrowComponent } = props;
-  const [isOpened, setIsOpened] = useState(true);
-  const classes = useAccordionStyles();
-  const [ref, { height }] = useMeasure();
+  const { title, children, hideArrow, arrowComponent } = props
+  const [isOpened, setIsOpened] = useState(true)
+  const classes = useAccordionStyles()
+  const [ref, { height }] = useMeasure()
 
-  const onToggleClick = () => setIsOpened(prev => !prev);
+  const onToggleClick = () => setIsOpened((prev) => !prev)
 
   const animProps = useSpring({
     maxHeight: isOpened ? height : 0,
-    opacity: isOpened ? 1 : 0
-  });
+    opacity: isOpened ? 1 : 0,
+  })
 
   const renderArrow = () => {
     if (hideArrow) {
-      return null;
+      return null
     }
 
     return arrowComponent ? (
       arrowComponent({ isOpened })
     ) : (
       <SimpleArrow isOpened={isOpened} />
-    );
-  };
+    )
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -47,5 +47,5 @@ export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
         <div ref={ref}>{children}</div>
       </animated.div>
     </div>
-  );
-};
+  )
+}

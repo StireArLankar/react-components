@@ -4,12 +4,12 @@ import './style.scss'
 import Presenter from './presenter'
 
 const charDict = {
-  'A': 11,
-  'X': 12,
-  'M': 13,
+  A: 11,
+  X: 12,
+  M: 13,
   ' ': 14,
-  'I': 15,
-  'N': 16,
+  I: 15,
+  N: 16,
 }
 
 const numDict = {

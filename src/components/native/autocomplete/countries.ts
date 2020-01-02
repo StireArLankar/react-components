@@ -193,4 +193,4 @@ Venezuela
 Vietnam
 Yemen
 Zambia
-Zimbabwe`.split('\n');
+Zimbabwe`.split('\n')

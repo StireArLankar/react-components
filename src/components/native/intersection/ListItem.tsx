@@ -13,7 +13,7 @@ export const ListItem = (props: ListItemProps) => {
   const className = cn({
     [style.imgWrapper]: true,
     [style.enter]: isIntersecting,
-    [style.leave]: !isIntersecting
+    [style.leave]: !isIntersecting,
   })
 
   return (

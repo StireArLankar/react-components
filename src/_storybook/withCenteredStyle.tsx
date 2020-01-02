@@ -12,7 +12,14 @@ export const withCenteredStyle = (style = {}) => (storyfn: any) => {
         backgroundColor: themeColors.dark,
       }}
     >
-      <div style={{ width: 300, display: 'flex', justifyContent: 'center', ...style }}>
+      <div
+        style={{
+          width: 300,
+          display: 'flex',
+          justifyContent: 'center',
+          ...style,
+        }}
+      >
         {storyfn()}
       </div>
     </div>

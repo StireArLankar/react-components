@@ -13,7 +13,12 @@ export const CircleBar = () => {
 
   return (
     <div className='circle-bar'>
-      <Ring radius={200} stroke={30} progress={progress} onRingClick={onRingClick}>
+      <Ring
+        radius={200}
+        stroke={30}
+        progress={progress}
+        onRingClick={onRingClick}
+      >
         <Result progress={progress} />
       </Ring>
     </div>

@@ -7,7 +7,10 @@ import { number } from '@storybook/addon-knobs'
 
 export default {
   title: 'Native|Color Picker',
-  decorators: [withCenteredStyle({ width: '100%', padding: 20 }), withCustomTheme],
+  decorators: [
+    withCenteredStyle({ width: '100%', padding: 20 }),
+    withCustomTheme,
+  ],
 }
 
 export const colorPicker = () => <Color />

@@ -37,7 +37,11 @@ const withMorphSite = (fn: any) => (
 
 export default {
   title: 'Spring|SvgMorph',
-  decorators: [withCenteredStyle({ color: themeColors.text }), withCustomTheme, withMorphSite],
+  decorators: [
+    withCenteredStyle({ color: themeColors.text }),
+    withCustomTheme,
+    withMorphSite,
+  ],
 }
 
 export const basic = () => {
