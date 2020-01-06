@@ -7,7 +7,7 @@ import useBGColor from '../../../hook/useBgColor'
 
 const placeHolder = 'Choose country'
 
-const Select = () => {
+export const Select = () => {
   const [value, setValue] = useState('')
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('')

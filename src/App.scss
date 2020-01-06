@@ -11,7 +11,7 @@ body {
   transition: background-color 0.3s ease-in-out;
   min-width: 320px;
   display: flex;
-  height: 100%;
+  min-height: 100%;
 }
 
 .overflow {
@@ -63,12 +63,15 @@ body {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  -moz-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
-  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.07);
   background-clip: padding-box;
   background-color: rgba(0, 0, 0, 0.2);
   border: none;
-  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.07);
 }
 
 .custom-scroll::-webkit-scrollbar-thumb:horizontal,

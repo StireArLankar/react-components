@@ -3,7 +3,7 @@ import classes from './lense.module.scss'
 import Controller from './controller'
 import useBGColor from '../../../hook/useBgColor'
 
-const LenseContainer = () => {
+export const LenseContainer = () => {
   const [size, setSize] = useState(200)
   const [lenseSize, setLenseSize] = useState(50)
   const [url] = useState(

@@ -8,7 +8,7 @@ import useBGColor from '../../../hook/useBgColor'
 const getUrl = (index: number) =>
   `https://stirearlankar.github.io/54729-kekstagram/photos/${index + 8}.jpg`
 
-const Intersection = () => {
+export const Intersection = () => {
   useBGColor(197, 241, 246)
 
   const renderItems = () =>

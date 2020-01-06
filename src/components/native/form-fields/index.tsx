@@ -7,7 +7,7 @@ import style from './form.module.scss'
 import useBGColor from '../../../hook/useBgColor'
 import { defaultFields as types, FieldType } from './fields.types'
 
-const FormFields = () => {
+export const FormFields = () => {
   const [fields, setFields] = useState<FieldType[]>([])
 
   useBGColor(210, 208, 210)

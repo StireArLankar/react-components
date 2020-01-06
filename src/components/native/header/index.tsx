@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 import classes from './header.module.scss'
 import { LinkItem } from '../../../App'
 
-interface HeaderProps {
+export interface HeaderProps {
   items: LinkItem[]
 }
 
-const Header = (props: HeaderProps) => {
+export const Header = (props: HeaderProps) => {
   const { items } = props
 
   const [isOpen, setIsOpen] = useState(false)

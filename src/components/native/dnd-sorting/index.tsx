@@ -5,7 +5,7 @@ import useBGColor from '../../../hook/useBgColor'
 
 const initialItems = ['🍰 Cake', '🍩 Donut', '🍎 Apple', '🍕 Pizza']
 
-const DnDSorting = () => {
+export const DnDSorting = () => {
   const [items, setItems] = useState(initialItems)
   useBGColor(220, 208, 233)
   const draggedItem = useRef<string | null>(null)
@@ -17,7 +17,7 @@ const DnDSorting = () => {
       const parent = (evt.target as any).parentNode
       evt.dataTransfer.effectAllowed = 'move'
       evt.dataTransfer.setData('text/html', parent)
-      evt.dataTransfer.setDragImage(parent, 20, 20)
+      evt.dataTransfer.setDragImage(parent, 50, 50)
     }
   }
 
