@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { withTopLabel } from '../../../_storybook/withTopLabel'
 
 import { SvgMorph as Gradiented } from './Gradiented'
 import { themeColors } from '../../../theme/theme.styles'
@@ -8,31 +9,16 @@ import { themeColors } from '../../../theme/theme.styles'
 import { SvgMorph, SvgMorphProps } from '.'
 import { boolean } from '@storybook/addon-knobs'
 
-const withMorphSite = (fn: any) => (
-  <div>
-    <div
-      style={{
-        position: 'fixed',
-        top: '0',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        padding: 10,
-        backgroundColor: themeColors.text,
-        color: themeColors.dark,
-        borderBottomRightRadius: 5,
-        borderBottomLeftRadius: 5,
-      }}
+const label = (
+  <Fragment>
+    <span>Morph svgs here </span>
+    <a
+      href='https://shapeshifter.design'
+      style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
     >
-      <span>Morph svgs here </span>
-      <a
-        href='https://shapeshifter.design'
-        style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
-      >
-        https://shapeshifter.design
-      </a>
-    </div>
-    {fn()}
-  </div>
+      https://shapeshifter.design
+    </a>
+  </Fragment>
 )
 
 export default {
@@ -40,7 +26,7 @@ export default {
   decorators: [
     withCenteredStyle({ color: themeColors.text }),
     withCustomTheme,
-    withMorphSite,
+    withTopLabel(label),
   ],
 }
 
