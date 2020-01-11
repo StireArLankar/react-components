@@ -9,13 +9,14 @@
 1. Accordion
 2. Bouncing trails ([implementation of this](https://www.youtube.com/watch?v=5QCYBiANRYs&t=1500s))
 3. Card (taken from react-spring docs)
-4. MouseFollowers (taken from react-spring docs)
-5. Radial Menu ([inspired by](https://www.youtube.com/watch?v=MhQI-ysRyrk))
-6. Sidebar with trailing content
-7. Svg morphs
-8. Svg drawing
-9. Toggler
-10. Navbar
+4. Letters
+5. MouseFollowers (taken from react-spring docs)
+6. NavBar
+7. Radial Menu ([inspired by](https://www.youtube.com/watch?v=MhQI-ysRyrk))
+8. Sidebar with trailing content
+9. Svg morphs
+10. Svg drawing
+11. Toggler
 
 ### Design
 
