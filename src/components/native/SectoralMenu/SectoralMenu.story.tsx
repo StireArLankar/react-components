@@ -63,7 +63,6 @@ export const sectoralMenu = () => {
   const buttonsAmount = Math.max(number('buttonsAmount', buttons.length), 1)
   const props: SectoralMenuProps = {
     buttons: buttons.slice(0, buttonsAmount),
-    // buttons: buttons,
   }
 
   return <SectoralMenu {...props} />
