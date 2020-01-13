@@ -11,7 +11,9 @@ export default {
   decorators: [
     withCustomTheme,
     withCenteredStyle({
-      flexDirection: 'column',
+      width: '100vw',
+      flexDirection: 'row',
+      alignItems: 'center',
       minHeight: '100vh',
       justifyContent: 'space-around',
     }),
