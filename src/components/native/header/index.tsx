@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 
 import classes from './header.module.scss'
@@ -34,12 +34,12 @@ export const Header = (props: HeaderProps) => {
       </li>
     ))
 
-  const navClass = cn({
+  const navClass = clsx({
     [classes.nav]: true,
     [classes.open]: isOpen,
   })
 
-  const listClass = cn({
+  const listClass = clsx({
     [classes.list]: true,
     [classes.open]: isOpen,
     'custom-scroll': true,

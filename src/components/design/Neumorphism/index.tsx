@@ -1,5 +1,5 @@
 import React from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import useStyles from './useStyles'
 
 export interface NeumorphismProps {
@@ -10,7 +10,7 @@ export const Neumorphism = (props: NeumorphismProps) => {
   const { isActive: active } = props
   const classes = useStyles()
 
-  const wrapperClass = cn({
+  const wrapperClass = clsx({
     [classes.wrapper]: true,
     active,
   })

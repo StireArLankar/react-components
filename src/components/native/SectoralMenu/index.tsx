@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import { useStyles } from './useStyles'
 import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon'
 
@@ -57,7 +57,7 @@ export const SectoralMenu = (props: SectoralMenuProps) => {
       </li>
     ))
 
-  const listWrapperClass = cn({
+  const listWrapperClass = clsx({
     [classes.listWrapper]: true,
     [classes.opened]: isOpen,
   })

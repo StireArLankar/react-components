@@ -1,5 +1,5 @@
 import React from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import classes from './intersection.module.scss'
 
 import ListItem from './ListItem'
@@ -16,7 +16,7 @@ export const Intersection = () => {
       .fill(1)
       .map((_, index) => <ListItem url={getUrl(index)} key={index} />)
 
-  const listClass = cn({
+  const listClass = clsx({
     [classes.list]: true,
     'custom-scroll': true,
   })

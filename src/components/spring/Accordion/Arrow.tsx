@@ -1,5 +1,5 @@
 import React from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 
 import { useAccordionStyles } from './useAccordionStyles'
 import { Svg } from '../SvgMorph/Arrow'
@@ -12,7 +12,7 @@ export const SimpleArrow = (props: ArrowProps) => {
   const { isOpened } = props
   const classes = useAccordionStyles()
 
-  const arrowClass = cn({
+  const arrowClass = clsx({
     [classes.arrow]: true,
     open: isOpened,
   })

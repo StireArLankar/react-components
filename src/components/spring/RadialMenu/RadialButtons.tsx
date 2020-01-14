@@ -1,5 +1,5 @@
 import React from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { useStyles } from './useStyles'
 import { useSpring, animated, config } from 'react-spring'
@@ -41,7 +41,7 @@ export const RadialButton = (
       }}
     >
       <button
-        className={cn(classes.button, classes.overflow)}
+        className={clsx(classes.button, classes.overflow)}
         onClick={onClick}
       >
         <Icon className={classes.icon} style={{ backgroundColor: color }} />

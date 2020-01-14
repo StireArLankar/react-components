@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './intersection.module.scss'
-import cn from 'classnames'
+import clsx from 'clsx'
 import useIntersectionObserver from '../../../hook/useIntersectionObserver'
 
 export interface ListItemProps {
@@ -10,7 +10,7 @@ export interface ListItemProps {
 export const ListItem = (props: ListItemProps) => {
   const [isIntersecting, ref] = useIntersectionObserver<HTMLLIElement>()
 
-  const className = cn({
+  const className = clsx({
     [style.imgWrapper]: true,
     [style.enter]: isIntersecting,
     [style.leave]: !isIntersecting,

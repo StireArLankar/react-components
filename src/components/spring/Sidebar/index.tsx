@@ -1,5 +1,5 @@
 import React, { useRef, Fragment, PropsWithChildren } from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import {
   useTransition,
   useChain,
@@ -63,7 +63,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
       </animated.div>
     ))
 
-  const sidebarClass = cn({
+  const sidebarClass = clsx({
     [classes.sidebar]: true,
     right,
     'custom-scroll': true,

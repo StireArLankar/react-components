@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, Fragment } from 'react'
-import cn from 'classnames'
+import clsx from 'clsx'
 import { incLastElement, decFirstElement } from './utils'
 
 import style from './slider.module.scss'
@@ -33,7 +33,7 @@ const Slider = (props: SliderProps) => {
   const renderSlides = () => {
     const array = list.map((index) => components[index])
     return array.map((el, index) => (
-      <li key={list[index]} className={cn(style.box, style[`box--${index}`])}>
+      <li key={list[index]} className={clsx(style.box, style[`box--${index}`])}>
         {el}
       </li>
     ))

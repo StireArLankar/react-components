@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, MouseEvent } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
-import cn from 'classnames'
+import clsx from 'clsx'
 import queryString from 'query-string'
 
 import style from './pagination.module.scss'
@@ -70,7 +70,7 @@ const Pagination = (props: PaginationProps) => {
     }
 
     return arr.map((page, index) => {
-      const cName = cn({
+      const cName = clsx({
         [style.item]: true,
         [style.page]: true,
         [style.active]: page === String(currentPage),
@@ -103,7 +103,7 @@ const Pagination = (props: PaginationProps) => {
   }
 
   const renderNextButton = () => {
-    const cName = cn({
+    const cName = clsx({
       [style.item]: true,
       [style.next]: true,
       [style.disabled]: currentPage === totalPages,
@@ -127,7 +127,7 @@ const Pagination = (props: PaginationProps) => {
   }
 
   const renderPrevButton = () => {
-    const cName = cn({
+    const cName = clsx({
       [style.item]: true,
       [style.prev]: true,
       [style.disabled]: currentPage === 1,
