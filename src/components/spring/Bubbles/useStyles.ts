@@ -5,8 +5,8 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme'
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     bubble: {
-      width: 100,
-      height: '100%',
+      width: '100%',
+      margin: theme.spacing(0.5),
     },
     list: {
       display: 'flex',
@@ -19,7 +19,13 @@ export const useStyles = makeStyles((theme: Theme) =>
       maxWidth: '100vw',
       alignItems: 'center',
     },
-    item: {},
+    item: {
+      overflow: 'hidden',
+      height: '100%',
+      width: 100,
+      display: 'flex',
+      alignItems: 'center',
+    },
   })
 )
 
