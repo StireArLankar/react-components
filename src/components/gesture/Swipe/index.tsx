@@ -3,13 +3,24 @@ import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 
 import useStyles from './useStyles'
+import clsx from 'clsx'
+
+const OFFSET = 200
 
 export const Swipe = () => {
   const classes = useStyles()
 
   const [position, setPosition] = useState(0)
 
-  const { x } = useSpring({ x: position * 200 })
+  const { x } = useSpring({ x: position * OFFSET })
+
+  const renderSlots = () =>
+    [-1, 0, 1].map((pos) => (
+      <div
+        className={clsx(classes.background, position === pos && classes.active)}
+        style={{ transform: `translate(${OFFSET * pos}px) scale(1.1)` }}
+      />
+    ))
 
   const bind = useDrag(({ down, vxvy: [vx], cancel }) => {
     // const bind = useDrag(({ swipe: [swipeX] }) => {
@@ -23,12 +34,15 @@ export const Swipe = () => {
   })
 
   return (
-    <animated.div
-      className={classes.box}
-      {...bind()}
-      style={{
-        transform: x.interpolate((val) => `translate3d(${val}px, 0, 0)`),
-      }}
-    />
+    <div className={classes.wrapper}>
+      {renderSlots()}
+      <animated.div
+        className={classes.box}
+        {...bind()}
+        style={{
+          transform: x.interpolate((val) => `translate3d(${val}px, 0, 0)`),
+        }}
+      />
+    </div>
   )
 }
