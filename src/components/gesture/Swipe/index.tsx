@@ -17,6 +17,7 @@ export const Swipe = () => {
   const renderSlots = () =>
     [-1, 0, 1].map((pos) => (
       <div
+        key={pos}
         className={clsx(classes.background, position === pos && classes.active)}
         style={{ transform: `translate(${OFFSET * pos}px) scale(1.1)` }}
       />
