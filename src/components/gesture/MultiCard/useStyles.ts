@@ -16,6 +16,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       border: '10px solid white',
       cursor: 'grab',
       overflow: 'hidden',
+      userSelect: 'none',
 
       '&.dragging': {
         cursor: 'grabbing',

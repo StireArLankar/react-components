@@ -13,6 +13,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       right: '5%',
       borderRadius: 10,
       height: 80,
+      overflow: 'hidden',
     },
     progress: {
       background: theme.custom.red,
