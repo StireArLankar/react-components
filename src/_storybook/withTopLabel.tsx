@@ -10,8 +10,9 @@ export const withTopLabel = (content: JSX.Element) => (fn: any) => (
         left: '50%',
         transform: 'translateX(-50%)',
         padding: 10,
-        backgroundColor: themeColors.text,
-        color: themeColors.dark,
+        zIndex: 1,
+        backgroundColor: themeColors.light,
+        color: themeColors.text,
         borderBottomRightRadius: 5,
         borderBottomLeftRadius: 5,
       }}
