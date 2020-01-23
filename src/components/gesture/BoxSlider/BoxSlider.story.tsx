@@ -2,11 +2,13 @@ import React from 'react'
 import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
-import { SimpleSlider } from '.'
+import { HalfSlider } from './Half'
+import { QuarterSlider } from './Quarter'
 
 export default {
-  title: 'Gesture|SimpleSlider',
+  title: 'Gesture|BoxSlider',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const slider = () => <SimpleSlider />
+export const halfSlider = () => <HalfSlider />
+export const quarterSlider = () => <QuarterSlider />

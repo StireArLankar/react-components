@@ -21,6 +21,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       padding: 0,
       margin: 0,
       listStyle: 'none',
+      transform: 'perspective(1000px)',
+      transformStyle: 'preserve-3d',
     },
     container: {
       height: '100%',

@@ -4,43 +4,47 @@ import { animated, useSpring } from 'react-spring'
 import useStyles from './useStyles'
 import imgs from './imgs'
 
-const STEP = 150
+const STEP = 100
 
 const rotate = (num: number) =>
-  `translateZ(-200px) rotateY(${-90 + (num * 180) / STEP}deg )`
+  `translateZ(-200px) rotateY(${-45 + (num * 90) / STEP}deg )`
 
 const int2 = (x: number, step: number, count: number, i: number) => {
   const start = x % (step * count)
+
   let down = start - step * i
-  let upper = down - step
   if (start > 0) {
-    if (down > 0 && upper < 0) {
-      return down
-    } else if (down > 0) {
-      return step
+    if (i === 0 && start > step * count - step / 2) {
+      return start - step * count
     }
-    return 0
+
+    if (i === count - 1 && start < step / 2) {
+      return start + step
+    }
+
+    return Math.max(Math.min(down, step + step / 2), -step / 2)
   } else {
+    if (i === count - 1 && Math.abs(start) > step * count - step / 2) {
+      return start + step * count + step
+    }
+
+    if (i === 0 && Math.abs(start) < step / 2) {
+      return start
+    }
+
     const offset = step * count
     down += offset
-    upper += offset
-
-    if (upper < 0 && down > 0) {
-      return upper + step
-    } else if (upper < 0) {
-      return 0
-    }
-    return step
+    return Math.min(Math.max(down, -step / 2), step + step / 2)
   }
 }
 
-export const SimpleSlider = () => {
+export const QuarterSlider = () => {
   const classes = useStyles()
-  const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
+  const [{ x }, setWheel] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
-    ({ offset: [x], vxvy: [vx] }) => {
-      setWheel({ wheelY: -x })
+    ({ offset: [x] }) => {
+      setWheel({ x })
     },
     { domTarget: window }
   )
@@ -54,7 +58,7 @@ export const SimpleSlider = () => {
       <animated.li
         className={classes.container}
         style={{
-          transform: wheelY.interpolate((val) =>
+          transform: x.interpolate((val) =>
             rotate(int2(val, STEP, imgs.length, index))
           ),
         }}
@@ -69,9 +73,7 @@ export const SimpleSlider = () => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {wheelY.interpolate((val) =>
-          int2(val, STEP, imgs.length, index).toFixed(0)
-        )}
+        {x.interpolate((val) => int2(val, STEP, imgs.length, index).toFixed(0))}
       </animated.p>
     ))
 
