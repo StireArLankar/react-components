@@ -4,6 +4,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 import { HalfSlider } from './Half'
 import { QuarterSlider } from './Quarter'
+import { QuarterSnapSlider } from './QuarterSnap'
 
 export default {
   title: 'Gesture|BoxSlider',
@@ -12,3 +13,4 @@ export default {
 
 export const halfSlider = () => <HalfSlider />
 export const quarterSlider = () => <QuarterSlider />
+export const quarterSnapSlider = () => <QuarterSnapSlider />
