@@ -1,86 +1,41 @@
-import React, { useEffect } from 'react'
-import { useDrag } from 'react-use-gesture'
-import { animated, useSpring } from 'react-spring'
-import useStyles from './useStyles'
-import imgs from './imgs'
+import React from 'react'
+import clamp from 'lodash-es/clamp'
+import { BoxSlider } from '.'
 
 const STEP = 100
 
+// range: [-50, 150]
 const rotate = (num: number) =>
   `translateZ(-200px) rotateY(${-45 + (num * 90) / STEP}deg )`
 
-const int2 = (x: number, step: number, count: number, i: number) => {
-  const start = x % (step * count)
+const int = (x: number, count: number, i: number) => {
+  // Range of possible values
+  // [0...max]
+  const fullRange = STEP * count
 
-  let down = start - step * i
-  if (start > 0) {
-    if (i === 0 && start > step * count - step / 2) {
-      return start - step * count
-    }
+  // Current x value bounded by full cycle
+  // [0...val...max] or [-max...val...0]
+  const boundedValue = x % fullRange
 
-    if (i === count - 1 && start < step / 2) {
-      return start + step
-    }
+  // Needed for transforming negative value to positive
+  // [-max...val...0] => [0...val...max]
+  const offset = boundedValue > 0 ? 0 : fullRange
+  const positiveValue = boundedValue + offset
 
-    return Math.max(Math.min(down, step + step / 2), -step / 2)
-  } else {
-    if (i === count - 1 && Math.abs(start) > step * count - step / 2) {
-      return start + step * count + step
-    }
+  // Value normilized to [0...val...STEP] for each item
+  const itemValue = positiveValue - STEP * i
 
-    if (i === 0 && Math.abs(start) < step / 2) {
-      return start
-    }
-
-    const offset = step * count
-    down += offset
-    return Math.min(Math.max(down, -step / 2), step + step / 2)
+  if (i === 0 && positiveValue > fullRange - STEP / 2) {
+    // Make first item move like he is startig from STEP * -1/2 on big values
+    return positiveValue - fullRange
   }
+
+  if (i === count - 1 && positiveValue < STEP / 2) {
+    // Make last item move like he is startig from STEP * 3/2 on low values
+    return positiveValue + STEP
+  }
+
+  return clamp(itemValue, STEP * (-1 / 2), STEP * (3 / 2))
 }
 
-export const QuarterSlider = () => {
-  const classes = useStyles()
-  const [{ x }, setWheel] = useSpring(() => ({ x: 0 }))
-
-  const bind = useDrag(
-    ({ offset: [x] }) => {
-      setWheel({ x })
-    },
-    { domTarget: window }
-  )
-
-  useEffect(() => {
-    bind()
-  }, [bind])
-
-  const renderImages = () =>
-    imgs.map((img, index) => (
-      <animated.li
-        className={classes.container}
-        style={{
-          transform: x.interpolate((val) =>
-            rotate(int2(val, STEP, imgs.length, index))
-          ),
-        }}
-      >
-        <animated.div
-          className={classes.img}
-          style={{ backgroundImage: `url(${img})` }}
-        />
-      </animated.li>
-    ))
-
-  const renderValues = () =>
-    imgs.map((_, index) => (
-      <animated.p className={classes.value}>
-        {x.interpolate((val) => int2(val, STEP, imgs.length, index).toFixed(0))}
-      </animated.p>
-    ))
-
-  return (
-    <div className={classes.wrapper}>
-      <ul className={classes.stage}>{renderImages()}</ul>
-      <ul className={classes.values}>{renderValues()}</ul>
-    </div>
-  )
-}
+export const QuarterSlider = () => <BoxSlider rotate={rotate} int={int} />
