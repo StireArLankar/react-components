@@ -7,40 +7,33 @@ import imgs from './imgs'
 export interface BoxSliderSnapProps {
   rotate: (num: number) => string
   int: (x: number, count: number, i: number) => number
-  step: number
+  step?: number
   start?: number
 }
 
-export const BoxSliderSnap = (props: BoxSliderSnapProps) => {
-  const { rotate, int, step, start = 0 } = props
+export const BoxSliderInertial = (props: BoxSliderSnapProps) => {
+  const { rotate, int, start = 0 } = props
 
   const classes = useStyles()
-  const [{ x }, setX] = useSpring(() => ({ x: start }))
+  const [{ x }, setX] = useSpring(() => ({
+    x: start,
+    config: { mass: 5, tension: 170, friction: 80 },
+  }))
 
   // Ref for memoizing value between drags
   const dragOffset = useRef(start)
 
   const bind = useDrag(
-    ({ movement: [x], down }) => {
+    ({ movement: [x], down, vxvy: [vx] }) => {
       if (down) {
-        setX({ x: dragOffset.current + x })
+        setX({
+          x: dragOffset.current + x,
+        })
       } else {
-        const offset = x % step
-        if (offset > step / 2) {
-          // If remainder is more than half step,
-          // then substract remainder and add step (rotate to next item)
-          dragOffset.current += x - offset + step
-        } else if (offset < -step / 2) {
-          // If abs of remainder is more than half step and
-          // its sign is negative, then substract remainder and
-          // remove step (rotate to previous item)
-          dragOffset.current += x - offset - step
-        } else {
-          // Else stay in current state (as its more valuable)
-          // thru substracting remainder
-          dragOffset.current += x - offset
-        }
-        setX({ x: dragOffset.current })
+        dragOffset.current += x + vx * 200
+        setX({
+          x: dragOffset.current,
+        })
       }
     },
     { domTarget: window }

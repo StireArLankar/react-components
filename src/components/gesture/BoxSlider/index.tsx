@@ -7,17 +7,20 @@ import imgs from './imgs'
 export interface BoxSliderProps {
   rotate: (num: number) => string
   int: (x: number, count: number, i: number) => number
+  // For consistence with more complex variants
+  step?: number
+  start?: number
 }
 
 export const BoxSlider = (props: BoxSliderProps) => {
   const { rotate, int } = props
 
   const classes = useStyles()
-  const [{ x }, setWheel] = useSpring(() => ({ x: 0 }))
+  const [{ x }, setX] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
     ({ offset: [x] }) => {
-      setWheel({ x })
+      setX({ x })
     },
     { domTarget: window }
   )
