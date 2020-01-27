@@ -3,6 +3,8 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 import { SimpleSlider } from './Simple'
+import { ComplexSlider } from './Complex'
+import { boolean, number } from '@storybook/addon-knobs'
 
 export default {
   title: 'Gesture|Transition Slider',
@@ -13,3 +15,10 @@ export default {
 }
 
 export const simpleSlider = () => <SimpleSlider />
+export const complexSlider = () => (
+  <ComplexSlider
+    overflow={boolean('overflow', false)}
+    hideValues={boolean('hideValues', false)}
+    start={number('start', 50)}
+  />
+)
