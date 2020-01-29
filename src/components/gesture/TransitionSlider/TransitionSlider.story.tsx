@@ -4,6 +4,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 import { SimpleSlider } from './Simple'
 import { ComplexSlider } from './Complex'
+import { RepeatedBounds } from './RepeatedBounds'
 import { boolean, number } from '@storybook/addon-knobs'
 
 export default {
@@ -20,5 +21,13 @@ export const complexSlider = () => (
     overflow={boolean('overflow', false)}
     hideValues={boolean('hideValues', false)}
     start={number('start', 50)}
+  />
+)
+
+export const repeatedBounds = () => (
+  <RepeatedBounds
+    overflow={boolean('overflow', true)}
+    hideValues={boolean('hideValues', false)}
+    number={number('number', 4)}
   />
 )
