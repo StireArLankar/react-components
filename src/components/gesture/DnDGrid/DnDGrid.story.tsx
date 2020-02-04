@@ -3,6 +3,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 import { DnDGrid } from '.'
+import { StatefulDnDGrid } from './StatefulDnDGrid'
 
 export default {
   title: 'Gesture|DnDGrid',
@@ -20,3 +21,4 @@ export default {
 }
 
 export const dndGrid = () => <DnDGrid />
+export const sattefulDndGrid = () => <StatefulDnDGrid />

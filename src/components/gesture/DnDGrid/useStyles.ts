@@ -17,6 +17,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       height: '95%',
       background: 'linear-gradient(-45deg, #c3cfe2 0%, #9cb8e4 100%)',
       border: '1px solid #f5576c',
+      display: 'grid',
+      placeItems: 'center',
     },
     item: {
       width: 86,
@@ -29,6 +31,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       '&:last-child': {
         transform: 'translateX(-200px)',
       },
+    },
+    count: {
+      fontSize: 30,
+      zIndex: 0,
+      pointerEvents: 'none',
     },
   })
 )
