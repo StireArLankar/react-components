@@ -32,6 +32,7 @@ export const BoxSlider = (props: BoxSliderProps) => {
   const renderImages = () =>
     imgs.map((img, index) => (
       <animated.li
+        key={index}
         className={classes.container}
         style={{
           transform: x.interpolate((val) =>

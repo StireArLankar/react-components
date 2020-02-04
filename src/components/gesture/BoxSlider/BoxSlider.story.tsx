@@ -6,6 +6,7 @@ import { HalfSlider } from './Half'
 import { QuarterSlider } from './Quarter'
 import { QuarterSnapSlider } from './QuarterSnap'
 import { QuarterInertialSlider } from './QuarterInertial'
+import { QuarterAutoplaySlider } from './QuarterAutoplay'
 
 export default {
   title: 'Gesture|BoxSlider',
@@ -16,3 +17,4 @@ export const halfSlider = () => <HalfSlider />
 export const quarterSlider = () => <QuarterSlider />
 export const quarterSnapSlider = () => <QuarterSnapSlider />
 export const quarterInertialSlider = () => <QuarterInertialSlider />
+export const quarterAutoplaySlider = () => <QuarterAutoplaySlider />
