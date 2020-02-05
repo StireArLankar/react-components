@@ -36,10 +36,10 @@ export const MultiCard = () => {
       onHover: ({ hovering }) => !hovering && set({ scale: 1 }),
       onWheel: ({ offset: [, y] }) => setWheel({ wheelY: y }),
     },
-    { domTarget, event: { passive: false } }
+    { domTarget, eventOptions: { passive: false } }
   )
 
-  useEffect(bind, [bind])
+  useEffect(bind as any, [bind])
 
   return (
     <animated.div
