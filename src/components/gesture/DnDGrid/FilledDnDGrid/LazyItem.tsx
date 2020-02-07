@@ -70,6 +70,16 @@ export const LazyItem = (props: LazyItemProps) => {
       const newX = updateAxis(x, step, position[0], max)
       const newY = updateAxis(y, step, position[1], max)
 
+      if (newX === position[0] && newY === position[1]) {
+        set({
+          x: position[0] * step,
+          y: position[1] * step,
+          scalE: 1,
+          zIndeX: 0,
+          shadow: 1,
+        })
+      }
+
       update(newX, newY)
     }
   })

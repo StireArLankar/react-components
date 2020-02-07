@@ -5,5 +5,5 @@ declare module 'lodash-move' {
 }
 
 declare module 'lodash-es/clamp' {
-  export default function fn(...args: any[]): any
+  export default function fn(...args: number[]): number
 }
