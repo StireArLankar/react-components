@@ -21,8 +21,8 @@ export const StatefulDnDGrid = () => {
 
   const updateItemPosition = useCallback(
     (index: number, x: number, y: number) => {
-      setItems(
-        produce((draft) => {
+      setItems((state) =>
+        produce(state, (draft) => {
           draft[index] = [x, y]
         })
       )

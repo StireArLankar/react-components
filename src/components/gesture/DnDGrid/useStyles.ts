@@ -27,10 +27,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       left: 7,
       position: 'absolute',
       cursor: 'pointer',
+      display: 'grid',
+      placeItems: 'center',
       background: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
-      '&:last-child': {
-        transform: 'translateX(-200px)',
-      },
     },
     count: {
       fontSize: 30,

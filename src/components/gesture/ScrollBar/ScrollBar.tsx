@@ -1,10 +1,4 @@
-import React, {
-  PropsWithChildren,
-  useState,
-  useEffect,
-  useRef,
-  Fragment,
-} from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
 
