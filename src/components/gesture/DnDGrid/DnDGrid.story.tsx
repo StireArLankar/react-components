@@ -23,4 +23,5 @@ export default {
 
 export const dndGrid = () => <DnDGrid />
 export const sattefulDndGrid = () => <StatefulDnDGrid />
+export const filledLazyDndGrid = () => <FilledDnDGrid lazy />
 export const filledDndGrid = () => <FilledDnDGrid />

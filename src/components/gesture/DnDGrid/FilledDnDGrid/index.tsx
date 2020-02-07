@@ -1,18 +1,29 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
+import { Item } from './Item'
 import { LazyItem } from './LazyItem'
 import useStyles from '../useStyles'
 import { produce } from 'immer'
 
-const arr: number[] = new Array(16).fill(0)
+const MAGIC = 4
+
+const arr: number[] = new Array(MAGIC * MAGIC).fill(0)
 
 type IState = Array<[number, number]>
 
-const getPos = ([x, y]: [number, number]) => y * 4 + x
-const getXY = (pos: number): [number, number] => [pos % 4, Math.floor(pos / 4)]
+const getPos = ([x, y]: [number, number]) => y * MAGIC + x
+const getXY = (pos: number): [number, number] => [
+  pos % MAGIC,
+  Math.floor(pos / MAGIC),
+]
 
 const generateItems = (arr: number[]) => arr.map((_, index) => getXY(index))
 
-export const FilledDnDGrid = () => {
+export interface FilledDnDGridProps {
+  lazy?: boolean
+}
+
+export const FilledDnDGrid = (props: FilledDnDGridProps) => {
+  const { lazy } = props
   const classes = useStyles()
 
   const [items, setItems] = useState<IState>(generateItems(arr))
@@ -21,7 +32,6 @@ export const FilledDnDGrid = () => {
     (index: number, x: number, y: number) => {
       setItems((state) =>
         produce(state, (draft) => {
-          // draft[index] = [x, y]
           const oldPos = getPos(draft[index])
           const newPos = getPos([x, y])
 
@@ -47,9 +57,11 @@ export const FilledDnDGrid = () => {
     []
   )
 
+  const Component = useMemo(() => (lazy ? LazyItem : Item), [lazy])
+
   const counts = items.reduce(
     (acc, cur) => {
-      const index = cur[0] + cur[1] * 4
+      const index = getPos(cur)
       acc[index]++
       return acc
     },
@@ -57,13 +69,11 @@ export const FilledDnDGrid = () => {
   )
 
   const renderCells = () =>
-    counts.map((count, index) => (
-      <div key={index} className={classes.gridItem} />
-    ))
+    counts.map((_, index) => <div key={index} className={classes.gridItem} />)
 
   const renderItems = () =>
     items.map((item, index) => (
-      <LazyItem
+      <Component
         key={index}
         index={index}
         step={100}
