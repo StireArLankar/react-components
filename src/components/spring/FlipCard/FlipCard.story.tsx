@@ -3,6 +3,8 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 import { FlipCard } from '.'
+import { FlipCardScaled } from './FlipCardScaled'
+import { radios } from '@storybook/addon-knobs'
 
 export default {
   title: 'Spring|FlipCard',
@@ -13,6 +15,22 @@ export default {
 }
 
 export const card = () => <FlipCard {...props} />
+
+export const cardScaled = () => (
+  <FlipCardScaled
+    {...props}
+    dir={radios(
+      'dir',
+      {
+        horizontal1: '+x',
+        horizontal2: '-x',
+        vertical1: '+y',
+        vertical2: '-y',
+      },
+      '+x'
+    )}
+  />
+)
 
 const front = (
   <div
