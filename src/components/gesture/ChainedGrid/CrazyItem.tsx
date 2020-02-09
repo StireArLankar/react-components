@@ -4,7 +4,7 @@ import { useSpring, animated, interpolate } from 'react-spring'
 
 import clamp from 'lodash-es/clamp'
 import { useGesture } from 'react-use-gesture'
-import { Child } from './Child'
+import { data } from './data'
 
 export interface ItemProps {
   index: number
@@ -37,23 +37,33 @@ const updateAxis = (
   }
 }
 
-const setStable = (x: number, y: number, active?: boolean) => ({
-  x,
-  y,
+const setStable = (
+  x: number,
+  y: number,
+  max: number,
+  step: number,
+  active?: boolean
+) => ({
+  x: active ? 0 : x,
+  y: active ? 0 : y,
+  bottom: active ? 7 : max * step + 7,
+  right: active ? 7 : max * step + 7,
   scalE: 1,
   zIndeX: active ? 10 : 0,
   shadow: 1,
 })
 
-const setDragging = (x: number, y: number) => ({
+const setDragging = (x: number, y: number, max: number, step: number) => ({
   x,
   y,
+  bottom: max * step + 7,
+  right: max * step + 7,
   scalE: 1.1,
   zIndeX: 100,
   shadow: 15,
 })
 
-export const Item = memo((props: ItemProps) => {
+export const CrazyItem = memo((props: ItemProps) => {
   const {
     index,
     step,
@@ -70,16 +80,16 @@ export const Item = memo((props: ItemProps) => {
   const isDragging = useRef(false)
   const [oldPos, setOldPos] = useState([...position])
 
-  const [{ x, y, scalE, zIndeX, shadow }, set] = useSpring(() =>
-    setStable(position[0] * step, position[1] * step)
+  const [{ x, y, bottom, right, scalE, zIndeX, shadow }, set] = useSpring(() =>
+    setStable(position[0] * step, position[1] * step, max, step)
   )
 
   useEffect(() => {
     if (!isDragging.current) {
       setOldPos([...position])
-      set(setStable(position[0] * step, position[1] * step, active))
+      set(setStable(position[0] * step, position[1] * step, max, step, active))
     }
-  }, [position, set, step, active])
+  }, [position, set, step, active, max])
 
   const bind = useGesture(
     {
@@ -97,10 +107,12 @@ export const Item = memo((props: ItemProps) => {
         const newX = updateAxis(x, step, oldPos[0], max)
         const newY = updateAxis(y, step, oldPos[1], max)
         if (down) {
-          set(setDragging(oldPos[0] * step + x, oldPos[1] * step + y))
+          set(
+            setDragging(oldPos[0] * step + x, oldPos[1] * step + y, max, step)
+          )
         } else {
           setOldPos([newX, newY])
-          set(setStable(newX * step, newY * step, active))
+          set(setStable(newX * step, newY * step, max, step, active))
         }
 
         updatePosition(index, newX, newY)
@@ -122,9 +134,20 @@ export const Item = memo((props: ItemProps) => {
           [y, x, scalE],
           (y, x, scalE) => `translate3d(${x}px, ${y}px, 0) scale(${scalE})`
         ),
+        width: 'auto',
+        height: 'auto',
+        bottom,
+        right,
       }}
     >
-      <Child index={index} active={active} />
+      <div
+        className={classes.side}
+        style={{
+          background: data[index].css,
+        }}
+      >
+        {data[index].name}
+      </div>
     </animated.div>
   )
 })

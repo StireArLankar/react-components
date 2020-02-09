@@ -1,8 +1,8 @@
-import React, { useEffect, memo, useContext } from 'react'
+import React, { useEffect, memo } from 'react'
 import clsx from 'clsx'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useStyles } from './useStyles'
-import { Ctx } from './ChainedGrid'
+import { data } from './data'
 
 export interface ChildProps {
   index: number
@@ -13,8 +13,6 @@ const initial = { y: 0, z: 0 }
 
 export const Child = memo((props: ChildProps) => {
   const { index, active } = props
-
-  const { onClick, data } = useContext(Ctx)
 
   const [{ z, y }, set]: any = useSpring(() => ({
     from: initial,
@@ -65,12 +63,9 @@ export const Child = memo((props: ChildProps) => {
     </div>
   )
 
-  const onMouseUp = () => onClick(index)
-
   return (
     <animated.div
       className={classes.inner}
-      onMouseUp={onMouseUp}
       style={{
         transform: interpolate(
           [y, z],

@@ -66,6 +66,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       height: '100%',
       display: 'grid',
       placeItems: 'center',
+      textAlign: 'center',
+      wordSpacing: 5000,
     },
   })
 )

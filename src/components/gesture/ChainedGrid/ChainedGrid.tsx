@@ -1,8 +1,9 @@
-import React, { useState, useCallback, useRef, useMemo } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { Item } from './Item'
+import { CrazyItem } from './CrazyItem'
 import useStyles from './useStyles'
 import { produce } from 'immer'
-import { data, ItemModel } from './data'
+import { data } from './data'
 
 const MAGIC = 4
 
@@ -16,19 +17,14 @@ const getXY = (pos: number): [number, number] => [
   Math.floor(pos / MAGIC),
 ]
 
-export const Ctx = React.createContext<{
-  onClick: (index: number) => void
-  data: ItemModel[]
-}>({
-  onClick: () => {},
-  data: [],
-})
-
 const indexedData = data.map((_, index) => getXY(index))
 
-export interface ChainedGridProps {}
+export interface ChainedGridProps {
+  isCrazy?: boolean
+}
 
 export const ChainedGrid = (props: ChainedGridProps) => {
+  const { isCrazy } = props
   const classes = useStyles()
 
   const [items, setItems] = useState<IState>(indexedData)
@@ -39,12 +35,7 @@ export const ChainedGrid = (props: ChainedGridProps) => {
     []
   )
 
-  const isTap = useRef(false)
-
-  const onStart = useCallback(() => {
-    set(null)
-    isTap.current = true
-  }, [])
+  const onStart = useCallback(() => set(null), [])
 
   const updateItemPosition = useCallback(
     (index: number, x: number, y: number) => {
@@ -88,9 +79,11 @@ export const ChainedGrid = (props: ChainedGridProps) => {
   const renderCells = () =>
     arr.map((_, index) => <div key={index} className={classes.gridItem} />)
 
+  const Component = useMemo(() => (isCrazy ? CrazyItem : Item), [isCrazy])
+
   const renderItems = () =>
     items.map((item, index) => (
-      <Item
+      <Component
         key={index}
         index={index}
         step={100}
@@ -99,18 +92,14 @@ export const ChainedGrid = (props: ChainedGridProps) => {
         updatePosition={updateItemPosition}
         onStart={onStart}
         active={active === index}
-        isTap={isTap}
+        onClick={setActive}
       />
     ))
 
-  const value = useMemo(() => ({ onClick: setActive, data }), [setActive])
-
   return (
-    <Ctx.Provider value={value}>
-      <div className={classes.grid}>
-        {renderCells()}
-        {renderItems()}
-      </div>
-    </Ctx.Provider>
+    <div className={classes.grid}>
+      {renderCells()}
+      {renderItems()}
+    </div>
   )
 }

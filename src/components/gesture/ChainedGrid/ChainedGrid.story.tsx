@@ -20,3 +20,5 @@ export default {
 }
 
 export const chainedGrid = () => <ChainedGrid />
+
+export const heroChainedGrid = () => <ChainedGrid isCrazy />
