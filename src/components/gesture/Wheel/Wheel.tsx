@@ -32,7 +32,7 @@ const scaleY = (x: number, i: number, width: number, amount: number) => {
   const val = clamp(itemValue / wid, 0, 1)
 
   // return `scale3d(1, ${val}, 1)`
-  return `translate3d(0, ${(1 - val) * 100}%, 0)`
+  return `translate3d(0, ${(1 - val) * 101}%, 0)`
 }
 
 export const Wheel = () => {
