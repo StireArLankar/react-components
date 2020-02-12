@@ -48,7 +48,7 @@ export const Virtualized = (props: VirtualizedProps) => {
   const bind = useDrag(
     ({ movement: [x] }) => {
       setX({ x: x })
-      setActive(Math.floor(-x / STEP) + 3)
+      isVirt && setActive(Math.floor(-x / STEP) + 3)
     },
     {
       initial: () => [x.getValue(), 0],
