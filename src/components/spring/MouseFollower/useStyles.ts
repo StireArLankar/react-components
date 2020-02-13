@@ -35,5 +35,11 @@ export const useStyles = makeStyles((theme: Theme) =>
         background: 'rgba(255, 255, 255, 0.8)',
       },
     },
+    alternative: {
+      boxShadow: 'none',
+      '&:after': {
+        content: 'none',
+      },
+    },
   })
 )

@@ -27,14 +27,19 @@ export const Goo = () => {
           />
           <feOffset in='shadow' dx='1' dy='1' result='shadow' />
           <feComposite in2='shadow' in='goo' result='goo' />
-          <feComposite in2='goo' in='SourceGraphic' result='mix' />
+          <feComposite
+            in2='goo'
+            in='SourceGraphic'
+            result='mix'
+            operator='atop'
+          />
         </filter>
         <filter id='goo'>
           <feGaussianBlur in='SourceGraphic' result='blur' stdDeviation='10' />
           <feColorMatrix
             in='blur'
             mode='matrix'
-            values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7'
+            values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -7'
             result='goo'
           />
           <feComposite
@@ -56,8 +61,6 @@ export const Temp = () => {
     set({ xy: [x, y] })
   })
 
-  console.log(xy)
-
   return (
     <Fragment>
       <Goo />
@@ -67,7 +70,7 @@ export const Temp = () => {
           style={{
             width: 100,
             height: 200,
-            background: 'red',
+            background: 'green',
             transform: xy.interpolate(trans as any),
             userSelect: 'none',
             position: 'fixed',
@@ -78,7 +81,7 @@ export const Temp = () => {
             width: 100,
             height: 100,
             background: 'red',
-            transform: `translateX(-50%)`,
+            transform: `translateX(-110%)`,
             userSelect: 'none',
           }}
         />
