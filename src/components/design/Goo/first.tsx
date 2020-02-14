@@ -70,7 +70,7 @@ export const Temp = () => {
           style={{
             width: 100,
             height: 200,
-            background: 'green',
+            background: 'red',
             transform: xy.interpolate(trans as any),
             userSelect: 'none',
             position: 'fixed',
