@@ -3,6 +3,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 import { Rubber } from './Rubber'
+import { Blob } from './Blob'
 
 export default {
   title: 'Gesture|Rubber',
@@ -19,3 +20,4 @@ export default {
 }
 
 export const rubber = () => <Rubber />
+export const blob = () => <Blob />

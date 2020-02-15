@@ -23,7 +23,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       width: 200,
       background: 'red',
       userSelect: 'none',
-      filter: 'url(#goo)',
       position: 'absolute',
       top: -100,
     },
