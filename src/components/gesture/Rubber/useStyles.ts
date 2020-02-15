@@ -26,6 +26,22 @@ export const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       top: -100,
     },
+    rotation: {
+      padding: 10,
+      position: 'relative',
+      animationName: '$rotate',
+      animationDuration: '5s',
+      animationIterationCount: 'infinite',
+      animationTimingFunction: 'linear',
+    },
+    '@keyframes rotate': {
+      from: {
+        transform: 'rotate(0deg)',
+      },
+      to: {
+        transform: 'rotate(360deg)',
+      },
+    },
   })
 )
 

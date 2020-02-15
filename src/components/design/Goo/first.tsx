@@ -64,7 +64,17 @@ export const Temp = () => {
   return (
     <Fragment>
       <Goo />
-      <div style={{ filter: 'url(#goo)', userSelect: 'none' }}>
+      <div
+        style={{
+          filter: 'url(#goo)',
+          userSelect: 'none',
+          display: 'grid',
+          placeItems: 'center',
+          minHeight: '100vh',
+          overflow: 'hidden',
+          width: '100%',
+        }}
+      >
         <animated.div
           {...bind()}
           style={{
