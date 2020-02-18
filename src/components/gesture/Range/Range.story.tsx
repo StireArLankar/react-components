@@ -4,6 +4,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { withTopLabel } from '../../../_storybook/withTopLabel'
 import { Range } from './Range'
+import { RangeSimple } from './RangeSimple'
 
 const label = (
   <Fragment>
@@ -27,3 +28,4 @@ export default {
 }
 
 export const range = () => <Range />
+export const rangeSimle = () => <RangeSimple />
