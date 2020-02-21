@@ -17,8 +17,8 @@ export interface PopupProps {
   onClose: () => void
 }
 
-const getOffset = (val: number, pos: 'top' | 'bottom') =>
-  pos === 'top' ? -val * 10 : val * 10
+const getOffset = (x: number, pos: 'top' | 'bottom') =>
+  pos === 'top' ? (1 - x) * 10 : (x - 1) * 10
 
 export const Popup = (props: PropsWithChildren<PopupProps>) => {
   const { isOpen, children, onClose, position } = props

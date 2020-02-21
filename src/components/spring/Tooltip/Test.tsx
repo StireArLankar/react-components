@@ -1,25 +1,29 @@
 import React, { useState } from 'react'
-import { Popup } from './Popup'
-import { NeonButton } from '../../design/Neon/NeonButton'
+import { Tooltip } from './Tooltip'
+import { LiquidButton } from '../../design/Liquid/LiquidButton'
 
 export const Test = (props: { position: 'top' | 'bottom' }) => {
   const { position = 'top' } = props
   const [isOpen, setIsOpen] = useState(false)
 
-  const onClose = () => setIsOpen(false)
-  const onOpen = () => setIsOpen(true)
+  const onMouseLeave = () => setIsOpen(false)
+  const onMouseEnter = () => setIsOpen(true)
 
   return (
-    <div style={{ position: 'relative' }}>
-      <NeonButton onClick={onOpen}>Open popup</NeonButton>
-      <Popup isOpen={isOpen} onClose={onClose} position={position}>
+    <div
+      style={{ position: 'relative' }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <LiquidButton>Open tooltip</LiquidButton>
+      <Tooltip isOpen={isOpen} position={position}>
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
           debitis eius. Quaerat, quas natus nostrum similique, deserunt
           laudantium velit veritatis sed dolores pariatur odit architecto totam
           culpa, porro magni omnis?
         </div>
-      </Popup>
+      </Tooltip>
     </div>
   )
 }
