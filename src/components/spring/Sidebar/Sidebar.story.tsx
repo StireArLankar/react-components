@@ -14,7 +14,7 @@ export default {
 }
 
 const children = [
-  <Accordion title='Content'>
+  <Accordion title='Content' key={1}>
     <div style={{ height: 100, backgroundColor: 'green' }} />
   </Accordion>,
   <div style={{ height: 100, backgroundColor: 'red' }} />,

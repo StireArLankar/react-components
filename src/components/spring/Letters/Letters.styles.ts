@@ -2,7 +2,7 @@ import createStyles from '@material-ui/core/styles/createStyles'
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import { Theme } from '@material-ui/core/styles/createMuiTheme'
 
-export const useStyles = makeStyles((theme: Theme) =>
+export default makeStyles((theme: Theme) =>
   createStyles({
     text: {
       fontSize: 30,
@@ -16,5 +16,3 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
   })
 )
-
-export default useStyles

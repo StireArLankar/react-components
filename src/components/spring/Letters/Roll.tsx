@@ -1,6 +1,6 @@
 import React, { useMemo, Fragment, useState, useEffect } from 'react'
 import { animated, useTrail, config } from 'react-spring'
-import { useStyles } from './useStyles'
+import useStyles from './Letters.styles'
 
 export interface JumpProps {
   children: string
@@ -10,23 +10,21 @@ const trans = (y: number) => `translateX(${y * 200}px) rotate(${y * 360}deg)`
 
 export const Roll = (props: JumpProps) => {
   const { children } = props
+
   const [flag, setFlag] = useState(false)
 
   const classes = useStyles()
 
   useEffect(() => {
-    setTimeout(() => setFlag((prev) => !prev), 1000)
+    const timer = setTimeout(() => setFlag((prev) => !prev), 1000)
+    return () => clearTimeout(timer)
   }, [flag])
 
   const chars = useMemo(() => children.split(''), [children])
 
   const trails = useTrail(children.length, {
-    from: {
-      x: 1,
-    },
-    to: {
-      x: 0,
-    },
+    from: { x: 1 },
+    to: { x: 0 },
     reverse: flag,
     config: config.stiff,
   })

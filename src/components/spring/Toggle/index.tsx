@@ -10,7 +10,8 @@ export const Toggle = () => {
   const classes = useStyles()
 
   useEffect(() => {
-    setInterval(() => setToggle((prev) => !prev), 2000)
+    const interval = setInterval(() => setToggle((prev) => !prev), 2000)
+    return () => clearInterval(interval)
   }, [])
 
   const transitions = useTransition(toggle, null, {

@@ -1,6 +1,6 @@
-import React, { useMemo, Fragment } from 'react'
+import React, { useMemo, Fragment, useCallback } from 'react'
 import { animated, useTrail, config, useSprings } from 'react-spring'
-import { useStyles } from './useStyles'
+import useStyles from './Letters.styles'
 
 export interface JumpProps {
   children: string
@@ -15,19 +15,19 @@ export const Jump = (props: JumpProps) => {
 
   const chars = useMemo(() => children.split(''), [children])
 
+  const asyncTo = useCallback(async (next: any) => {
+    while (1) {
+      await next({ y: 0 })
+      await next({ y: 1 })
+    }
+  }, [])
+
   // intends to stack chars together
   const springs = useSprings(
     chars.length,
     chars.map((_, index) => ({
-      from: {
-        y: 1,
-      },
-      to: async (next: any) => {
-        while (1) {
-          await next({ y: 0 })
-          await next({ y: 1 })
-        }
-      },
+      from: { y: 1 },
+      to: asyncTo,
       clamp: true,
       // config: config.gentle,
       config: {
@@ -38,88 +38,44 @@ export const Jump = (props: JumpProps) => {
   )
 
   const trails = useTrail(children.length, {
-    from: {
-      y: 1,
-    },
-    to: async (next: any) => {
-      while (1) {
-        await next({ y: 0 })
-        await next({ y: 1 })
-      }
-    },
+    from: { y: 1 },
+    to: asyncTo,
     config: config.stiff,
   })
 
   const trails2 = useTrail(children.length, {
-    from: {
-      y: 1,
-    },
-    to: async (next: any) => {
-      while (1) {
-        await next({ y: 0 })
-        await next({ y: 1 })
-      }
-    },
+    from: { y: 1 },
+    to: asyncTo,
     config: (i: string) => ({ mass: 2 + Number(i) * 0.1 }),
   })
 
-  const [springs2, set] = useSprings(children.length, (i) => ({
+  const [springs2, set2] = useSprings(children.length, (i) => ({
     config: {
       mass: (i + 1) * 1,
       friction: 20 + i * 3,
     },
-    from: {
-      y: 0,
-    },
-    to: {
-      y: 1,
-    },
+    from: { y: 0 },
+    to: { y: 1 },
     onRest: (key: any) => {
       if (i === 0) {
-        setTimeout(() => set({ to: { y: key.y === 0 ? 1 : 0 } }))
+        setTimeout(() => set2({ to: { y: key.y === 0 ? 1 : 0 } }))
       }
     },
   }))
 
-  const renderSprings = () =>
-    springs.map((props, index) => (
-      <animated.span
-        key={index}
-        className={classes.char}
-        style={{ transform: (props as any).y.interpolate(trans) }}
-      >
-        {chars[index]}
-      </animated.span>
-    ))
+  const [springs3] = useSprings(children.length, (i) => ({
+    from: { y: 0 },
+    to: asyncTo,
+    delay: (i + 1) * 100 + 500,
+    config: { clamp: true, tension: 200 },
+  }))
 
-  const renderSprings2 = () =>
-    springs2.map((props, index) => (
+  const renderArr = (arr: any[]) =>
+    arr.map<any>((props, index): any => (
       <animated.span
         key={index}
         className={classes.char}
-        style={{ transform: (props as any).y.interpolate(trans) }}
-      >
-        {chars[index]}
-      </animated.span>
-    ))
-
-  const renderLetters = () =>
-    trails.map((props, index) => (
-      <animated.span
-        key={index}
-        className={classes.char}
-        style={{ transform: (props as any).y.interpolate(trans) }}
-      >
-        {chars[index]}
-      </animated.span>
-    ))
-
-  const renderLetters2 = () =>
-    trails2.map((props, index) => (
-      <animated.span
-        key={index}
-        className={classes.char}
-        style={{ transform: (props as any).y.interpolate(trans) }}
+        style={{ transform: props.y.interpolate(trans) }}
       >
         {chars[index]}
       </animated.span>
@@ -127,10 +83,11 @@ export const Jump = (props: JumpProps) => {
 
   return (
     <Fragment>
-      <div className={classes.text}>{renderLetters()}</div>
-      <div className={classes.text}>{renderLetters2()}</div>
-      <div className={classes.text}>{renderSprings()}</div>
-      <div className={classes.text}>{renderSprings2()}</div>
+      <div className={classes.text}>{renderArr(trails)}</div>
+      <div className={classes.text}>{renderArr(trails2)}</div>
+      <div className={classes.text}>{renderArr(springs)}</div>
+      <div className={classes.text}>{renderArr(springs2)}</div>
+      <div className={classes.text}>{renderArr(springs3)}</div>
     </Fragment>
   )
 }
