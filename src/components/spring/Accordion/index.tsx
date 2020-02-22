@@ -13,14 +13,19 @@ export interface AccordionProps {
 
 export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
   const { title, children, hideArrow, arrowComponent } = props
+
   const [isOpened, setIsOpened] = useState(true)
+
   const classes = useAccordionStyles()
+
   const [ref, { height }] = useMeasure()
+
+  const adjustedHeight = isOpened && height === 0 ? 'auto' : height
 
   const onToggleClick = () => setIsOpened((prev) => !prev)
 
   const animProps = useSpring({
-    maxHeight: isOpened ? height : 0,
+    height: isOpened ? adjustedHeight : 0,
     opacity: isOpened ? 1 : 0,
   })
 

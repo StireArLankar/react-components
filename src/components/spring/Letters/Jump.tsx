@@ -67,7 +67,7 @@ export const Jump = (props: JumpProps) => {
     from: { y: 0 },
     to: asyncTo,
     delay: (i + 1) * 100 + 500,
-    config: { clamp: true, tension: 200 },
+    config: { clamp: true, tension: 200, mass: 20 },
   }))
 
   const renderArr = (arr: any[]) =>
