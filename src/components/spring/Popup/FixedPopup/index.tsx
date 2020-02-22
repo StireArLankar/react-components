@@ -4,9 +4,11 @@ import React, {
   useState,
   useRef,
   forwardRef,
+  useCallback,
 } from 'react'
-import { useTransition, animated } from 'react-spring'
+import { useTransition, animated, useSpring } from 'react-spring'
 import { createPortal } from 'react-dom'
+import debounce from 'lodash-es/debounce'
 import clsx from 'clsx'
 
 import useStyles from './FixedPopup.styles'
@@ -33,11 +35,48 @@ export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
     const { isOpen, children, onClose, position } = props
 
     const [innerIsOpen, setInnerIsOpen] = useState(isOpen)
-    const [xy, setXY] = useState<[number, number]>([0, 0])
 
     const contentRef = useRef<HTMLDivElement>(null)
 
     const classes = useStyles()
+
+    const isMounted = useRef(false)
+
+    const [{ left, top }, setPos] = useSpring(() => ({
+      left: 0,
+      top: 0,
+    }))
+
+    const updatePos = useCallback(() => {
+      const { x, y, width, height } = ref.current?.getBoundingClientRect() || {}
+
+      const left = x + width / 2 + window.pageXOffset || 0
+      const my = y + window.pageYOffset || 0
+      const top = position === 'top' ? my : my + height
+
+      setPos({ left, top })
+    }, [setPos, ref, position])
+
+    useEffect(() => {
+      if (isMounted.current) {
+        return
+      }
+
+      let timer: NodeJS.Timer
+
+      const handler = () => {
+        if (ref.current) {
+          isMounted.current = true
+          updatePos()
+        } else {
+          timer = setTimeout(handler, 100)
+        }
+      }
+
+      timer = setTimeout(handler, 100)
+
+      return () => clearTimeout(timer)
+    }, [ref, updatePos])
 
     useEffect(() => {
       setInnerIsOpen(isOpen)
@@ -45,13 +84,7 @@ export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
       const clickHandler = (evt: any) =>
         !evt.path.includes(contentRef.current) && setInnerIsOpen(false)
 
-      const resizeHandler = () => {
-        const { x, y, width, height } =
-          ref.current?.getBoundingClientRect() || {}
-        const mx = x + width / 2 + window.pageXOffset || 0
-        const my = y + window.pageYOffset || 0
-        setXY([mx, position === 'top' ? my : my + height])
-      }
+      const resizeHandler = debounce(() => updatePos(), 100)
 
       if (isOpen) {
         document.addEventListener('click', clickHandler, true)
@@ -63,7 +96,7 @@ export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
         document.removeEventListener('click', clickHandler, true)
         window.removeEventListener('resize', resizeHandler)
       }
-    }, [isOpen, ref, position])
+    }, [isOpen, updatePos])
 
     const transition = useTransition(innerIsOpen, null, {
       from: { o: 0 },
@@ -83,8 +116,8 @@ export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
               style={{
                 opacity: o,
                 transform: o.interpolate((o: number) => trans(o, position)),
-                left: xy[0],
-                top: xy[1],
+                left,
+                top,
               }}
               ref={contentRef}
             >

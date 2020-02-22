@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react'
 import { FixedPopup } from '.'
 import { NeonButton } from '../../../design/Neon/NeonButton'
 
-export const Test = (props: { position: 'top' | 'bottom' }) => {
-  const { position = 'top' } = props
+export const Test = (props: { position: 'top' | 'bottom'; temp?: boolean }) => {
+  const { position = 'top', temp } = props
   const [isOpen, setIsOpen] = useState(false)
 
   const ref = useRef<any>()
@@ -12,7 +12,12 @@ export const Test = (props: { position: 'top' | 'bottom' }) => {
   const onOpen = () => setIsOpen(true)
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div
+      style={{
+        position: 'relative',
+        left: `${temp ? -50 : 50}px`,
+      }}
+    >
       <NeonButton onClick={onOpen} ref={ref}>
         Open popup
       </NeonButton>
