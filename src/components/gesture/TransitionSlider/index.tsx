@@ -48,7 +48,7 @@ export const TransitionSlider = () => {
     ({ offset: [x] }) => {
       setX({ x })
     },
-    { domTarget: window }
+    { domTarget: window, axis: 'x' }
   )
 
   useEffect(() => {

@@ -10,7 +10,12 @@ import { boolean, number } from '@storybook/addon-knobs'
 export default {
   title: 'Gesture|Transition Slider',
   decorators: [
-    withCenteredStyle({ width: '100%', overflow: 'hidden' }),
+    withCenteredStyle({
+      width: '100%',
+      minHeight: '110vh',
+      display: 'grid',
+      placeItems: 'center',
+    }),
     withCustomTheme,
   ],
 }

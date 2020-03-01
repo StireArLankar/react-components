@@ -75,7 +75,7 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
         })
       }
     },
-    { domTarget: window }
+    { domTarget: window, axis: 'x' }
   )
 
   useEffect(() => {

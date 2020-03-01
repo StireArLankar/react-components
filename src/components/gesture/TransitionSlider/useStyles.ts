@@ -13,6 +13,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
       background: 'grey',
+      touchAction: 'pan-y',
     },
     wrapper: {
       position: 'relative',

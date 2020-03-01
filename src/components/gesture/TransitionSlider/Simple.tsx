@@ -43,6 +43,7 @@ export const SimpleSlider = () => {
         right: -value,
       },
       rubberband: true,
+      axis: 'x',
     }
   )
 

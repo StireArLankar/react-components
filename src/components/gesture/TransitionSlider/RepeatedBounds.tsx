@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useMemo } from 'react'
+import React, { useRef, useMemo } from 'react'
 import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
 import useStyles from './useStyles'
@@ -79,12 +79,8 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
         })
       }
     },
-    { domTarget: window }
+    { axis: 'x' }
   )
-
-  useEffect(() => {
-    bind()
-  }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (
@@ -117,6 +113,7 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
   return (
     <div
       className={classes.wrapperBig}
+      {...bind()}
       style={{ overflow: overflow ? 'unset' : 'hidden', width: number * WIDTH }}
     >
       <ul className={classes.list}>{renderImages()}</ul>
