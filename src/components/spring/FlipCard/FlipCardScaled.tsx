@@ -30,7 +30,7 @@ export const FlipCardScaled = (props: FlipCardProps) => {
   const [anim, set]: any = useSpring(() => ({
     from: initial,
     to: initial,
-    config: (key: string) =>
+    config: (key: string): any =>
       key === 'y'
         ? { tension: 120, friction: 14, clamp: false }
         : { tension: 50, friction: 5, clamp: true },

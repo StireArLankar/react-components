@@ -48,6 +48,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:story": "build-storybook -c .storybook -o storybook-static -s public",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "story": "start-storybook -p 9017",
