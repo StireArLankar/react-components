@@ -1,8 +1,12 @@
 import React from 'react'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-
 import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { Animation } from './Animation'
+import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { Animation, AnimationV2 } from './Animation'
+import { AutoSizeWrapper } from './Autosize'
+import { Damping } from './Damping'
+import { Keyframes } from './Keyframes'
+import { PositionTransition } from './PositionTransition'
+import { OrderTransition } from './OrderTransition'
 
 export default {
   title: 'Framer Motion|Basics',
@@ -18,3 +22,9 @@ export default {
 }
 
 export const animation = () => <Animation />
+export const animationV2 = () => <AnimationV2 />
+export const damping = () => <Damping />
+export const keyframes = () => <Keyframes />
+export const autoSize = () => <AutoSizeWrapper />
+export const positionTransition = () => <PositionTransition />
+export const orderTransition = () => <OrderTransition />

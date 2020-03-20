@@ -24,3 +24,31 @@ export const Animation = () => {
     </>
   )
 }
+
+export const AnimationV2 = () => {
+  const [count, setCount] = useState(0)
+
+  const classes = useStyles()
+
+  return (
+    <>
+      <LiquidButton
+        onClick={() => setCount((p) => p + 1)}
+        className={classes.button}
+      />
+      <motion.div
+        animate={{
+          backgroundColor: '#00ffff',
+          boxShadow: '10px 10px 0 rgba(255, 255, 255, 0.2)',
+          borderRadius: 40,
+          transitionEnd: {
+            display: 'none',
+          },
+        }}
+        transition={{ duration: 1 }}
+        key={count}
+        className={classes.box}
+      />
+    </>
+  )
+}
