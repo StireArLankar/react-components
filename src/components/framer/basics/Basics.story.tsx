@@ -7,6 +7,8 @@ import { Damping } from './Damping'
 import { Keyframes } from './Keyframes'
 import { PositionTransition } from './PositionTransition'
 import { OrderTransition } from './OrderTransition'
+import { Variants, NestedVariants } from './Variants'
+import { StaggerVariants } from './ComplexVariants'
 
 export default {
   title: 'Framer Motion|Basics',
@@ -28,3 +30,6 @@ export const keyframes = () => <Keyframes />
 export const autoSize = () => <AutoSizeWrapper />
 export const positionTransition = () => <PositionTransition />
 export const orderTransition = () => <OrderTransition />
+export const variants = () => <Variants />
+export const nestedVariants = () => <NestedVariants />
+export const staggerVariants = () => <StaggerVariants />
