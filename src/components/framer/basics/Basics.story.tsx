@@ -8,7 +8,16 @@ import { Keyframes } from './Keyframes'
 import { PositionTransition } from './PositionTransition'
 import { OrderTransition } from './OrderTransition'
 import { Variants, NestedVariants } from './Variants'
+import { AnimationHelpers, AnimationHelpersVariants } from './AnimationHelpers'
 import { StaggerVariants } from './ComplexVariants'
+import {
+  Drag,
+  DragAxis,
+  DragElastic,
+  DragNoMomentum,
+  DragControls,
+} from './Drag'
+import { DragPropagation } from './DragPropagation'
 
 export default {
   title: 'Framer Motion|Basics',
@@ -33,3 +42,11 @@ export const orderTransition = () => <OrderTransition />
 export const variants = () => <Variants />
 export const nestedVariants = () => <NestedVariants />
 export const staggerVariants = () => <StaggerVariants />
+export const animationHelpers = () => <AnimationHelpers />
+export const animationHelpersVariants = () => <AnimationHelpersVariants />
+export const drag = () => <Drag />
+export const dragAxis = () => <DragAxis />
+export const dragElastic = () => <DragElastic />
+export const dragNoMomentum = () => <DragNoMomentum />
+export const dragControls = () => <DragControls />
+export const dragPropagation = () => <DragPropagation />
