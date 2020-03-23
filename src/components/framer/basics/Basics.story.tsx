@@ -17,7 +17,9 @@ import {
   DragNoMomentum,
   DragControls,
 } from './Drag'
-import { DragPropagation } from './DragPropagation'
+import { DragPropagation, DragRefConstrains } from './DragPropagation'
+import { Cycle } from './Cycle'
+import { MotionValue } from './MotionValue'
 
 export default {
   title: 'Framer Motion|Basics',
@@ -50,3 +52,6 @@ export const dragElastic = () => <DragElastic />
 export const dragNoMomentum = () => <DragNoMomentum />
 export const dragControls = () => <DragControls />
 export const dragPropagation = () => <DragPropagation />
+export const dragRefConstrains = () => <DragRefConstrains />
+export const cycle = () => <Cycle />
+export const motionValue = () => <MotionValue />
