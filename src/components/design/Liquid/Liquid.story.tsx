@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-
-import { LiquidButton, LiquidButtonProps } from './LiquidButton'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { text } from '@storybook/addon-knobs'
+
+import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
+import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { withTopLabel } from '../../../_storybook/withTopLabel'
 import { themeColors } from '../../../theme/theme.styles'
+
+import { LiquidButton, LiquidButtonProps } from './LiquidButton'
 
 const label = (
   <Fragment>
