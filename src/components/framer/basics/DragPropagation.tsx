@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
+
 import { LiquidButton } from '../../design/Liquid/LiquidButton'
+
 import useStyles from './Animation.styles'
 
 export const DragPropagation = () => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, useDragControls } from 'framer-motion'
+
 import useStyles from './Animation.styles'
 
 export const Drag = () => {

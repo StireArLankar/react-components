@@ -1,5 +1,6 @@
 import { motion, useCycle } from 'framer-motion'
 import React from 'react'
+
 import useStyles from './Animation.styles'
 
 export const Cycle = () => {

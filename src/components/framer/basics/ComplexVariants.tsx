@@ -1,7 +1,9 @@
 import { motion, Variants } from 'framer-motion'
 import React, { useState } from 'react'
-import useStyles from './Animation.styles'
+
 import { LiquidButton } from '../../design/Liquid/LiquidButton'
+
+import useStyles from './Animation.styles'
 
 const list: Variants = {
   visible: {

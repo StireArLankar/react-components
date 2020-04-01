@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import useStyles from './Animation.styles'
+
 import { LiquidButton } from '../../design/Liquid/LiquidButton'
+
+import useStyles from './Animation.styles'
 
 const variants = {
   visible: { opacity: 1, scale: 0.5 },
