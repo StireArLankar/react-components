@@ -24,7 +24,8 @@ export const MyComponent2 = ({ items }: { items: Array<{ id: string }> }) => {
           className={classes.box}
           key={item.id}
           style={{ background: item.id === '1' ? 'teal' : 'pink' }}
-          positionTransition={spring}
+          transition={spring}
+          animate
         />
       ))}
     </div>

@@ -17,7 +17,8 @@ export const MyComponent1 = ({ isOpen }: { isOpen: boolean }) => {
 
   return (
     <motion.div
-      positionTransition={spring}
+      transition={spring}
+      animate
       className={classes.box}
       style={{
         left: isOpen ? 100 : 200,
