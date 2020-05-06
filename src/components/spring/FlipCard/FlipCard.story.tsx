@@ -1,10 +1,12 @@
 import React from 'react'
+import { radios } from '@storybook/addon-knobs'
+
 import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
-import { FlipCard } from '.'
 import { FlipCardScaled } from './FlipCardScaled'
-import { radios } from '@storybook/addon-knobs'
+
+import { FlipCard } from '.'
 
 export default {
   title: 'Spring|FlipCard',
