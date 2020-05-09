@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+
 import { themeColors } from '../theme/theme.styles'
 
 export const withTopLabel = (content: JSX.Element) => (fn: any) => (
-  <Fragment>
+  <>
     <div
       style={{
         position: 'fixed',
@@ -20,5 +21,5 @@ export const withTopLabel = (content: JSX.Element) => (fn: any) => (
       {content}
     </div>
     {fn()}
-  </Fragment>
+  </>
 )
