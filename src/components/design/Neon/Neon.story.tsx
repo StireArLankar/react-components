@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
+import { color } from '@storybook/addon-knobs'
+
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { themeColors } from '../../../theme/theme.styles'
+import { withTopLabel } from '../../../_storybook/withTopLabel'
 
 import { NeonButton } from './NeonButton'
 import { NeonButtonV2 } from './NeonV2'
-import { color } from '@storybook/addon-knobs'
-import { themeColors } from '../../../theme/theme.styles'
-import { withTopLabel } from '../../../_storybook/withTopLabel'
 
 const label = (
   <Fragment>
