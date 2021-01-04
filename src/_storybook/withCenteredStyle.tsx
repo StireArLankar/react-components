@@ -1,7 +1,10 @@
 import React from 'react'
+
 import { themeColors } from '../theme/theme.styles'
 
-export const withCenteredStyle = (style = {}) => (storyfn: any) => {
+export const withCenteredStyle = (style: React.CSSProperties = {}) => (
+  storyfn: any
+) => {
   return (
     <div
       style={{
