@@ -6,6 +6,7 @@ import {
   useSpring,
 } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
+import { Tuple } from 'react-use-gesture/dist/types'
 
 import useStyles from './styles'
 
@@ -27,22 +28,22 @@ export default memo(() => {
   }))
 
   const bind1 = useDrag(({ movement: [x, y] }) => set({ p1: [x, y] }), {
-    initial: () => p1.getValue(),
+    initial: () => p1.getValue() as Tuple<number>,
     bounds: boundsInner,
   })
 
   const bind2 = useDrag(({ movement: [x, y] }) => set({ p2: [x, y] }), {
-    initial: () => p2.getValue(),
+    initial: () => p2.getValue() as Tuple<number>,
     bounds: boundOuter,
   })
 
   const bind3 = useDrag(({ movement: [x, y] }) => set({ p3: [x, y] }), {
-    initial: () => p3.getValue(),
+    initial: () => p3.getValue() as Tuple<number>,
     bounds: boundOuter,
   })
 
   const bind4 = useDrag(({ movement: [x, y] }) => set({ p4: [x, y] }), {
-    initial: () => p4.getValue(),
+    initial: () => p4.getValue() as Tuple<number>,
     bounds: boundsInner,
   })
 
@@ -120,10 +121,10 @@ export default memo(() => {
               `M${p1[0]},${p1[1]} C${p2[0]},${p2[1]} ${p3[0]},${p3[1]} ${p4[0]},${p4[1]}`
           )}
         />
-        {renderPoint(p1, bind1)}
-        {renderPoint(p2, bind2)}
-        {renderPoint(p3, bind3)}
-        {renderPoint(p4, bind4)}
+        {renderPoint(p1 as any, bind1)}
+        {renderPoint(p2 as any, bind2)}
+        {renderPoint(p3 as any, bind3)}
+        {renderPoint(p4 as any, bind4)}
       </svg>
     </div>
   )
