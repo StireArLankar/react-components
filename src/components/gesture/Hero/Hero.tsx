@@ -54,6 +54,8 @@ export const Hero = () => {
     },
   }))
 
+  console.log(inner, innerRef)
+
   useLayoutEffect(() => {
     if (isOpen) {
       const bounds = ref.current?.getBoundingClientRect()

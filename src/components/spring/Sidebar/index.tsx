@@ -51,6 +51,8 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
     ref: itemsRef,
   })
 
+  console.log(itemsRef, trail, sidebarRef, transition)
+
   useChain(
     isOpen ? [sidebarRef, itemsRef] : [itemsRef, sidebarRef],
     isOpen ? [0, 0.4] : [0, 0.6]
