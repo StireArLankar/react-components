@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Temp } from './Modal'
 
 export default {
-  title: 'Spring|Modal',
+  title: 'Spring/Modal',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

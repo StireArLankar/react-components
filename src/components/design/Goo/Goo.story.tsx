@@ -6,7 +6,7 @@ import { Temp } from './first'
 import { Second } from './second'
 
 export default {
-  title: 'Design|Goo',
+  title: 'Design/Goo',
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 

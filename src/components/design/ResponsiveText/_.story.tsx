@@ -7,7 +7,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Temp from '.'
 
 export default {
-  title: 'Design|ResponsiveText',
+  title: 'Design/ResponsiveText',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

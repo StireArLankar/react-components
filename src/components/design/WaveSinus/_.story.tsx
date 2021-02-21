@@ -6,7 +6,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import Temp from '.'
 
 export default {
-  title: 'Design|Wave Sinus Loader',
+  title: 'Design/Wave Sinus Loader',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

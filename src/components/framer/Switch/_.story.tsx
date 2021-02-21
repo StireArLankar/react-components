@@ -6,7 +6,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Component from '.'
 
 export default {
-  title: 'Framer Motion|Switch',
+  title: 'Framer Motion/Switch',
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 

@@ -6,7 +6,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Temp from '.'
 
 export default {
-  title: 'Design|CustomSelect',
+  title: 'Design/CustomSelect',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

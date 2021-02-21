@@ -6,7 +6,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Component from '.'
 
 export default {
-  title: 'Spring|Cubic Bezier',
+  title: 'Spring/Cubic Bezier',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

@@ -1,8 +1,10 @@
+//@ts-nocheck
 import React from 'react'
 import clsx from 'clsx'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import { useStyles } from './useStyles'
 import { useSpring, animated, config } from 'react-spring'
+
+import { useStyles } from './useStyles'
 
 export interface RadialButtonsProps {
   buttons: RadialButtonModel[]
@@ -16,9 +18,9 @@ export interface RadialButtonModel {
 }
 
 const translate = (val: number, radians: number) =>
-  `translate(${100 * val * Math.cos(radians)}px, ${100 *
-    val *
-    Math.sin(radians)}px)`
+  `translate(${100 * val * Math.cos(radians)}px, ${
+    100 * val * Math.sin(radians)
+  }px)`
 
 export const RadialButton = (
   props: RadialButtonModel & { angle: number; isOpen: boolean }

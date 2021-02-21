@@ -4,7 +4,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 export default {
-  title: 'Native|Lense',
+  title: 'Native/Lense',
   decorators: [
     withCenteredStyle({ width: '100%', padding: 20, flexDirection: 'column' }),
     withCustomTheme,

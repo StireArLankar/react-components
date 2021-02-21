@@ -6,7 +6,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Component from '.'
 
 export default {
-  title: 'Framer Motion|Underline',
+  title: 'Framer Motion/Underline',
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 

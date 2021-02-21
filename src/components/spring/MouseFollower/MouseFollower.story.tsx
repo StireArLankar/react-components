@@ -6,7 +6,7 @@ import { MouseFollower as MouseFollowerV2 } from './V2'
 import { number } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Spring|Mouse Followers',
+  title: 'Spring/Mouse Followers',
   decorators: [withCustomTheme],
 }
 

@@ -7,7 +7,7 @@ import { Accordion, AccordionProps } from '.'
 import { MorphArrow } from './Arrow'
 
 export default {
-  title: 'Spring|Accordion',
+  title: 'Spring/Accordion',
   component: Accordion,
   decorators: [withCenteredStyle({ width: 600 }), withCustomTheme],
 }

@@ -8,7 +8,7 @@ import { Test as AnchorTest } from './PopupWithAnchor/Test'
 import { radios, boolean } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Spring|Popup',
+  title: 'Spring/Popup',
   decorators: [withCustomTheme],
 }
 

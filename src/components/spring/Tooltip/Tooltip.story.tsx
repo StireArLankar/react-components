@@ -7,7 +7,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Test } from './Test'
 
 export default {
-  title: 'Spring|Tooltip',
+  title: 'Spring/Tooltip',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

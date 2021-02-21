@@ -6,7 +6,7 @@ import { NestedNeumorphism } from './Nested'
 import { boolean } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Design|Neumorphism',
+  title: 'Design/Neumorphism',
   decorators: [
     (fn: any) => (
       <div

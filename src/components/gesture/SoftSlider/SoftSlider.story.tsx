@@ -19,7 +19,7 @@ const label = (
 )
 
 export default {
-  title: 'Gesture|Soft Slider',
+  title: 'Gesture/Soft Slider',
   decorators: [
     withCenteredStyle({ width: '100%' }),
     withCustomTheme,

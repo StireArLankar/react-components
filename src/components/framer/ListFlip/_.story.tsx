@@ -6,7 +6,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Component from '.'
 
 export default {
-  title: 'Framer Motion|List Flip',
+  title: 'Framer Motion/List Flip',
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%', boxSizing: 'border-box' }),

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useRef, useMemo, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useDrag } from 'react-use-gesture'

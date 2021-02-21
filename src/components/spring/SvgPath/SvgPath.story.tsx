@@ -7,7 +7,7 @@ import { themeColors } from '../../../theme/theme.styles'
 import { SvgPath } from '.'
 
 export default {
-  title: 'Spring|SvgPath',
+  title: 'Spring/SvgPath',
   decorators: [withCenteredStyle({ color: themeColors.text }), withCustomTheme],
 }
 

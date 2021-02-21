@@ -21,7 +21,7 @@ const label = (
 )
 
 export default {
-  title: 'Design|Ripple',
+  title: 'Design/Ripple',
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),

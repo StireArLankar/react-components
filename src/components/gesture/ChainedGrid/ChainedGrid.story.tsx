@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { ChainedGrid } from './ChainedGrid'
 
 export default {
-  title: 'Gesture|ChainedDnDGrid',
+  title: 'Gesture/ChainedDnDGrid',
   decorators: [
     withCenteredStyle({
       width: '100vw',

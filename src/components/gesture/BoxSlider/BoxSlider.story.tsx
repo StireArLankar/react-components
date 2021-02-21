@@ -9,7 +9,7 @@ import { QuarterInertialSlider } from './QuarterInertial'
 import { QuarterAutoplaySlider } from './QuarterAutoplay'
 
 export default {
-  title: 'Gesture|BoxSlider',
+  title: 'Gesture/BoxSlider',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

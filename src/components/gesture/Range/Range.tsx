@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useRef, useMemo, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
@@ -41,7 +42,9 @@ export const Range = () => {
 
   const bind = useDrag(
     ({ last, xy: [px], movement: [mx], memo = px - left - width / 2 }) => {
-      if (draggingControl.current || last) return
+      if (draggingControl.current || last) {
+        return
+      }
       const x = clamp(memo + mx, limits[0], limits[1])
       set({ x })
       setRelativePosition(x)

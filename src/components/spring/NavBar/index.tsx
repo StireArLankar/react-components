@@ -1,8 +1,9 @@
+//@ts-nocheck
 import React, { useState, useMemo } from 'react'
 import useMeasure from 'react-use-measure'
+import { useTransition, animated, useSpring } from 'react-spring'
 
 import { useStyles } from './useStyles'
-import { useTransition, animated, useSpring } from 'react-spring'
 
 export interface NavBarProps {
   items: NavBarItem[]

@@ -1,9 +1,10 @@
+//@ts-nocheck
 import React, { useState, useEffect } from 'react'
-
-import { useStyles } from './useStyles'
 import { useMove } from 'react-use-gesture'
 import { useSpring, animated, interpolate } from 'react-spring'
 import clsx from 'clsx'
+
+import { useStyles } from './useStyles'
 
 export const Cursor = () => {
   const classes = useStyles()

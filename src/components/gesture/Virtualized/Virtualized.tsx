@@ -1,8 +1,10 @@
+//@ts-nocheck
 import React, { useState } from 'react'
 import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
-import useStyles from './useStyles'
 import clamp from 'lodash-es/clamp'
+
+import useStyles from './useStyles'
 import imgs from './imgs'
 
 const STEP = 200
@@ -10,8 +12,9 @@ const WIDTH = 200
 
 // range: [-200, 400]
 const trans = (num: number) =>
-  `translate3d(${(num * WIDTH) / STEP}px, 0, 0) scale(${1.2 -
-    (Math.abs(-100 + num) * 4) / (200 * 10)})`
+  `translate3d(${(num * WIDTH) / STEP}px, 0, 0) scale(${
+    1.2 - (Math.abs(-100 + num) * 4) / (200 * 10)
+  })`
 
 const int = (x: number, i: number) => {
   const itemValue = x + STEP * i

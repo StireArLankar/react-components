@@ -8,7 +8,7 @@ import { RepeatedBounds } from './RepeatedBounds'
 import { boolean, number } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Gesture|Transition Slider',
+  title: 'Gesture/Transition Slider',
   decorators: [
     withCenteredStyle({
       width: '100%',

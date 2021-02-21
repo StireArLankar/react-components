@@ -1,8 +1,10 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react'
+import { produce } from 'immer'
+
+import useStyles from '../useStyles'
+
 import { Item } from './Item'
 import { LazyItem } from './LazyItem'
-import useStyles from '../useStyles'
-import { produce } from 'immer'
 
 const MAGIC = 4
 
@@ -49,7 +51,9 @@ export const UnfilledDnDGrid = (props: UnfilledDnDGridProps) => {
           const oldPos = getPos(draft[index])
           let newPos = getPos([x, y])
 
-          if (oldPos === newPos) return
+          if (oldPos === newPos) {
+            return
+          }
 
           const field = arr.slice()
           state.forEach((item, index) => (field[getPos(item)] = index))

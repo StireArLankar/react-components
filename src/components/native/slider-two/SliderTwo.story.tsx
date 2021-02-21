@@ -8,7 +8,7 @@ import Slide, { SlideProps } from './slide'
 import { text } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Native|SliderTwo',
+  title: 'Native/SliderTwo',
   decorators: [
     withCenteredStyle({ width: 'auto', backgroundColor: themeColors.text }),
     withCustomTheme,

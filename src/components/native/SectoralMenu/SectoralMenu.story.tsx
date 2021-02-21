@@ -26,7 +26,7 @@ const label = (
 )
 
 export default {
-  title: 'Native|Sectoral Menu',
+  title: 'Native/Sectoral Menu',
   decorators: [withCenteredStyle(), withCustomTheme, withTopLabel(label)],
 }
 

@@ -1,8 +1,10 @@
+//@ts-nocheck
 import React from 'react'
 import clsx from 'clsx'
 import { useSpring, animated } from 'react-spring'
 import Adjust from '@material-ui/icons/Adjust'
 import HighlightOff from '@material-ui/icons/HighlightOff'
+
 import { useStyles } from './useStyles'
 
 export interface CentralButtonProps {

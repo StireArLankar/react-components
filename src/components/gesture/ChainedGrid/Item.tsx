@@ -1,9 +1,10 @@
+//@ts-nocheck
 import React, { useEffect, useRef, useState, memo } from 'react'
-import useStyles from './useStyles'
 import { useSpring, animated, interpolate } from 'react-spring'
-
 import clamp from 'lodash-es/clamp'
 import { useGesture } from 'react-use-gesture'
+
+import useStyles from './useStyles'
 import { Child } from './Child'
 
 export interface ItemProps {
@@ -32,9 +33,8 @@ const updateAxis = (
     return clamp(current + diff + 1, 0, max)
   } else if (offset < -step / 2) {
     return clamp(current + diff - 1, 0, max)
-  } else {
-    return clamp(current + diff, 0, max)
   }
+  return clamp(current + diff, 0, max)
 }
 
 const setStable = (x: number, y: number, active?: boolean) => ({

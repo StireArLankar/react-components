@@ -19,7 +19,7 @@ const label = (
 )
 
 export default {
-  title: 'Gesture|MultiCard',
+  title: 'Gesture/MultiCard',
   decorators: [
     withCenteredStyle({ width: '100%' }),
     withCustomTheme,

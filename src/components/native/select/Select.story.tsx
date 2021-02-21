@@ -4,7 +4,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 export default {
-  title: 'Native|Select',
+  title: 'Native/Select',
   decorators: [
     withCenteredStyle({
       width: '100%',

@@ -20,7 +20,7 @@ const label = (
 )
 
 export default {
-  title: 'Design|Neumorphism Loader',
+  title: 'Design/Neumorphism Loader',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

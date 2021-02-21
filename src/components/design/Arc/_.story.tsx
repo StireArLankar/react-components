@@ -20,7 +20,7 @@ const label = (
 )
 
 export default {
-  title: 'Design|Arc Loader',
+  title: 'Design/Arc Loader',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

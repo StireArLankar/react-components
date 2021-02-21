@@ -7,7 +7,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Temp from '.'
 
 export default {
-  title: 'Spring|Button',
+  title: 'Spring/Button',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

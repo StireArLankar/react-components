@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Cancel } from '.'
 
 export default {
-  title: 'Gesture|Cancel',
+  title: 'Gesture/Cancel',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

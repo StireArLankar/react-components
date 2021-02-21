@@ -1,9 +1,11 @@
+//@ts-nocheck
 import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
+import clsx from 'clsx'
+
 import imgs from './imgs'
 import useStyles from './useStyles'
-import clsx from 'clsx'
 
 const wheel = (y: number) => {
   const imgHeight = window.innerWidth * 0.2 - 20

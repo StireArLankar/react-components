@@ -6,7 +6,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import Component from '.'
 
 export default {
-  title: 'Framer Motion|Cubic Bezier',
+  title: 'Framer Motion/Cubic Bezier',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

@@ -29,7 +29,7 @@ const items: NavBarItem[] = [
 ]
 
 export default {
-  title: 'Spring|NavBar with menu',
+  title: 'Spring/NavBar with menu',
   decorators: [
     withCenteredStyle({
       width: 'auto',

@@ -5,7 +5,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { Heart } from './Heart'
 
 export default {
-  title: 'Design|Heart',
+  title: 'Design/Heart',
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 

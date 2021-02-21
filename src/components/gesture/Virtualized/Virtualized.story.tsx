@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Virtualized } from './Virtualized'
 
 export default {
-  title: 'Gesture|Virtualized',
+  title: 'Gesture/Virtualized',
   decorators: [
     withCenteredStyle({ width: '100%', overflow: 'hidden' }),
     withCustomTheme,

@@ -19,7 +19,7 @@ const label = (
 )
 
 export default {
-  title: 'Spring|Tree',
+  title: 'Spring/Tree',
   decorators: [withCustomTheme, withTopLabel(label)],
 }
 

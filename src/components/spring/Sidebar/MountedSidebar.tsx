@@ -9,8 +9,9 @@ import {
   useSpring,
 } from 'react-spring'
 
-import { SidebarProps, sidebarTransform } from '.'
 import useStyles from './useStyles'
+
+import { SidebarProps, sidebarTransform } from '.'
 
 export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
   const { isOpen, children = [], right } = props
@@ -30,7 +31,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
 
   const childrenArray = React.Children.map(children, (child) => child)
   const itemsRef = useRef<ReactSpringHook>(null)
-  const trail = useTrail(childrenArray.length, {
+  const trail = useTrail(childrenArray?.length || 0, {
     opacity: isOpen ? 1 : 0,
     transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
     ref: itemsRef,
@@ -47,7 +48,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
   const renderItems = () =>
     trail.map((props, index) => (
       <animated.div key={index} style={props} className={classes.item}>
-        {childrenArray[index]}
+        {childrenArray?.[index]}
       </animated.div>
     ))
 

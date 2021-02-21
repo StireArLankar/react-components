@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Switch } from './Switch'
 
 export default {
-  title: 'Gesture|Switch',
+  title: 'Gesture/Switch',
   decorators: [
     withCenteredStyle({
       width: '100%',

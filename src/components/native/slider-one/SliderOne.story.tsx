@@ -7,7 +7,7 @@ import { Button, ButtonProps } from './Button'
 import { text } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Native|SliderOne',
+  title: 'Native/SliderOne',
   decorators: [
     withCenteredStyle({ width: 'auto', backgroundColor: 'var(--)' }),
     withCustomTheme,

@@ -9,7 +9,7 @@ import { FlipCardScaled } from './FlipCardScaled'
 import { FlipCard } from '.'
 
 export default {
-  title: 'Spring|FlipCard',
+  title: 'Spring/FlipCard',
   decorators: [
     withCenteredStyle({ width: 200, perspective: 1000 }),
     withCustomTheme,

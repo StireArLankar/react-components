@@ -18,7 +18,7 @@ const label = (
 )
 
 export default {
-  title: 'Gesture|Inertia',
+  title: 'Gesture/Inertia',
   decorators: [
     withCenteredStyle({ width: '100%' }),
     withCustomTheme,

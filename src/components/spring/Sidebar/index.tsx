@@ -40,7 +40,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
     ref: sidebarRef,
   })
 
-  const childrenArray = React.Children.map(children, (child) => child)
+  const childrenArray = React.Children.map(children, (child) => child) || []
   const items = childrenArray.map((_, index) => index)
 
   const itemsRef = useRef<ReactSpringHook>(null)

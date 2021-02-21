@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Card } from '.'
 
 export default {
-  title: 'Spring|Card',
+  title: 'Spring/Card',
   decorators: [withCenteredStyle({ width: 200 }), withCustomTheme],
 }
 

@@ -2,10 +2,14 @@
   "plugins": ["prettier"],
   "extends": ["prettier", "react-app"],
   "rules": {
+    "import/no-anonymous-default-export": "off",
+    "@typescript-eslint/no-redeclare": "off",
     "react/self-closing-comp": "warn",
     "prettier/prettier": [
       "warn",
-      {},
+      {
+        "endOfLine": "auto"
+      },
       {
         "usePrettierrc": true
       }

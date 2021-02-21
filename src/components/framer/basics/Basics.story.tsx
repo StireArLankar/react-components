@@ -24,7 +24,7 @@ import { Cycle } from './Cycle'
 import { MotionValue } from './MotionValue'
 
 export default {
-  title: 'Framer Motion|Basics',
+  title: 'Framer Motion/Basics',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

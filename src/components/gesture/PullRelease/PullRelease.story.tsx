@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { PullRelease } from '.'
 
 export default {
-  title: 'Gesture|PullRelease',
+  title: 'Gesture/PullRelease',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

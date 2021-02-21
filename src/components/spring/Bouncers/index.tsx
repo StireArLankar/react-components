@@ -1,5 +1,7 @@
+//@ts-nocheck
 import React, { useState } from 'react'
 import { animated, config, useSpring, useTrail } from 'react-spring'
+
 import { useStyles } from './useStyles'
 
 const trans = (x: number, y: number) =>

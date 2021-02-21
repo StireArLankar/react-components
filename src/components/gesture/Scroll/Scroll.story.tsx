@@ -6,7 +6,7 @@ import { Scroll } from '.'
 import { ScrollInner } from './ScrollInner'
 
 export default {
-  title: 'Gesture|Scroll',
+  title: 'Gesture/Scroll',
   decorators: [withCustomTheme],
 }
 

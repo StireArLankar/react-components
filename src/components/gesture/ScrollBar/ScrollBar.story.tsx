@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { ScrollBar } from './ScrollBar'
 
 export default {
-  title: 'Gesture|ScrollBar',
+  title: 'Gesture/ScrollBar',
   decorators: [withCustomTheme, withCenteredStyle({})],
 }
 

@@ -7,7 +7,7 @@ import { themeColors } from '../../../theme/theme.styles'
 import { text, number } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Native|Overflow',
+  title: 'Native/Overflow',
   decorators: [
     withCenteredStyle({ width: 'auto', backgroundColor: themeColors.text }),
     withCustomTheme,

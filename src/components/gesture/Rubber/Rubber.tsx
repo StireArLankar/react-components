@@ -1,8 +1,9 @@
+//@ts-nocheck
 import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
-import useStyles from './useStyles'
 
+import useStyles from './useStyles'
 import { ReactComponent as Filter } from './filter.svg'
 
 const trans = (y: number, c: number) =>

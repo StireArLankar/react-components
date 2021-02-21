@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Swipe } from '.'
 
 export default {
-  title: 'Gesture|Swipe',
+  title: 'Gesture/Swipe',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

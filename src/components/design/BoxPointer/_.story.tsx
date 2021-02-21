@@ -1,11 +1,12 @@
 import React from 'react'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
+import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
+
 import Temp from '.'
 
 export default {
-  title: 'Design|BoxPointer',
+  title: 'Design/BoxPointer',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

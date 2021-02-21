@@ -10,7 +10,7 @@ const slides = ['red', 'blue', 'yellow', 'orange']
 const style = { width: '100%', height: '100%' }
 
 export default {
-  title: 'Gesture|Auto Slider',
+  title: 'Gesture/Auto Slider',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

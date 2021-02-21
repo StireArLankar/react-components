@@ -5,7 +5,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Wheel } from './Wheel'
 
 export default {
-  title: 'Gesture|Wheel',
+  title: 'Gesture/Wheel',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

@@ -7,7 +7,7 @@ import { Blob } from './Blob'
 import { Inner } from './Inner'
 
 export default {
-  title: 'Gesture|Rubber',
+  title: 'Gesture/Rubber',
   decorators: [
     withCenteredStyle({
       width: '100%',

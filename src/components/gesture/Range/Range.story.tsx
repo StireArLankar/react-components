@@ -19,7 +19,7 @@ const label = (
 )
 
 export default {
-  title: 'Gesture|Range',
+  title: 'Gesture/Range',
   decorators: [
     withCenteredStyle({ width: '100%', height: '100%' }),
     withCustomTheme,

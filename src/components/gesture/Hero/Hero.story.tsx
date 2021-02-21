@@ -7,7 +7,7 @@ import { Hero } from './Hero'
 const label = <span>Click to expand, double-click to shrink</span>
 
 export default {
-  title: 'Gesture|Hero',
+  title: 'Gesture/Hero',
   decorators: [
     withCenteredStyle({ width: '100%' }),
     withCustomTheme,

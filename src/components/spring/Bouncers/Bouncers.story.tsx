@@ -4,7 +4,7 @@ import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { Bouncers, BouncersProps } from '.'
 
 export default {
-  title: 'Spring|Bouncers',
+  title: 'Spring/Bouncers',
   decorators: [withCustomTheme],
 }
 

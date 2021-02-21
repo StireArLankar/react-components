@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+
 import useStyles from './useStyles'
 import imgs from './imgs'
 
@@ -17,9 +18,8 @@ const updateValue = (x: number, step: number, current: number) => {
     return current + x - offset + step
   } else if (offset < -step / 2) {
     return current + x - offset - step
-  } else {
-    return current + x - offset
   }
+  return current + x - offset
 }
 
 export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
@@ -84,6 +84,7 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
         className={classes.container}
         style={{
           transform: x.interpolate((val) =>
+            //@ts-ignore
             rotate(int(val, imgs.length, index))
           ),
         }}
@@ -98,6 +99,7 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
+        {/* @ts-ignore */}
         {x.interpolate((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))

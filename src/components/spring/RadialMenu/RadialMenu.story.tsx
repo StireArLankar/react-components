@@ -34,7 +34,7 @@ const label = (
 )
 
 export default {
-  title: 'Spring|Radial Menu',
+  title: 'Spring/Radial Menu',
   decorators: [
     withCenteredStyle({ width: 600 }),
     withCustomTheme,

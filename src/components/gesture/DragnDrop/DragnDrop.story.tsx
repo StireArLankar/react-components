@@ -19,7 +19,7 @@ const label = (
 )
 
 export default {
-  title: 'Gesture|DragnDrop',
+  title: 'Gesture/DragnDrop',
   decorators: [
     withCenteredStyle({
       width: '100vw',

@@ -10,7 +10,7 @@ import { SwapDnDGrid } from './FilledDnDGrid/SwapDnDGrid'
 import { boolean } from '@storybook/addon-knobs'
 
 export default {
-  title: 'Gesture|DnDGrid',
+  title: 'Gesture/DnDGrid',
   decorators: [
     withCenteredStyle({
       width: '100vw',

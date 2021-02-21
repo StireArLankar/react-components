@@ -9,7 +9,7 @@ import { boolean } from '@storybook/addon-knobs'
 import { Accordion } from '../Accordion'
 
 export default {
-  title: 'Spring|Sidebar',
+  title: 'Spring/Sidebar',
   decorators: [withCenteredStyle(), withCustomTheme],
 }
 

@@ -21,7 +21,7 @@ const label = (
 )
 
 export default {
-  title: 'Design|Neon',
+  title: 'Design/Neon',
   decorators: [
     (fn: any) => (
       <div

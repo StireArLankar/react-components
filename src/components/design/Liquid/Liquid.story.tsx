@@ -21,7 +21,7 @@ const label = (
 )
 
 export default {
-  title: 'Design|Liquid',
+  title: 'Design/Liquid',
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),

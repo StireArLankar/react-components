@@ -7,7 +7,7 @@ import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 import { Roll } from './Roll'
 
 export default {
-  title: 'Spring|Letters',
+  title: 'Spring/Letters',
   decorators: [
     withCustomTheme,
     withCenteredStyle({

@@ -19,7 +19,7 @@ const label = (
 )
 
 export default {
-  title: 'Gesture|Cursor',
+  title: 'Gesture/Cursor',
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),

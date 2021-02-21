@@ -1,8 +1,10 @@
+//@ts-nocheck
 import React, { useRef } from 'react'
-import useStyles from './useStyles'
 import clamp from 'lodash-es/clamp'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
+
+import useStyles from './useStyles'
 
 const updateVal = (val: number, step: number, current: number, max: number) => {
   const offset = val % step
@@ -11,9 +13,8 @@ const updateVal = (val: number, step: number, current: number, max: number) => {
     return clamp(current + val - offset + step, 0, max * step)
   } else if (offset < -step / 2) {
     return clamp(current + val - offset - step, 0, max * step)
-  } else {
-    return clamp(current + val - offset, 0, max * step)
   }
+  return clamp(current + val - offset, 0, max * step)
 }
 
 export const Item = (props: { index: number; step: number; max: number }) => {

@@ -9,7 +9,7 @@ import { Ring, RingProps } from './progress-ring'
 import Result from './result'
 
 export default {
-  title: 'Native|Circle Bar',
+  title: 'Native/Circle Bar',
   decorators: [withCenteredStyle({ width: 500 }), withCustomTheme],
 }
 

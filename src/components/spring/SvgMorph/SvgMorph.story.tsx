@@ -22,7 +22,7 @@ const label = (
 )
 
 export default {
-  title: 'Spring|SvgMorph',
+  title: 'Spring/SvgMorph',
   decorators: [
     withCenteredStyle({ color: themeColors.text }),
     withCustomTheme,

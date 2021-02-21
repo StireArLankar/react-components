@@ -20,7 +20,7 @@ const label = (
 )
 
 export default {
-  title: 'Design|Icons',
+  title: 'Design/Icons',
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),

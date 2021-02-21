@@ -8,7 +8,7 @@ import { HorizontalDragSnap } from './HorizontalDragSnap'
 import { HorizontalDrag } from './HorizontalDrag'
 
 export default {
-  title: 'Gesture|Slider',
+  title: 'Gesture/Slider',
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 

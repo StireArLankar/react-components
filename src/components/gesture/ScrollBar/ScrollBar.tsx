@@ -1,9 +1,10 @@
+//@ts-nocheck
 import React, { useState, useEffect, useRef, Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
+import useMeasure from 'react-use-measure'
 
 import { useStyles } from './useStyles'
-import useMeasure from 'react-use-measure'
 
 const getWheelBounds = (height: number, val: number) => ({
   top: height <= 0 ? 0 : -val,
