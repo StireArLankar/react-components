@@ -9,7 +9,7 @@
     "clsx": "^1.0.4",
     "downshift": "^6.1.0",
     "framer-motion": "^2.0.0-beta.55",
-    "immer": "^5.3.4",
+    "immer": "^8.0.1",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
     "query-string": "^6.9.0",
