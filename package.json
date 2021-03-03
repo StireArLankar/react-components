@@ -16,6 +16,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-laag": "^2.0.2",
+    "react-remove-scroll": "^2.4.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^4.0.2",
     "react-spring": "^8.0.27",

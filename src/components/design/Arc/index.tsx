@@ -24,8 +24,8 @@ const Svg = () => (
   >
     <path
       d='M 1 4 A 1 1 0 0 1 7 4'
-      stroke-width='1'
-      stroke-linecap='round'
+      strokeWidth='1'
+      strokeLinecap='round'
       fill='none'
     />
   </svg>

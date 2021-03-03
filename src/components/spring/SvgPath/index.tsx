@@ -23,12 +23,12 @@ export const SvgPath = () => {
   return (
     <animated.svg
       viewBox='-2 0 50 40'
-      stroke-width='1'
+      strokeWidth='1'
       width={20}
       height={20}
       fill='transparent'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeLinecap='round'
+      strokeLinejoin='round'
       style={{
         stroke: 'currentColor',
         strokeDasharray: 100,
