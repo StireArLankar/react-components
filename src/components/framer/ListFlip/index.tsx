@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimateSharedLayout, MotionConfig } from 'framer-motion'
 
 import useStyles from './styles'
 
@@ -38,16 +38,21 @@ const List = ({ id, list, onItemClick, backgroundColor }: ListProps) => {
   const classes = useStyles()
 
   return (
-    <motion.ul layoutId={id} className={classes.list}>
+    <motion.ul
+      // layoutId={id}
+      className={classes.list}
+      style={{ borderRadius: 10 }}
+      layout
+    >
       {list.map((id) => (
         <motion.li
           className={classes.item}
-          style={{ backgroundColor, z: 2 }}
+          style={{ backgroundColor, zIndex: 2 }}
           key={id}
-          layoutId={id as any}
+          layoutId={id.toString()}
           id={'list-' + id}
           onClick={() => onItemClick(id)}
-          drag
+          // drag
         />
       ))}
     </motion.ul>
@@ -63,21 +68,23 @@ export default () => {
   ])
 
   return (
-    <AnimateSharedLayout transition={{ duration: 1 }}>
-      <div className={classes.container}>
-        <List
-          list={lists[0]}
-          onItemClick={(id) => move(id, 1, lists, setLists)}
-          backgroundColor='#ff3366'
-          id='listA'
-        />
-        <List
-          list={lists[1]}
-          onItemClick={(id) => move(id, 0, lists, setLists)}
-          backgroundColor='#0099ff'
-          id='listB'
-        />
-      </div>
-    </AnimateSharedLayout>
+    <MotionConfig transition={{ duration: 1 }}>
+      <AnimateSharedLayout>
+        <div className={classes.container}>
+          <List
+            list={lists[0]}
+            onItemClick={(id) => move(id, 1, lists, setLists)}
+            backgroundColor='#ff3366'
+            id='listA'
+          />
+          <List
+            list={lists[1]}
+            onItemClick={(id) => move(id, 0, lists, setLists)}
+            backgroundColor='#0099ff'
+            id='listB'
+          />
+        </div>
+      </AnimateSharedLayout>
+    </MotionConfig>
   )
 }

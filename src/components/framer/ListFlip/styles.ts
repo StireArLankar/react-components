@@ -24,7 +24,6 @@ export default makeStyles((theme: Theme) =>
       width: '100%',
       borderRadius: 5,
       zIndex: 1,
-      z: 1,
       position: 'relative',
 
       '&:not(:first-child)': {
