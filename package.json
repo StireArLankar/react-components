@@ -6,9 +6,10 @@
   "dependencies": {
     "@material-ui/core": "^4.8.2",
     "@material-ui/icons": "^4.5.1",
+    "@radix-ui/react-tabs": "^0.0.11",
     "clsx": "^1.0.4",
     "downshift": "^6.1.0",
-    "framer-motion": "^2.0.0-beta.55",
+    "framer-motion": "^4.1.2",
     "immer": "^8.0.1",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
