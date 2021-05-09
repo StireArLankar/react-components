@@ -1,7 +1,9 @@
 import React, { useState, useRef, DragEvent } from 'react'
+
+import useBGColor from '../../../hook/useBgColor'
+
 import style from './dnd.module.scss'
 import { ReactComponent as Hamburger } from './hamburger.svg'
-import useBGColor from '../../../hook/useBgColor'
 
 const initialItems = ['🍰 Cake', '🍩 Donut', '🍎 Apple', '🍕 Pizza']
 
@@ -23,7 +25,9 @@ export const DnDSorting = () => {
 
   const onDragOver = (index: number) => () => {
     const draggedOverItem = items[index]
-    if (draggedItem.current === draggedOverItem) return
+    if (draggedItem.current === draggedOverItem) {
+      return
+    }
 
     const arr = items.filter((item) => item !== draggedItem.current)
 

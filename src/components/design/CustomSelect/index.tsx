@@ -22,7 +22,7 @@ const variants: Variants = {
     opacity: 1,
     height: 'auto',
     transitionEnd: {
-      ['overflowY' as any]: 'auto',
+      overflowY: 'auto',
     },
   },
   exit: { opacity: 0, height: 0, overflowY: 'hidden' },

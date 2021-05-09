@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
@@ -70,9 +69,7 @@ export const Wheel = () => {
       <animated.li
         className={classes.item}
         style={{
-          transform: x.interpolate((x) =>
-            scaleY(x, i, width, Math.floor(width / 40))
-          ),
+          transform: x.to((x) => scaleY(x, i, width, Math.floor(width / 40))),
         }}
       />
     ))
@@ -83,13 +80,13 @@ export const Wheel = () => {
         className={classes.box}
         {...bind()}
         style={{
-          transform: x.interpolate(transX),
+          transform: x.to(transX),
         }}
       >
         <animated.svg
           className={classes.svg}
           style={{
-            transform: x.interpolate(rotZ),
+            transform: x.to(rotZ),
           }}
           viewBox='0 0 60 60'
         >

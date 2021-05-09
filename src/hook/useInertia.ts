@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
 import {
   useSpring,
-  AnimatedValue,
-  SetUpdateFn,
+  SpringValues,
+  SpringRef,
   SpringConfig,
   UseSpringProps,
 } from 'react-spring'
@@ -22,24 +22,25 @@ export interface NoninertialConfig extends SpringConfig {
 type IConfig<T extends {}> = InertialConfig<T> | NoninertialConfig
 
 export type UseInertia<T extends {}> = [
-  AnimatedValue<T>,
-  SetUpdateFn<T & { config: IConfig<T> }>
+  SpringValues<T>,
+  SpringRef<T & { config: IConfig<T> }>['set']
 ]
 
 export const useInertia = <T extends Record<string, any>>(
-  initialProps: UseSpringProps<any>
+  initialProps: UseSpringProps<T & { config: IConfig<T> }>
 ): UseInertia<T> => {
-  const [props, set]: any = useSpring(() => initialProps)
+  const [props, set] = useSpring(() => initialProps)
 
-  const setInertia = useCallback<SetUpdateFn<T & { config?: IConfig<T> }>>(
+  const setInertia = useCallback<SpringRef<T & { config: IConfig<T> }>['set']>(
     ({ config = {}, ...to }) => {
-      const { inertia, bounds, velocities, ...rest }: any = config as IConfig<T>
+      const { inertia, bounds, velocities, ...rest }: any = config
+
       if (inertia) {
         set({
           ...to,
-          onFrame: (values: T) => {
-            Object.entries(values).forEach(([key, v]) => {
-              const vel = props[key].velocity
+          onChange: (values) => {
+            Object.entries(values.value as any).forEach(([key, v]: any) => {
+              const vel = (props as any)[key].velocity
               const bound =
                 v >= bounds[key][1]
                   ? bounds[key][1]
@@ -47,7 +48,7 @@ export const useInertia = <T extends Record<string, any>>(
                   ? bounds[key][0]
                   : undefined
               if (bound !== undefined) {
-                props[key].stop()
+                ;(props as any)[key].stop()
                 set({
                   [key]: bound,
                   config: { decay: false, velocity: vel } as any,

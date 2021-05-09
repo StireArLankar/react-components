@@ -1,11 +1,5 @@
 import React, { memo, useRef, useState } from 'react'
-import {
-  animated,
-  AnimatedValue,
-  ReactSpringHook,
-  useChain,
-  useSpring,
-} from 'react-spring'
+import { animated, useSpringRef, useChain, useSpring } from 'react-spring'
 
 import { getTextWidth } from './helpers'
 import useStyles from './styles'
@@ -49,29 +43,28 @@ export default memo((props: ResponsiveTextProps) => {
 
   const [state, setState] = useState(false)
 
-  const ref1 = useRef<ReactSpringHook>(null)
-  const ref2 = useRef<ReactSpringHook>(null)
-  const ref3 = useRef<ReactSpringHook>(null)
-
   const svgRef = useRef<SVGSVGElement>(null)
 
-  const animatedProps = useSpring({
+  const ref1 = useSpringRef()
+  const ref2 = useSpringRef()
+  const ref3 = useSpringRef()
+
+  const temp1 = useSpring({
+    ref: ref1,
     opacity: state ? 0 : 1,
     from: { opacity: 1 },
-    ref: ref1,
   })
 
-  const animatedProps2 = useSpring({
+  const temp2 = useSpring({
     opacity: state ? 0 : 1,
-    from: { opacity: 1 },
-    ref: ref2,
-    onFrame: ({ opacity: val }: any) => {
+    onChange: ({ opacity: val }: any) => {
       const viewbox = `0 0 ${val * width + (1 - val) * y} ${y}`
       svgRef.current?.setAttribute('viewBox', viewbox)
     },
+    ref: ref2,
   })
 
-  const animatedProps3 = useSpring({
+  const temp3 = useSpring({
     opacity: state ? 1 : 0,
     from: { opacity: 0 },
     ref: ref3,
@@ -81,10 +74,6 @@ export default memo((props: ResponsiveTextProps) => {
     state ? [ref1, ref2, ref3] : [ref3, ref2, ref1],
     state ? [0, 0.3, 0.8] : [0, 0.6, 1.3]
   )
-
-  const temp1 = animatedProps as AnimatedValue<{ opacity: number }>
-  const temp2 = animatedProps2 as AnimatedValue<{ opacity: number }>
-  const temp3 = animatedProps3 as AnimatedValue<{ opacity: number }>
 
   const classes = useStyles()
 
@@ -97,7 +86,7 @@ export default memo((props: ResponsiveTextProps) => {
   return (
     <animated.svg
       onClick={() => setState((prev) => !prev)}
-      viewBox={temp2.opacity.interpolate(
+      viewBox={temp2.opacity.to(
         (val) => `0 0 ${val * width + (1 - val) * y} ${y}`
       )}
       ref={svgRef}
@@ -114,21 +103,21 @@ export default memo((props: ResponsiveTextProps) => {
         x='5'
         y='5'
         fill='none'
-        width={temp2.opacity.interpolate(
+        width={temp2.opacity.to(
           (val) => (width - 10) * val + (y - 10) * (1 - val)
         )}
         height={y - 10}
-        rx={temp2.opacity.interpolate({
+        rx={temp2.opacity.to({
           range: [0, 0.5, 1],
           output: [y / 2, 10, 10],
         })}
         pathLength='10'
         style={{
-          strokeDasharray: temp2.opacity.interpolate({
+          strokeDasharray: temp2.opacity.to({
             range: [0, 1],
             output: [10, 2.5],
           }),
-          strokeDashoffset: temp2.opacity.interpolate({
+          strokeDashoffset: temp2.opacity.to({
             range: [0, 1],
             output: [0, 3.1],
           }),
@@ -146,7 +135,7 @@ export default memo((props: ResponsiveTextProps) => {
         transform='scale(0.8)'
         style={{
           strokeDasharray: 100,
-          strokeDashoffset: temp3.opacity.interpolate({
+          strokeDashoffset: temp3.opacity.to({
             range: [0, 1],
             output: [100, 0],
           }),

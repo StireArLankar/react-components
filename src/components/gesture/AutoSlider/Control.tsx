@@ -18,7 +18,7 @@ export const Control = (props: ControlProps) => {
     <div className={classes.controls}>
       <animated.div
         className={classes.fill}
-        style={{ transform: x.interpolate((val) => `scaleX(${val})`) }}
+        style={{ transform: x.to((val) => `scaleX(${val})`) }}
       />
     </div>
   )

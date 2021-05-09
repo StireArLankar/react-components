@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
@@ -60,7 +59,7 @@ export const MultiCard = () => {
     >
       <animated.div
         className={classes.inner}
-        style={{ transform: wheelY.interpolate(wheel) }}
+        style={{ transform: wheelY.to(wheel) }}
       >
         {imgs.map((img, i) => (
           <div key={i} style={{ backgroundImage: `url(${img})` }} />

@@ -42,7 +42,7 @@ export const MouseFollower = (props: MouseFollowerProps) => {
             className={classes.goo}
             key={index}
             style={{
-              transform: (props as any).xy.interpolate(trans),
+              transform: (props as any).xy.to(trans),
               backgroundColor: color(index),
             }}
           />

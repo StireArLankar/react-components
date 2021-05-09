@@ -45,9 +45,7 @@ export const Inner = (props: InnerProps) => {
           position: 'absolute',
           width: 40,
           height: 20,
-          transform: bump
-            ? y.interpolate((y: number) => rot1(y, index))
-            : rot2(index),
+          transform: bump ? y.to((y: number) => rot1(y, index)) : rot2(index),
           backgroundColor: 'currentColor',
           transformOrigin: 'left',
           top: '50%',
@@ -66,7 +64,7 @@ export const Inner = (props: InnerProps) => {
       >
         <animated.div
           style={{
-            transform: y.interpolate(
+            transform: y.to(
               (y: number) => `translate(-50%, -50%) scale(${1 + y * 0.3})`
             ),
             backgroundColor: 'currentColor',

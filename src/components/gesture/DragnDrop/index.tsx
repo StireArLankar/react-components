@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import clamp from 'lodash-es/clamp'
 import swap from 'lodash-move'
 import { useDrag } from 'react-use-gesture'
-import { useSprings, animated, interpolate } from 'react-spring'
+import { useSprings, animated, to } from 'react-spring'
+
 import { useStyles } from './useStyles'
 
 const immediate = (key: string) => key === 'y' || key === 'zIndex'
@@ -54,7 +55,7 @@ export const DragnDrop = () => {
 
     const newOrder = swap(state, curIndex, curRow)
 
-    setSprings(fn(newOrder, down, originalIndex, curIndex, y) as any)
+    setSprings(fn(newOrder, down, originalIndex, curIndex, y))
 
     if (!down) {
       setState(newOrder)
@@ -69,11 +70,11 @@ export const DragnDrop = () => {
           key={i}
           className={classes.item}
           style={{
-            zIndex: zIndex.interpolate((val: number) => val.toFixed(0)) as any,
-            boxShadow: shadow.interpolate(
-              (s: number) => `0px ${s}px ${2 * s}px 0px rgba(0, 0, 0, 0.3) `
+            zIndex: zIndex.to((val) => Number(val.toFixed(0))),
+            boxShadow: shadow.to(
+              (s) => `0px ${s}px ${2 * s}px 0px rgba(0, 0, 0, 0.3) `
             ),
-            transform: interpolate(
+            transform: to(
               [y, scale],
               (y, scale) => `translate3d(0, ${y}px, 0) scale(${scale})`
             ),

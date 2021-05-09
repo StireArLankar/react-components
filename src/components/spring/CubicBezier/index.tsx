@@ -54,7 +54,7 @@ export default memo(() => {
       cx={0}
       cy={0}
       r={10}
-      style={{ transform: xy.interpolate(trans) }}
+      style={{ transform: xy.to(trans) }}
       stroke='none'
       fill='red'
       {...bind()}

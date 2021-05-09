@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState, useEffect, useRef, Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
@@ -89,7 +88,7 @@ export const ScrollBar = () => {
       <animated.div
         className={classes.progress}
         style={{
-          transform: y.interpolate((val) =>
+          transform: y.to((val) =>
             interpolateScroll(contentHeight, containerHeight, val)
           ),
         }}
@@ -125,7 +124,7 @@ export const ScrollBar = () => {
         ref={contentRef}
         style={{
           paddingRight: height > 0 ? 9 : 0,
-          transform: y.interpolate((val) => `translate(0, ${-val}px)`),
+          transform: y.to((val) => `translate(0, ${-val}px)`),
         }}
       >
         {renderItems(5)}

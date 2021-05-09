@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useEffect, useRef } from 'react'
 import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
@@ -90,9 +89,7 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
       <animated.li
         className={classes.container}
         style={{
-          transform: x.interpolate((val) =>
-            trans(int(val, imgs.length, index))
-          ),
+          transform: x.to((val) => trans(int(val, imgs.length, index))),
         }}
       >
         <div
@@ -105,7 +102,7 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {x.interpolate((val) => int(val, imgs.length, index).toFixed(0))}
+        {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))
 

@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-import { withTopLabel } from '../../../_storybook/withTopLabel'
-// import { Inertia } from './Inertia'
-import { themeColors } from '../../../theme/theme.styles'
+import React from 'react'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
+import { withTopLabel } from '_storybook/withTopLabel'
+import { themeColors } from 'theme/theme.styles'
+
+import { Inertia } from './Inertia'
 
 const label = (
-  <Fragment>
+  <>
     <span>Thx to </span>
     <a
       style={{ color: themeColors.orange, textDecoration: 'none' }}
@@ -14,7 +15,7 @@ const label = (
     >
       demonstration
     </a>
-  </Fragment>
+  </>
 )
 
 export default {
@@ -26,10 +27,4 @@ export default {
   ],
 }
 
-export const example = () => (
-  <div style={{ color: 'white', fontSize: 30 }}>
-    NOT WORKING UNTIL REACT-SPRING_V9
-  </div>
-)
-
-// export const inertia = () => <Inertia />
+export const inertia = () => <Inertia />

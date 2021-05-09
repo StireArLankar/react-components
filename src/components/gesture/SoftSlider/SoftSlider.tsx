@@ -184,7 +184,7 @@ export const Slider = ({
             [vertical ? 'justifyContent' : 'alignItems']: slideAlign,
             display: 'flex',
             ...slideStyleFunc(i),
-            zIndex: styles.zIndex.interpolate((val: number) => val.toFixed(0)),
+            zIndex: styles.zIndex.to((val: number) => val.toFixed(0)),
             transform: interpolate(
               [styles[axis], styles.s],
               (x, s) => `translate${axis.toUpperCase()}(${x}px) scale(${s})`

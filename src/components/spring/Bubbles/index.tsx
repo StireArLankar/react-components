@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { useTransition, animated, useSpring } from 'react-spring'
 
 import useStyles from './useStyles'
-import { useTransition, animated, useSpring } from 'react-spring'
 import { BubbleSvg } from './BubbleSvg'
 
 const initiaItems = [0, 1, 2, 3, 4, 5, 6, 7, 8]
@@ -20,7 +20,7 @@ export const Bubbles = () => {
 
   const classes = useStyles()
 
-  const transitions = useTransition(items, (item) => item, {
+  const transitions = useTransition(items, {
     initial: {
       width: 100,
       opacity: 1,
@@ -54,14 +54,12 @@ export const Bubbles = () => {
 
   return (
     <ul className={classes.list}>
-      {transitions.map(({ item, props, key }) => (
+      {transitions((props, item, _, key) => (
         <animated.li key={key} className={classes.item} style={props}>
           <animated.div
             className={classes.item}
             style={{
-              transform: (spring as any).x.interpolate((val: number) =>
-                transf(val, item)
-              ),
+              transform: spring.x.to((val) => transf(val, item)),
             }}
           >
             <BubbleSvg onClick={destroyBubble(item)} />

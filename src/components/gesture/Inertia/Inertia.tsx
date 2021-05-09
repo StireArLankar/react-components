@@ -1,8 +1,8 @@
 import React from 'react'
 import { animated, config } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
-import { useInertia } from '../../../hook/useInertia'
 import useMeasure from 'react-use-measure'
+import { useInertia } from 'hook/useInertia'
 
 import useStyles from './useStyles'
 
@@ -15,7 +15,11 @@ const imgs = [
 ]
 
 export const Inertia = () => {
-  const [{ y }, set] = useInertia<{ y: number }>({ y: 0 })
+  const [{ y }, set] = useInertia<{ y: number }>({
+    y: 0,
+    config: { decay: false, velocity: 0 },
+  })
+
   const [ref, { height }] = useMeasure()
   const wHeight = window.innerHeight
 
@@ -39,14 +43,14 @@ export const Inertia = () => {
       },
       onWheel: ({ delta: [, dy] }) => {
         set({
-          y: Math.max(-height + wHeight, Math.min(y.getValue() - dy * 3, 0)),
+          y: Math.max(-height + wHeight, Math.min(y.get() - dy * 3, 0)),
           config: config.stiff,
         })
       },
     },
     {
       drag: {
-        initial: () => [0, y.getValue()],
+        initial: () => [0, y.get()],
         bounds: { top: -height + wHeight, bottom: 0 },
         rubberband: true,
       },
@@ -58,9 +62,7 @@ export const Inertia = () => {
       ref={ref}
       className={classes.wrapper}
       {...bind()}
-      style={{
-        transform: y.interpolate((y) => `translate3d(0, ${y}px, 0)`),
-      }}
+      style={{ y }}
     >
       {imgs.map((img, i) => (
         <div

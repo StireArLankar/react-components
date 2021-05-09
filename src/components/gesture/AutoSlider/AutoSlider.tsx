@@ -148,9 +148,7 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
       <animated.li
         className={classes.item}
         style={{
-          transform: (x as any).interpolate((val: number) =>
-            trans(int(val, length, i, width))
-          ),
+          transform: x.to((val) => trans(int(val, length, i, width))),
         }}
       >
         {child}

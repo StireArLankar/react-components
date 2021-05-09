@@ -37,7 +37,7 @@ export const Blob = () => {
         <animated.div
           className={classes.box}
           style={{
-            transform: y.interpolate(
+            transform: y.to(
               (y: number) =>
                 `translate(-50%, -50%) scale(${1 + y * 0.3}, ${1 - y * 0.3})`
             ),

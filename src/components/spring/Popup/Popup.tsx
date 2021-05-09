@@ -56,7 +56,7 @@ export const Popup = (props: PropsWithChildren<PopupProps>) => {
             key={key}
             style={{
               opacity: o,
-              transform: o.interpolate(
+              transform: o.to(
                 (o: number) => `translate(-50%, ${getOffset(o, position)}px)`
               ),
             }}

@@ -1,7 +1,6 @@
-//@ts-nocheck
 import React, { useEffect } from 'react'
 import clamp from 'lodash-es/clamp'
-import { useSpring, animated, interpolate } from 'react-spring'
+import { useSpring, animated, to } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
 
 import useStyles from './useStyles'
@@ -83,11 +82,11 @@ export const ConnectedItem = (props: ConnectedItemProps) => {
       {...bind()}
       className={classes.item}
       style={{
-        zIndex: zIndeX.interpolate((val) => val.toFixed(0)) as any,
-        boxShadow: shadow.interpolate(
-          (s: number) => `0px ${s}px ${2 * s}px 0px rgba(0, 0, 0, 0.3)`
+        zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
+        boxShadow: shadow.to(
+          (s) => `0px ${s}px ${2 * s}px 0px rgba(0, 0, 0, 0.3)`
         ),
-        transform: interpolate(
+        transform: to(
           [y, x, scalE],
           (y, x, scalE) => `translate3d(${x}px, ${y}px, 0) scale(${scalE})`
         ),

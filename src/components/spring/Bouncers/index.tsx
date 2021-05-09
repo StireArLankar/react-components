@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState } from 'react'
 import { animated, config, useSpring, useTrail } from 'react-spring'
 
@@ -15,16 +14,13 @@ export const Bouncers = (props: BouncersProps) => {
   const [toggle, setToggle] = useState(false)
   const [isLeft, setIsLeft] = useState(true)
 
-  const onRest = () => setToggle((prev) => !prev)
   const onClick = () => setIsLeft((prev) => !prev)
 
   const { y } = useSpring({
-    from: {
-      y: 10,
-    },
+    from: { y: 10 },
     y: 90,
     reverse: toggle,
-    onRest: onRest,
+    onRest: () => setToggle((prev) => !prev),
   })
 
   const left = isLeft ? 10 : 90
@@ -39,9 +35,7 @@ export const Bouncers = (props: BouncersProps) => {
       <animated.div
         className={classes.bouncer}
         key={index}
-        style={{
-          transform: (props as any).xy.interpolate(trans),
-        }}
+        style={{ transform: props.xy.to(trans) }}
       />
     ))
 
@@ -51,14 +45,14 @@ export const Bouncers = (props: BouncersProps) => {
       <animated.div
         className={classes.bouncer}
         style={{
-          transform: y.interpolate((y) => trans(10, y)),
+          transform: y.to((y) => trans(10, y)),
           backgroundColor: 'black',
         }}
       />
       <animated.div
         className={classes.bouncer}
         style={{
-          transform: y.interpolate((y) => trans(90, y)),
+          transform: y.to((y) => trans(90, y)),
           backgroundColor: 'black',
         }}
       />

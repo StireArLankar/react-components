@@ -36,7 +36,7 @@ export const BoxSlider = (props: BoxSliderProps) => {
         key={index}
         className={classes.container}
         style={{
-          transform: x.interpolate((val) =>
+          transform: x.to((val) =>
             //@ts-ignore
             rotate(int(val, imgs.length, index))
           ),
@@ -53,7 +53,7 @@ export const BoxSlider = (props: BoxSliderProps) => {
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
         {/* @ts-ignore */}
-        {x.interpolate((val) => int(val, imgs.length, index).toFixed(0))}
+        {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))
 

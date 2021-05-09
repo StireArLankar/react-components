@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState, useEffect } from 'react'
 import { useMove } from 'react-use-gesture'
 import { useSpring, animated, interpolate } from 'react-spring'
@@ -48,7 +47,7 @@ export const Cursor = () => {
             [x, y, s],
             (x, y, s) => `translate(${x}px, ${y}px) scale(${s + 1})`
           ),
-          background: s.interpolate((s) => `rgba(0, 0, 0, ${s})`),
+          background: s.to((s) => `rgba(0, 0, 0, ${s})`),
         }}
       />
       <ul className={classes.nav}>{renderItems()}</ul>

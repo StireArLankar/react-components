@@ -130,8 +130,7 @@ export const ListSlider = (props: PropsWithChildren<SliderProps>) => {
         className={classes.slides}
         {...bind()}
         style={{
-          //@ts-ignore
-          transform: x.interpolate((val: number) => trans(int(val, length))),
+          transform: x.to((val) => trans(int(val, length))),
           overflow: 'unset',
         }}
       >

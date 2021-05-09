@@ -67,18 +67,16 @@ export const FlipCardScaled = (props: FlipCardProps) => {
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
       style={{
-        transform: anim.z.interpolate(
-          (z: number) => `translate3d(0, 0, ${300 * z}px)`
-        ),
+        transform: anim.z.to((z: number) => `translate3d(0, 0, ${300 * z}px)`),
       }}
     >
       <animated.div
         className={classes.inner}
         style={{
-          transform: anim.y.interpolate(
+          transform: anim.y.to(
             (y: number) => `rotate${mapper[dir]}${180 * y}deg)`
           ),
-          boxShadow: anim.z.interpolate(
+          boxShadow: anim.z.to(
             (z: number) => `0px ${15 * z}px ${30 * z}px 0px rgba(0, 0, 0, 0.7)`
           ),
         }}

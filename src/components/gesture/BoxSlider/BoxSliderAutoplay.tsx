@@ -31,7 +31,7 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
 
   const [{ x }, setX] = useSpring(() => ({
     x: start,
-    onStart: (): any => (isAnimatingRef.current = true),
+    onStart: () => (isAnimatingRef.current = true),
     onRest: () => (isAnimatingRef.current = false),
   }))
 
@@ -83,10 +83,7 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
         key={index}
         className={classes.container}
         style={{
-          transform: x.interpolate((val) =>
-            //@ts-ignore
-            rotate(int(val, imgs.length, index))
-          ),
+          transform: x.to((val) => rotate(int(val, imgs.length, index))),
         }}
       >
         <animated.div
@@ -99,8 +96,7 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {/* @ts-ignore */}
-        {x.interpolate((val) => int(val, imgs.length, index).toFixed(0))}
+        {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))
 

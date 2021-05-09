@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React from 'react'
 import { useWheel } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
@@ -26,7 +25,7 @@ export const VerticalWheel = () => {
         ref={ref}
         className={classes.inner}
         style={{
-          transform: wheelY.interpolate((val) => wheel(val, height, 5)),
+          transform: wheelY.to((val) => wheel(val, height, 5)),
         }}
       >
         {imgs.map((img, i) => (

@@ -37,7 +37,7 @@ export const RadialMenu = (props: RadialMenuProps) => {
   return (
     <animated.div
       className={classes.wrapper}
-      style={{ transform: x.interpolate((val) => `rotate(${val}deg)`) }}
+      style={{ transform: x.to((val) => `rotate(${val}deg)`) }}
     >
       <CentralButton {...centralButtonProps} />
       <RadialButtons {...radialButtonsProps} />

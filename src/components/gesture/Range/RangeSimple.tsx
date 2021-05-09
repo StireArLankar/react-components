@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useRef, useMemo, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
@@ -38,7 +37,7 @@ export const RangeSimple = () => {
     <animated.div
       className={classes.wrapper}
       style={{
-        color: x.interpolate({
+        color: x.to({
           range: limits,
           output: ['#833ab4', '#fcb045'],
         }),

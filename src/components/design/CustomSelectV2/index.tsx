@@ -162,7 +162,7 @@ export const Temp = (props: SelectProps) => {
     refWidth.current = triggerBounds?.width
   }
 
-  const anim = useSpring<{ c: number }>({ c: isOpen ? 100 : 0 })
+  const anim = useSpring({ c: isOpen ? 100 : 0 })
 
   const { ref: menuRef, ...menuProps } = getMenuProps()
 
@@ -198,13 +198,11 @@ export const Temp = (props: SelectProps) => {
           style={{
             ...layerProps.style,
             width: refWidth.current,
-            clipPath: anim.c.interpolate(
+            clipPath: anim.c.to(
               layerSide === 'top' ? clipFromBottom : clipFromTop
             ),
-            pointerEvents: anim.c.interpolate((val) =>
-              val > 50 ? 'auto' : 'none'
-            ),
-            opacity: anim.c.interpolate((val) => val / 100),
+            pointerEvents: anim.c.to((val) => (val > 50 ? 'auto' : 'none')),
+            opacity: anim.c.to((val) => val / 100),
             backgroundColor: 'white',
             borderRadius: 12,
             overflow: 'hidden',

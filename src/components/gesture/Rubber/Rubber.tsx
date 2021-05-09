@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
@@ -31,32 +30,32 @@ export const Rubber = () => {
       <animated.div
         className={classes.wrapper}
         style={{
-          bottom: y.interpolate((y) => y * 0.5 + 10),
+          bottom: y.to((y) => y * 0.5 + 10),
         }}
       >
         <animated.div
           className={classes.box}
           style={{
-            transform: y.interpolate((y) => trans(y, 0.5)),
+            transform: y.to((y) => trans(y, 0.5)),
           }}
         />
         <animated.div
           className={classes.box}
           style={{
-            transform: y.interpolate((y) => trans(y, 0.4)),
+            transform: y.to((y) => trans(y, 0.4)),
           }}
         />
         <animated.div
           className={classes.box}
           style={{
-            transform: y.interpolate((y) => trans(y, 0.3)),
+            transform: y.to((y) => trans(y, 0.3)),
           }}
           {...bind()}
         />
         <animated.div
           className={classes.planc}
           style={{
-            height: y.interpolate((y) => `${100 - y * 0.1}px`),
+            height: y.to((y) => `${100 - y * 0.1}px`),
           }}
         />
       </animated.div>

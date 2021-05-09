@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React from 'react'
 import clsx from 'clsx'
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
@@ -39,7 +38,7 @@ export const RadialButton = (
     <animated.li
       className={classes.animated}
       style={{
-        transform: x.interpolate((val) => translate(val, radians)),
+        transform: x.to((val) => translate(val, radians)),
       }}
     >
       <button

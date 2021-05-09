@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React from 'react'
 import clsx from 'clsx'
 import { useSpring, animated } from 'react-spring'
@@ -25,7 +24,7 @@ export const CentralButton = (props: CentralButtonProps) => {
     <button onClick={onClick} className={clsx('central', classes.button)}>
       <animated.div
         style={{
-          transform: spring.s.interpolate((val) => `scale(${val})`),
+          transform: spring.s.to((val) => `scale(${val})`),
           zIndex: isOpen ? 1 : 0,
         }}
         className={clsx(classes.animated, classes.overflow)}
@@ -34,7 +33,7 @@ export const CentralButton = (props: CentralButtonProps) => {
       </animated.div>
       <animated.div
         style={{
-          transform: spring.s.interpolate((val) => `scale(${1 - val})`),
+          transform: spring.s.to((val) => `scale(${1 - val})`),
           zIndex: isOpen ? 0 : 1,
         }}
         className={clsx(classes.animated, classes.overflow)}

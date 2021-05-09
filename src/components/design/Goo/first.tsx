@@ -55,7 +55,7 @@ export const Goo = () => {
 }
 
 export const Temp = () => {
-  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }))
+  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] as [number, number] }))
 
   const bind = useDrag(({ offset: [x, y] }) => {
     set({ xy: [x, y] })
@@ -81,7 +81,7 @@ export const Temp = () => {
             width: 100,
             height: 200,
             background: 'red',
-            transform: xy.interpolate(trans as any),
+            transform: xy.to(trans),
             userSelect: 'none',
             position: 'fixed',
           }}

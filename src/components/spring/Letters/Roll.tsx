@@ -34,7 +34,7 @@ export const Roll = (props: JumpProps) => {
       <animated.span
         key={index}
         className={classes.char}
-        style={{ transform: (props as any).x.interpolate(trans) }}
+        style={{ transform: (props as any).x.to(trans) }}
       >
         {chars[index]}
       </animated.span>

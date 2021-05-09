@@ -4,7 +4,7 @@ import {
   animated,
   useTransition,
   useChain,
-  ReactSpringHook,
+  useSpringRef,
   useTrail,
 } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
@@ -20,7 +20,7 @@ const initial = {
   right: 0,
   borderRadius: 16,
 }
-
+// TODO FIX ONCE
 export const Hero = () => {
   const classes = useStyles()
 
@@ -38,8 +38,8 @@ export const Hero = () => {
 
   const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }))
 
-  const innerRef = useRef<ReactSpringHook>(null)
-  const [inner, setI]: any = useSpring(() => ({
+  const innerRef = useSpringRef()
+  const [inner, setI] = useSpring(() => ({
     ...initial,
     ref: innerRef,
     onStart: () => {
@@ -53,8 +53,6 @@ export const Hero = () => {
       }
     },
   }))
-
-  console.log(inner, innerRef)
 
   useLayoutEffect(() => {
     if (isOpen) {
@@ -94,8 +92,8 @@ export const Hero = () => {
     { drag: { filterTaps: true } }
   )
 
-  const contentRef = useRef<ReactSpringHook>(null)
-  const transition = useTransition(isOpen, null, {
+  const contentRef = useSpringRef()
+  const transition = useTransition(isOpen, {
     from: {
       opacity: 0,
       height: 0,
@@ -108,13 +106,14 @@ export const Hero = () => {
       opacity: 0,
       height: 0,
     },
+    trail: 300,
     ref: contentRef,
   })
 
-  const trailRef = useRef<ReactSpringHook>(null)
+  const trailRef = useSpringRef()
   const trail = useTrail(5, {
     opacity: isOpen ? 1 : 0,
-    transform: isOpen ? 'translateX(0%)' : 'translateX(100%)',
+    x: isOpen ? '0%' : '100%',
     ref: trailRef,
     config: {
       friction: 20,
@@ -122,10 +121,8 @@ export const Hero = () => {
   })
 
   useChain(
-    isOpen
-      ? [innerRef, contentRef, trailRef]
-      : [trailRef, contentRef, innerRef],
-    isOpen ? [0, 0.4, 0.8] : [0, 0.4, 0.8]
+    isOpen ? [innerRef, trailRef] : [trailRef, innerRef],
+    isOpen ? [0, 1] : [0, 1]
   )
 
   const renderItems = () =>
@@ -137,8 +134,8 @@ export const Hero = () => {
     ))
 
   const renderContent = () =>
-    transition.map(
-      ({ item, key, props }) =>
+    transition(
+      (props, item, _, key) =>
         item && (
           <animated.div key={key} style={props} className={classes.content}>
             <div style={{ height: 200, background: 'red' }}>
@@ -153,9 +150,7 @@ export const Hero = () => {
       className={classes.box}
       {...bind()}
       ref={ref}
-      style={{
-        transform: xy.interpolate(trans as any),
-      }}
+      style={{ transform: xy.to(trans) }}
     >
       <animated.div
         className={classes.inner}

@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useRef, useMemo } from 'react'
 import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
@@ -89,9 +88,7 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
       <animated.li
         className={classes.container}
         style={{
-          transform: x.interpolate((val) =>
-            trans(int(val, imgs.length, index, number))
-          ),
+          transform: x.to((val) => trans(int(val, imgs.length, index, number))),
           width: WIDTH,
           height: WIDTH,
         }}
@@ -106,9 +103,7 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {x.interpolate((val) =>
-          int(val, imgs.length, index, number).toFixed(0)
-        )}
+        {x.to((val) => int(val, imgs.length, index, number).toFixed(0))}
       </animated.p>
     ))
 

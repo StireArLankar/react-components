@@ -20,7 +20,7 @@ export const PullRelease = () => {
       className={classes.box}
       {...bind()}
       style={{
-        transform: xy.interpolate(trans as any),
+        transform: xy.to(trans as any),
       }}
     />
   )

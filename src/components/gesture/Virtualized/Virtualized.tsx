@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState } from 'react'
 import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
@@ -69,7 +68,7 @@ export const Virtualized = (props: VirtualizedProps) => {
         key={obj.index}
         className={classes.container}
         style={{
-          transform: x.interpolate((val) => trans(int(val, obj.index))),
+          transform: x.to((val) => trans(int(val, obj.index))),
         }}
       >
         <div

@@ -38,20 +38,20 @@ export const Switch = () => {
       {...bind()}
       className={classes.container}
       style={{
-        background: x.interpolate(bgInterpolate),
+        background: x.to(bgInterpolate),
       }}
     >
       <animated.div
         className={classes.box}
         style={{
-          transform: x.interpolate((x) => `translateX(${x}px)`),
+          transform: x.to((x) => `translateX(${x}px)`),
         }}
       >
         <animated.svg
           className={classes.icon}
           viewBox='0 0 50 50'
           style={{
-            color: x.interpolate(colorInterpolate),
+            color: x.to(colorInterpolate),
           }}
           strokeWidth='2'
           stroke='currentColor'
@@ -69,7 +69,7 @@ export const Switch = () => {
             pathLength='1'
             style={{
               strokeDasharray: 1,
-              strokeDashoffset: (x as any).interpolate({
+              strokeDashoffset: (x as any).to({
                 range: [10, 100],
                 output: [1, 0],
                 extrapolate: 'clamp',
@@ -81,7 +81,7 @@ export const Switch = () => {
             pathLength='1'
             style={{
               strokeDasharray: 1,
-              strokeDashoffset: (x as any).interpolate({
+              strokeDashoffset: (x as any).to({
                 range: [-55, -10],
                 output: [0, 1],
                 extrapolate: 'clamp',
@@ -93,7 +93,7 @@ export const Switch = () => {
             pathLength='1'
             style={{
               strokeDasharray: 1,
-              strokeDashoffset: (x as any).interpolate({
+              strokeDashoffset: (x as any).to({
                 range: [-100, -50],
                 output: [0, 1],
                 extrapolate: 'clamp',

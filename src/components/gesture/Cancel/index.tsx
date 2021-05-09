@@ -36,7 +36,7 @@ export const Cancel = () => {
       className={classes.box}
       {...bind()}
       style={{
-        transform: x.interpolate((val) => `translate3d(${val}px, 0, 0)`),
+        transform: x.to((val) => `translate3d(${val}px, 0, 0)`),
         backgroundColor,
       }}
     />

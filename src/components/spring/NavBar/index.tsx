@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState, useMemo } from 'react'
 import useMeasure from 'react-use-measure'
 import { useTransition, animated, useSpring } from 'react-spring'
@@ -85,7 +84,7 @@ export const NavBar = (props: NavBarProps) => {
         className={classes.popover}
         style={{
           width: popoverWidth,
-          transform: contentSpring.x.interpolate((val) =>
+          transform: contentSpring.x.to((val) =>
             transform(val, itemWidth, popoverWidth)
           ),
           height: contentSpring.height,

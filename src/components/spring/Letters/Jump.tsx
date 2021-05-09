@@ -75,7 +75,7 @@ export const Jump = (props: JumpProps) => {
       <animated.span
         key={index}
         className={classes.char}
-        style={{ transform: props.y.interpolate(trans) }}
+        style={{ transform: props.y.to(trans) }}
       >
         {chars[index]}
       </animated.span>

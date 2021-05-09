@@ -1,6 +1,7 @@
 import React, { useEffect, memo } from 'react'
 import clsx from 'clsx'
 import { useSpring, animated, interpolate } from 'react-spring'
+
 import { useStyles } from './useStyles'
 import { data } from './data'
 
@@ -71,7 +72,7 @@ export const Child = memo((props: ChildProps) => {
           [y, z],
           (y, z) => `rotateY(${180 * y}deg) scale(${1 + z})`
         ),
-        boxShadow: z.interpolate(
+        boxShadow: z.to(
           (z: number) => `0px ${15 * z}px ${30 * z}px 0px rgba(0, 0, 0, 0.7)`
         ),
       }}

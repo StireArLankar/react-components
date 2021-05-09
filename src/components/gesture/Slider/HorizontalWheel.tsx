@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useEffect, useRef } from 'react'
 import { useWheel } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
@@ -51,7 +50,7 @@ export const HorizontalWheel = () => {
           ref={ref}
           className={clsx(classes.inner, classes.horizontal)}
           style={{
-            transform: wheelY.interpolate((val) => wheel(val, width, 5)),
+            transform: wheelY.to((val) => wheel(val, width, 5)),
           }}
         >
           {imgs.map((img, i) => (

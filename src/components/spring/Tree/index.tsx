@@ -55,10 +55,7 @@ const Tree: FC<TreeProps> = memo((props) => {
           height: isOpen && previous === isOpen ? 'auto' : height,
         }}
       >
-        <animated.div
-          style={{ transform: opacity.interpolate(trans) }}
-          ref={ref}
-        >
+        <animated.div style={{ transform: opacity.to(trans) }} ref={ref}>
           {children}
         </animated.div>
       </animated.div>

@@ -72,7 +72,7 @@ export const PopupWithAnchor = (
                 key={key}
                 style={{
                   opacity: o,
-                  transform: o.interpolate((o: number) => trans(o, position)),
+                  transform: o.to((o: number) => trans(o, position)),
                   left: interpolate([x, width], (x, w) => x + w / 2),
                   top: interpolate([y, height], (y, h) =>
                     position === 'top' ? y : y + h

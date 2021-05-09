@@ -115,7 +115,7 @@ export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
               key={key}
               style={{
                 opacity: o,
-                transform: o.interpolate((o: number) => trans(o, position)),
+                transform: o.to((o: number) => trans(o, position)),
                 left,
                 top,
               }}
