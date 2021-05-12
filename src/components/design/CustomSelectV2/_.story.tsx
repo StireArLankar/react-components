@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
 
-import Temp from '.'
+import { Combobox } from './multi'
 
+import Temp from '.'
 export default {
-  title: 'Design/CustomSelect',
+  title: 'Design/CustomSelectV2',
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -83,3 +84,19 @@ const Controlled = () => {
 }
 
 export const exampleV2 = () => <Controlled />
+
+const items = ['132', '229', '9993', '0934'].map((value) => ({
+  value,
+  label: value,
+}))
+
+const MultiTest = () => {
+  const [values, set] = useState([''])
+  return (
+    <div style={{ minWidth: 200 }}>
+      <Combobox values={values} onChange={set} items={items} />
+    </div>
+  )
+}
+
+export const multi = () => <MultiTest />
