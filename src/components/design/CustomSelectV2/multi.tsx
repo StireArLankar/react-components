@@ -89,8 +89,6 @@ export const Combobox = (props: ComboboxProps) => {
               addSelectedItem(selectedItem)
             }
           }
-        default:
-          break
       }
 
       switch (type) {
