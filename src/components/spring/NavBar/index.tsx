@@ -34,27 +34,28 @@ export const NavBar = (props: NavBarProps) => {
     x: active,
   })
 
-  const transitions = useTransition([items[active]], (item) => item.title, {
+  const transitions = useTransition([items[active]], {
     from: {
       opacity: 0,
-      position: 'relative',
+      position: 'relative' as const,
       width: '100%',
     },
     enter: {
       opacity: 1,
-      position: 'relative',
+      position: 'relative' as const,
       width: '100%',
     },
     leave: {
       opacity: 0,
-      position: 'absolute',
+      position: 'absolute' as const,
       width: '100%',
     },
+    keys: (item) => item.title,
     unique: true,
   })
 
   const renderContent = () =>
-    transitions.map(({ item, key, props }) => (
+    transitions((props, item, _, key) => (
       <animated.div key={item.title} style={{ ...props, left: 0 }}>
         {item.content}
       </animated.div>

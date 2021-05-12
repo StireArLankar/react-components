@@ -53,7 +53,7 @@ export const Wheel = () => {
       })
     },
     {
-      initial: () => [x.getValue(), 0],
+      initial: () => [x.get(), 0],
       bounds: {
         right: width / 2,
         left: -width / 2,

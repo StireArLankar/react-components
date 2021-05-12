@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { Fragment, PropsWithChildren, useRef } from 'react'
+import React, { PropsWithChildren, useRef } from 'react'
 import { animated, useTransition } from 'react-spring'
 
 import useStyles from './Tooltip.styles'
@@ -16,7 +16,7 @@ export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
 
   const classes = useStyles()
 
-  const transition = useTransition(isOpen, null, {
+  const transition = useTransition(isOpen, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -24,8 +24,8 @@ export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
   })
 
   return (
-    <Fragment>
-      {transition.map(({ item, key, props }) =>
+    <>
+      {transition((props, item, _, key) =>
         item ? (
           <animated.div
             className={clsx(classes.popup, classes[position])}
@@ -37,6 +37,6 @@ export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
           </animated.div>
         ) : null
       )}
-    </Fragment>
+    </>
   )
 }

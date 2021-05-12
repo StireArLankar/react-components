@@ -53,7 +53,7 @@ export const Virtualized = (props: VirtualizedProps) => {
       isVirt && setActive(Math.floor(-x / STEP) + 3)
     },
     {
-      initial: () => [x.getValue(), 0],
+      initial: () => [x.get(), 0],
       bounds: {
         right: 0,
         left: -STEP * (arr.length - 2),

@@ -38,7 +38,7 @@ export const Switch = () => {
       {...bind()}
       className={classes.container}
       style={{
-        background: x.to(bgInterpolate),
+        background: x.to(bgInterpolate as any),
       }}
     >
       <animated.div
@@ -51,7 +51,7 @@ export const Switch = () => {
           className={classes.icon}
           viewBox='0 0 50 50'
           style={{
-            color: x.to(colorInterpolate),
+            color: x.to(colorInterpolate as any),
           }}
           strokeWidth='2'
           stroke='currentColor'

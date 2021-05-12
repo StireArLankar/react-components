@@ -39,17 +39,17 @@ export const Popup = (props: PropsWithChildren<PopupProps>) => {
     return () => document.removeEventListener('click', clickHandler, true)
   }, [isOpen])
 
-  const transition = useTransition(innerIsOpen, null, {
+  const transition = useTransition(innerIsOpen, {
     from: { o: 0 },
     enter: { o: 1 },
     leave: { o: 0 },
     config: { tension: 250, clamp: true },
     onRest: () => !innerIsOpen && onClose(),
-  } as any)
+  })
 
   return (
     <Fragment>
-      {transition.map(({ item, key, props: { o } }: any) =>
+      {transition(({ o }, item, _, key) =>
         item ? (
           <animated.div
             className={clsx(classes.popup, classes[position])}
@@ -57,7 +57,7 @@ export const Popup = (props: PropsWithChildren<PopupProps>) => {
             style={{
               opacity: o,
               transform: o.to(
-                (o: number) => `translate(-50%, ${getOffset(o, position)}px)`
+                (o) => `translate(-50%, ${getOffset(o, position)}px)`
               ),
             }}
             ref={ref}

@@ -1,10 +1,10 @@
-import React, { useRef, Fragment, PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 import clsx from 'clsx'
 import {
   useChain,
   animated,
   config,
-  ReactSpringHook,
+  useSpringRef,
   useTrail,
   useSpring,
 } from 'react-spring'
@@ -18,7 +18,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
 
   const classes = useStyles()
 
-  const sidebarRef = useRef<ReactSpringHook>(null)
+  const sidebarRef = useSpringRef()
 
   const sidebarAnim = useSpring({
     from: {
@@ -30,7 +30,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
   })
 
   const childrenArray = React.Children.map(children, (child) => child)
-  const itemsRef = useRef<ReactSpringHook>(null)
+  const itemsRef = useSpringRef()
   const trail = useTrail(childrenArray?.length || 0, {
     opacity: isOpen ? 1 : 0,
     transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
@@ -64,5 +64,5 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
     </animated.div>
   )
 
-  return <Fragment>{renderContent()}</Fragment>
+  return <>{renderContent()}</>
 }

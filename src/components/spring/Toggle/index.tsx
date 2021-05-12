@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useTransition, animated } from 'react-spring'
 
 import GiftNotice from './gift-notice.svg'
 import InfoNotice from './info-notice.svg'
 import { useStyles } from './useStyles'
-import { useTransition, animated } from 'react-spring'
 
 export const Toggle = () => {
   const [toggle, setToggle] = useState(false)
@@ -14,14 +14,14 @@ export const Toggle = () => {
     return () => clearInterval(interval)
   }, [])
 
-  const transitions = useTransition(toggle, null, {
+  const transitions = useTransition(toggle, {
     from: { opacity: 0, transform: 'translateY(-10px)' },
     enter: { opacity: 1, transform: 'translateY(0)' },
     leave: { opacity: 0, transform: 'translateY(-10px)' },
   })
 
   const renderAnimation = () =>
-    transitions.map(({ item, key, props }) => (
+    transitions((props, item, _, key) => (
       <animated.img
         alt={'info-notice'}
         className={classes.img}

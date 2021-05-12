@@ -98,24 +98,24 @@ export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
       }
     }, [isOpen, updatePos])
 
-    const transition = useTransition(innerIsOpen, null, {
+    const transition = useTransition(innerIsOpen, {
       from: { o: 0 },
       enter: { o: 1 },
       leave: { o: 0 },
       config: { tension: 250, clamp: true },
       onRest: () => !innerIsOpen && onClose(),
-    } as any)
+    })
 
     return (
       <BodyPortal>
-        {transition.map(({ item, key, props: { o } }: any) =>
+        {transition(({ o }, item, _, key) =>
           item ? (
             <animated.div
               className={clsx(classes.popup, classes[position])}
               key={key}
               style={{
                 opacity: o,
-                transform: o.to((o: number) => trans(o, position)),
+                transform: o.to((o) => trans(o, position)),
                 left,
                 top,
               }}

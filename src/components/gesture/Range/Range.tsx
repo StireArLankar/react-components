@@ -34,7 +34,7 @@ export const Range = () => {
       setRelativePosition(x)
     },
     {
-      initial: () => [x.getValue(), 0],
+      initial: () => [x.get(), 0],
       bounds: { left: limits[0], right: limits[1] },
     }
   )

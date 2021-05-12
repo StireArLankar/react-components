@@ -1,9 +1,10 @@
 import clsx from 'clsx'
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { animated, useTransition, interpolate } from 'react-spring'
-import useStyles from './PopupWithAnchor.styles'
+import { animated, useTransition, to } from 'react-spring'
 import useMeasure from 'react-use-measure'
+
+import useStyles from './PopupWithAnchor.styles'
 
 export interface PopupWithAnchorProps {
   isOpen: boolean
@@ -52,38 +53,37 @@ export const PopupWithAnchor = (
     return () => document.removeEventListener('click', clickHandler, true)
   }, [isOpen])
 
-  const transition = useTransition(innerIsOpen, null, {
+  const transition = useTransition(innerIsOpen, {
     from: { o: 0, x, y, width, height },
     enter: { o: 1, x, y, width, height },
     leave: { o: 0, x, y, width, height },
     update: () => ({ o: innerIsOpen ? 1 : 0, x, y, width, height }),
     config: { tension: 250, clamp: true },
     onRest: () => !innerIsOpen && onClose(),
-  } as any)
+  })
 
   return (
     <div className={classes.anchor} ref={anchorRef}>
       <BodyPortal>
-        {transition.map(
-          ({ item, key, props: { o, x, y, width, height } }: any) =>
-            item ? (
-              <animated.div
-                className={clsx(classes.popup, classes[position])}
-                key={key}
-                style={{
-                  opacity: o,
-                  transform: o.to((o: number) => trans(o, position)),
-                  left: interpolate([x, width], (x, w) => x + w / 2),
-                  top: interpolate([y, height], (y, h) =>
-                    position === 'top' ? y : y + h
-                  ),
-                  position: 'fixed',
-                }}
-                ref={contentRef}
-              >
-                {children}
-              </animated.div>
-            ) : null
+        {transition(({ o, x, y, width, height }, item, _, key) =>
+          item ? (
+            <animated.div
+              className={clsx(classes.popup, classes[position])}
+              key={key}
+              style={{
+                opacity: o,
+                transform: o.to((o: number) => trans(o, position)),
+                left: to([x, width], (x, w) => x + w / 2),
+                top: to([y, height], (y, h) =>
+                  position === 'top' ? y : y + h
+                ),
+                position: 'fixed',
+              }}
+              ref={contentRef}
+            >
+              {children}
+            </animated.div>
+          ) : null
         )}
       </BodyPortal>
     </div>
