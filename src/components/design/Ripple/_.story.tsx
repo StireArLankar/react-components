@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { text, boolean } from '@storybook/addon-knobs'
-
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withTopLabel } from '_storybook/withTopLabel'

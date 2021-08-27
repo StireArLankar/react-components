@@ -1,11 +1,12 @@
 import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+import { themeColors } from 'theme/theme.styles'
+import { text } from '@storybook/addon-knobs'
+
+import Slide, { SlideProps } from './slide'
 
 import { SliderTwo } from '.'
-import { themeColors } from 'theme/theme.styles'
-import Slide, { SlideProps } from './slide'
-import { text } from '@storybook/addon-knobs'
 
 export default {
   title: 'Native/SliderTwo',

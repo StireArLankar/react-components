@@ -1,10 +1,10 @@
 import React, { useState, MouseEvent } from 'react'
+import useBGColor from 'hook/useBgColor'
+
 import FieldsSelect from './FieldsSelect'
 import Fields from './Fields'
 import TextDisplay from './TextDisplay'
-
 import style from './form.module.scss'
-import useBGColor from 'hook/useBgColor'
 import { defaultFields as types, FieldType } from './fields.types'
 
 export const FormFields = () => {

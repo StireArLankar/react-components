@@ -1,9 +1,10 @@
 import React from 'react'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+import { boolean } from '@storybook/addon-knobs'
+
+import { NestedNeumorphism } from './Nested'
 
 import { Neumorphism, NeumorphismProps } from '.'
-import { NestedNeumorphism } from './Nested'
-import { boolean } from '@storybook/addon-knobs'
 
 export default {
   title: 'Design/Neumorphism',

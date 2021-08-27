@@ -1,8 +1,10 @@
 import React, { useState, useCallback, useMemo } from 'react'
+import { produce } from 'immer'
+
+import useStyles from '../useStyles'
+
 import { Item } from './Item'
 import { LazyItem } from './LazyItem'
-import useStyles from '../useStyles'
-import { produce } from 'immer'
 
 const MAGIC = 4
 
@@ -35,7 +37,9 @@ export const FilledDnDGrid = (props: FilledDnDGridProps) => {
           const oldPos = getPos(draft[index])
           const newPos = getPos([x, y])
 
-          if (oldPos === newPos) return
+          if (oldPos === newPos) {
+            return
+          }
 
           // 1 --> 3
           state.forEach((item, i) => {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
-
-import { Overflow, OverflowProps } from '.'
 import { themeColors } from 'theme/theme.styles'
 import { text, number } from '@storybook/addon-knobs'
+
+import { Overflow, OverflowProps } from '.'
 
 export default {
   title: 'Native/Overflow',

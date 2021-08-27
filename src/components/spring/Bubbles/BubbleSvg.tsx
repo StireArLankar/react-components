@@ -1,4 +1,5 @@
 import React from 'react'
+
 import useStyles from './useStyles'
 
 export interface BubbleSvgProps {
@@ -34,7 +35,7 @@ export const BubbleSvg = (props: BubbleSvgProps) => {
             fill='url(#gradient--colors-transparency)'
             width='100%'
             height='100%'
-          ></rect>
+          />
         </mask>
 
         {/* <!-- Градиент для прозрачности --> */}

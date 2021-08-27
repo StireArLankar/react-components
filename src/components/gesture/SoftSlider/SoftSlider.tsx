@@ -92,7 +92,9 @@ export const Slider = ({
   }))
 
   useEffect(() => {
-    if (!width || !height) return
+    if (!width || !height) {
+      return
+    }
 
     if (axis === 'y') {
       const { offsetTop, offsetHeight } = root.current!.children[
@@ -171,7 +173,9 @@ export const Slider = ({
   )
 
   const rootStyle = slidesWrapperStyle(vertical)
-  if (!className) rootStyle.width = '100%'
+  if (!className) {
+    rootStyle.width = '100%'
+  }
 
   return (
     <div ref={root} className={className} style={{ ...rootStyle, ...style }}>

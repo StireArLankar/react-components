@@ -1,5 +1,6 @@
 import React from 'react'
 import clamp from 'lodash-es/clamp'
+
 import { BoxSliderAutoplay } from './BoxSliderAutoplay'
 
 const STEP = 100

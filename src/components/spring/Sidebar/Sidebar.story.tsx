@@ -1,12 +1,14 @@
 import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+import { boolean } from '@storybook/addon-knobs'
 
-import { Sidebar, SidebarProps } from '.'
+import { Accordion } from '../Accordion'
+
 import { Sidebar as MountedSidebar } from './MountedSidebar'
 import { Sidebar as TransitionSidebar } from './TransitionSidebar'
-import { boolean } from '@storybook/addon-knobs'
-import { Accordion } from '../Accordion'
+
+import { Sidebar, SidebarProps } from '.'
 
 export default {
   title: 'Spring/Sidebar',

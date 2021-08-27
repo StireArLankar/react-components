@@ -2,12 +2,12 @@ import React, { Fragment } from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withTopLabel } from '_storybook/withTopLabel'
+import { themeColors } from 'theme/theme.styles'
+import { boolean } from '@storybook/addon-knobs'
 
 import { SvgMorph as Gradiented } from './Gradiented'
-import { themeColors } from 'theme/theme.styles'
 
 import { SvgMorph, SvgMorphProps } from '.'
-import { boolean } from '@storybook/addon-knobs'
 
 const label = (
   <Fragment>

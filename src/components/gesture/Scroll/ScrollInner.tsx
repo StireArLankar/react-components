@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
+import useMeasure from 'react-use-measure'
 
 import { useStyles } from './useStyles'
-import useMeasure from 'react-use-measure'
 
 export const ScrollInner = () => {
   const classes = useStyles()

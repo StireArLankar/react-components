@@ -1,7 +1,8 @@
 import React from 'react'
-import { DnDSorting } from '.'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+
+import { DnDSorting } from '.'
 
 export default {
   title: 'Native/DnD Sorting',

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
+
 import useStyles from './useStyles'
 
 export const Cancel = () => {

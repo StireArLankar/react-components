@@ -1,5 +1,6 @@
 import React, { useMemo, Fragment, useCallback } from 'react'
 import { animated, useTrail, config, useSprings } from 'react-spring'
+
 import useStyles from './Letters.styles'
 
 export interface JumpProps {

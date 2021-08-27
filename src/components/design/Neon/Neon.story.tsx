@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { color } from '@storybook/addon-knobs'
-
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { themeColors } from 'theme/theme.styles'
 import { withTopLabel } from '_storybook/withTopLabel'

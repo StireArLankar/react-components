@@ -3,8 +3,9 @@ import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 
-import { Accordion, AccordionProps } from '.'
 import { MorphArrow } from './Arrow'
+
+import { Accordion, AccordionProps } from '.'
 
 export default {
   title: 'Spring/Accordion',

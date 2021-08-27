@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSpring, animated, config } from 'react-spring'
 
 import {
   RadialButtonModel,
@@ -7,7 +8,6 @@ import {
 } from './RadialButtons'
 import { useStyles } from './useStyles'
 import { CentralButton, CentralButtonProps } from './CentralButton'
-import { useSpring, animated, config } from 'react-spring'
 
 export interface RadialMenuProps {
   isOpen: boolean

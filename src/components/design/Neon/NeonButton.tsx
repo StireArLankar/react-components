@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
-import useStyles from './useStyles'
 import clsx from 'clsx'
+
+import useStyles from './useStyles'
 
 interface NeonButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

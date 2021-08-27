@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from 'react'
+import { produce } from 'immer'
+
 import { ConnectedItem } from './ConnectedItem'
 import useStyles from './useStyles'
-import { produce } from 'immer'
 
 const arr: number[] = new Array(16).fill(0)
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { LiquidButton } from 'components/design/Liquid/LiquidButton'
 
 import { Tooltip } from './Tooltip'

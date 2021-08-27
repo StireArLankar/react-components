@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
-
 import { LiquidButton } from 'components/design/Liquid/LiquidButton'
 
 import useStyles from './Animation.styles'

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-
 import { LiquidButton } from 'components/design/Liquid/LiquidButton'
 
 const style = { padding: 20, width: 300, background: 'teal' }

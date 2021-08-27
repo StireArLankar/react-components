@@ -18,9 +18,8 @@ const findIndexOfFirstElement = (array, componentsLength, listLength) => {
     let list = [...array]
     list.splice(indexOfMin, 1, min + componentsLength)
     return findIndexOfFirstElement(list, componentsLength, listLength)
-  } else {
-    return array.indexOf(max)
   }
+  return array.indexOf(max)
 }
 
 const findIndexOfLastElement = (array, componentsLength, listLength) => {
@@ -33,9 +32,8 @@ const findIndexOfLastElement = (array, componentsLength, listLength) => {
     let list = [...array]
     list.splice(indexOfMin, 1, min + componentsLength)
     return findIndexOfLastElement(list, componentsLength, listLength)
-  } else {
-    return array.indexOf(min)
   }
+  return array.indexOf(min)
 }
 
 export const incLastElement = (array, componentsLength, listLength) => {

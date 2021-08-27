@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useMemo } from 'react'
+import { produce } from 'immer'
+
 import { Item } from './Item'
 import { CrazyItem } from './CrazyItem'
 import useStyles from './useStyles'
-import { produce } from 'immer'
 import { data } from './data'
 
 const MAGIC = 4
@@ -44,7 +45,9 @@ export const ChainedGrid = (props: ChainedGridProps) => {
           const oldPos = getPos(draft[index])
           let newPos = getPos([x, y])
 
-          if (oldPos === newPos) return
+          if (oldPos === newPos) {
+            return
+          }
 
           const field = arr.slice()
           state.forEach((item, index) => (field[getPos(item)] = index))

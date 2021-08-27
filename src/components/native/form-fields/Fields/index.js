@@ -1,8 +1,8 @@
 import React from 'react'
+
 import TextInput from './TextInput'
 import TextareaInput from './TextareaInput'
 import SelectInput from './SelectInput'
-
 import classes from './fields.module.scss'
 
 const mapper = {
@@ -10,10 +10,10 @@ const mapper = {
   textarea: (props, onChange) => (
     <TextareaInput {...props} onChange={onChange} />
   ),
-  select: (props, onChange) => <SelectInput {...props} onChange={onChange} />
+  select: (props, onChange) => <SelectInput {...props} onChange={onChange} />,
 }
 
-const Fields = props => {
+const Fields = (props) => {
   const renderFields = () => {
     return props.fields.map((field, index) => (
       <div className={classes.field} key={field.name}>

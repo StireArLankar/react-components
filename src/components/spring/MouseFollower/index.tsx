@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { useTrail, animated } from 'react-spring'
+
 import { useStyles } from './useStyles'
 
 const fast = { tension: 1200, friction: 40 }

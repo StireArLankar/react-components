@@ -1,5 +1,4 @@
 import React from 'react'
-
 import useBGColor from 'hook/useBgColor'
 
 import './style.scss'

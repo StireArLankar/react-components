@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
-
-import { Test } from './Test'
 import { themeColors } from 'theme/theme.styles'
 import { withTopLabel } from '_storybook/withTopLabel'
+
+import { Test } from './Test'
 
 const label = (
   <Fragment>

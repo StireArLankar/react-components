@@ -1,13 +1,14 @@
 import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+import { boolean } from '@storybook/addon-knobs'
 
-import { DnDGrid } from '.'
 import { StatefulDnDGrid } from './StatefulDnDGrid'
 import { FilledDnDGrid } from './FilledDnDGrid'
 import { UnfilledDnDGrid } from './FilledDnDGrid/UnfilledDnDGrid'
 import { SwapDnDGrid } from './FilledDnDGrid/SwapDnDGrid'
-import { boolean } from '@storybook/addon-knobs'
+
+import { DnDGrid } from '.'
 
 export default {
   title: 'Gesture/DnDGrid',

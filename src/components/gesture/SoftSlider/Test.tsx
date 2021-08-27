@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { Slider } from './SoftSlider'
 
 const slides = ['red', 'blue', 'yellow', 'orange']

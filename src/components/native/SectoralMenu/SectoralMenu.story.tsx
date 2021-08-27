@@ -8,10 +8,10 @@ import GroupWork from '@material-ui/icons/GroupWork'
 import CameraRounded from '@material-ui/icons/CameraRounded'
 import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
 import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
-
-import { SectoralMenu, SectoralButtonModel, SectoralMenuProps } from '.'
 import { number } from '@storybook/addon-knobs'
 import { themeColors } from 'theme/theme.styles'
+
+import { SectoralMenu, SectoralButtonModel, SectoralMenuProps } from '.'
 
 const label = (
   <Fragment>

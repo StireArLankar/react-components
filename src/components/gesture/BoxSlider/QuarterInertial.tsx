@@ -1,5 +1,6 @@
 import React from 'react'
 import clamp from 'lodash-es/clamp'
+
 import { BoxSliderInertial } from './BoxSliderInertial'
 
 const STEP = 100

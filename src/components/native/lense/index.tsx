@@ -1,7 +1,8 @@
 import React, { useState, ChangeEvent, Fragment } from 'react'
+import useBGColor from 'hook/useBgColor'
+
 import classes from './lense.module.scss'
 import Controller from './controller'
-import useBGColor from 'hook/useBgColor'
 
 export const LenseContainer = () => {
   const [size, setSize] = useState(200)
@@ -16,7 +17,9 @@ export const LenseContainer = () => {
     evt: ChangeEvent<HTMLInputElement>
   ) => {
     const value = +evt.target.value
-    if (isNaN(value)) return
+    if (isNaN(value)) {
+      return
+    }
     callback(value)
   }
 

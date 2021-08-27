@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback } from 'react'
 import { useSpring, animated, config } from 'react-spring'
-import useStyles from './useStyles'
 
+import useStyles from './useStyles'
 import { ReactComponent as Filter } from './filter.svg'
 
 const configY = {

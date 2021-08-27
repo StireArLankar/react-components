@@ -1,6 +1,7 @@
 import React from 'react'
-import useStyles from './useStyles'
 import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon'
+
+import useStyles from './useStyles'
 
 export interface IconProps {
   Icon: (props: SvgIconProps) => JSX.Element

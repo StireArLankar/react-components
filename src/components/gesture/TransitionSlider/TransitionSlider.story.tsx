@@ -1,11 +1,11 @@
 import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+import { boolean, number } from '@storybook/addon-knobs'
 
 import { SimpleSlider } from './Simple'
 import { ComplexSlider } from './Complex'
 import { RepeatedBounds } from './RepeatedBounds'
-import { boolean, number } from '@storybook/addon-knobs'
 
 export default {
   title: 'Gesture/Transition Slider',

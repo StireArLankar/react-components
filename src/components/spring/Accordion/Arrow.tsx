@@ -1,8 +1,9 @@
 import React from 'react'
 import clsx from 'clsx'
 
-import { useAccordionStyles } from './useAccordionStyles'
 import { Svg } from '../SvgMorph/Arrow'
+
+import { useAccordionStyles } from './useAccordionStyles'
 
 export interface ArrowProps {
   isOpened?: boolean

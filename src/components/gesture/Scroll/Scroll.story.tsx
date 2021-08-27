@@ -2,8 +2,9 @@ import React from 'react'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 
-import { Scroll } from '.'
 import { ScrollInner } from './ScrollInner'
+
+import { Scroll } from '.'
 
 export default {
   title: 'Gesture/Scroll',

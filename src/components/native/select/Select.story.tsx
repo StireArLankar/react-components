@@ -1,7 +1,8 @@
 import React from 'react'
-import { Select } from '.'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
+
+import { Select } from '.'
 
 export default {
   title: 'Native/Select',

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
+import clsx from 'clsx'
 
 import useStyles from './useStyles'
-import clsx from 'clsx'
 
 const OFFSET = 200
 

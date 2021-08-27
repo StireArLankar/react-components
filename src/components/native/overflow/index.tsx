@@ -1,6 +1,7 @@
 import React, { useState, memo } from 'react'
-import { useStyles } from './useStyles'
 import useMeasure from 'react-use-measure'
+
+import { useStyles } from './useStyles'
 
 export interface OverflowProps {
   text: string

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 
-import classes from './header.module.scss'
 import { LinkItem } from '../../../App'
+
+import classes from './header.module.scss'
 
 export interface HeaderProps {
   items: LinkItem[]

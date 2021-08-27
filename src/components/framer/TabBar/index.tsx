@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useCycle,
-} from 'framer-motion'
-import useMeasure from 'react-use-measure'
+import { motion, useSpring, useTransform } from 'framer-motion'
 import Goo from 'gooey-react'
+import React, { useState } from 'react'
+import useMeasure from 'react-use-measure'
 
 import { ReactComponent as Logo1 } from './codesandbox-logo.svg'
+import { ReactComponent as Logo5 } from './cross-circled.svg'
 import { ReactComponent as Logo2 } from './framer-logo.svg'
 import { ReactComponent as Logo3 } from './github-logo.svg'
 import { ReactComponent as Logo4 } from './stitches-logo.svg'
-import { ReactComponent as Logo5 } from './cross-circled.svg'
 
 const xInput = [-100, 0, 100]
 

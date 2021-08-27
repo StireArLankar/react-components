@@ -22,7 +22,7 @@ export const Heart = () => {
         style={{
           backgroundImage: `url(${HeartPng}`,
         }}
-      ></div>
+      />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
-import useStyles from './useStylesV2'
 import clsx from 'clsx'
+
+import useStyles from './useStylesV2'
 
 export const NeonButtonV2 = (
   props: React.ButtonHTMLAttributes<HTMLButtonElement> & { color?: string }

@@ -40,6 +40,7 @@ export const MultiCard = () => {
     { domTarget, eventOptions: { passive: false } }
   )
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(bind as any, [bind])
 
   return (

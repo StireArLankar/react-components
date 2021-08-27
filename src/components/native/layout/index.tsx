@@ -1,8 +1,9 @@
 import React, { Fragment, PropsWithChildren } from 'react'
+
 import Header from '../header'
+import { LinkItem } from '../../../App'
 
 import classes from './layout.module.scss'
-import { LinkItem } from '../../../App'
 
 interface LayoutProps {
   links: LinkItem[]

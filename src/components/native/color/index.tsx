@@ -5,10 +5,11 @@ import React, {
   MouseEvent,
   ChangeEvent,
 } from 'react'
+import useBGColor from 'hook/useBgColor'
+
 import ColorDisplay from './ColorDisplay'
 import FileInput from './FileInput'
 import classes from './color.module.scss'
-import useBGColor from 'hook/useBgColor'
 
 export const Color = () => {
   const [moveColor, setMoveColor] = useState<[number, number, number]>([
@@ -48,9 +49,8 @@ export const Color = () => {
       return [500, (500 * height) / width]
     } else if (height > width && height > 500) {
       return [(500 * width) / height, 500]
-    } else {
-      return [width, height]
     }
+    return [width, height]
   }
 
   const drawImageFromWebUrl = (url: string) => {

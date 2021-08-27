@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 

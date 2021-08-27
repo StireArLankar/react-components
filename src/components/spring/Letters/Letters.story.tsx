@@ -1,9 +1,8 @@
 import React from 'react'
 import { withCustomTheme } from '_storybook/withCustomTheme'
-
-// import { Jump, JumpProps } from './Jump'
-import { Jump } from './Jump'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
+
+import { Jump } from './Jump'
 import { Roll } from './Roll'
 
 export default {

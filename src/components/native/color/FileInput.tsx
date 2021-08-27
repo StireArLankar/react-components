@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react'
+
 import style from './color.module.scss'
 
 interface FileInputProps {

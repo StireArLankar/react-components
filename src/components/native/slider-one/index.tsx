@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import useBGColor from 'hook/useBgColor'
+
 import Slider from './slider'
 import ImgSlide from './ImgSlide'
 import classes from './slider.module.scss'
-import useBGColor from 'hook/useBgColor'
 import { Button } from './Button'
 
 const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`
@@ -20,7 +21,9 @@ export const SliderOne = () => {
   useBGColor(251, 219, 211)
 
   const updateIndexBy = (number: number) => () => {
-    if (!isReady) return
+    if (!isReady) {
+      return
+    }
     setIndex(index + number)
     setIsReady(false)
   }

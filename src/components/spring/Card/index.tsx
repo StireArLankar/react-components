@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
+
 import useStyles from './useStyles'
 
 const calc = (x: number, y: number) => [

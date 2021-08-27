@@ -8,27 +8,29 @@ const Slider = (props) => {
 
   const moveIt = (move, up) => {
     return (evt) => {
-      if (evt.type === 'mousedown' && evt.buttons !== 1) return
-      if (evt.type === 'mousedown') evt.preventDefault()
+      if (evt.type === 'mousedown' && evt.buttons !== 1) {
+        return
+      }
+      if (evt.type === 'mousedown') {
+        evt.preventDefault()
+      }
       const list = ref.current
-  
+
       const startX = evt.clientX || evt.touches[0].clientX
       const width = list.offsetWidth
       const length = list.children.length * width - list.parentNode.offsetWidth
-  
+
       let diff = 0
       list.style.transition = ``
-  
+
       const onMove = (moveEvt) => {
         const x = moveEvt.clientX || moveEvt.touches[0].clientX
         diff = startX - x
         const temp = transform + diff
         list.style.transform =
-          temp > length
-            ? `translateX(-${length}px)`
-            : `translateX(-${temp}px)`
+          temp > length ? `translateX(-${length}px)` : `translateX(-${temp}px)`
       }
-  
+
       const onUp = () => {
         document.removeEventListener(move, onMove)
         document.removeEventListener(up, onUp)
@@ -40,7 +42,7 @@ const Slider = (props) => {
         list.style.transform = `translateX(-${newTransform}px)`
         setTransform(newTransform)
       }
-  
+
       document.addEventListener(move, onMove)
       document.addEventListener(up, onUp)
     }
@@ -50,9 +52,17 @@ const Slider = (props) => {
   const onMouseDown = moveIt('mousemove', 'mouseup')
 
   return (
-    <div className={style.window} onMouseDown={onMouseDown} onTouchStart={onTouchStart}>
-      <ul className={style.list} ref={ref} style={{width: props.width + '%'}}>
-        {props.components.map((component, index) => <li key={index} className={style.item}>{component}</li>)}
+    <div
+      className={style.window}
+      onMouseDown={onMouseDown}
+      onTouchStart={onTouchStart}
+    >
+      <ul className={style.list} ref={ref} style={{ width: props.width + '%' }}>
+        {props.components.map((component, index) => (
+          <li key={index} className={style.item}>
+            {component}
+          </li>
+        ))}
       </ul>
     </div>
   )

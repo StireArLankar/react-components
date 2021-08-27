@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withTopLabel } from '_storybook/withTopLabel'
