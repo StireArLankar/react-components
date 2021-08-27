@@ -5,7 +5,6 @@ import {
   useTransition,
   useChain,
   useSpringRef,
-  useTrail,
 } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
 
@@ -20,7 +19,9 @@ const initial = {
   right: 0,
   borderRadius: 16,
 }
-// TODO FIX ONCE
+
+const items = Array.from({ length: 5 }).map((_, i) => i)
+
 export const Hero = () => {
   const classes = useStyles()
 
@@ -38,10 +39,13 @@ export const Hero = () => {
 
   const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }))
 
+  const [vals, setVals] = useState(() => ({ ...initial }))
+
   const innerRef = useSpringRef()
-  const [inner, setI] = useSpring(() => ({
-    ...initial,
+
+  const inner = useSpring({
     ref: innerRef,
+    ...(isOpen ? vals : initial),
     onStart: () => {
       if (openRef.current) {
         document.body.style.overflow = 'hidden'
@@ -52,7 +56,7 @@ export const Hero = () => {
         document.body.style.overflow = ''
       }
     },
-  }))
+  })
 
   useLayoutEffect(() => {
     if (isOpen) {
@@ -60,7 +64,7 @@ export const Hero = () => {
       if (bounds) {
         const { top, bottom, right, left } = bounds
 
-        setI({
+        setVals({
           top: -top - 5,
           bottom: bottom - window.innerHeight - 5,
           right: right - window.innerWidth - 5,
@@ -69,9 +73,9 @@ export const Hero = () => {
         })
       }
     } else {
-      setI({ ...initial })
+      setVals({ ...initial })
     }
-  }, [isOpen, setI])
+  }, [isOpen])
 
   const bind = useGesture(
     {
@@ -94,41 +98,33 @@ export const Hero = () => {
 
   const contentRef = useSpringRef()
   const transition = useTransition(isOpen, {
-    from: {
-      opacity: 0,
-      height: 0,
-    },
-    enter: {
-      opacity: 1,
-      height: 200,
-    },
-    leave: {
-      opacity: 0,
-      height: 0,
-    },
-    trail: 300,
+    from: { opacity: 0, height: 0 },
+    enter: { opacity: 1, height: 200 },
+    leave: { opacity: 0, height: 0 },
     ref: contentRef,
   })
 
   const trailRef = useSpringRef()
-  const trail = useTrail(5, {
-    opacity: isOpen ? 1 : 0,
-    x: isOpen ? '0%' : '100%',
+  const trail = useTransition(isOpen ? items : [], {
+    from: { opacity: 0, x: '100%' },
+    enter: { opacity: 1, x: '0%' },
+    leave: { opacity: 0, x: '100%' },
     ref: trailRef,
-    config: {
-      friction: 20,
-    },
+    config: { friction: 20 },
+    trail: 100,
   })
 
   useChain(
-    isOpen ? [innerRef, trailRef] : [trailRef, innerRef],
-    isOpen ? [0, 1] : [0, 1]
+    isOpen
+      ? [innerRef, contentRef, trailRef]
+      : [trailRef, contentRef, innerRef],
+    isOpen ? [0, 0.4, 0.8] : [0, 0.4, 0.8]
   )
 
   const renderItems = () =>
-    trail.map((props, index) => (
+    trail((props, _, __, key) => (
       <animated.div
-        key={index}
+        key={key}
         style={{ ...props, marginBottom: 10, height: 20, background: 'black' }}
       />
     ))
