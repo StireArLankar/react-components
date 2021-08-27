@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import useBGColor from 'hook/useBgColor'
 
 import Ring from './progress-ring'

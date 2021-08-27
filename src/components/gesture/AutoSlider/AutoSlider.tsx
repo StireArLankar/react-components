@@ -6,12 +6,12 @@ import React, {
   useMemo,
   useCallback,
 } from 'react'
-import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
-import { Control } from './Control'
 import useStyles from './AutoSlider.styles'
+import { Control } from './Control'
 
 export interface SliderProps {
   interval?: number

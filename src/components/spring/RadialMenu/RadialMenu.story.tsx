@@ -1,23 +1,25 @@
 import React, { Fragment } from 'react'
+
+import Adjust from '@material-ui/icons/Adjust'
+import CameraRounded from '@material-ui/icons/CameraRounded'
+import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
+import GroupWork from '@material-ui/icons/GroupWork'
+import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
+import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
+import { action } from '@storybook/addon-actions'
+import { boolean, number } from '@storybook/addon-knobs'
+import { themeColors } from 'theme/theme.styles'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withTopLabel } from '_storybook/withTopLabel'
-import Adjust from '@material-ui/icons/Adjust'
-import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
-import GroupWork from '@material-ui/icons/GroupWork'
-import CameraRounded from '@material-ui/icons/CameraRounded'
-import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
-import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
-import { boolean, number } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
-import { themeColors } from 'theme/theme.styles'
 
+import { CentralButton, CentralButtonProps } from './CentralButton'
 import {
   RadialButtons,
   RadialButtonsProps,
   RadialButtonModel,
 } from './RadialButtons'
-import { CentralButton, CentralButtonProps } from './CentralButton'
 
 import { RadialMenu, RadialMenuProps } from '.'
 

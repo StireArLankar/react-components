@@ -1,8 +1,9 @@
-import clsx from 'clsx'
 import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { animated, useTransition, to } from 'react-spring'
 import useMeasure from 'react-use-measure'
+
+import clsx from 'clsx'
 
 import useStyles from './PopupWithAnchor.styles'
 

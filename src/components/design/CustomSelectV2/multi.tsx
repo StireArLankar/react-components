@@ -1,9 +1,10 @@
-import clsx from 'clsx'
-import { useMultipleSelection, useSelect } from 'downshift'
 import React, { ReactNode, useRef } from 'react'
 import { useLayer } from 'react-laag'
 import { RemoveScroll } from 'react-remove-scroll'
 import { animated, useSpring } from 'react-spring'
+
+import clsx from 'clsx'
+import { useMultipleSelection, useSelect } from 'downshift'
 
 import Checkbox from '../Checkbox'
 

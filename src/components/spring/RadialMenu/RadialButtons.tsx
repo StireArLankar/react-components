@@ -1,7 +1,8 @@
 import React from 'react'
-import clsx from 'clsx'
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { useSpring, animated, config } from 'react-spring'
+
+import { SvgIconProps } from '@material-ui/core/SvgIcon'
+import clsx from 'clsx'
 
 import { useStyles } from './useStyles'
 

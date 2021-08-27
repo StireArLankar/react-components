@@ -1,7 +1,7 @@
 import React from 'react'
 
-import style from './form.module.scss'
 import types from './fields.types'
+import style from './form.module.scss'
 
 const FieldsSelect = (props: any) => {
   const renderButtons = () => {

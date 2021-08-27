@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useMove } from 'react-use-gesture'
 import { useSpring, animated, interpolate } from 'react-spring'
+import { useMove } from 'react-use-gesture'
+
 import clsx from 'clsx'
 
 import { useStyles } from './useStyles'

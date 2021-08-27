@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useCallback, memo } from 'react'
+
 import { motion, useMotionValue, MotionValue } from 'framer-motion'
 
 import useStyles from './styles'

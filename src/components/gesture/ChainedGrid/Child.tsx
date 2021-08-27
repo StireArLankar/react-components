@@ -1,9 +1,10 @@
 import React, { useEffect, memo } from 'react'
-import clsx from 'clsx'
 import { useSpring, animated, interpolate } from 'react-spring'
 
-import { useStyles } from './useStyles'
+import clsx from 'clsx'
+
 import { data } from './data'
+import { useStyles } from './useStyles'
 
 export interface ChildProps {
   index: number

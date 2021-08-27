@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
-import useMeasure from 'react-use-measure'
 import { useTransition, animated, useSpring } from 'react-spring'
+import useMeasure from 'react-use-measure'
 
 import { useStyles } from './useStyles'
 

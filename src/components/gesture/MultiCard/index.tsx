@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
+
 import clsx from 'clsx'
 
 import imgs from './imgs'

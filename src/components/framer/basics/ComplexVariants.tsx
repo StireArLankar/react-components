@@ -1,6 +1,7 @@
-import { motion, Variants } from 'framer-motion'
 import React, { useState } from 'react'
+
 import { LiquidButton } from 'components/design/Liquid/LiquidButton'
+import { motion, Variants } from 'framer-motion'
 
 import useStyles from './Animation.styles'
 

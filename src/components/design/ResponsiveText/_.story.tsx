@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { number, radios, text } from '@storybook/addon-knobs'
-import { withCustomTheme } from '_storybook/withCustomTheme'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import Temp from '.'
 

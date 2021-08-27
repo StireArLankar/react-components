@@ -1,7 +1,9 @@
-import { number } from '@storybook/addon-knobs'
 import React from 'react'
+
 import { action } from '@storybook/addon-actions'
+import { number } from '@storybook/addon-knobs'
 import { themeColors } from 'theme/theme.styles'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 

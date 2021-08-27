@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { animated, to, useSpring, SpringValue } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
+
 import { Tuple } from 'react-use-gesture/dist/types'
 
 import useStyles from './styles'

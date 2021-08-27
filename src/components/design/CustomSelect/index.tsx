@@ -1,8 +1,9 @@
+import React, { useMemo, useRef } from 'react'
 import { useLayer } from 'react-laag'
+
+import clsx from 'clsx'
 import { useSelect } from 'downshift'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
-import React, { useMemo, useRef } from 'react'
-import clsx from 'clsx'
 
 import useStyles from './styles'
 

@@ -1,11 +1,12 @@
 import React from 'react'
-import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
+
 import clsx from 'clsx'
 
-import useStyles from './useStyles'
 import imgs from './imgs'
+import useStyles from './useStyles'
 
 const wheel = (x: number, width: number, count: number) => {
   const start = x % (width * count)

@@ -1,6 +1,7 @@
+import React, { useState } from 'react'
+
 import { List, Root, Tab } from '@radix-ui/react-tabs'
 import { AnimateSharedLayout, motion, Variants } from 'framer-motion'
-import React, { useState } from 'react'
 
 import useStyles from './styles'
 

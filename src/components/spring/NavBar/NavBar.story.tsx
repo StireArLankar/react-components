@@ -1,7 +1,9 @@
 import React from 'react'
+
+import { number } from '@storybook/addon-knobs'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
-import { number } from '@storybook/addon-knobs'
 
 import { NavBar, NavBarProps, NavBarItem } from '.'
 

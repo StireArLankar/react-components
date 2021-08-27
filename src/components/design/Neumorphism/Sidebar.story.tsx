@@ -1,6 +1,8 @@
 import React from 'react'
-import { withCustomTheme } from '_storybook/withCustomTheme'
+
 import { boolean } from '@storybook/addon-knobs'
+
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { NestedNeumorphism } from './Nested'
 

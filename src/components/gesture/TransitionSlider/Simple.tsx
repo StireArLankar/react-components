@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import clsx from 'clsx'
-import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
-import useStyles from './useStyles'
+import clsx from 'clsx'
+
 import imgs from './imgs'
+import useStyles from './useStyles'
 
 const WIDTH = 200
 

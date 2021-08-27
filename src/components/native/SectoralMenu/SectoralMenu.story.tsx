@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react'
+
+import Adjust from '@material-ui/icons/Adjust'
+import CameraRounded from '@material-ui/icons/CameraRounded'
+import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
+import GroupWork from '@material-ui/icons/GroupWork'
+import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
+import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
+import { number } from '@storybook/addon-knobs'
+import { themeColors } from 'theme/theme.styles'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withTopLabel } from '_storybook/withTopLabel'
-import Adjust from '@material-ui/icons/Adjust'
-import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
-import GroupWork from '@material-ui/icons/GroupWork'
-import CameraRounded from '@material-ui/icons/CameraRounded'
-import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
-import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
-import { number } from '@storybook/addon-knobs'
-import { themeColors } from 'theme/theme.styles'
 
 import { SectoralMenu, SectoralButtonModel, SectoralMenuProps } from '.'
 

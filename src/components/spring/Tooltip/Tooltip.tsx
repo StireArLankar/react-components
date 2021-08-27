@@ -1,6 +1,7 @@
-import clsx from 'clsx'
 import React, { PropsWithChildren, useRef } from 'react'
 import { animated, useTransition } from 'react-spring'
+
+import clsx from 'clsx'
 
 import useStyles from './Tooltip.styles'
 

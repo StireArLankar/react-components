@@ -20,6 +20,19 @@
     "import/order": [
       "warn",
       {
+        "pathGroups": [
+          {
+            "pattern": "_storybook/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "react**",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [],
         "newlines-between": "always",
         "groups": [
           "builtin",
@@ -28,7 +41,11 @@
           "parent",
           "sibling",
           "index"
-        ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
     ]
   }

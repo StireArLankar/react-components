@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
+
+import { themeColors } from 'theme/theme.styles'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withTopLabel } from '_storybook/withTopLabel'
-import { themeColors } from 'theme/theme.styles'
 
 import { DragnDrop } from '.'
 

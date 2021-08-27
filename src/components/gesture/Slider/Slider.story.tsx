@@ -1,11 +1,12 @@
 import React from 'react'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 
-import { VerticalWheel } from './VerticalWheel'
-import { HorizontalWheel } from './HorizontalWheel'
-import { HorizontalDragSnap } from './HorizontalDragSnap'
 import { HorizontalDrag } from './HorizontalDrag'
+import { HorizontalDragSnap } from './HorizontalDragSnap'
+import { HorizontalWheel } from './HorizontalWheel'
+import { VerticalWheel } from './VerticalWheel'
 
 export default {
   title: 'Gesture/Slider',

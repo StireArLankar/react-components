@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from 'react'
-import clsx from 'clsx'
 import {
   useTransition,
   useChain,
@@ -7,6 +6,8 @@ import {
   config,
   useSpringRef,
 } from 'react-spring'
+
+import clsx from 'clsx'
 
 import useStyles from './useStyles'
 

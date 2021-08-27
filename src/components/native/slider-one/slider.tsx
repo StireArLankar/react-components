@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, Fragment } from 'react'
+
 import clsx from 'clsx'
 
-import { incLastElement, decFirstElement } from './utils'
 import style from './slider.module.scss'
+import { incLastElement, decFirstElement } from './utils'
 
 interface SliderProps {
   components: JSX.Element[]

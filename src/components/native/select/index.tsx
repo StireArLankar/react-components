@@ -1,8 +1,9 @@
 import React, { useRef, useState, MouseEvent } from 'react'
+
 import useBGColor from 'hook/useBgColor'
 
-import List from './list'
 import items from './countries'
+import List from './list'
 import style from './select.module.scss'
 
 const placeHolder = 'Choose country'

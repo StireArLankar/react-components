@@ -1,6 +1,6 @@
+import { Theme } from '@material-ui/core/styles/createMuiTheme'
 import createStyles from '@material-ui/core/styles/createStyles'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { Theme } from '@material-ui/core/styles/createMuiTheme'
 
 const distX = 65
 const distY = 65

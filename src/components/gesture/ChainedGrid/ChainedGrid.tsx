@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useMemo } from 'react'
+
 import { produce } from 'immer'
 
-import { Item } from './Item'
 import { CrazyItem } from './CrazyItem'
-import useStyles from './useStyles'
 import { data } from './data'
+import { Item } from './Item'
+import useStyles from './useStyles'
 
 const MAGIC = 4
 

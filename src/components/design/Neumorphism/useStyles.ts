@@ -1,6 +1,6 @@
+import { Theme } from '@material-ui/core/styles/createMuiTheme'
 import createStyles from '@material-ui/core/styles/createStyles'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { Theme } from '@material-ui/core/styles/createMuiTheme'
 
 const raisedShadow =
   '4px 2px 16px rgba(136, 165, 191, 0.8), -4px -2px 16px #FFFFFF'

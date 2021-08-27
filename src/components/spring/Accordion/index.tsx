@@ -2,8 +2,8 @@ import React, { PropsWithChildren, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 import useMeasure from 'react-use-measure'
 
-import { useAccordionStyles } from './useAccordionStyles'
 import { SimpleArrow, ArrowProps } from './Arrow'
+import { useAccordionStyles } from './useAccordionStyles'
 
 export interface AccordionProps {
   title: string

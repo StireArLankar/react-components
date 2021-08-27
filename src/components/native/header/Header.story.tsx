@@ -1,5 +1,6 @@
 import React from 'react'
 import { HashRouter } from 'react-router-dom'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 

@@ -1,9 +1,10 @@
-import { useLayer } from 'react-laag'
-import { useSelect } from 'downshift'
 import React, { ReactNode, useMemo, useRef } from 'react'
-import clsx from 'clsx'
-import { animated, useSpring } from 'react-spring'
+import { useLayer } from 'react-laag'
 import { RemoveScroll } from 'react-remove-scroll'
+import { animated, useSpring } from 'react-spring'
+
+import clsx from 'clsx'
+import { useSelect } from 'downshift'
 
 import { ReactComponent as Arrow } from './arrow.svg'
 import useStyles from './styles'

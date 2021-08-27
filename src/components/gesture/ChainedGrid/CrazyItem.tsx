@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState, memo } from 'react'
 import { useSpring, animated, to } from 'react-spring'
-import clamp from 'lodash-es/clamp'
 import { useGesture } from 'react-use-gesture'
 
-import useStyles from './useStyles'
+import clamp from 'lodash-es/clamp'
+
 import { data } from './data'
+import useStyles from './useStyles'
 
 export interface ItemProps {
   index: number

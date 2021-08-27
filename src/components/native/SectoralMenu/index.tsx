@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import clsx from 'clsx'
+
 import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon'
+import clsx from 'clsx'
 
 import { useStyles } from './useStyles'
 

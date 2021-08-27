@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 
-import useStyles from './useStyles'
 import imgs from './imgs'
+import useStyles from './useStyles'
 
 export interface BoxSliderProps {
   rotate: (num: number) => string

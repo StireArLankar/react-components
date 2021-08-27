@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import clsx from 'clsx'
 import { useSpring, animated } from 'react-spring'
+
+import clsx from 'clsx'
 
 import { useStyles } from './useStyles'
 

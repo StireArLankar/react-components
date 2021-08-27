@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { themeColors } from 'theme/theme.styles'
 
 export const withTopLabel = (content: JSX.Element) => (fn: any) => (

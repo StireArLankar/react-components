@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { useSprings, animated, to } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
+
 import clamp from 'lodash-es/clamp'
 import swap from 'lodash-move'
-import { useDrag } from 'react-use-gesture'
-import { useSprings, animated, to } from 'react-spring'
 
 import { useStyles } from './useStyles'
 

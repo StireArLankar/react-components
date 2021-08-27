@@ -5,11 +5,12 @@ import React, {
   MouseEvent,
   ChangeEvent,
 } from 'react'
+
 import useBGColor from 'hook/useBgColor'
 
+import classes from './color.module.scss'
 import ColorDisplay from './ColorDisplay'
 import FileInput from './FileInput'
-import classes from './color.module.scss'
 
 export const Color = () => {
   const [moveColor, setMoveColor] = useState<[number, number, number]>([

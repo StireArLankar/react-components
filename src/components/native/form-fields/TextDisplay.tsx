@@ -1,7 +1,7 @@
 import React from 'react'
 
-import style from './form.module.scss'
 import { FieldType } from './fields.types'
+import style from './form.module.scss'
 
 interface TextDisplayProps {
   fields: FieldType[]

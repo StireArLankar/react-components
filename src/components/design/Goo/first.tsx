@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { useDrag } from 'react-use-gesture'
 import { useSpring, animated } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 
 export const Goo = () => {
   return (

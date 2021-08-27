@@ -1,10 +1,10 @@
 import React from 'react'
-import { useWheel } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+import { useWheel } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
-import useStyles from './useStyles'
 import imgs from './imgs'
+import useStyles from './useStyles'
 
 const wheel = (y: number, height: number, count: number) => {
   const start = y % (height * count)

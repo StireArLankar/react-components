@@ -1,10 +1,11 @@
 import React, { useRef, useMemo } from 'react'
-import { useDrag } from 'react-use-gesture'
 import { animated, useSpring } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
+
 import clamp from 'lodash-es/clamp'
 
-import useStyles from './useStyles'
 import imgsBase from './imgs'
+import useStyles from './useStyles'
 
 const STEP = 100
 const WIDTH = 100

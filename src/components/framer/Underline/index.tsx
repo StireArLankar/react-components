@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+
 import clsx from 'clsx'
+import { motion, AnimateSharedLayout } from 'framer-motion'
 
 import useStyles from './styles'
 

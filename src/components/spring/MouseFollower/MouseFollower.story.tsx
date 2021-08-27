@@ -1,6 +1,8 @@
 import React from 'react'
-import { withCustomTheme } from '_storybook/withCustomTheme'
+
 import { number } from '@storybook/addon-knobs'
+
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { MouseFollower as MouseFollowerV2 } from './V2'
 

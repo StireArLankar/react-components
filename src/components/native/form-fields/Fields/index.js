@@ -1,9 +1,9 @@
 import React from 'react'
 
-import TextInput from './TextInput'
-import TextareaInput from './TextareaInput'
-import SelectInput from './SelectInput'
 import classes from './fields.module.scss'
+import SelectInput from './SelectInput'
+import TextareaInput from './TextareaInput'
+import TextInput from './TextInput'
 
 const mapper = {
   text: (props, onChange) => <TextInput {...props} onChange={onChange} />,

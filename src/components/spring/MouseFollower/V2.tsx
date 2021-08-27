@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { useTrail, animated } from 'react-spring'
+
 import clsx from 'clsx'
 
 import { useStyles } from './useStyles'

@@ -1,8 +1,9 @@
-import clsx from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
 import React, { memo, useState } from 'react'
 import { PropsWithChildren } from 'react'
 import NumberFormat from 'react-number-format'
+
+import clsx from 'clsx'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import useStyles from './styles'
 

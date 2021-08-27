@@ -1,6 +1,6 @@
+import { Theme } from '@material-ui/core/styles/createMuiTheme'
 import createStyles from '@material-ui/core/styles/createStyles'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import { Theme } from '@material-ui/core/styles/createMuiTheme'
 
 const boxShadow = `
 15px 15px 20px rgba(0, 0, 0, 0.1),

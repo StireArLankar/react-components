@@ -1,5 +1,6 @@
-import clsx from 'clsx'
 import React, { PropsWithChildren, useState } from 'react'
+
+import clsx from 'clsx'
 
 import useStyles from './Ripple.styles'
 

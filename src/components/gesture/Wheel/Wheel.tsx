@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
-import clamp from 'lodash-es/clamp'
 import useMeasure from 'react-use-measure'
 
-import useStyles from './useStyles'
+import clamp from 'lodash-es/clamp'
+
 import path from './path'
+import useStyles from './useStyles'
 
 const constrains = (val: number, max: number) => {
   return val > 0 ? Math.min(val, max) : Math.max(val, -max)

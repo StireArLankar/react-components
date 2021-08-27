@@ -1,16 +1,14 @@
 import React from 'react'
+
 import { withCenteredStyle } from '_storybook/withCenteredStyle'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { Animation, AnimationV2 } from './Animation'
-import { AutoSizeWrapper } from './Autosize'
-import { Damping } from './Damping'
-import { Keyframes } from './Keyframes'
-import { PositionTransition } from './PositionTransition'
-import { OrderTransition } from './OrderTransition'
-import { Variants, NestedVariants } from './Variants'
 import { AnimationHelpers, AnimationHelpersVariants } from './AnimationHelpers'
+import { AutoSizeWrapper } from './Autosize'
 import { StaggerVariants } from './ComplexVariants'
+import { Cycle } from './Cycle'
+import { Damping } from './Damping'
 import {
   Drag,
   DragAxis,
@@ -19,8 +17,11 @@ import {
   DragControls,
 } from './Drag'
 import { DragPropagation, DragRefConstrains } from './DragPropagation'
-import { Cycle } from './Cycle'
+import { Keyframes } from './Keyframes'
 import { MotionValue } from './MotionValue'
+import { OrderTransition } from './OrderTransition'
+import { PositionTransition } from './PositionTransition'
+import { Variants, NestedVariants } from './Variants'
 
 export default {
   title: 'Framer Motion/Basics',

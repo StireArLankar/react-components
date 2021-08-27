@@ -2,6 +2,7 @@ import React from 'react'
 import { animated, config } from 'react-spring'
 import { useGesture } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
+
 import { useInertia } from 'hook/useInertia'
 
 import useStyles from './useStyles'

@@ -1,9 +1,10 @@
-import * as Checkbox from '@radix-ui/react-checkbox'
-import clsx from 'clsx'
 import React from 'react'
 
-import useStyles from './styles'
+import * as Checkbox from '@radix-ui/react-checkbox'
+import clsx from 'clsx'
+
 import InputHelper from './helper'
+import useStyles from './styles'
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,

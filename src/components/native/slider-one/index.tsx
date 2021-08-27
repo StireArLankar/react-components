@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+
 import useBGColor from 'hook/useBgColor'
 
-import Slider from './slider'
-import ImgSlide from './ImgSlide'
-import classes from './slider.module.scss'
 import { Button } from './Button'
+import ImgSlide from './ImgSlide'
+import Slider from './slider'
+import classes from './slider.module.scss'
 
 const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`
 const numbers = [1, 2, 3, 4, 5, 6, 7]

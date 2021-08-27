@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+
 import clsx from 'clsx'
 
-import HeartPng from './web-heart-animation.png'
 import useStyles from './useStyles'
+import HeartPng from './web-heart-animation.png'
 
 export const Heart = () => {
   const classes = useStyles()

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import View from './view'
 import Handler from './handler'
+import View from './view'
 
 class Controller extends Component {
   state = {

@@ -6,10 +6,11 @@ import React, {
   forwardRef,
   useCallback,
 } from 'react'
-import { useTransition, animated, useSpring } from 'react-spring'
 import { createPortal } from 'react-dom'
-import debounce from 'lodash-es/debounce'
+import { useTransition, animated, useSpring } from 'react-spring'
+
 import clsx from 'clsx'
+import debounce from 'lodash-es/debounce'
 
 import useStyles from './FixedPopup.styles'
 

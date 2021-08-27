@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import clsx from 'clsx'
 import { useSpring, animated, config } from 'react-spring'
 
-import { ReactComponent as Info } from './info.svg'
+import clsx from 'clsx'
+
 import { ReactComponent as Close } from './close.svg'
+import { ReactComponent as Info } from './info.svg'
 import { useStyles } from './useStyles'
 
 export interface FlipCardProps {

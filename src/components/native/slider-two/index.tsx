@@ -1,8 +1,9 @@
 import React from 'react'
+
 import useBGColor from 'hook/useBgColor'
 
-import Slider from './slider'
 import Slide from './slide'
+import Slider from './slider'
 import style from './slider.module.scss'
 
 const strings = [

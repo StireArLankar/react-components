@@ -1,7 +1,7 @@
 import React, { Fragment, PropsWithChildren } from 'react'
 
-import Header from '../header'
 import { LinkItem } from '../../../App'
+import Header from '../header'
 
 import classes from './layout.module.scss'
 

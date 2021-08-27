@@ -1,7 +1,8 @@
+import './App.scss'
+
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
 
-import './App.scss'
 import Autocomplete from './components/native/autocomplete'
 import CircleBar from './components/native/circle-bar'
 import Color from './components/native/color'

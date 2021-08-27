@@ -6,6 +6,7 @@ import React, {
   useRef,
 } from 'react'
 import { useTransition, animated } from 'react-spring'
+
 import clsx from 'clsx'
 
 import useStyles from './Popup.styles'
