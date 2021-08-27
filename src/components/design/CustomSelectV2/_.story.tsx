@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
 
 import { Combobox } from './multi'
 

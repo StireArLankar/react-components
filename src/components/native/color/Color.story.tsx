@@ -1,7 +1,7 @@
 import React from 'react'
 import { Color } from '.'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
 import { ColorDisplay, ColorDisplayProps } from './ColorDisplay'
 import { number } from '@storybook/addon-knobs'
 

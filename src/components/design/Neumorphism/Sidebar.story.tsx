@@ -1,5 +1,5 @@
 import React from 'react'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { Neumorphism, NeumorphismProps } from '.'
 import { NestedNeumorphism } from './Nested'

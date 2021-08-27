@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, MouseEvent } from 'react'
+
 import style from './autocomplete.module.scss'
 
 interface AutocompleteProps {
@@ -31,7 +32,9 @@ const Autocomplete = (props: AutocompleteProps) => {
   }
 
   const renderList = () => {
-    if (suggestion.length === 0) return null
+    if (suggestion.length === 0) {
+      return null
+    }
 
     return (
       <ul className={style.list}>

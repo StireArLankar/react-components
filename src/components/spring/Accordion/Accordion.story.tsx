@@ -1,7 +1,7 @@
 import { text, boolean } from '@storybook/addon-knobs'
 import React from 'react'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { Accordion, AccordionProps } from '.'
 import { MorphArrow } from './Arrow'

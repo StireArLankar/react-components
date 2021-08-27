@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Slider from './slider'
 import ImgSlide from './ImgSlide'
 import classes from './slider.module.scss'
-import useBGColor from '../../../hook/useBgColor'
+import useBGColor from 'hook/useBgColor'
 import { Button } from './Button'
 
 const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`

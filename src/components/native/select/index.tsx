@@ -3,7 +3,7 @@ import List from './list'
 
 import items from './countries'
 import style from './select.module.scss'
-import useBGColor from '../../../hook/useBgColor'
+import useBGColor from 'hook/useBgColor'
 
 const placeHolder = 'Choose country'
 

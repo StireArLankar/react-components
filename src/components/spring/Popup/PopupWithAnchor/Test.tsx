@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { NeonButton } from 'components/design/Neon/NeonButton'
+
 import { PopupWithAnchor } from '.'
-import { NeonButton } from '../../../design/Neon/NeonButton'
 
 export const Test = (props: { position: 'top' | 'bottom'; temp?: boolean }) => {
   const { position = 'top', temp } = props

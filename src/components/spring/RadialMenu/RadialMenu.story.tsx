@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-import { withTopLabel } from '../../../_storybook/withTopLabel'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
+import { withTopLabel } from '_storybook/withTopLabel'
 
 import Adjust from '@material-ui/icons/Adjust'
 import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
@@ -19,7 +19,7 @@ import {
 } from './RadialButtons'
 import { boolean, number } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
-import { themeColors } from '../../../theme/theme.styles'
+import { themeColors } from 'theme/theme.styles'
 
 const label = (
   <Fragment>

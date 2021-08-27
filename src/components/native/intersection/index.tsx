@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import classes from './intersection.module.scss'
 
 import ListItem from './ListItem'
-import useBGColor from '../../../hook/useBgColor'
+import useBGColor from 'hook/useBgColor'
 
 const getUrl = (index: number) =>
   `https://stirearlankar.github.io/54729-kekstagram/photos/${index + 8}.jpg`

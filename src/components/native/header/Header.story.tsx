@@ -1,7 +1,9 @@
 import React from 'react'
+import { HashRouter } from 'react-router-dom'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
+
 import { Header, HeaderProps } from '.'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
 
 export default {
   title: 'Native/Header With Sidebar',
@@ -87,5 +89,10 @@ export const example = () => {
       },
     ],
   }
-  return <Header {...props} />
+
+  return (
+    <HashRouter>
+      <Header {...props} />
+    </HashRouter>
+  )
 }

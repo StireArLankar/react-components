@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { themeColors } from '../../../theme/theme.styles'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-import { withTopLabel } from '../../../_storybook/withTopLabel'
+import { themeColors } from 'theme/theme.styles'
+import { withCustomTheme } from '_storybook/withCustomTheme'
+import { withTopLabel } from '_storybook/withTopLabel'
 
 import Component from '.'
 

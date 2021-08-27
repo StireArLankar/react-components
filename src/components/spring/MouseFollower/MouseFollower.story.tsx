@@ -1,5 +1,5 @@
 import React from 'react'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { MouseFollower, MouseFollowerProps } from '.'
 import { MouseFollower as MouseFollowerV2 } from './V2'

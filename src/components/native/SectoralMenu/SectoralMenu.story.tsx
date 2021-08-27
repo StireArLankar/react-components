@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
-import { withTopLabel } from '../../../_storybook/withTopLabel'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
+import { withTopLabel } from '_storybook/withTopLabel'
 import Adjust from '@material-ui/icons/Adjust'
 import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
 import GroupWork from '@material-ui/icons/GroupWork'
@@ -11,7 +11,7 @@ import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
 
 import { SectoralMenu, SectoralButtonModel, SectoralMenuProps } from '.'
 import { number } from '@storybook/addon-knobs'
-import { themeColors } from '../../../theme/theme.styles'
+import { themeColors } from 'theme/theme.styles'
 
 const label = (
   <Fragment>

@@ -1,9 +1,9 @@
 import React from 'react'
-import { withCenteredStyle } from '../../../_storybook/withCenteredStyle'
-import { withCustomTheme } from '../../../_storybook/withCustomTheme'
+import { withCenteredStyle } from '_storybook/withCenteredStyle'
+import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { SliderTwo } from '.'
-import { themeColors } from '../../../theme/theme.styles'
+import { themeColors } from 'theme/theme.styles'
 import Slide, { SlideProps } from './slide'
 import { text } from '@storybook/addon-knobs'
 
