@@ -12,7 +12,7 @@
     "downshift": "^6.1.0",
     "framer-motion": "^4.1.2",
     "gooey-react": "^1.1.0",
-    "immer": "^8.0.1",
+    "immer": "^9.0.6",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
     "query-string": "^6.9.0",
