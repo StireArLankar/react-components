@@ -5,43 +5,39 @@ import makeStyles from '@material-ui/core/styles/makeStyles'
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
-      filter: 'url(#goo)',
       position: 'fixed',
       left: '50%',
       userSelect: 'none',
+      width: '100%',
+      maxWidth: 600,
+    },
+    wrapperFilter: {
+      filter: 'url(#goo)',
+      position: 'absolute',
+      top: 0,
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: '100%',
+      bottom: 0,
     },
     planc: {
-      width: '110vw',
+      width: '98%',
+      top: -50,
       maxWidth: 600,
       background: 'var(--bg)',
       transform: 'translate(-50%, 50px)',
       position: 'absolute',
-      bottom: 0,
+      left: '50%',
     },
     box: {
-      borderRadius: 50,
-      height: 200,
-      width: 200,
+      borderRadius: 60,
+      height: 250,
+      width: 250,
+      left: '50%',
       background: 'var(--bg)',
       userSelect: 'none',
       position: 'absolute',
-      top: -100,
-    },
-    rotation: {
-      padding: 10,
-      position: 'relative',
-      animationName: '$rotate',
-      animationDuration: '5s',
-      animationIterationCount: 'infinite',
-      animationTimingFunction: 'linear',
-    },
-    '@keyframes rotate': {
-      from: {
-        transform: 'rotate(0deg)',
-      },
-      to: {
-        transform: 'rotate(360deg)',
-      },
+      top: -50,
     },
   })
 )

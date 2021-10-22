@@ -31,25 +31,20 @@ export const Rubber = () => {
         className={classes.wrapper}
         style={{
           bottom: y.to((y) => y * 0.5 + 10),
+          ['--bg' as any]: 'rgba(255, 0, 0, 0.5)',
         }}
       >
         <animated.div
           className={classes.box}
-          style={{
-            transform: y.to((y) => trans(y, 0.5)),
-          }}
+          style={{ transform: y.to((y) => trans(y, 0.5)) }}
         />
         <animated.div
           className={classes.box}
-          style={{
-            transform: y.to((y) => trans(y, 0.4)),
-          }}
+          style={{ transform: y.to((y) => trans(y, 0.4)) }}
         />
         <animated.div
           className={classes.box}
-          style={{
-            transform: y.to((y) => trans(y, 0.3)),
-          }}
+          style={{ transform: y.to((y) => trans(y, 0.3)) }}
           {...bind()}
         />
         <animated.div
