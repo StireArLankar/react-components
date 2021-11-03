@@ -4,7 +4,7 @@ import { useDrag } from 'react-use-gesture'
 
 import clamp from 'lodash-es/clamp'
 
-import useStyles from './useStyles'
+import classes from './classes'
 
 const updateAxis = (
   val: number,
@@ -35,8 +35,6 @@ export interface ConnectedItemProps {
 
 export const ConnectedItem = (props: ConnectedItemProps) => {
   const { index, step, max, position, updatePosition } = props
-
-  const classes = useStyles()
 
   const update = (x: number, y: number) => updatePosition(index, x, y)
 
@@ -81,7 +79,7 @@ export const ConnectedItem = (props: ConnectedItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item}
+      className={classes.item()}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(

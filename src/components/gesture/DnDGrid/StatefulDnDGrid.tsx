@@ -2,17 +2,15 @@ import React, { useState, useCallback } from 'react'
 
 import { produce } from 'immer'
 
+import classes from './classes'
 import { ConnectedItem } from './ConnectedItem'
-import useStyles from './useStyles'
 
 const arr: number[] = new Array(16).fill(0)
 
 type IState = Array<[number, number]>
 
 export const StatefulDnDGrid = () => {
-  const classes = useStyles()
-
-  const [items, setItems] = useState<IState>([
+  const [items, setItems] = useState<IState>(() => [
     [0, 0],
     [1, 2],
     [2, 2],
@@ -43,8 +41,8 @@ export const StatefulDnDGrid = () => {
 
   const renderCells = () =>
     counts.map((count, index) => (
-      <div key={index} className={classes.gridItem}>
-        <span className={classes.count}>{count > 0 ? count : null}</span>
+      <div key={index} className={classes.gridItem()}>
+        <span className={classes.count()}>{count > 0 ? count : null}</span>
       </div>
     ))
 
@@ -61,7 +59,7 @@ export const StatefulDnDGrid = () => {
     ))
 
   return (
-    <div className={classes.grid}>
+    <div className={classes.grid()}>
       {renderCells()}
       {renderItems()}
     </div>

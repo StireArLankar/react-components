@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo, useEffect } from 'react'
 
 import { produce } from 'immer'
 
-import useStyles from '../useStyles'
+import classes from '../classes'
 
 import { Item } from './Item'
 import { LazyItem } from './LazyItem'
@@ -37,7 +37,6 @@ const unfilledItems: IState = [
 
 export const SwapDnDGrid = (props: SwapDnDGridProps) => {
   const { lazy, full } = props
-  const classes = useStyles()
 
   const [items, setItems] = useState<IState>([])
 
@@ -78,7 +77,7 @@ export const SwapDnDGrid = (props: SwapDnDGridProps) => {
   )
 
   const renderCells = () =>
-    counts.map((_, index) => <div key={index} className={classes.gridItem} />)
+    counts.map((_, index) => <div key={index} className={classes.gridItem()} />)
 
   const renderItems = () =>
     items.map((item, index) => (
@@ -93,7 +92,7 @@ export const SwapDnDGrid = (props: SwapDnDGridProps) => {
     ))
 
   return (
-    <div className={classes.grid}>
+    <div className={classes.grid()}>
       {renderCells()}
       {renderItems()}
     </div>

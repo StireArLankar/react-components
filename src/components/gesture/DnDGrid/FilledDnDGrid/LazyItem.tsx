@@ -4,7 +4,7 @@ import { useDrag } from 'react-use-gesture'
 
 import clamp from 'lodash-es/clamp'
 
-import useStyles from '../useStyles'
+import classes from '../classes'
 
 const updateAxis = (
   val: number,
@@ -35,8 +35,6 @@ export interface LazyItemProps {
 
 export const LazyItem = (props: LazyItemProps) => {
   const { index, step, max, position, updatePosition } = props
-
-  const classes = useStyles()
 
   const update = (x: number, y: number) => updatePosition(index, x, y)
 
@@ -88,7 +86,7 @@ export const LazyItem = (props: LazyItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item}
+      className={classes.item()}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(
@@ -100,7 +98,7 @@ export const LazyItem = (props: LazyItemProps) => {
         ),
       }}
     >
-      <span className={classes.count}>{index}</span>
+      <span className={classes.count()}>{index}</span>
     </animated.div>
   )
 }

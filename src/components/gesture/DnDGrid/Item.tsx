@@ -4,7 +4,7 @@ import { useDrag } from 'react-use-gesture'
 
 import clamp from 'lodash-es/clamp'
 
-import useStyles from './useStyles'
+import classes from './classes'
 
 const updateVal = (val: number, step: number, current: number, max: number) => {
   const offset = val % step
@@ -19,8 +19,6 @@ const updateVal = (val: number, step: number, current: number, max: number) => {
 
 export const Item = (props: { index: number; step: number; max: number }) => {
   const { index, step, max } = props
-
-  const classes = useStyles()
 
   const [{ x, y, scalE, zIndeX, shadow }, set] = useSpring(() => ({
     x: index * step,
@@ -58,7 +56,7 @@ export const Item = (props: { index: number; step: number; max: number }) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item}
+      className={classes.item()}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(
