@@ -5,6 +5,8 @@ import { themeColors } from 'theme/theme.styles'
 import { withCustomTheme } from '_storybook/withCustomTheme'
 import { withTopLabel } from '_storybook/withTopLabel'
 
+import V2 from './v2'
+
 import Component from '.'
 
 const label = (
@@ -34,8 +36,28 @@ export const tree = () => (
       minWidth: '100vw',
       minHeight: '100vh',
       padding: 30,
+      bottom: 0,
+      overflow: 'auto',
     }}
   >
     <Component />
+  </div>
+)
+
+export const version2 = () => (
+  <div
+    style={{
+      background: themeColors.dark,
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      minWidth: '100vw',
+      minHeight: '100vh',
+      padding: 30,
+      bottom: 0,
+      overflow: 'auto',
+    }}
+  >
+    <V2 />
   </div>
 )
