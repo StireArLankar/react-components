@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
+
+import { useDrag } from '@use-gesture/react'
 
 import imgs from './imgs'
 import useStyles from './useStyles'
@@ -48,7 +49,8 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
         setOffset((prev) => updateValue(x, step, prev))
       }
     },
-    { domTarget: window, filterTaps: true }
+    // FIXME
+    { target: window, filterTaps: true }
   )
 
   useEffect(() => {
@@ -73,9 +75,9 @@ export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
     setTimeout(() => (isAnimatingRef.current = false), 100)
   }, [])
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (

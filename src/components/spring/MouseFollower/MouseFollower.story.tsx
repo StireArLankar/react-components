@@ -2,11 +2,11 @@ import React from 'react'
 
 import { number } from '@storybook/addon-knobs'
 
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { MouseFollower as MouseFollowerV2 } from './V2'
 
 import { MouseFollower, MouseFollowerProps } from '.'
+
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Mouse Followers',

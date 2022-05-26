@@ -1,10 +1,10 @@
 import React from 'react'
 
-import useBGColor from 'hook/useBgColor'
-
-import Slide from './slide'
-import Slider from './slider'
+import Slide from './Slide'
+import Slider from './Slider'
 import style from './slider.module.scss'
+
+import useBGColor from '~/hook/useBgColor'
 
 const strings = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',

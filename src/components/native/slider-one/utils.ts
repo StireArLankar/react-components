@@ -1,3 +1,4 @@
+//@ts-nocheck
 const incElement = (elementValue, componentsLength) => {
   const maxValue = componentsLength - 1
   return elementValue === maxValue ? 0 : elementValue + 1

@@ -7,13 +7,13 @@ import GroupWork from '@material-ui/icons/GroupWork'
 import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
 import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
 import { number } from '@storybook/addon-knobs'
-import { themeColors } from 'theme/theme.styles'
-
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-import { withTopLabel } from '_storybook/withTopLabel'
 
 import { SectoralMenu, SectoralButtonModel, SectoralMenuProps } from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+import { withTopLabel } from '~/_storybook/withTopLabel'
+import { themeColors } from '~/theme/theme.styles'
 
 const label = (
   <Fragment>

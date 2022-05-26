@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { Jump } from './Jump'
 import { Roll } from './Roll'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Letters',

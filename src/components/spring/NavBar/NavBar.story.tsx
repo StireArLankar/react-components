@@ -2,10 +2,10 @@ import React from 'react'
 
 import { number } from '@storybook/addon-knobs'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { NavBar, NavBarProps, NavBarItem } from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 const items: NavBarItem[] = [
   {

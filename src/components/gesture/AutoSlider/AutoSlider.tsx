@@ -7,8 +7,9 @@ import React, {
   useCallback,
 } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
+
+import { useDrag } from '@use-gesture/react'
 
 import useStyles from './AutoSlider.styles'
 import { Control } from './Control'

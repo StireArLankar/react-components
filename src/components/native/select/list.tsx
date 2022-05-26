@@ -12,14 +12,8 @@ interface ListProps {
 }
 
 const List = (props: ListProps) => {
-  const {
-    search,
-    closeList,
-    items,
-    onChange,
-    onEscPress,
-    onSearchChange,
-  } = props
+  const { search, closeList, items, onChange, onEscPress, onSearchChange } =
+    props
   useEffect(() => {
     if (ref.current) {
       ref.current.scrollTop = 0

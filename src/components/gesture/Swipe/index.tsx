@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
+import { useDrag } from '@use-gesture/react'
 import clsx from 'clsx'
 
 import useStyles from './useStyles'
@@ -24,7 +24,7 @@ export const Swipe = () => {
       />
     ))
 
-  const bind = useDrag(({ down, vxvy: [vx], cancel }) => {
+  const bind = useDrag(({ down, velocity: [vx], cancel }) => {
     // const bind = useDrag(({ swipe: [swipeX] }) => {
     // setPosition((p) => Math.min(Math.max(-1, p + swipeX), 1))
 

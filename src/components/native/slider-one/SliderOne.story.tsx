@@ -2,12 +2,12 @@ import React from 'react'
 
 import { text } from '@storybook/addon-knobs'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { Button, ButtonProps } from './Button'
 
 import Slider from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Native/SliderOne',

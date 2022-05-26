@@ -2,12 +2,12 @@ import React from 'react'
 
 import { text, boolean } from '@storybook/addon-knobs'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { MorphArrow } from './Arrow'
 
 import { Accordion, AccordionProps } from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Accordion',

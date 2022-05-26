@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import imgs from './imgs'

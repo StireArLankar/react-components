@@ -83,27 +83,32 @@ const Component = memo((props: Props) => {
     return onChange?.(e.target.value)
   }
 
+  const renderInput = () => (
+    //@ts-ignore
+    <NumberFormat<any>
+      {...rest}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      disabled={disabled}
+      id={id}
+      onChange={onValueChange}
+      className={classes.input}
+      value={value}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      autoComplete={autoComplete}
+      format={(val) => formatWithPattern(val, '+7 (###) ###-##-##', '_')}
+      removeFormatting={(val) => removeFormatting(val, '+7 ##########')}
+    />
+  )
+
   return (
     <div className={cls}>
       <label className={classes.label} htmlFor={id}>
         {label}
       </label>
       <div className={classes.inputWrapper}>
-        <NumberFormat
-          {...rest}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          disabled={disabled}
-          id={id}
-          onChange={onValueChange}
-          className={classes.input}
-          value={value}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          autoComplete={autoComplete}
-          format={(val) => formatWithPattern(val, '+7 (###) ###-##-##', '_')}
-          removeFormatting={(val) => removeFormatting(val, '+7 ##########')}
-        />
+        {renderInput()}
         {renderChildren()}
         <AnimatePresence>
           {helperText && (

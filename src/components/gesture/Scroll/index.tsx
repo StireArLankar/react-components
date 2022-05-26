@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { useScroll } from 'react-use-gesture'
+
+import { useScroll } from '@use-gesture/react'
 
 import { useStyles } from './useStyles'
 
@@ -13,12 +14,13 @@ export const Scroll = () => {
 
   const bind = useScroll(
     ({ xy: [, y] }) => set({ width: (y / height) * 100 + '%' }),
-    { domTarget: window }
+    // FIXME
+    { target: window }
   )
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   return (
     <div className={classes.wrapper}>

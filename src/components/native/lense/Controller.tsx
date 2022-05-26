@@ -1,8 +1,9 @@
+//@ts-nocheck
 import React, { useState } from 'react'
 
-import Handler from './handler'
+import Handler from './Handler'
 import style from './lense.module.scss'
-import View from './view'
+import View from './View'
 
 const Controller = (props) => {
   const [coords, setCoords] = useState({ x: 0, y: 0 })

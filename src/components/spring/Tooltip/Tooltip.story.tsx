@@ -2,10 +2,10 @@ import React from 'react'
 
 import { radios } from '@storybook/addon-knobs'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { Test } from './Test'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Tooltip',

@@ -1,7 +1,7 @@
 import React, { useRef, useMemo } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import imgsBase from './imgs'
@@ -68,17 +68,13 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
   const dragOffset = useRef(start)
 
   const bind = useDrag(
-    ({ movement: [x], down, vxvy: [vx] }) => {
+    ({ movement: [x], down, velocity: [vx] }) => {
       if (down) {
-        setX({
-          x: dragOffset.current + x,
-        })
+        setX({ x: dragOffset.current + x })
       } else {
         dragOffset.current += x + vx * 200
         // dragOffset.current += x
-        setX({
-          x: dragOffset.current,
-        })
+        setX({ x: dragOffset.current })
       }
     },
     { axis: 'x' }

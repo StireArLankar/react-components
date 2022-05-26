@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import imgs from './imgs'
@@ -65,25 +65,22 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
   const dragOffset = useRef(start)
 
   const bind = useDrag(
-    ({ movement: [x], down, vxvy: [vx] }) => {
+    ({ movement: [x], down, velocity: [vx] }) => {
       if (down) {
-        setX({
-          x: dragOffset.current + x,
-        })
+        setX({ x: dragOffset.current + x })
       } else {
         dragOffset.current += x + vx * 200
         // dragOffset.current += x
-        setX({
-          x: dragOffset.current,
-        })
+        setX({ x: dragOffset.current })
       }
     },
-    { domTarget: window, axis: 'x' }
+    // FIXME
+    { target: window, axis: 'x' }
   )
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (

@@ -1,11 +1,12 @@
 import React from 'react'
 import { animated, config } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
-import { useInertia } from 'hook/useInertia'
+import { useGesture } from '@use-gesture/react'
 
 import useStyles from './useStyles'
+
+import { useInertia } from '~/hook/useInertia'
 
 const imgs = [
   'https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=750',
@@ -28,7 +29,7 @@ export const Inertia = () => {
 
   const bind = useGesture(
     {
-      onDrag: ({ down, movement: [, my], vxvy: [, vy] }) => {
+      onDrag: ({ down, movement: [, my], velocity: [, vy] }) => {
         if (down) {
           set({ y: my, config: { decay: false, velocity: 0 } })
         } else {

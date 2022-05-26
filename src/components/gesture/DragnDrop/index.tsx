@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSprings, animated, to } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 import swap from 'lodash-move'
 
@@ -10,31 +10,33 @@ import { useStyles } from './useStyles'
 const immediate = (key: string) => key === 'y' || key === 'zIndex'
 const notImmediate = () => false
 
-const fn = (
-  order: number[],
-  down?: boolean,
-  originalIndex?: number,
-  curIndex: number = 0,
-  y: number = 0
-) => (index: number) => {
-  if (down && index === originalIndex) {
+const fn =
+  (
+    order: number[],
+    down?: boolean,
+    originalIndex?: number,
+    curIndex: number = 0,
+    y: number = 0
+  ) =>
+  (index: number) => {
+    if (down && index === originalIndex) {
+      return {
+        y: curIndex * 100 + y,
+        scale: 1.1,
+        zIndex: 100,
+        shadow: 15,
+        immediate: immediate,
+      }
+    }
+
     return {
-      y: curIndex * 100 + y,
-      scale: 1.1,
-      zIndex: 100,
-      shadow: 15,
-      immediate: immediate,
+      y: order.indexOf(index) * 100,
+      scale: 1,
+      zIndex: 0,
+      shadow: 1,
+      immediate: notImmediate,
     }
   }
-
-  return {
-    y: order.indexOf(index) * 100,
-    scale: 1,
-    zIndex: 0,
-    shadow: 1,
-    immediate: notImmediate,
-  }
-}
 
 const items = 'Lorem ipsum dolor sit'.split(' ')
 

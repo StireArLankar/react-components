@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, memo } from 'react'
 import { useSpring, animated, to } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
 
+import { useGesture } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import { data } from './data'

@@ -1,8 +1,8 @@
 import React, { useRef, useMemo, useEffect } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import useStyles from './Range.styles'

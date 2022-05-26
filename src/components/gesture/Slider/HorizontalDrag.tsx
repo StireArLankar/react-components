@@ -1,8 +1,8 @@
 import React from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
+import { useDrag } from '@use-gesture/react'
 import clsx from 'clsx'
 
 import imgs from './imgs'
@@ -19,7 +19,7 @@ export const HorizontalDrag = () => {
   const [ref, { width }] = useMeasure()
   const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
 
-  const bind = useDrag(({ offset: [x], vxvy: [vx] }) => {
+  const bind = useDrag(({ offset: [x], velocity: [vx] }) => {
     setWheel({ wheelY: -x })
   })
 

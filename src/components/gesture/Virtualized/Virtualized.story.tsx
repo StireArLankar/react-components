@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { Virtualized } from './Virtualized'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Gesture/Virtualized',

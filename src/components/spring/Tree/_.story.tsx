@@ -1,13 +1,12 @@
 import React from 'react'
 
-import { themeColors } from 'theme/theme.styles'
-
-import { withCustomTheme } from '_storybook/withCustomTheme'
-import { withTopLabel } from '_storybook/withTopLabel'
-
 import V2 from './v2'
 
 import Component from '.'
+
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+import { withTopLabel } from '~/_storybook/withTopLabel'
+import { themeColors } from '~/theme/theme.styles'
 
 const label = (
   <>

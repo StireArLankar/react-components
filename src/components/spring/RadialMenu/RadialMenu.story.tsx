@@ -8,11 +8,6 @@ import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
 import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
 import { action } from '@storybook/addon-actions'
 import { boolean, number } from '@storybook/addon-knobs'
-import { themeColors } from 'theme/theme.styles'
-
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-import { withTopLabel } from '_storybook/withTopLabel'
 
 import { CentralButton, CentralButtonProps } from './CentralButton'
 import {
@@ -22,6 +17,11 @@ import {
 } from './RadialButtons'
 
 import { RadialMenu, RadialMenuProps } from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+import { withTopLabel } from '~/_storybook/withTopLabel'
+import { themeColors } from '~/theme/theme.styles'
 
 const label = (
   <Fragment>

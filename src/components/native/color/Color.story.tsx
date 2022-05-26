@@ -2,12 +2,12 @@ import React from 'react'
 
 import { number } from '@storybook/addon-knobs'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { ColorDisplay, ColorDisplayProps } from './ColorDisplay'
 
 import { Color } from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Native/Color Picker',

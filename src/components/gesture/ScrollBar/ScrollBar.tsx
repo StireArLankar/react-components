@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
+
+import { useGesture } from '@use-gesture/react'
 
 import { useStyles } from './useStyles'
 
@@ -38,7 +39,7 @@ export const ScrollBar = () => {
     set({ y: val })
   }, [val, set, acting])
 
-  const handler = (y: number, check: boolean) => {
+  const handler = (y: number, check?: boolean) => {
     if (check) {
       set({ y: val + y })
     } else {
@@ -64,9 +65,9 @@ export const ScrollBar = () => {
       onDragStart: () => setActing(true),
       onClickCapture: (evt) => {
         if (!isTap.current) {
-          evt.stopPropagation()
-          evt.nativeEvent.preventDefault()
-          evt.nativeEvent.stopPropagation()
+          evt.event.stopPropagation()
+          evt.event.nativeEvent.preventDefault()
+          evt.event.nativeEvent.stopPropagation()
         }
       },
     },

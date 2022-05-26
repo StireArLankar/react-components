@@ -6,7 +6,8 @@ import {
   useChain,
   useSpringRef,
 } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
+
+import { useGesture } from '@use-gesture/react'
 
 import useStyles from './useStyles'
 

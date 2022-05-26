@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useSpring, animated, interpolate } from 'react-spring'
-import { useGesture } from 'react-use-gesture'
+import { useSpring, animated, to } from 'react-spring'
 
+import { useGesture } from '@use-gesture/react'
 import clsx from 'clsx'
 
 import imgs from './imgs'
@@ -49,7 +49,7 @@ export const MultiCard = () => {
       ref={domTarget}
       className={clsx(classes.card, drag && 'dragging')}
       style={{
-        transform: interpolate(
+        transform: to(
           [x, y, scale as any],
           (x, y, s) =>
             `perspective(600px) translate3d(${x}px, ${y}px, 0) scale(${s})`

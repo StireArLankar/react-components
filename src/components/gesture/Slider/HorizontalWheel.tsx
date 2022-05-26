@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useWheel } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
+import { useWheel } from '@use-gesture/react'
 import clsx from 'clsx'
 
 import imgs from './imgs'

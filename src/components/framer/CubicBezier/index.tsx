@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback, memo } from 'react'
+import React, { useRef, useEffect, useCallback, memo, useState } from 'react'
 
 import { motion, useMotionValue, MotionValue } from 'framer-motion'
 
@@ -7,6 +7,10 @@ import useStyles from './styles'
 const t = (val: MotionValue<number>) => val.get().toFixed(0)
 
 export default memo(() => {
+  // fixing strange constrains calculations
+  const [, setState] = useState(0)
+  useEffect(() => void setState(1), [])
+
   const constraintsRef1 = useRef(null)
   const constraintsRef2 = useRef(null)
 

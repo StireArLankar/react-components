@@ -2,12 +2,12 @@ import React from 'react'
 
 import { radios, boolean } from '@storybook/addon-knobs'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { Test as FixedTest } from './FixedPopup/Test'
 import { Test as AnchorTest } from './PopupWithAnchor/Test'
 import { Test } from './Test'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Popup',

@@ -1,10 +1,11 @@
 import React, { memo } from 'react'
 import { animated, to, useSpring, SpringValue } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
-import { Tuple } from 'react-use-gesture/dist/types'
+import { useDrag } from '@use-gesture/react'
 
 import useStyles from './styles'
+
+type Tuple<T> = [T, T]
 
 const trans = (...args: [number, number]) =>
   `translate(${args[0]}px, ${args[1]}px)`
@@ -23,23 +24,23 @@ export default memo(() => {
     p4: [500, 0] as Tuple<number>,
   }))
 
-  const bind1 = useDrag(({ movement: [x, y] }) => set({ p1: [x, y] }), {
-    initial: () => p1.get(),
+  const bind1 = useDrag(({ offset: [x, y] }) => set.start({ p1: [x, y] }), {
+    from: () => p1.get(),
     bounds: boundsInner,
   })
 
-  const bind2 = useDrag(({ movement: [x, y] }) => set({ p2: [x, y] }), {
-    initial: () => p2.get(),
+  const bind2 = useDrag(({ offset: [x, y] }) => set.start({ p2: [x, y] }), {
+    from: () => p2.get(),
     bounds: boundOuter,
   })
 
-  const bind3 = useDrag(({ movement: [x, y] }) => set({ p3: [x, y] }), {
-    initial: () => p3.get(),
+  const bind3 = useDrag(({ offset: [x, y] }) => set.start({ p3: [x, y] }), {
+    from: () => p3.get(),
     bounds: boundOuter,
   })
 
-  const bind4 = useDrag(({ movement: [x, y] }) => set({ p4: [x, y] }), {
-    initial: () => p4.get(),
+  const bind4 = useDrag(({ offset: [x, y] }) => set.start({ p4: [x, y] }), {
+    from: () => p4.get(),
     bounds: boundsInner,
   })
 
@@ -50,7 +51,7 @@ export default memo(() => {
       cx={0}
       cy={0}
       r={10}
-      style={{ transform: xy.to(trans) }}
+      style={{ transform: xy.to(trans), touchAction: 'none' }}
       stroke='none'
       fill='red'
       {...bind()}

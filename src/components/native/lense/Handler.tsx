@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useRef } from 'react'
 
 import style from './lense.module.scss'

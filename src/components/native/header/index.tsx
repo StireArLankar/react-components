@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 
 import clsx from 'clsx'
-
-import { LinkItem } from '../../../App'
 
 import classes from './header.module.scss'
 
 export interface HeaderProps {
   items: LinkItem[]
+}
+
+interface LinkItem {
+  path: string
+  component: () => JSX.Element
+  title: string
+  exact?: boolean
 }
 
 export const Header = (props: HeaderProps) => {
@@ -30,9 +34,9 @@ export const Header = (props: HeaderProps) => {
   const renderLinks = () =>
     items.map((item) => (
       <li key={item.title} className={classes.item}>
-        <Link to={item.path} className={classes.link} onClick={closeMenu}>
+        <a href={item.path} className={classes.link} onClick={closeMenu}>
           {item.title}
-        </Link>
+        </a>
       </li>
     ))
 

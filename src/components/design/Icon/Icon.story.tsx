@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 
 import CameraRounded from '@material-ui/icons/CameraRounded'
-import { themeColors } from 'theme/theme.styles'
-
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-import { withTopLabel } from '_storybook/withTopLabel'
 
 import { Icon, IconProps } from './'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+import { withTopLabel } from '~/_storybook/withTopLabel'
+import { themeColors } from '~/theme/theme.styles'
 
 const label = (
   <Fragment>

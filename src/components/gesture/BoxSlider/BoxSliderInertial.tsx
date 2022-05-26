@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
+
+import { useDrag } from '@use-gesture/react'
 
 import imgs from './imgs'
 import useStyles from './useStyles'
@@ -25,24 +26,21 @@ export const BoxSliderInertial = (props: BoxSliderSnapProps) => {
   const dragOffset = useRef(start)
 
   const bind = useDrag(
-    ({ movement: [x], down, vxvy: [vx] }) => {
+    ({ movement: [x], down, velocity: [vx] }) => {
       if (down) {
-        setX({
-          x: dragOffset.current + x,
-        })
+        setX({ x: dragOffset.current + x })
       } else {
         dragOffset.current += x + vx * 200
-        setX({
-          x: dragOffset.current,
-        })
+        setX({ x: dragOffset.current })
       }
     },
-    { domTarget: window }
+    // FIXME
+    { target: window }
   )
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (

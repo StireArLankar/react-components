@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useState, useRef } from 'react'
 
 import style from './slider.module.scss'

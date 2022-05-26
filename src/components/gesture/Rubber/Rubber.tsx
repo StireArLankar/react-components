@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
+
+import { useDrag } from '@use-gesture/react'
 
 import { ReactComponent as Filter } from './filter.svg'
 import useStyles from './useStyles'

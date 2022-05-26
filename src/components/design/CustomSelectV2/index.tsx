@@ -140,22 +140,17 @@ export const Temp = (props: SelectProps) => {
 
   const ref = useRef<HTMLDivElement>(null)
 
-  const {
-    renderLayer,
-    triggerProps,
-    layerProps,
-    triggerBounds,
-    layerSide,
-  } = useLayer({
-    container: fixedContainer ? undefined : ref.current ?? undefined,
-    isOpen: true,
-    overflowContainer: true,
-    placement: 'bottom-center',
-    auto: true,
-    triggerOffset: 9,
-    possiblePlacements: ['bottom-center', 'top-center'],
-    snap: true,
-  })
+  const { renderLayer, triggerProps, layerProps, triggerBounds, layerSide } =
+    useLayer({
+      container: fixedContainer ? undefined : ref.current ?? undefined,
+      isOpen: true,
+      overflowContainer: true,
+      placement: 'bottom-center',
+      auto: true,
+      triggerOffset: 9,
+      possiblePlacements: ['bottom-center', 'top-center'],
+      snap: true,
+    })
 
   const refWidth = useRef(triggerBounds?.width)
 

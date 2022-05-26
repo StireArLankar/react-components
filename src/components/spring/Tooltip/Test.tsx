@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import { LiquidButton } from 'components/design/Liquid/LiquidButton'
-
 import { Tooltip } from './Tooltip'
+
+import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
 export const Test = (props: { position: 'top' | 'bottom' }) => {
   const { position = 'top' } = props

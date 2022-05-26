@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
+
+import { useDrag } from '@use-gesture/react'
 
 import imgs from './imgs'
 import useStyles from './useStyles'
@@ -23,12 +24,13 @@ export const BoxSlider = (props: BoxSliderProps) => {
     ({ offset: [x] }) => {
       setX({ x })
     },
-    { domTarget: window }
+    // FIXME
+    { target: window }
   )
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (

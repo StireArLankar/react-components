@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
-
 import { Combobox } from './multi'
 
 import Temp from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 export default {
   title: 'Design/CustomSelectV2',
   decorators: [

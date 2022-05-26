@@ -8,7 +8,8 @@
     "prettier/prettier": [
       "warn",
       {
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "semi": false
       },
       {
         "usePrettierrc": true

@@ -1,9 +1,10 @@
 import React from 'react'
 
 import clsx from 'clsx'
-import useIntersectionObserver from 'hook/useIntersectionObserver'
 
 import style from './intersection.module.scss'
+
+import useIntersectionObserver from '~/hook/useIntersectionObserver'
 
 export interface ListItemProps {
   url: string

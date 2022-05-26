@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useSpring, animated, interpolate } from 'react-spring'
-import { useMove } from 'react-use-gesture'
+import React, { useState } from 'react'
+import { useSpring, animated, to } from 'react-spring'
 
+import { useMove } from '@use-gesture/react'
 import clsx from 'clsx'
 
 import { useStyles } from './useStyles'
@@ -13,16 +13,17 @@ export const Cursor = () => {
 
   const [{ x, y, s }, set] = useSpring(() => ({ x: -100, y: -100, s: 0 }))
 
-  const bind = useMove(
+  useMove(
     ({ xy: [x, y] }) => {
       set({ x, y, s: active ? 1 : 0 })
     },
-    { domTarget: window }
+    // FIXME
+    { target: window }
   )
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   const onMouseEnter = (item: string) => () => setActive(item)
   const onMouseLeave = () => setActive('')
@@ -44,7 +45,7 @@ export const Cursor = () => {
       <animated.div
         className={classes.cursor}
         style={{
-          transform: interpolate(
+          transform: to(
             [x, y, s],
             (x, y, s) => `translate(${x}px, ${y}px) scale(${s + 1})`
           ),

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import imgs from './imgs'
@@ -50,12 +50,13 @@ export const TransitionSlider = () => {
     ({ offset: [x] }) => {
       setX({ x })
     },
-    { domTarget: window, axis: 'x' }
+    // FIXME
+    { target: window, axis: 'x' }
   )
 
-  useEffect(() => {
-    bind()
-  }, [bind])
+  // useEffect(() => {
+  //   bind()
+  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (

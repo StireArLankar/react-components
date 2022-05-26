@@ -1,6 +1,7 @@
 import React from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
+
+import { useDrag } from '@use-gesture/react'
 
 import { useStyles } from './useStyles'
 

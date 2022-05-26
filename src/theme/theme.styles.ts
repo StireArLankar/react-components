@@ -1,5 +1,5 @@
-import { createMuiTheme } from '@material-ui/core'
 import { orange } from '@material-ui/core/colors'
+import { createTheme } from '@material-ui/core/styles'
 
 const green = '#65b300'
 
@@ -21,7 +21,7 @@ export const themeColors = {
   online: green,
 }
 
-declare module '@material-ui/core/styles/createMuiTheme' {
+declare module '@material-ui/core/styles' {
   interface Theme {
     status: {
       danger: string
@@ -70,7 +70,7 @@ declare module '@material-ui/core/styles/createMuiTheme' {
   }
 }
 
-export const defaultTheme = createMuiTheme({
+export const defaultTheme = createTheme({
   palette: {
     primary: {
       main: '#353556',

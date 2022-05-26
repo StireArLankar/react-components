@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import useBGColor from 'hook/useBgColor'
-
 import Inputs from './inputs'
 import Pagination from './Pagination'
 import style from './pagination.module.scss'
+
+import useBGColor from '~/hook/useBgColor'
 
 export const PaginationContainer = () => {
   const [items, setItems] = useState(80)

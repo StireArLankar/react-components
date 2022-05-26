@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
-import { LiquidButton } from 'components/design/Liquid/LiquidButton'
 import { motion } from 'framer-motion'
 
 import useStyles from './Animation.styles'
+
+import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
 const spring = {
   type: 'spring',

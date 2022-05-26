@@ -2,15 +2,15 @@ import React from 'react'
 
 import { action } from '@storybook/addon-actions'
 import { number } from '@storybook/addon-knobs'
-import { themeColors } from 'theme/theme.styles'
-
-import { withCenteredStyle } from '_storybook/withCenteredStyle'
-import { withCustomTheme } from '_storybook/withCustomTheme'
 
 import { Ring, RingProps } from './progress-ring'
 import Result from './result'
 
 import { CircleBar } from '.'
+
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+import { themeColors } from '~/theme/theme.styles'
 
 export default {
   title: 'Native/Circle Bar',

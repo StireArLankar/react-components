@@ -1,10 +1,35 @@
-module.exports = {
+const { loadConfigFromFile, mergeConfig } = require('vite')
+const svgr = require('vite-plugin-svgr').default
+
+/**
+ * @type {import('@storybook/builder-vite').StorybookViteConfig}
+ */
+const config = {
   stories: ['../src/**/*.story.@(ts|tsx|mdx)'],
   addons: [
-    '@storybook/preset-create-react-app',
-    '@storybook/addon-actions',
+    '@storybook/addon-links',
     '@storybook/addon-knobs',
-    '@storybook/addon-viewport',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
   ],
-  typescript: { reactDocgen: 'react-docgen' },
+  framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-vite',
+  },
+  features: {
+    storyStoreV7: true,
+  },
+  async viteFinal(config, { configType }) {
+    const { config: userConfig } = await loadConfigFromFile(
+      require('path').resolve(__dirname, '../vite.config.ts')
+    )
+
+    return mergeConfig(config, {
+      ...userConfig,
+      // manually specify plugins to avoid conflict
+      plugins: [svgr()],
+    })
+  },
 }
+
+module.exports = config

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { useDrag } from 'react-use-gesture'
 import useMeasure from 'react-use-measure'
 
+import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import path from './path'
@@ -44,7 +44,7 @@ export const Wheel = () => {
   const [{ x }, set] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
-    ({ down, movement: [x], vxvy: [vx], tap, elapsedTime }) => {
+    ({ down, movement: [x], velocity: [vx], tap, elapsedTime }) => {
       if (!down && tap) {
         // set({ x: constrains(x + circleQuarter, width / 2) })
         return set({ x: constrains(x + elapsedTime, width / 2) })

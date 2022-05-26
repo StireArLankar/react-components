@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react'
 
 import style from './lense.module.scss'

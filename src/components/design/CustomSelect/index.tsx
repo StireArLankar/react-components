@@ -71,20 +71,15 @@ export const Select = (props: SelectProps) => {
 
   const ref = useRef<HTMLDivElement>(null)
 
-  const {
-    renderLayer,
-    triggerProps,
-    layerProps,
-    layerSide,
-    triggerBounds,
-  } = useLayer({
-    // container: ref.current ?? undefined,
-    isOpen: showMenu,
-    overflowContainer: true,
-    placement: 'bottom-center',
-    auto: true,
-    triggerOffset: 9,
-  })
+  const { renderLayer, triggerProps, layerProps, layerSide, triggerBounds } =
+    useLayer({
+      // container: ref.current ?? undefined,
+      isOpen: showMenu,
+      overflowContainer: true,
+      placement: 'bottom-center',
+      auto: true,
+      triggerOffset: 9,
+    })
 
   return (
     <div ref={ref} style={{ position: 'relative' }}>
