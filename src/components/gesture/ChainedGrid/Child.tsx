@@ -1,10 +1,8 @@
-import React, { useEffect, memo } from 'react'
-import { useSpring, animated, interpolate } from 'react-spring'
+import { memo, useEffect } from 'react'
+import { animated, to, useSpring } from 'react-spring'
 
-import clsx from 'clsx'
-
+import classes from './classes'
 import { data } from './data'
-import { useStyles } from './useStyles'
 
 export interface ChildProps {
   index: number
@@ -16,10 +14,10 @@ const initial = { y: 0, z: 0 }
 export const Child = memo((props: ChildProps) => {
   const { index, active } = props
 
-  const [{ z, y }, set]: any = useSpring(() => ({
+  const [{ z, y }, spring] = useSpring(() => ({
     from: initial,
     to: initial,
-    config: (key: string): any =>
+    config: (key) =>
       key === 'y'
         ? { tension: 120, friction: 14, clamp: false }
         : { tension: 50, friction: 5, clamp: true },
@@ -27,39 +25,24 @@ export const Child = memo((props: ChildProps) => {
 
   useEffect(() => {
     if (active) {
-      set({ to: [{ z: 0.5 }, { y: 1, z: 1 }] })
-    } else {
-      set({ to: initial })
+      spring.start({ to: [{ z: 0.5 }, { y: 1, z: 1 }] })
+      return
     }
-  }, [active, set])
 
-  const classes = useStyles()
-
-  const frontClass = clsx(classes.card)
-
-  const backClass = clsx(classes.card, classes.back)
+    spring.start({ to: initial })
+  }, [active, spring])
 
   const renderFront = () => (
-    <div className={frontClass}>
-      <div
-        className={classes.side}
-        style={{
-          background: data[index].css,
-        }}
-      >
+    <div className={classes.card({ side: 'front' })}>
+      <div className={classes.side()} style={{ background: data[index].css }}>
         {index}
       </div>
     </div>
   )
 
   const renderBack = () => (
-    <div className={backClass}>
-      <div
-        className={classes.side}
-        style={{
-          background: data[index].css,
-        }}
-      >
+    <div className={classes.card({ side: 'back' })}>
+      <div className={classes.side()} style={{ background: data[index].css }}>
         {data[index].name}
       </div>
     </div>
@@ -67,14 +50,14 @@ export const Child = memo((props: ChildProps) => {
 
   return (
     <animated.div
-      className={classes.inner}
+      className={classes.inner()}
       style={{
-        transform: interpolate(
+        transform: to(
           [y, z],
           (y, z) => `rotateY(${180 * y}deg) scale(${1 + z})`
         ),
         boxShadow: z.to(
-          (z: number) => `0px ${15 * z}px ${30 * z}px 0px rgba(0, 0, 0, 0.7)`
+          (z) => `0px ${15 * z}px ${30 * z}px 0px rgba(0, 0, 0, 0.7)`
         ),
       }}
     >

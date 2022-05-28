@@ -1,29 +1,19 @@
-import React, { useState } from 'react'
-import { useSpring, animated, to } from 'react-spring'
+import { useState } from 'react'
+import { useSpring, animated } from 'react-spring'
 
 import { useMove } from '@use-gesture/react'
-import clsx from 'clsx'
 
-import { useStyles } from './useStyles'
+import classes from './classes'
 
 export const Cursor = () => {
-  const classes = useStyles()
-
   const [active, setActive] = useState('')
 
-  const [{ x, y, s }, set] = useSpring(() => ({ x: -100, y: -100, s: 0 }))
+  const [styles, spring] = useSpring(() => ({ x: -100, y: -100, scale: 1 }))
 
   useMove(
-    ({ xy: [x, y] }) => {
-      set({ x, y, s: active ? 1 : 0 })
-    },
-    // FIXME
+    ({ xy: [x, y] }) => void spring.start({ x, y, scale: active ? 2 : 1 }),
     { target: window }
   )
-
-  // useEffect(() => {
-  //   bind()
-  // }, [bind])
 
   const onMouseEnter = (item: string) => () => setActive(item)
   const onMouseLeave = () => setActive('')
@@ -31,7 +21,7 @@ export const Cursor = () => {
   const renderItems = () =>
     ['Home', 'Contact', 'Services'].map((item) => (
       <li
-        className={clsx(classes.navItem, item === active && classes.active)}
+        className={classes.navItem({ active: item === active })}
         onMouseEnter={onMouseEnter(item)}
         onMouseLeave={onMouseLeave}
         key={item}
@@ -41,23 +31,21 @@ export const Cursor = () => {
     ))
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper()}>
       <animated.div
-        className={classes.cursor}
+        className={classes.cursor()}
         style={{
-          transform: to(
-            [x, y, s],
-            (x, y, s) => `translate(${x}px, ${y}px) scale(${s + 1})`
-          ),
-          background: s.to((s) => `rgba(0, 0, 0, ${s})`),
+          ...styles,
+          background: styles.scale.to((s) => `rgba(0, 0, 0, ${s - 1})`),
         }}
       />
-      <ul className={classes.nav}>{renderItems()}</ul>
 
-      <div className={classes.section}>
-        <div className={classes.imgWrapper}>
+      <ul className={classes.nav()}>{renderItems()}</ul>
+
+      <div className={classes.section()}>
+        <div className={classes.imgWrapper()}>
           <img
-            className={classes.img}
+            className={classes.img()}
             src='https://images.alphacoders.com/720/thumb-1920-720915.png'
             alt='Nepu'
           />

@@ -1,4 +1,4 @@
-import React from 'react'
+import { ComponentMeta } from '@storybook/react'
 
 import Temp from '.'
 
@@ -32,6 +32,7 @@ export default {
     }),
     withTopLabel(label),
   ],
-}
+  component: Temp,
+} as ComponentMeta<typeof ArcLoader>
 
-export const example = () => <Temp />
+export const ArcLoader = () => <Temp />

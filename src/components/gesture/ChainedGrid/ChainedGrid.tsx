@@ -1,11 +1,11 @@
-import React, { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 
 import { produce } from 'immer'
 
+import classes from './classes'
 import { CrazyItem } from './CrazyItem'
 import { data } from './data'
 import { Item } from './Item'
-import useStyles from './useStyles'
 
 const MAGIC = 4
 
@@ -25,10 +25,7 @@ export interface ChainedGridProps {
   isCrazy?: boolean
 }
 
-export const ChainedGrid = (props: ChainedGridProps) => {
-  const { isCrazy } = props
-  const classes = useStyles()
-
+export const ChainedGrid = ({ isCrazy }: ChainedGridProps) => {
   const [items, setItems] = useState<IState>(indexedData)
   const [active, set] = useState<number | null>(null)
 
@@ -39,49 +36,47 @@ export const ChainedGrid = (props: ChainedGridProps) => {
 
   const onStart = useCallback(() => set(null), [])
 
-  const updateItemPosition = useCallback(
-    (index: number, x: number, y: number) => {
-      setItems((state) =>
-        produce(state, (draft) => {
-          const oldPos = getPos(draft[index])
-          let newPos = getPos([x, y])
+  type Fun = (index: number, x: number, y: number) => void
+  const updateItemPosition = useCallback<Fun>((index, x, y) => {
+    setItems((state) =>
+      produce(state, (draft) => {
+        const oldPos = getPos(draft[index])
+        let newPos = getPos([x, y])
 
-          if (oldPos === newPos) {
-            return
-          }
+        if (oldPos === newPos) {
+          return
+        }
 
-          const field = arr.slice()
-          state.forEach((item, index) => (field[getPos(item)] = index))
+        const field = arr.slice()
+        state.forEach((item, index) => (field[getPos(item)] = index))
 
-          let first = true
-          let check = field[newPos] !== -1
-          while (check) {
-            if (first) {
-              first = false
-              const prevPos = newPos - 1 < 0 ? MAGIC * MAGIC - 1 : newPos - 1
-              check = field[prevPos] === -1 || prevPos === oldPos
+        let first = true
+        let check = field[newPos] !== -1
+        while (check) {
+          if (first) {
+            first = false
+            const prevPos = newPos - 1 < 0 ? MAGIC * MAGIC - 1 : newPos - 1
+            check = field[prevPos] === -1 || prevPos === oldPos
 
-              if (check) {
-                draft[field[newPos]] = getXY(prevPos)
-                break
-              }
+            if (check) {
+              draft[field[newPos]] = getXY(prevPos)
+              break
             }
-
-            const nextPos = newPos + 1 > MAGIC * MAGIC - 1 ? 0 : newPos + 1
-            check = field[nextPos] !== -1 && nextPos !== oldPos
-            draft[field[newPos]] = getXY(nextPos)
-            newPos = nextPos
           }
 
-          draft[index] = [x, y]
-        })
-      )
-    },
-    []
-  )
+          const nextPos = newPos + 1 > MAGIC * MAGIC - 1 ? 0 : newPos + 1
+          check = field[nextPos] !== -1 && nextPos !== oldPos
+          draft[field[newPos]] = getXY(nextPos)
+          newPos = nextPos
+        }
+
+        draft[index] = [x, y]
+      })
+    )
+  }, [])
 
   const renderCells = () =>
-    arr.map((_, index) => <div key={index} className={classes.gridItem} />)
+    arr.map((_, index) => <div key={index} className={classes.gridItem()} />)
 
   const Component = useMemo(() => (isCrazy ? CrazyItem : Item), [isCrazy])
 
@@ -101,7 +96,7 @@ export const ChainedGrid = (props: ChainedGridProps) => {
     ))
 
   return (
-    <div className={classes.grid}>
+    <div className={classes.grid()}>
       {renderCells()}
       {renderItems()}
     </div>

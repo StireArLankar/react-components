@@ -5,7 +5,7 @@ import { useGesture } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
 import { Child } from './Child'
-import useStyles from './useStyles'
+import classes from './classes'
 
 export interface ItemProps {
   index: number
@@ -65,8 +65,6 @@ export const Item = memo((props: ItemProps) => {
     onClick,
   } = props
 
-  const classes = useStyles()
-
   const isDragging = useRef(false)
   const [oldPos, setOldPos] = useState([...position])
 
@@ -83,14 +81,12 @@ export const Item = memo((props: ItemProps) => {
 
   const bind = useGesture(
     {
+      onClick: () => void onClick(index),
       onDragStart: () => {
         isDragging.current = true
         onStart()
       },
       onDragEnd: () => {
-        if (!isDragging.current) {
-          onClick(index)
-        }
         isDragging.current = false
       },
       onDrag: ({ down, movement: [x, y] }) => {
@@ -112,7 +108,7 @@ export const Item = memo((props: ItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item}
+      className={classes.item()}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(

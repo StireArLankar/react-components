@@ -1,49 +1,53 @@
 import React from 'react'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
-import clsx from 'clsx'
 
 import InputHelper from './helper'
-import useStyles from './styles'
+import classes from './styles'
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >
 
-type CheckboxProps = {
+type Props = {
   id: string
   subtext?: string
   label?: React.ReactNode
   value: boolean
   error?: boolean
   helperText?: string
-} & Omit<InputProps, 'ref' | 'size' | 'value'>
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
+}
+
+type CheckboxProps = Props &
+  Omit<InputProps, 'ref' | 'size' | 'type' | keyof Props>
 
 const Component = (props: CheckboxProps) => {
   const {
     error,
     helperText,
     label,
+    value: checked,
     color,
 
     ...rest
   } = props
 
-  const classes = useStyles()
+  console.log({ checked })
 
   return (
     <div>
-      <div className={classes.wrapper}>
+      <div className={classes.wrapper()}>
         <Checkbox.Root
           {...(rest as any)}
-          checked={props.value}
-          className={clsx(classes.root, props.value && classes.checked)}
+          checked={checked}
+          className={classes.root()}
           style={{ color }}
           onCheckedChange={props.onChange}
         >
           <Checkbox.Indicator
-            className={clsx(classes.indicator, props.value && classes.checked)}
+            className={classes.indicator({ checked })}
             forceMount
           >
             <svg
@@ -61,11 +65,12 @@ const Component = (props: CheckboxProps) => {
         <label
           htmlFor={props.id}
           onSelect={(e) => e.preventDefault()}
-          className={classes.label}
+          className={classes.label()}
         >
           {label}
         </label>
       </div>
+
       <InputHelper helperText={helperText} />
     </div>
   )

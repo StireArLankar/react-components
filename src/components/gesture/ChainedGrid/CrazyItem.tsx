@@ -4,8 +4,8 @@ import { useSpring, animated, to } from 'react-spring'
 import { useGesture } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
+import classes from './classes'
 import { data } from './data'
-import useStyles from './useStyles'
 
 export interface ItemProps {
   index: number
@@ -75,44 +75,63 @@ export const CrazyItem = memo((props: ItemProps) => {
     onClick,
   } = props
 
-  const classes = useStyles()
-
   const isDragging = useRef(false)
   const [oldPos, setOldPos] = useState([...position])
 
-  const [{ x, y, bottom, right, scalE, zIndeX, shadow }, set] = useSpring(() =>
+  const [styles, spring] = useSpring(() =>
     setStable(position[0] * step, position[1] * step, max, step)
   )
+
+  const { x, y, bottom, right, scalE, zIndeX, shadow } = styles
 
   useEffect(() => {
     if (!isDragging.current) {
       setOldPos([...position])
-      set(setStable(position[0] * step, position[1] * step, max, step, active))
+      const newSpringValues = setStable(
+        position[0] * step,
+        position[1] * step,
+        max,
+        step,
+        active
+      )
+
+      spring.start(newSpringValues)
     }
-  }, [position, set, step, active, max])
+  }, [position, spring, step, active, max])
 
   const bind = useGesture(
     {
+      onClick: () => void onClick(index),
       onDragStart: () => {
         isDragging.current = true
         onStart()
       },
-      onDragEnd: () => {
-        if (!isDragging.current) {
-          onClick(index)
-        }
-        isDragging.current = false
-      },
+      onDragEnd: () => void (isDragging.current = false),
       onDrag: ({ down, movement: [x, y] }) => {
         const newX = updateAxis(x, step, oldPos[0], max)
         const newY = updateAxis(y, step, oldPos[1], max)
+
         if (down) {
-          set(
-            setDragging(oldPos[0] * step + x, oldPos[1] * step + y, max, step)
+          const newSpringValues = setDragging(
+            oldPos[0] * step + x,
+            oldPos[1] * step + y,
+            max,
+            step
           )
+
+          spring.start(newSpringValues)
         } else {
           setOldPos([newX, newY])
-          set(setStable(newX * step, newY * step, max, step, active))
+
+          const newSpringValues = setStable(
+            newX * step,
+            newY * step,
+            max,
+            step,
+            active
+          )
+
+          spring.start(newSpringValues)
         }
 
         updatePosition(index, newX, newY)
@@ -124,7 +143,7 @@ export const CrazyItem = memo((props: ItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item}
+      className={classes.item()}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(
@@ -140,12 +159,7 @@ export const CrazyItem = memo((props: ItemProps) => {
         right,
       }}
     >
-      <div
-        className={classes.side}
-        style={{
-          background: data[index].css,
-        }}
-      >
+      <div className={classes.side()} style={{ background: data[index].css }}>
         {data[index].name}
       </div>
     </animated.div>

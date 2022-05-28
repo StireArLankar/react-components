@@ -1,18 +1,12 @@
-import React from 'react'
+import { memo } from 'react'
 
-import clsx from 'clsx'
+import classes from './styles'
 
-import useStyles from './styles'
-
-export default () => {
-  const classes = useStyles()
-
-  return (
-    <div className={classes.wrapper}>
-      <div className={clsx(classes.box, classes.bottom)}>bottom</div>
-      <div className={clsx(classes.box, classes.left)}>left</div>
-      <div className={clsx(classes.box, classes.right)}>right</div>
-      <div className={clsx(classes.box, classes.top)}>top</div>
-    </div>
-  )
-}
+export default memo(() => (
+  <div className={classes.wrapper()}>
+    <div className={classes.box({ side: 'bottom' })}>bottom</div>
+    <div className={classes.box({ side: 'left' })}>left</div>
+    <div className={classes.box({ side: 'right' })}>right</div>
+    <div className={classes.box({ side: 'top' })}>top</div>
+  </div>
+))

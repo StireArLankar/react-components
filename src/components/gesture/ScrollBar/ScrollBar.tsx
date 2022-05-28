@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef, Fragment, memo } from 'react'
 import { useSpring, animated } from 'react-spring'
 import useMeasure from 'react-use-measure'
 
 import { useGesture } from '@use-gesture/react'
 
-import { useStyles } from './useStyles'
+import classes from './classes'
 
 const getWheelBounds = (height: number, val: number) => ({
   top: height <= 0 ? 0 : -val,
@@ -19,8 +19,8 @@ const getDragBounds = (height: number, val: number) => ({
 const interpolateScroll = (content: number, container: number, val: number) =>
   `scaleY(${container / content}) translateY(${(val * 100) / container}%)`
 
-export const ScrollBar = () => {
-  const classes = useStyles()
+export const ScrollBar = memo((props: { itemsAmount: number }) => {
+  const { itemsAmount } = props
 
   const [counter, setCounter] = useState(0)
   const increaseCounter = () => setCounter((prev) => prev + 1)
@@ -33,15 +33,25 @@ export const ScrollBar = () => {
   const [val, setVal] = useState(0)
   const [acting, setActing] = useState(false)
 
-  const [{ y }, set] = useSpring(() => ({ y: 0 }))
+  const [{ y }, spring] = useSpring(() => ({ y: 0 }))
 
   useEffect(() => {
-    set({ y: val })
-  }, [val, set, acting])
+    if (height < 0 && val > 0) {
+      setVal(0)
+      return
+    }
+
+    if (height > 0 && val > height) {
+      setVal(height)
+      return
+    }
+
+    spring.start({ y: val })
+  }, [val, spring, acting, height])
 
   const handler = (y: number, check?: boolean) => {
     if (check) {
-      set({ y: val + y })
+      spring.start({ y: val + y })
     } else {
       setVal((prev) => prev + y)
       setImmediate(() => (isTap.current = true))
@@ -73,21 +83,23 @@ export const ScrollBar = () => {
     },
     {
       wheel: {
-        bounds: getWheelBounds(height, val),
-        rubberband: 0.1,
+        from: () => [0, 0],
+        bounds: () => getWheelBounds(height, val),
+        rubberband: height > 0 ? 0.3 : 0.15,
       },
       drag: {
+        from: () => [0, 0],
         rubberband: height > 0 ? 0.3 : 0.15,
-        bounds: getDragBounds(height, val),
+        bounds: () => getDragBounds(height, val),
         filterTaps: true,
       },
     }
   )
 
   const renderScrollBar = () => (
-    <div className={classes.progressWrapper}>
+    <div className={classes.progressWrapper()}>
       <animated.div
-        className={classes.progress}
+        className={classes.progress()}
         style={{
           transform: y.to((val) =>
             interpolateScroll(contentHeight, containerHeight, val)
@@ -97,41 +109,32 @@ export const ScrollBar = () => {
     </div>
   )
 
-  const renderBlock = () => (
-    <div
-      onClick={increaseCounter}
-      style={{ height: 100, width: 100, background: 'red', marginLeft: 'auto' }}
-    />
-  )
-
-  const renderSpacer = () => <div style={{ height: 100, width: 100 }} />
-
   const renderItems = (amount: number) => (
-    <Fragment>
-      {renderBlock()}
-      {Array.from({ length: amount - 1 }, () => '').map((_, index) => (
+    <>
+      <div onClick={increaseCounter} className={classes.block()} />
+      {Array.from({ length: amount - 1 }).map((_, index) => (
         <Fragment key={index}>
-          {renderSpacer()}
-          {renderBlock()}
+          <div className={classes.spacer()} />
+          <div onClick={increaseCounter} className={classes.block()} />
         </Fragment>
       ))}
-    </Fragment>
+    </>
   )
 
   return (
-    <div className={classes.container} {...bind()} ref={containerRef}>
+    <div className={classes.container()} {...bind()} ref={containerRef}>
       <animated.div
-        className={classes.content}
+        className={classes.content()}
         ref={contentRef}
         style={{
           paddingRight: height > 0 ? 9 : 0,
           transform: y.to((val) => `translate(0, ${-val}px)`),
         }}
       >
-        {renderItems(5)}
+        {renderItems(itemsAmount)}
       </animated.div>
-      <div className={classes.counter}>{counter}</div>
+      <div className={classes.counter()}>{counter}</div>
       {height > 0 && renderScrollBar()}
     </div>
   )
-}
+})

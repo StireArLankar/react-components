@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import { boolean, text } from '@storybook/addon-knobs'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import Temp from '.'
 
@@ -19,12 +19,17 @@ export default {
       placeItems: 'center',
     }),
   ],
+} as ComponentMeta<typeof Asd>
+
+type Props = {
+  err: boolean
+  label: string
+  helper?: string
 }
 
-const Controlled = () => {
+const Asd = (props: Props) => {
+  const { err, label, helper } = props
   const [value, setValue] = useState(true)
-
-  const err = boolean('error', false)
 
   return (
     <div
@@ -32,21 +37,36 @@ const Controlled = () => {
         display: 'grid',
         gridTemplateColumns: 'repeat(3, auto)',
         gridGap: 10,
-        alignItems: 'center',
+        minHeight: 80,
+        alignItems: 'start',
       }}
     >
       <a href='#11'>for accessible</a>
+
       <Temp
         id='tmep'
         value={value}
-        label={text('label', 'label')}
+        label={label}
         onChange={() => setValue((prev) => !prev)}
         error={err}
-        helperText={err ? text('helper', 'helper') : ''}
+        helperText={err ? helper : ''}
       />
+
       <a href='#11'>for accessible</a>
     </div>
   )
 }
 
-export const example = () => <Controlled />
+const Template: ComponentStory<typeof Asd> = ({ ...rest }) => <Asd {...rest} />
+
+export const Example = Template.bind({})
+
+Example.argTypes = {
+  helper: { control: 'text', if: { arg: 'err' } },
+}
+
+Example.args = {
+  label: 'label',
+  err: false,
+  helper: 'helper',
+}

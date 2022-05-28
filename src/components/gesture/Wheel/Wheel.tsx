@@ -1,20 +1,16 @@
-import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 import useMeasure from 'react-use-measure'
 
 import { useDrag } from '@use-gesture/react'
 import clamp from 'lodash-es/clamp'
 
+import classes from './classes'
 import path from './path'
-import useStyles from './useStyles'
 
-const constrains = (val: number, max: number) => {
-  return val > 0 ? Math.min(val, max) : Math.max(val, -max)
-}
+const constrains = (val: number, max: number) =>
+  val > 0 ? Math.min(val, max) : Math.max(val, -max)
 
-// const circleQuarter = (Math.PI * 120) / 2
-
-const transX = (x: number) => `translate3d(${x}px, 0, 0)`
+const circleQuarter = (Math.PI * 120) / 2
 
 // 180 * x / PI * R = path
 const alpha = 180 / (120 * Math.PI)
@@ -36,29 +32,29 @@ const scaleY = (x: number, i: number, width: number, amount: number) => {
 }
 
 export const Wheel = () => {
-  const classes = useStyles()
+  const [ref, { width }] = useMeasure({ debounce: 100 })
 
-  const [ref, { width }] = useMeasure({
-    debounce: 100,
-  })
-  const [{ x }, set] = useSpring(() => ({ x: 0 }))
+  const [{ x }, spring] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
-    ({ down, movement: [x], velocity: [vx], tap, elapsedTime }) => {
-      if (!down && tap) {
-        // set({ x: constrains(x + circleQuarter, width / 2) })
-        return set({ x: constrains(x + elapsedTime, width / 2) })
+    ({ down, offset: [x], velocity: [vx], tap, direction: [dx] }) => {
+      switch (true) {
+        case tap:
+          spring.start({ x: constrains(x + circleQuarter, width / 2) })
+          break
+
+        case down:
+          spring.start({ x })
+          break
+
+        default:
+          spring.start({ x: constrains(x + dx * vx * 100, width / 2) })
+          break
       }
-      set({
-        x: down ? x : constrains(x + vx * 100, width / 2),
-      })
     },
     {
-      initial: () => [x.get(), 0],
-      bounds: {
-        right: width / 2,
-        left: -width / 2,
-      },
+      from: () => [x.get(), 0],
+      bounds: { right: width / 2, left: -width / 2 },
       rubberband: 0.4,
       axis: 'x',
       filterTaps: true,
@@ -68,7 +64,8 @@ export const Wheel = () => {
   const renderItems = () =>
     Array.from({ length: Math.floor(width / 40) }, (_, i) => (
       <animated.li
-        className={classes.item}
+        key={i}
+        className={classes.item()}
         style={{
           transform: x.to((x) => scaleY(x, i, width, Math.floor(width / 40))),
         }}
@@ -76,27 +73,20 @@ export const Wheel = () => {
     ))
 
   return (
-    <Fragment>
-      <animated.div
-        className={classes.box}
-        {...bind()}
-        style={{
-          transform: x.to(transX),
-        }}
-      >
+    <>
+      <animated.div className={classes.wheel()} {...bind()} style={{ x }}>
         <animated.svg
-          className={classes.svg}
-          style={{
-            transform: x.to(rotZ),
-          }}
+          className={classes.svg()}
+          style={{ transform: x.to(rotZ) }}
           viewBox='0 0 60 60'
         >
           <path fill='currentColor' d={path} />
         </animated.svg>
       </animated.div>
-      <ul className={classes.list} ref={ref}>
+
+      <ul className={classes.list()} ref={ref}>
         {renderItems()}
       </ul>
-    </Fragment>
+    </>
   )
 }

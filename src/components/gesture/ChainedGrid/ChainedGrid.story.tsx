@@ -1,4 +1,4 @@
-import React from 'react'
+import { ComponentMeta } from '@storybook/react'
 
 import { ChainedGrid } from './ChainedGrid'
 
@@ -18,7 +18,8 @@ export default {
     }),
     withCustomTheme,
   ],
-}
+  component: ChainedGrid,
+} as ComponentMeta<typeof ChainedGrid>
 
 export const chainedGrid = () => <ChainedGrid />
 

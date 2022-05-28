@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+
+import { ComponentMeta } from '@storybook/react'
 
 import { Cursor } from '.'
 
@@ -8,7 +10,7 @@ import { withTopLabel } from '~/_storybook/withTopLabel'
 import { themeColors } from '~/theme/theme.styles'
 
 const label = (
-  <Fragment>
+  <>
     <span>Credits to </span>
     <a
       href='https://www.youtube.com/watch?v=TpwpAYi-p2w'
@@ -16,7 +18,7 @@ const label = (
     >
       video
     </a>
-  </Fragment>
+  </>
 )
 
 export default {
@@ -26,6 +28,6 @@ export default {
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
-}
+} as ComponentMeta<typeof Cursor>
 
 export const cursor = () => <Cursor />

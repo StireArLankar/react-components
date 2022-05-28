@@ -1,4 +1,4 @@
-import React from 'react'
+import { ComponentMeta } from '@storybook/react'
 
 import Temp from '.'
 
@@ -17,6 +17,6 @@ export default {
       placeItems: 'center',
     }),
   ],
-}
+} as ComponentMeta<typeof BoxPointer>
 
-export const example = () => <Temp />
+export const BoxPointer = () => <Temp />
