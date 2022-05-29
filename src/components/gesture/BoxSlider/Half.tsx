@@ -1,8 +1,8 @@
 import React from 'react'
 
-import clamp from 'lodash-es/clamp'
-
 import { BoxSlider } from '.'
+
+import clamp from '~/utils/clamp'
 
 const STEP = 100
 

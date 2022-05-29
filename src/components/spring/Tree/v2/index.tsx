@@ -3,8 +3,8 @@ import React, { memo, useEffect, useRef, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 import useMeasure from 'react-use-measure'
 
+import classes from '../classes'
 import * as Icons from '../icons'
-import useStyles from '../styles'
 
 type Base = {
   meta?: boolean
@@ -201,7 +201,7 @@ const getIcon = (hasNodes: boolean, isOpen?: boolean) => {
   return isOpen ? Icons.MinusSquareO : Icons.PlusSquareO
 }
 
-const trans = (val: any) => `translate3d(${20 - 20 * val}px,0,0)`
+const trans = (val: number) => `translate3d(${20 - 20 * val}px,0,0)`
 
 const Tree = memo((props: TreeProps) => {
   const { style, defaultOpen = false } = props
@@ -210,7 +210,6 @@ const Tree = memo((props: TreeProps) => {
   const toggle = () => setOpen((prev) => !prev)
 
   const previous = usePrevious(isOpen)
-  const classes = useStyles()
 
   const [ref, { height: viewHeight }] = useMeasure()
 
@@ -224,7 +223,7 @@ const Tree = memo((props: TreeProps) => {
   const Icon = getIcon(canExpand, isOpen)
 
   return (
-    <div className={classes.frame}>
+    <div className={classes.frame()}>
       <div
         onClick={canExpand ? toggle : undefined}
         style={{
@@ -238,18 +237,18 @@ const Tree = memo((props: TreeProps) => {
         {props.type === 'leaf' ? (
           <Table />
         ) : (
-          <Icon className={classes.toggle} />
+          <Icon className={classes.toggle()} />
         )}
         {props.type === 'leaf' && <Table />}
         {props.type === 'leaf' && <Table />}
-        <span className={classes.title} style={style}>
+        <span className={classes.title()} style={style}>
           {props.title}
         </span>
         {props.meta ? <M /> : null}
       </div>
 
       <animated.div
-        className={classes.content}
+        className={classes.content()}
         style={{
           opacity,
           height: isOpen && previous === isOpen ? 'auto' : height,
@@ -280,6 +279,7 @@ const M = () => (
     <path d='M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z' />
   </svg>
 )
+
 const Table = () => (
   <svg viewBox='0 0 24 24' width={16}>
     <path d='M10 10.02h5V21h-5zM17 21h3c1.1 0 2-.9 2-2v-9h-5v11zm3-18H5c-1.1 0-2 .9-2 2v3h19V5c0-1.1-.9-2-2-2zM3 19c0 1.1.9 2 2 2h3V10H3v9z' />

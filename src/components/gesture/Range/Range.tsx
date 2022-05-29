@@ -3,7 +3,7 @@ import { useSpring, animated, interpolate } from 'react-spring'
 import useMeasure from 'react-use-measure'
 
 import { useDrag } from '@use-gesture/react'
-import clamp from 'lodash-es/clamp'
+import clamp from '~/utils/clamp'
 
 import useStyles from './Range.styles'
 

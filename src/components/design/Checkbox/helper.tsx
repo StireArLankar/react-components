@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { motion, Variants } from 'framer-motion'
 
-import classes from './styles'
+import classes from './classes'
 
 type Props = { helperText?: string }
 

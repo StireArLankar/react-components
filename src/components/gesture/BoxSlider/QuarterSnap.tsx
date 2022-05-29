@@ -1,6 +1,6 @@
 import React from 'react'
 
-import clamp from 'lodash-es/clamp'
+import clamp from '~/utils/clamp'
 
 import { BoxSliderSnap } from './BoxSliderSnap'
 

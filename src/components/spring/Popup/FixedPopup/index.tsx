@@ -10,7 +10,7 @@ import { createPortal } from 'react-dom'
 import { useTransition, animated, useSpring } from 'react-spring'
 
 import clsx from 'clsx'
-import debounce from 'lodash-es/debounce'
+import debounce from 'debounce'
 
 import useStyles from './FixedPopup.styles'
 

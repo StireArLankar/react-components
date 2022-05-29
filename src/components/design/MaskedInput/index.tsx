@@ -2,10 +2,9 @@ import React, { memo, useState } from 'react'
 import { PropsWithChildren } from 'react'
 import NumberFormat from 'react-number-format'
 
-import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './classes'
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -53,27 +52,18 @@ const Component = memo((props: Props) => {
 
   const [isFocused, setIsFocused] = useState(false)
 
-  const classes = useStyles()
-
-  const cls = clsx(
-    classes.container,
-    error && classes.error,
-    disabled && classes.disabled,
-    isFocused && classes.focused
-  )
-
   const onBlur = (e: any) => {
-    props.onBlur && props.onBlur(e)
+    props?.onBlur?.(e)
     setIsFocused(false)
   }
 
   const onFocus = (e: any) => {
-    props.onFocus && props.onFocus(e)
+    props?.onFocus?.(e)
     setIsFocused(true)
   }
 
   const renderChildren = () =>
-    children ? <div className={classes.children}>{children}</div> : null
+    children ? <div className={classes.children()}>{children}</div> : null
 
   const onValueChange = (e: any) => {
     if (disabled) {
@@ -92,7 +82,7 @@ const Component = memo((props: Props) => {
       disabled={disabled}
       id={id}
       onChange={onValueChange}
-      className={classes.input}
+      className={classes.input()}
       value={value}
       onFocus={onFocus}
       onBlur={onBlur}
@@ -103,17 +93,23 @@ const Component = memo((props: Props) => {
   )
 
   return (
-    <div className={cls}>
-      <label className={classes.label} htmlFor={id}>
+    <div className={classes.container()}>
+      <label className={classes.label()} htmlFor={id}>
         {label}
       </label>
-      <div className={classes.inputWrapper}>
+      <div
+        className={classes.inputWrapper({
+          error,
+          disabled,
+          focused: isFocused,
+        })}
+      >
         {renderInput()}
         {renderChildren()}
         <AnimatePresence>
           {helperText && (
             <motion.div
-              className={classes.helper}
+              className={classes.helper()}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

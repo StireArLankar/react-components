@@ -1,28 +1,26 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 
-import useStyles, { size } from './styles'
+import classes, { size } from './classes'
+
+const array = Array.from({ length: 20 })
 
 export default memo(() => {
-  const classes = useStyles()
-
   const renderInner = () =>
-    Array.from({ length: 20 }, (_, i) => i).map((i) => (
+    array.map((_, i) => (
       <div
         key={i}
-        className={classes.bar}
+        className={classes.bar()}
         style={{
           left: i * (size / 10 + (size / 15 - size / 100)),
           animationDelay: `${i * 0.15}s`,
         }}
       >
         <div
-          className={classes.barInner}
-          style={{
-            animationDelay: `${i * 0.15 + 0.55}s`,
-          }}
+          className={classes.barInner()}
+          style={{ animationDelay: `${i * 0.15 + 0.55}s` }}
         />
       </div>
     ))
 
-  return <div className={classes.wrapper}>{renderInner()}</div>
+  return <div className={classes.wrapper()}>{renderInner()}</div>
 })

@@ -1,11 +1,10 @@
-import React, { useMemo, useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { useLayer } from 'react-laag'
 
-import clsx from 'clsx'
 import { useSelect } from 'downshift'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './classes'
 
 export interface SelectProps {
   value: string
@@ -42,7 +41,6 @@ const getLabel = (item: { value: string; label: string } | null) =>
   item ? item.label : ''
 
 export const Select = (props: SelectProps) => {
-  const classes = useStyles()
   const { items, onChange, value } = props
   // This is the place to store the fruits that match the input value
 
@@ -86,7 +84,7 @@ export const Select = (props: SelectProps) => {
       <button
         type='button'
         {...getToggleButtonProps(triggerProps)}
-        className={classes.label}
+        className={classes.label()}
       >
         <span>{getLabel(selectedItem) || '--'}</span>
         <svg width='16' height='16' viewBox='0 0 16 16'>
@@ -102,7 +100,7 @@ export const Select = (props: SelectProps) => {
             {showMenu && (
               <motion.div
                 ref={layerProps.ref}
-                className={classes.wrapper}
+                className={classes.wrapper()}
                 variants={variants}
                 initial='initial'
                 animate='animate'
@@ -117,15 +115,14 @@ export const Select = (props: SelectProps) => {
                 <motion.ul
                   variants={variantsList}
                   transition={{ duration: 0.2 }}
-                  className={classes.list}
+                  className={classes.list()}
                 >
                   {items.map((item, index) => (
                     <li
                       key={`${item}${index}`}
-                      className={clsx(
-                        classes.item,
-                        highlightedIndex === index && classes.active
-                      )}
+                      className={classes.item({
+                        active: highlightedIndex === index,
+                      })}
                       {...getItemProps({ item, index })}
                     >
                       {item.label}

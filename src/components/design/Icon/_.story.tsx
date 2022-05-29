@@ -1,8 +1,6 @@
-import React, { Fragment } from 'react'
-
 import CameraRounded from '@material-ui/icons/CameraRounded'
 
-import { Icon, IconProps } from './'
+import { Icon } from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
@@ -10,7 +8,7 @@ import { withTopLabel } from '~/_storybook/withTopLabel'
 import { themeColors } from '~/theme/theme.styles'
 
 const label = (
-  <Fragment>
+  <>
     <span>Credits to </span>
     <a
       href='https://www.youtube.com/watch?v=YRp8kSUZiss'
@@ -18,7 +16,7 @@ const label = (
     >
       video
     </a>
-  </Fragment>
+  </>
 )
 
 export default {
@@ -30,10 +28,4 @@ export default {
   ],
 }
 
-export const button = () => {
-  const props: IconProps = {
-    Icon: CameraRounded,
-  }
-
-  return <Icon {...props} />
-}
+export const button = () => <Icon Icon={CameraRounded} />

@@ -53,7 +53,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     value: {
       color: 'white',
-      margin: theme.spacing(0.5),
+      margin: 4,
     },
   })
 )

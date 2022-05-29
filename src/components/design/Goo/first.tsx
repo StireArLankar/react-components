@@ -1,69 +1,66 @@
-import React, { Fragment } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 import { useDrag } from '@use-gesture/react'
 
-export const Goo = () => {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      version='1.1'
-      style={{ display: 'none' }}
-    >
-      <defs>
-        <filter id='shadowed-goo'>
-          <feGaussianBlur in='SourceGraphic' result='blur' stdDeviation='10' />
-          <feColorMatrix
-            in='blur'
-            mode='matrix'
-            values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7'
-            result='goo'
-          />
-          <feGaussianBlur in='goo' stdDeviation='3' result='shadow' />
-          <feColorMatrix
-            in='shadow'
-            mode='matrix'
-            values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2'
-            result='shadow'
-          />
-          <feOffset in='shadow' dx='1' dy='1' result='shadow' />
-          <feComposite in2='shadow' in='goo' result='goo' />
-          <feComposite
-            in2='goo'
-            in='SourceGraphic'
-            result='mix'
-            operator='atop'
-          />
-        </filter>
-        <filter id='goo'>
-          <feGaussianBlur in='SourceGraphic' result='blur' stdDeviation='10' />
-          <feColorMatrix
-            in='blur'
-            mode='matrix'
-            values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -7'
-            result='goo'
-          />
-          <feComposite
-            in2='goo'
-            in='SourceGraphic'
-            result='mix'
-            operator='atop'
-          />
-        </filter>
-      </defs>
-    </svg>
-  )
-}
+export const Goo = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    version='1.1'
+    style={{ display: 'none' }}
+  >
+    <defs>
+      <filter id='shadowed-goo'>
+        <feGaussianBlur in='SourceGraphic' result='blur' stdDeviation='10' />
+        <feColorMatrix
+          in='blur'
+          mode='matrix'
+          values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7'
+          result='goo'
+        />
+        <feGaussianBlur in='goo' stdDeviation='3' result='shadow' />
+        <feColorMatrix
+          in='shadow'
+          mode='matrix'
+          values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2'
+          result='shadow'
+        />
+        <feOffset in='shadow' dx='1' dy='1' result='shadow' />
+        <feComposite in2='shadow' in='goo' result='goo' />
+        <feComposite
+          in2='goo'
+          in='SourceGraphic'
+          result='mix'
+          operator='atop'
+        />
+      </filter>
+      <filter id='goo'>
+        <feGaussianBlur in='SourceGraphic' result='blur' stdDeviation='10' />
+        <feColorMatrix
+          in='blur'
+          mode='matrix'
+          values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 25 -7'
+          result='goo'
+        />
+        <feComposite
+          in2='goo'
+          in='SourceGraphic'
+          result='mix'
+          operator='atop'
+        />
+      </filter>
+    </defs>
+  </svg>
+)
 
 export const Temp = () => {
-  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] as [number, number] }))
+  const [{ xy }, spring] = useSpring(() => ({ xy: [0, 0] as [number, number] }))
 
-  const bind = useDrag(({ offset: [x, y] }) => {
-    set({ xy: [x, y] })
+  const bind = useDrag(({ offset: xy }) => {
+    spring.start({ xy })
   })
 
   return (
-    <Fragment>
+    <>
       <Goo />
       <div
         style={{
@@ -97,7 +94,7 @@ export const Temp = () => {
           }}
         />
       </div>
-    </Fragment>
+    </>
   )
 }
 

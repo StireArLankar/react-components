@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSpring, animated, to } from 'react-spring'
 
 import { useDrag } from '@use-gesture/react'
-import clamp from 'lodash-es/clamp'
+import clamp from '~/utils/clamp'
 
 import classes from '../classes'
 

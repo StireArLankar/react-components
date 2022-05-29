@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSprings, animated, to } from 'react-spring'
 
 import { useDrag } from '@use-gesture/react'
-import clamp from 'lodash-es/clamp'
-import swap from 'lodash-move'
 
 import { useStyles } from './useStyles'
+
+import clamp from '~/utils/clamp'
+import swap from '~/utils/move'
 
 const immediate = (key: string) => key === 'y' || key === 'zIndex'
 const notImmediate = () => false

@@ -2,8 +2,8 @@ import React from 'react'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
 
+import classes from './classes'
 import InputHelper from './helper'
-import classes from './styles'
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -33,8 +33,6 @@ const Component = (props: CheckboxProps) => {
 
     ...rest
   } = props
-
-  console.log({ checked })
 
   return (
     <div>

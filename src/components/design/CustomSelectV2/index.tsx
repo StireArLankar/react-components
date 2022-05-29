@@ -1,13 +1,12 @@
-import React, { ReactNode, useMemo, useRef } from 'react'
+import { ReactNode, useMemo, useRef } from 'react'
 import { useLayer } from 'react-laag'
 import { RemoveScroll } from 'react-remove-scroll'
 import { animated, useSpring } from 'react-spring'
 
-import clsx from 'clsx'
 import { useSelect } from 'downshift'
 
 import { ReactComponent as Arrow } from './arrow.svg'
-import useStyles from './styles'
+import classes from './classes'
 
 export interface SelectProps {
   value: string
@@ -48,8 +47,6 @@ export default (props: SelectProps) => {
 }
 
 const Mobile = (props: SelectProps) => {
-  const classes = useStyles()
-
   const label = useMemo((): ReactNode => {
     const temp = props.items.find(({ value }) => value === props.value)
 
@@ -62,15 +59,13 @@ const Mobile = (props: SelectProps) => {
 
   const ref = useRef<HTMLSelectElement>(null)
 
-  const clsName = clsx(
-    props.variant === 'secondary' && classes.secondary,
-    props.fit && classes.fit
-  )
-
   return (
-    <div style={{ position: 'relative', display: 'flex' }} className={clsName}>
+    <div style={{ position: 'relative', display: 'flex' }}>
       <select
-        className={classes.label}
+        className={classes.label({
+          fit: props.fit,
+          secondary: props.variant === 'secondary',
+        })}
         value={props.value}
         ref={ref}
         disabled={props.disabled}
@@ -91,7 +86,10 @@ const Mobile = (props: SelectProps) => {
         ))}
       </select>
       <button
-        className={classes.label}
+        className={classes.label({
+          fit: props.fit,
+          secondary: props.variant === 'secondary',
+        })}
         type='button'
         onClick={() => ref.current?.click()}
         style={{
@@ -115,8 +113,6 @@ const clipFromBottom = (val: number) =>
 
 export const Temp = (props: SelectProps) => {
   const { items, onChange, value, fixedContainer } = props
-
-  const classes = useStyles()
 
   const selected = useMemo(() => {
     return items.find((item) => item.value === value)
@@ -162,20 +158,18 @@ export const Temp = (props: SelectProps) => {
 
   const { ref: menuRef, ...menuProps } = getMenuProps()
 
-  const clsName = clsx(
-    props.variant === 'secondary' && classes.secondary,
-    props.fit && classes.fit
-  )
-
   return (
-    <div ref={ref} style={{ position: 'relative' }} className={clsName}>
+    <div ref={ref} style={{ position: 'relative' }}>
       <button
         type='button'
         {...getToggleButtonProps({
           ...triggerProps,
           disabled: props.disabled,
         })}
-        className={classes.label}
+        className={classes.label({
+          fit: props.fit,
+          secondary: props.variant === 'secondary',
+        })}
         disabled={props.disabled}
       >
         <span>{selectedItem?.label || '--'}</span>
@@ -221,14 +215,13 @@ export const Temp = (props: SelectProps) => {
             enabled={false}
             {...menuProps}
           >
-            <ul className={classes.list}>
+            <ul className={classes.list()}>
               {items.map((item, index) => (
                 <li
                   key={item.value}
-                  className={clsx(
-                    classes.item,
-                    highlightedIndex === index && classes.active
-                  )}
+                  className={classes.item({
+                    active: highlightedIndex === index,
+                  })}
                   {...getItemProps({
                     item,
                     index,

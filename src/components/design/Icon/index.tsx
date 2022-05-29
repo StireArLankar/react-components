@@ -1,20 +1,11 @@
-import React from 'react'
-
-import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon'
-
-import useStyles from './useStyles'
+import classes from './classes'
 
 export interface IconProps {
-  Icon: (props: SvgIconProps) => JSX.Element
+  Icon: (props: { className: string }) => JSX.Element
 }
 
-export const Icon = (props: IconProps) => {
-  const { Icon } = props
-  const classes = useStyles()
-
-  return (
-    <button className={classes.button}>
-      <Icon className={classes.icon} />
-    </button>
-  )
-}
+export const Icon = (props: IconProps) => (
+  <button className={classes.button()}>
+    <props.Icon className={classes.icon()} />
+  </button>
+)

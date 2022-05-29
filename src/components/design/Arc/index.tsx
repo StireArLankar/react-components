@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import classes from './styles'
+import classes from './classes'
 
 export default memo(() => (
   <div className={classes.container()}>

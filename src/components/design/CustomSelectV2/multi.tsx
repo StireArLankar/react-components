@@ -3,13 +3,12 @@ import { useLayer } from 'react-laag'
 import { RemoveScroll } from 'react-remove-scroll'
 import { animated, useSpring } from 'react-spring'
 
-import clsx from 'clsx'
 import { useMultipleSelection, useSelect } from 'downshift'
 
 import Checkbox from '../Checkbox'
 
 import { ReactComponent as Arrow } from './arrow.svg'
-import useStyles from './styles'
+import classes from './classes'
 
 export interface ComboboxProps {
   values: string[]
@@ -47,8 +46,6 @@ const clipFromBottom = (val: number) =>
 
 export const Combobox = (props: ComboboxProps) => {
   const { items, onChange, values, fixedContainer } = props
-
-  const classes = useStyles()
 
   const {
     addSelectedItem,
@@ -129,11 +126,6 @@ export const Combobox = (props: ComboboxProps) => {
 
   const anim = useSpring<{ c: number }>({ c: isOpen ? 100 : 0 })
 
-  const clsName = clsx(
-    props.variant === 'secondary' && classes.secondary,
-    props.fit && classes.fit
-  )
-
   const renderLabel = () => {
     switch (true) {
       case selectedItems.length === 0:
@@ -146,14 +138,17 @@ export const Combobox = (props: ComboboxProps) => {
   }
 
   return (
-    <div ref={ref} style={{ position: 'relative' }} className={clsName}>
+    <div ref={ref} style={{ position: 'relative' }}>
       <button
         type='button'
         {...getToggleButtonProps({
           ...triggerProps,
           disabled: props.disabled,
         })}
-        className={classes.label}
+        className={classes.label({
+          fit: props.fit,
+          secondary: props.variant === 'secondary',
+        })}
         disabled={props.disabled}
       >
         <span {...getDropdownProps()}>{renderLabel()}</span>
@@ -200,14 +195,13 @@ export const Combobox = (props: ComboboxProps) => {
             enabled={false}
             {...getMenuProps()}
           >
-            <ul className={classes.list}>
+            <ul className={classes.list()}>
               {items.map((item, index) => (
                 <li
                   key={item.value}
-                  className={clsx(
-                    classes.item,
-                    highlightedIndex === index && classes.active
-                  )}
+                  className={classes.item({
+                    active: highlightedIndex === index,
+                  })}
                   {...getItemProps({
                     item,
                     index,

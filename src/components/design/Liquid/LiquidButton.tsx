@@ -1,22 +1,13 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 
-import clsx from 'clsx'
-
-import { useStyles } from './useStyles'
+import classes from './classes'
 
 export interface LiquidButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const LiquidButton = (props: LiquidButtonProps) => {
-  const { className, children, ...rest } = props
-  const classes = useStyles()
-
-  const buttonClass = clsx(classes.button, className)
-
-  return (
-    <button {...rest} className={buttonClass}>
-      <span className={classes.text}>{children}</span>
-      <div className={classes.liquid} />
-    </button>
-  )
-}
+export const LiquidButton = ({ children, ...rest }: LiquidButtonProps) => (
+  <classes.Button {...rest}>
+    <span className={classes.text()}>{children}</span>
+    <div className={classes.liquid()} />
+  </classes.Button>
+)

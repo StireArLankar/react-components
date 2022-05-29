@@ -2,7 +2,7 @@ import React, { useRef, useMemo } from 'react'
 import { animated, useSpring } from 'react-spring'
 
 import { useDrag } from '@use-gesture/react'
-import clamp from 'lodash-es/clamp'
+import clamp from '~/utils/clamp'
 
 import imgsBase from './imgs'
 import useStyles from './useStyles'

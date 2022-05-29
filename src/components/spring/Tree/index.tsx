@@ -3,8 +3,8 @@ import React, { FC, memo, useEffect, useRef, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 import useMeasure from 'react-use-measure'
 
+import classes from './classes'
 import * as Icons from './icons'
-import useStyles from './styles'
 
 interface TreeProps {
   name: string | React.ReactElement
@@ -20,7 +20,7 @@ const getIcon = (children: any, isOpen?: boolean) => {
   return isOpen ? Icons.MinusSquareO : Icons.PlusSquareO
 }
 
-const trans = (val: any) => `translate3d(${20 - 20 * val}px,0,0)`
+const trans = (val: number) => `translate3d(${20 - 20 * val}px,0,0)`
 
 const Tree: FC<TreeProps> = memo((props) => {
   const { children, name, style, defaultOpen = false } = props
@@ -29,7 +29,6 @@ const Tree: FC<TreeProps> = memo((props) => {
   const toggle = () => setOpen((prev) => !prev)
 
   const previous = usePrevious(isOpen)
-  const classes = useStyles()
 
   const [ref, { height: viewHeight }] = useMeasure()
 
@@ -41,15 +40,15 @@ const Tree: FC<TreeProps> = memo((props) => {
   const Icon = getIcon(children, isOpen)
 
   return (
-    <div className={classes.frame}>
-      <Icon className={classes.toggle} onClick={toggle} />
+    <div className={classes.frame()}>
+      <Icon className={classes.toggle()} onClick={toggle} />
 
-      <span className={classes.title} style={style}>
+      <span className={classes.title()} style={style}>
         {name}
       </span>
 
       <animated.div
-        className={classes.content}
+        className={classes.content()}
         style={{
           opacity,
           height: isOpen && previous === isOpen ? 'auto' : height,

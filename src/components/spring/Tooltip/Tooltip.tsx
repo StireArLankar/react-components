@@ -1,9 +1,7 @@
-import React, { PropsWithChildren, useRef } from 'react'
+import { PropsWithChildren, useRef } from 'react'
 import { animated, useTransition } from 'react-spring'
 
-import clsx from 'clsx'
-
-import useStyles from './Tooltip.styles'
+import classes from './classes'
 
 export interface TooltipProps {
   isOpen: boolean
@@ -11,11 +9,9 @@ export interface TooltipProps {
 }
 
 export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
-  const { isOpen, children, position } = props
+  const { isOpen, children, position: side } = props
 
   const ref = useRef<HTMLDivElement>(null)
-
-  const classes = useStyles()
 
   const transition = useTransition(isOpen, {
     from: { opacity: 0 },
@@ -29,12 +25,14 @@ export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
       {transition((props, item, _, key) =>
         item ? (
           <animated.div
-            className={clsx(classes.popup, classes[position])}
+            className={classes.popup({ side }).className}
             key={key}
             style={props}
             ref={ref}
           >
-            <div className={classes.content}>{children}</div>
+            <div className={classes.content({ side }).className}>
+              {children}
+            </div>
           </animated.div>
         ) : null
       )}
