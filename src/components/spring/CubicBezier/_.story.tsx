@@ -15,4 +15,4 @@ export default {
   ],
 }
 
-export const cb = () => <Component />
+export const CubicBezier = () => <Component />

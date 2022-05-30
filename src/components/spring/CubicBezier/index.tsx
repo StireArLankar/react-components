@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
-import { animated, to, useSpring, SpringValue } from 'react-spring'
+import { memo } from 'react'
 
+import { animated, to, useSpring, SpringValue } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import useStyles from './styles'
+import * as classes from './classes.css'
 
 type Tuple<T> = [T, T]
 
@@ -44,14 +44,15 @@ export default memo(() => {
     bounds: boundsInner,
   })
 
-  const classes = useStyles()
+  // const classes = useStyles()
 
-  const renderPoint = (xy: SpringValue<Tuple<number>>, bind: any) => (
+  const renderPoint = (xy: SpringValue<Tuple<number>>, bind: typeof bind1) => (
     <animated.circle
       cx={0}
       cy={0}
       r={10}
-      style={{ transform: xy.to(trans), touchAction: 'none' }}
+      className={classes.circle}
+      style={{ transform: xy.to(trans) }}
       stroke='none'
       fill='red'
       {...bind()}
@@ -87,7 +88,6 @@ export default memo(() => {
           })}
         </animated.div>
       </animated.div>
-      <animated.div className={classes.content} />
 
       <svg viewBox='-100 -100 700 700' className={classes.svg} fill='none'>
         <animated.path
