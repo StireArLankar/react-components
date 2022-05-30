@@ -6,7 +6,7 @@ import {
   useSpringRef,
   useTrail,
   useSpring,
-} from 'react-spring'
+} from '@react-spring/web'
 
 import clsx from 'clsx'
 

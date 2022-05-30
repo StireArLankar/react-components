@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 
 const paths = {
   max: 'M 21 3 C 22.522 9 22.522 14 21 21 M 18 6 C 18.772 9 18.772 15 18 18 M 15 9 C 15.2 11 15.2 13 15 15',

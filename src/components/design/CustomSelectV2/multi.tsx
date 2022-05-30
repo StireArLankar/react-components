@@ -1,7 +1,7 @@
 import React, { ReactNode, useRef } from 'react'
 import { useLayer } from 'react-laag'
 import { RemoveScroll } from 'react-remove-scroll'
-import { animated, useSpring } from 'react-spring'
+import { animated, useSpring } from '@react-spring/web'
 
 import { useMultipleSelection, useSelect } from 'downshift'
 

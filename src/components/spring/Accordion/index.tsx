@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useState } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
 import { SimpleArrow, ArrowProps } from './Arrow'

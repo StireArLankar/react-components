@@ -5,7 +5,7 @@ import {
   animated,
   config,
   useSpringRef,
-} from 'react-spring'
+} from '@react-spring/web'
 
 import clsx from 'clsx'
 

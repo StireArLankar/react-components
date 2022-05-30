@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useTransition, animated } from 'react-spring'
+import { useTransition, animated } from '@react-spring/web'
 
 import GiftNotice from './gift-notice.svg'
 import InfoNotice from './info-notice.svg'

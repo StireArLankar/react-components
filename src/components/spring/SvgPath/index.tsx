@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 
 export const SvgPath = () => {
   const [toggle, setToggle] = useState(false)

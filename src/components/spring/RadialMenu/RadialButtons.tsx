@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated, config } from '@react-spring/web'
 
 import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import clsx from 'clsx'

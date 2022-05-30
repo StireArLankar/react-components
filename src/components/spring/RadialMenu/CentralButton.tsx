@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 
 import Adjust from '@material-ui/icons/Adjust'
 import HighlightOff from '@material-ui/icons/HighlightOff'

@@ -1,5 +1,5 @@
 import React, { useRef, useMemo } from 'react'
-import { animated, useSpring } from 'react-spring'
+import { animated, useSpring } from '@react-spring/web'
 
 import { useDrag } from '@use-gesture/react'
 import clamp from '~/utils/clamp'

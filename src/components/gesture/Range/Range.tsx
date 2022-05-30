@@ -1,5 +1,5 @@
 import React, { useRef, useMemo, useEffect } from 'react'
-import { useSpring, animated, interpolate } from 'react-spring'
+import { useSpring, animated, interpolate } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
 import { useDrag } from '@use-gesture/react'

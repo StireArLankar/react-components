@@ -1,5 +1,5 @@
 import { memo, useEffect } from 'react'
-import { animated, to, useSpring } from 'react-spring'
+import { animated, to, useSpring } from '@react-spring/web'
 
 import classes from './classes'
 import { data } from './data'

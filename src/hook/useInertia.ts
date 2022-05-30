@@ -5,7 +5,7 @@ import {
   SpringRef,
   SpringConfig,
   UseSpringProps,
-} from 'react-spring'
+} from '@react-spring/web'
 
 export interface InertialConfig<T extends {}> extends SpringConfig {
   inertia: true

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useSprings, animated, to } from 'react-spring'
+import { useSprings, animated, to } from '@react-spring/web'
 
 import { useDrag } from '@use-gesture/react'
 

@@ -1,5 +1,5 @@
 import React, { SVGProps } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 
 export interface SvgMorphProps extends SVGProps<SVGSVGElement> {
   firstPath: string

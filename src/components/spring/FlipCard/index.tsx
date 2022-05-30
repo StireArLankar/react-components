@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated, config } from '@react-spring/web'
 
 import clsx from 'clsx'
 

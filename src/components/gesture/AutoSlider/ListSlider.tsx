@@ -5,7 +5,7 @@ import React, {
   useState,
   useMemo,
 } from 'react'
-import { animated, useSpring } from 'react-spring'
+import { animated, useSpring } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
 import { useDrag } from '@use-gesture/react'

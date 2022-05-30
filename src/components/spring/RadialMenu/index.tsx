@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated, config } from '@react-spring/web'
 
 import { CentralButton, CentralButtonProps } from './CentralButton'
 import {

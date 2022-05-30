@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from '@react-spring/web'
 
 import { useDrag } from '@use-gesture/react'
 

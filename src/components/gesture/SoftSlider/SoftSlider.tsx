@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useMemo, useCallback } from 'react'
-import { useSprings, animated, SpringConfig, interpolate } from 'react-spring'
+import { useSprings, animated, SpringConfig, interpolate } from '@react-spring/web'
 
 import { useDrag } from '@use-gesture/react'
 

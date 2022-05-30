@@ -1,4 +1,4 @@
-import { animated, useSpring } from 'react-spring'
+import { animated, useSpring } from '@react-spring/web'
 
 import { useDrag } from '@use-gesture/react'
 

@@ -1,5 +1,5 @@
 import React, { memo, useRef, useState } from 'react'
-import { animated, useSpringRef, useChain, useSpring } from 'react-spring'
+import { animated, useSpringRef, useChain, useSpring } from '@react-spring/web'
 
 import { getTextWidth } from './helpers'
 import useStyles from './styles'

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useSpring, animated, to } from 'react-spring'
+import { useSpring, animated, to } from '@react-spring/web'
 
 import { useGesture } from '@use-gesture/react'
 import clsx from 'clsx'

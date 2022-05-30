@@ -5,7 +5,7 @@ import {
   useTransition,
   useChain,
   useSpringRef,
-} from 'react-spring'
+} from '@react-spring/web'
 
 import { useGesture } from '@use-gesture/react'
 

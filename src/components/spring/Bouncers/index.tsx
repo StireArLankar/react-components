@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { animated, config, useSpring, useTrail } from 'react-spring'
+import { animated, config, useSpring, useTrail } from '@react-spring/web'
 
 import { useStyles } from './useStyles'
 

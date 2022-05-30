@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useTrail, animated } from 'react-spring'
+import { useTrail, animated } from '@react-spring/web'
 
 import clsx from 'clsx'
 

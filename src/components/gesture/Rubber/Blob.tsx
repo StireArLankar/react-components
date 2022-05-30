@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback } from 'react'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated, config } from '@react-spring/web'
 
 import { ReactComponent as Filter } from './filter.svg'
 import useStyles from './useStyles'
