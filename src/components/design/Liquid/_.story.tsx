@@ -1,8 +1,6 @@
-import React, { Fragment } from 'react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { text } from '@storybook/addon-knobs'
-
-import { LiquidButton, LiquidButtonProps } from './LiquidButton'
+import { LiquidButton } from './LiquidButton'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
@@ -10,7 +8,7 @@ import { withTopLabel } from '~/_storybook/withTopLabel'
 import { themeColors } from '~/theme/theme.styles'
 
 const label = (
-  <Fragment>
+  <>
     <span>Credits to </span>
     <a
       href='https://www.youtube.com/watch?v=wjHTKLstbRg'
@@ -18,7 +16,7 @@ const label = (
     >
       video
     </a>
-  </Fragment>
+  </>
 )
 
 export default {
@@ -28,16 +26,13 @@ export default {
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
-}
+} as ComponentMeta<typeof LiquidButton>
 
-export const button = () => {
-  const props: LiquidButtonProps = {
-    children: text('text', 'Hello world'),
-  }
+const Template: ComponentStory<typeof LiquidButton> = (props) => (
+  <LiquidButton {...props} />
+)
 
-  return <LiquidButton {...props} />
-}
-
-// button.story = {
-//   decorators: [(storyFn: any) => <div style={{ border: '5px solid red' }}>{storyFn()}</div>],
-// };
+export const button = Template.bind({})
+button.args = { children: 'Hello world' }
+button.argTypes = { children: { type: 'string' } }
+button.parameters = { controls: { include: ['children'] } }

@@ -1,9 +1,10 @@
-import React, { PropsWithChildren, useState } from 'react'
-import { useSpring, animated } from '@react-spring/web'
+import { FC, useState } from 'react'
 import useMeasure from 'react-use-measure'
 
+import { useSpring, animated } from '@react-spring/web'
+
+import * as classes from './_classes.css'
 import { SimpleArrow, ArrowProps } from './Arrow'
-import { useAccordionStyles } from './useAccordionStyles'
 
 export interface AccordionProps {
   title: string
@@ -11,12 +12,10 @@ export interface AccordionProps {
   arrowComponent?: (props: ArrowProps) => JSX.Element
 }
 
-export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
+export const Accordion: FC<AccordionProps> = (props) => {
   const { title, children, hideArrow, arrowComponent } = props
 
   const [isOpened, setIsOpened] = useState(true)
-
-  const classes = useAccordionStyles()
 
   const [ref, { height }] = useMeasure()
 
@@ -42,7 +41,7 @@ export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
   }
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper({ open: isOpened })}>
       <button className={classes.toggle} onClick={onToggleClick}>
         <div className={classes.title}>{title}</div>
         {renderArrow()}

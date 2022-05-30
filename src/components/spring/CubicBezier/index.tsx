@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { animated, to, useSpring, SpringValue } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import * as classes from './classes.css'
+import * as classes from './_classes.css'
 
 type Tuple<T> = [T, T]
 

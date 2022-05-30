@@ -3,6 +3,7 @@ import { globalCss } from '@stitches/react'
 import type { DecoratorFn } from '@storybook/react'
 
 import { defaultTheme } from '~/theme/theme.styles'
+import '~/theme/theme.css'
 
 const globalStyles = globalCss({
   ':root': {
