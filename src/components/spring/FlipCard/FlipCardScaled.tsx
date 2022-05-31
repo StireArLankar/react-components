@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useSpring, animated } from '@react-spring/web'
 
+import { useSpring, animated } from '@react-spring/web'
 import clsx from 'clsx'
 
 import { useStyles } from './useStyles'

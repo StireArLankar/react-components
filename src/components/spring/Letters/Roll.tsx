@@ -1,4 +1,5 @@
 import React, { useMemo, Fragment, useState, useEffect } from 'react'
+
 import { animated, useTrail, config } from '@react-spring/web'
 
 import useStyles from './Letters.styles'

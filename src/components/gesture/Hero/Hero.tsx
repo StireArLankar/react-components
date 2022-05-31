@@ -1,4 +1,5 @@
 import React, { useState, useRef, useLayoutEffect } from 'react'
+
 import {
   useSpring,
   animated,
@@ -6,7 +7,6 @@ import {
   useChain,
   useSpringRef,
 } from '@react-spring/web'
-
 import { useGesture } from '@use-gesture/react'
 
 import useStyles from './useStyles'

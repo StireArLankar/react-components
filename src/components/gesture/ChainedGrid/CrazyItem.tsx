@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState, memo } from 'react'
-import { useSpring, animated, to } from '@react-spring/web'
 
+import { useSpring, animated, to } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
-import clamp from '~/utils/clamp'
 
 import classes from './classes'
 import { data } from './data'
+
+import clamp from '~/utils/clamp'
 
 export interface ItemProps {
   index: number

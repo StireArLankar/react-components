@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { useTransition, animated, useSpring } from '@react-spring/web'
 
 import { BubbleSvg } from './BubbleSvg'

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
-import { useSpring, animated, to } from '@react-spring/web'
 
+import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clamp from '~/utils/clamp'
 
 import classes from './classes'
+
+import clamp from '~/utils/clamp'
 
 const updateAxis = (
   val: number,

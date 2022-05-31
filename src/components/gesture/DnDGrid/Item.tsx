@@ -1,10 +1,11 @@
 import React, { useRef } from 'react'
-import { useSpring, animated, to } from '@react-spring/web'
 
+import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clamp from '~/utils/clamp'
 
 import classes from './classes'
+
+import clamp from '~/utils/clamp'
 
 const updateVal = (val: number, step: number, current: number, max: number) => {
   const offset = val % step

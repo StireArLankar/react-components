@@ -1,11 +1,12 @@
 import React, { useRef, useMemo, useEffect } from 'react'
-import { useSpring, animated, interpolate } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
+import { useSpring, animated, interpolate } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clamp from '~/utils/clamp'
 
 import useStyles from './Range.styles'
+
+import clamp from '~/utils/clamp'
 
 export const RangeSimple = () => {
   const classes = useStyles()

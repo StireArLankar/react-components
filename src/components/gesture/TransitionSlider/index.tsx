@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import { animated, useSpring } from '@react-spring/web'
 
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clamp from '~/utils/clamp'
 
 import imgs from './imgs'
 import useStyles from './useStyles'
+
+import clamp from '~/utils/clamp'
 
 export interface TransitionSliderProps {
   transform: (num: number) => string

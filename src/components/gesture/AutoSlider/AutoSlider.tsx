@@ -6,9 +6,9 @@ import React, {
   useMemo,
   useCallback,
 } from 'react'
-import { animated, useSpring } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
 import useStyles from './AutoSlider.styles'

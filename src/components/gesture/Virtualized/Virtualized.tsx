@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { animated, useSpring } from '@react-spring/web'
 
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clamp from '~/utils/clamp'
 
 import imgs from './imgs'
 import useStyles from './useStyles'
+
+import clamp from '~/utils/clamp'
 
 const STEP = 200
 const WIDTH = 200

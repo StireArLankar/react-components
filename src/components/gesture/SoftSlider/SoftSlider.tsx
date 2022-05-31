@@ -1,9 +1,7 @@
 import React, { useRef, useEffect, useMemo, useCallback } from 'react'
-import { useSprings, animated, SpringConfig, interpolate } from '@react-spring/web'
 
+import { useSprings, animated, SpringConfig, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-
-//@ts-ignore
 import useResizeObserver from 'use-resize-observer'
 
 export interface SliderProps extends DefaultProps {
@@ -191,7 +189,7 @@ export const Slider = ({
             display: 'flex',
             ...slideStyleFunc(i),
             zIndex: styles.zIndex.to((val: number) => val.toFixed(0)),
-            transform: interpolate(
+            transform: to(
               [styles[axis], styles.s],
               (x, s) => `translate${axis.toUpperCase()}(${x}px) scale(${s})`
             ),

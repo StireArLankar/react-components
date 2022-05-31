@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { animated, useSpring } from '@react-spring/web'
 
 import useStyles from './Control.styles'

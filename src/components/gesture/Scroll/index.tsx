@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { useSpring, animated } from '@react-spring/web'
 
+import { useSpring, animated } from '@react-spring/web'
 import { useScroll } from '@use-gesture/react'
 
 import { useStyles } from './useStyles'

@@ -5,8 +5,8 @@ import React, {
   useState,
   useRef,
 } from 'react'
-import { useTransition, animated } from '@react-spring/web'
 
+import { useTransition, animated } from '@react-spring/web'
 import clsx from 'clsx'
 
 import useStyles from './Popup.styles'

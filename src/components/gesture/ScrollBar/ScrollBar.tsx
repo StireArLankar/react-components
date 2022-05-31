@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, Fragment, memo } from 'react'
-import { useSpring, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
+import { useSpring, animated } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
 import classes from './classes'

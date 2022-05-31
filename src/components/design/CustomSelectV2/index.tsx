@@ -1,8 +1,8 @@
 import { ReactNode, useMemo, useRef } from 'react'
 import { useLayer } from 'react-laag'
 import { RemoveScroll } from 'react-remove-scroll'
-import { animated, useSpring } from '@react-spring/web'
 
+import { animated, useSpring } from '@react-spring/web'
 import { useSelect } from 'downshift'
 
 import { ReactComponent as Arrow } from './arrow.svg'

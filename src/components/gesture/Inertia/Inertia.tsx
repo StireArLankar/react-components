@@ -1,7 +1,7 @@
 import React from 'react'
-import { animated, config } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
+import { animated, config } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
 import useStyles from './useStyles'

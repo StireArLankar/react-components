@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
-import { useSpring, animated } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 
+import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
 import { ReactComponent as Filter } from './filter.svg'
