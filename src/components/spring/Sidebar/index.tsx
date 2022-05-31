@@ -1,41 +1,31 @@
 import React, { PropsWithChildren } from 'react'
+
 import {
-  useTransition,
-  useChain,
   animated,
   config,
+  useChain,
   useSpringRef,
   useTrail,
+  useTransition,
 } from '@react-spring/web'
 
-import clsx from 'clsx'
-
-import useStyles from './useStyles'
+import classes from './_classes.css'
 
 export interface SidebarProps {
   isOpen: boolean
   right?: boolean
 }
 
-export const sidebarTransform = (right?: boolean) =>
-  right ? 'translateX(100%)' : 'translateX(-100%)'
+export const sidebarTransform = (right?: boolean) => (right ? '100%' : '-100%')
 
 export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
   const { isOpen, children = [], right } = props
 
-  const classes = useStyles()
-
   const sidebarRef = useSpringRef()
   const transition = useTransition(isOpen, {
-    from: {
-      transform: sidebarTransform(right),
-    },
-    enter: {
-      transform: 'translateX(0%)',
-    },
-    leave: {
-      transform: sidebarTransform(right),
-    },
+    from: { x: sidebarTransform(right) },
+    enter: { x: '0%' },
+    leave: { x: sidebarTransform(right) },
     unique: true,
     config: config.stiff,
     ref: sidebarRef,
@@ -48,7 +38,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
 
   const trail = useTrail(items.length, {
     opacity: isOpen ? 1 : 0,
-    transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
+    x: isOpen ? '0%' : sidebarTransform(right),
     ref: itemsRef,
   })
 
@@ -64,11 +54,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
       </animated.div>
     ))
 
-  const sidebarClass = clsx({
-    [classes.sidebar]: true,
-    right,
-    'custom-scroll': true,
-  })
+  const sidebarClass = classes.sidebar({ side: right ? 'right' : 'left' })
 
   const renderContent = () =>
     transition(

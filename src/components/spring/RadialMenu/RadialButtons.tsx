@@ -1,10 +1,7 @@
-import React from 'react'
+import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { useSpring, animated, config } from '@react-spring/web'
 
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
-import clsx from 'clsx'
-
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 export interface RadialButtonsProps {
   buttons: RadialButtonModel[]
@@ -26,7 +23,6 @@ export const RadialButton = (
   props: RadialButtonModel & { angle: number; isOpen: boolean }
 ) => {
   const { angle, isOpen, Icon, color, onClick } = props
-  const classes = useStyles()
 
   const radians = (angle * 2 * Math.PI) / 360
 
@@ -38,15 +34,10 @@ export const RadialButton = (
   return (
     <animated.li
       className={classes.animated}
-      style={{
-        transform: x.to((val) => translate(val, radians)),
-      }}
+      style={{ transform: x.to((val) => translate(val, radians)) }}
     >
-      <button
-        className={clsx(classes.button, classes.overflow)}
-        onClick={onClick}
-      >
-        <Icon className={classes.icon} style={{ backgroundColor: color }} />
+      <button className={classes.radialButton} onClick={onClick}>
+        <Icon className={classes.icon()} style={{ backgroundColor: color }} />
       </button>
     </animated.li>
   )
@@ -54,8 +45,6 @@ export const RadialButton = (
 
 export const RadialButtons = (props: RadialButtonsProps) => {
   const { buttons, isOpen } = props
-
-  const classes = useStyles()
 
   const renderButtons = () =>
     buttons.map((button, index) => (

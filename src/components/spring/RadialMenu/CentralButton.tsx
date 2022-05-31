@@ -1,11 +1,8 @@
-import React from 'react'
-import { useSpring, animated } from '@react-spring/web'
-
 import Adjust from '@material-ui/icons/Adjust'
 import HighlightOff from '@material-ui/icons/HighlightOff'
-import clsx from 'clsx'
+import { useSpring, animated } from '@react-spring/web'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 export interface CentralButtonProps {
   isOpen: boolean
@@ -15,31 +12,27 @@ export interface CentralButtonProps {
 export const CentralButton = (props: CentralButtonProps) => {
   const { isOpen, onClick } = props
 
-  const spring = useSpring({
-    s: isOpen ? 1 : 0,
-  })
-
-  const classes = useStyles()
+  const spring = useSpring({ s: isOpen ? 1 : 0 })
 
   return (
-    <button onClick={onClick} className={clsx('central', classes.button)}>
+    <button onClick={onClick} className={classes.centralButton}>
       <animated.div
         style={{
           transform: spring.s.to((val) => `scale(${val})`),
           zIndex: isOpen ? 1 : 0,
         }}
-        className={clsx(classes.animated, classes.overflow)}
+        className={classes.animatedOverflow}
       >
-        <HighlightOff className={clsx(classes.icon, 'close')} />
+        <HighlightOff className={classes.icon({ state: 'close' })} />
       </animated.div>
       <animated.div
         style={{
           transform: spring.s.to((val) => `scale(${1 - val})`),
           zIndex: isOpen ? 0 : 1,
         }}
-        className={clsx(classes.animated, classes.overflow)}
+        className={classes.animatedOverflow}
       >
-        <Adjust className={clsx(classes.icon, 'open')} />
+        <Adjust className={classes.icon({ state: 'open' })} />
       </animated.div>
     </button>
   )

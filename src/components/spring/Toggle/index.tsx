@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+
 import { useTransition, animated } from '@react-spring/web'
 
+import classes from './_classes.css'
 import GiftNotice from './gift-notice.svg'
 import InfoNotice from './info-notice.svg'
-import { useStyles } from './useStyles'
 
 export const Toggle = () => {
   const [toggle, setToggle] = useState(false)
-  const classes = useStyles()
 
   useEffect(() => {
     const interval = setInterval(() => setToggle((prev) => !prev), 2000)
@@ -23,7 +23,7 @@ export const Toggle = () => {
   const renderAnimation = () =>
     transitions((props, item, _, key) => (
       <animated.img
-        alt={'info-notice'}
+        alt='info-notice'
         className={classes.img}
         key={`info-notice-${key}`}
         src={item ? InfoNotice : GiftNotice}

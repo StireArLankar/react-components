@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
+
 import { useSpring, animated } from '@react-spring/web'
 
 export const SvgPath = () => {
@@ -31,7 +32,7 @@ export const SvgPath = () => {
       style={{
         stroke: 'currentColor',
         strokeDasharray: 100,
-        strokeDashoffset: x.to((x) => x),
+        strokeDashoffset: x,
         width: '100%',
         height: '100%',
       }}

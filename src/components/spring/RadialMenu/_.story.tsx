@@ -1,5 +1,3 @@
-import React, { Fragment } from 'react'
-
 import Adjust from '@material-ui/icons/Adjust'
 import CameraRounded from '@material-ui/icons/CameraRounded'
 import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
@@ -21,18 +19,18 @@ import { RadialMenu, RadialMenuProps } from '.'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { vars } from '~/theme/theme.css'
 
 const label = (
-  <Fragment>
+  <>
     <span>Credits to </span>
     <a
       href='https://www.youtube.com/watch?v=MhQI-ysRyrk'
-      style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
+      style={{ color: vars.color.darkBlue, textDecoration: 'none' }}
     >
       Awesome Content by fireship
     </a>
-  </Fragment>
+  </>
 )
 
 export default {

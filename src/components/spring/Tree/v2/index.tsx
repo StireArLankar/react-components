@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React, { memo, useEffect, useRef, useState } from 'react'
-import { animated, useSpring } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
+
+import { animated, useSpring } from '@react-spring/web'
 
 import classes from '../classes'
 import * as Icons from '../icons'

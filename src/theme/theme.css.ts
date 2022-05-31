@@ -1,4 +1,8 @@
-import { createThemeContract, createGlobalTheme } from '@vanilla-extract/css'
+import {
+  createThemeContract,
+  createGlobalTheme,
+  style,
+} from '@vanilla-extract/css'
 
 export const vars = createThemeContract({
   color: {
@@ -31,5 +35,68 @@ createGlobalTheme(':root', vars, {
     darkGreen: '#335a00',
     green: '#65b300',
     online: '#65b300',
+  },
+})
+
+export const customScroll = style({
+  selectors: {
+    '&::-webkit-scrollbar': {
+      backgroundColor: '#f1f1f1',
+      WebkitOverflowScrolling: 'touch',
+      height: 10,
+      width: 10,
+    },
+
+    '&::-webkit-scrollbar:hover': {
+      backgroundColor: '#e9e9e9',
+      border: '1px solid #dbdbdb',
+    },
+
+    '&::-webkit-scrollbar-button:end:increment': {
+      background: '0 0',
+      display: 'block',
+      height: 0,
+    },
+    '&::-webkit-scrollbar-button:start:decrement': {
+      background: '0 0',
+      display: 'block',
+      height: 0,
+    },
+
+    '&::-webkit-scrollbar-track': {
+      backgroundClip: 'padding-box',
+      border: 'solid transparent',
+    },
+
+    '&::-webkit-scrollbar-track-piece': {
+      backgroundColor: 'transparent',
+      borderRadius: 0,
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      backgroundClip: 'padding-box',
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      border: 'none',
+      boxShadow:
+        'inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.07)',
+    },
+
+    '&::-webkit-scrollbar-thumb:horizontal': {
+      backgroundColor: '#bfbfbf',
+      borderRadius: 0,
+    },
+    '&::-webkit-scrollbar-thumb:vertical': {
+      backgroundColor: '#bfbfbf',
+      borderRadius: 0,
+    },
+
+    '&::-webkit-scrollbar-thumb:active': {
+      backgroundColor: 'rgba(0, 0, 0, 0.44)',
+      boxShadow: 'inset 1px 1px 3px rgba(0, 0, 0, 0.33)',
+    },
+
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: '#959595',
+    },
   },
 })

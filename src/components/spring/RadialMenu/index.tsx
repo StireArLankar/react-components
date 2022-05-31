@@ -1,13 +1,8 @@
-import React from 'react'
 import { useSpring, animated, config } from '@react-spring/web'
 
-import { CentralButton, CentralButtonProps } from './CentralButton'
-import {
-  RadialButtonModel,
-  RadialButtons,
-  RadialButtonsProps,
-} from './RadialButtons'
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
+import { CentralButton } from './CentralButton'
+import { RadialButtonModel, RadialButtons } from './RadialButtons'
 
 export interface RadialMenuProps {
   isOpen: boolean
@@ -17,30 +12,16 @@ export interface RadialMenuProps {
 
 export const RadialMenu = (props: RadialMenuProps) => {
   const { isOpen, buttons, onClick } = props
-  const classes = useStyles()
 
-  const centralButtonProps: CentralButtonProps = {
-    isOpen,
-    onClick,
-  }
-
-  const radialButtonsProps: RadialButtonsProps = {
-    isOpen,
-    buttons,
-  }
-
-  const { x } = useSpring({
-    x: isOpen ? 720 : 0,
+  const style = useSpring({
+    rotate: isOpen ? 720 : 0,
     config: config.slow,
   })
 
   return (
-    <animated.div
-      className={classes.wrapper}
-      style={{ transform: x.to((val) => `rotate(${val}deg)`) }}
-    >
-      <CentralButton {...centralButtonProps} />
-      <RadialButtons {...radialButtonsProps} />
+    <animated.div className={classes.wrapper} style={style}>
+      <CentralButton isOpen={isOpen} onClick={onClick} />
+      <RadialButtons isOpen={isOpen} buttons={buttons} />
     </animated.div>
   )
 }

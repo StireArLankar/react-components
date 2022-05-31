@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
-import { useTransition, animated, useSpring } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
+
+import { useTransition, animated, useSpring } from '@react-spring/web'
 
 import { useStyles } from './useStyles'
 

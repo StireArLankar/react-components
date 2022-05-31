@@ -1,13 +1,12 @@
-import React, { Fragment } from 'react'
 import { useTrail, animated } from '@react-spring/web'
 
-import clsx from 'clsx'
-
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 const fast = { tension: 1200, friction: 40 }
+
 const slow = { mass: 10, tension: 200, friction: 50 }
-const trans = (x: number, y: number) =>
+
+const trans = (x: number, y: number): string =>
   `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
 
 export interface MouseFollowerProps {
@@ -18,15 +17,13 @@ export interface MouseFollowerProps {
 export const MouseFollower = (props: MouseFollowerProps) => {
   const { amount = 3, skew = 5 } = props
 
-  const [trail, set] = useTrail(amount, () => ({
-    xy: [0, 0],
-    config: (i) => (Number(i) === 0 ? fast : slow),
+  const [trail, set] = useTrail(amount, (i) => ({
+    xy: [0, 0] as [number, number],
+    config: () => (i === 0 ? fast : slow),
   }))
 
-  const classes = useStyles()
-
   return (
-    <Fragment>
+    <>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -92,37 +89,30 @@ export const MouseFollower = (props: MouseFollowerProps) => {
               in='SourceGraphic'
               result='mix'
               operator='atop'
-            /> */}
-          {/* </filter> */}
+            />
+          </filter> */}
         </defs>
       </svg>
 
       <div
         className={classes.wrapper}
-        onMouseMove={(e) => set({ xy: [e.clientX, e.clientY] } as any)}
+        onMouseMove={(e) => set.start({ xy: [e.clientX, e.clientY] })}
       >
-        {trail.map((props, index) => (
+        {trail.map(({ xy }, index) => (
           <animated.div
-            className={clsx(classes.goo, classes.alternative)}
+            className={classes.alternativeGoo}
             key={index}
-            style={{
-              transform: (props as any).xy.to(trans),
-            }}
+            style={{ transform: xy.to(trans) }}
           />
         ))}
         <div
+          className={classes.lightcoral}
           style={{
-            backgroundColor: 'lightcoral',
             transform: `translate(-50%, -50%) rotate(45deg) skew(${skew}deg, ${skew}deg)`,
-            width: 200,
-            height: 200,
-            position: 'fixed',
-            top: '50%',
-            left: '50%',
           }}
         />
       </div>
-    </Fragment>
+    </>
   )
 }
 

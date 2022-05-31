@@ -1,31 +1,25 @@
 import React, { PropsWithChildren } from 'react'
+
 import {
-  useChain,
   animated,
   config,
+  useChain,
+  useSpring,
   useSpringRef,
   useTrail,
-  useSpring,
 } from '@react-spring/web'
 
-import clsx from 'clsx'
-
-import useStyles from './useStyles'
+import classes from './_classes.css'
 
 import { SidebarProps, sidebarTransform } from '.'
 
 export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
   const { isOpen, children = [], right } = props
 
-  const classes = useStyles()
-
   const sidebarRef = useSpringRef()
 
   const sidebarAnim = useSpring({
-    from: {
-      transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
-    },
-    transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
+    x: isOpen ? '0%' : sidebarTransform(right),
     config: config.stiff,
     ref: sidebarRef,
   })
@@ -34,11 +28,9 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
   const itemsRef = useSpringRef()
   const trail = useTrail(childrenArray?.length || 0, {
     opacity: isOpen ? 1 : 0,
-    transform: isOpen ? 'translateX(0%)' : sidebarTransform(right),
+    x: isOpen ? '0%' : sidebarTransform(right),
     ref: itemsRef,
-    config: {
-      friction: 20,
-    },
+    config: { friction: 20 },
   })
 
   useChain(
@@ -53,11 +45,7 @@ export const Sidebar = (props: PropsWithChildren<SidebarProps>) => {
       </animated.div>
     ))
 
-  const sidebarClass = clsx({
-    [classes.sidebar]: true,
-    right,
-    'custom-scroll': true,
-  })
+  const sidebarClass = classes.sidebar({ side: right ? 'right' : 'left' })
 
   const renderContent = () => (
     <animated.div style={sidebarAnim} className={sidebarClass}>
