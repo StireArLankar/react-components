@@ -1,19 +1,15 @@
-import React, { useEffect } from 'react'
-
 import { useSpring, animated } from '@react-spring/web'
 import { useScroll } from '@use-gesture/react'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 export const Scroll = () => {
-  const classes = useStyles()
-
-  const [{ width }, set] = useSpring(() => ({ width: '0%' }))
+  const [{ width }, spring] = useSpring(() => ({ width: '0%' }))
 
   const height = document.documentElement.scrollHeight
 
   const bind = useScroll(
-    ({ xy: [, y] }) => set({ width: (y / height) * 100 + '%' }),
+    ({ xy: [, y] }) => spring.start({ width: (y / height) * 100 + '%' }),
     // FIXME
     { target: window }
   )

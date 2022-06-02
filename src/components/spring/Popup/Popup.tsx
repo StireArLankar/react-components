@@ -1,15 +1,8 @@
-import React, {
-  Fragment,
-  useEffect,
-  PropsWithChildren,
-  useState,
-  useRef,
-} from 'react'
+import { useEffect, PropsWithChildren, useState, useRef } from 'react'
 
 import { useTransition, animated } from '@react-spring/web'
-import clsx from 'clsx'
 
-import useStyles from './Popup.styles'
+import classes from './_classes.css'
 
 export interface PopupProps {
   isOpen: boolean
@@ -22,13 +15,11 @@ const getOffset = (x: number, pos: 'top' | 'bottom') =>
   pos === 'top' ? (1 - x) * 10 : (x - 1) * 10
 
 export const Popup = (props: PropsWithChildren<PopupProps>) => {
-  const { isOpen, children, onClose, position } = props
+  const { isOpen, children, onClose, position: side } = props
 
   const [innerIsOpen, setInnerIsOpen] = useState(isOpen)
 
   const ref = useRef<HTMLDivElement>(null)
-
-  const classes = useStyles()
 
   useEffect(() => {
     setInnerIsOpen(isOpen)
@@ -49,16 +40,16 @@ export const Popup = (props: PropsWithChildren<PopupProps>) => {
   })
 
   return (
-    <Fragment>
+    <>
       {transition(({ o }, item, _, key) =>
         item ? (
           <animated.div
-            className={clsx(classes.popup, classes[position])}
+            className={classes.popup({ side })}
             key={key}
             style={{
               opacity: o,
               transform: o.to(
-                (o) => `translate(-50%, ${getOffset(o, position)}px)`
+                (o) => `translate(-50%, ${getOffset(o, side)}px)`
               ),
             }}
             ref={ref}
@@ -67,6 +58,6 @@ export const Popup = (props: PropsWithChildren<PopupProps>) => {
           </animated.div>
         ) : null
       )}
-    </Fragment>
+    </>
   )
 }

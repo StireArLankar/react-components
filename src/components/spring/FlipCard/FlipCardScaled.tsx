@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import { useSpring, animated } from '@react-spring/web'
-import clsx from 'clsx'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 export interface FlipCardProps {
   back: JSX.Element
@@ -28,10 +27,10 @@ export const FlipCardScaled = (props: FlipCardProps) => {
 
   const [isFlipped, setIsFlipped] = useState(false)
 
-  const [anim, set]: any = useSpring(() => ({
+  const [anim, spring] = useSpring(() => ({
     from: initial,
     to: initial,
-    config: (key: string): any =>
+    config: (key) =>
       key === 'y'
         ? { tension: 120, friction: 14, clamp: false }
         : { tension: 50, friction: 5, clamp: true },
@@ -39,28 +38,11 @@ export const FlipCardScaled = (props: FlipCardProps) => {
 
   useEffect(() => {
     if (isFlipped) {
-      set({ to: [{ z: 0.5 }, { y: 1, z: 1 }] })
+      spring.start({ to: [{ z: 0.5 }, { y: 1, z: 1 }] })
     } else {
-      set({ to: initial })
+      spring.start({ to: initial })
     }
-  }, [isFlipped, set])
-
-  const classes = useStyles()
-
-  const frontClass = clsx(classes.card, active && classes.active)
-
-  const backClass = clsx(classes.card, classes.back, active && classes.active)
-
-  const renderFront = () => <div className={frontClass}>{front}</div>
-
-  const renderBack = () => (
-    <div
-      className={backClass}
-      style={{ transform: `rotate${mapper[dir]}180deg)` }}
-    >
-      {back}
-    </div>
-  )
+  }, [isFlipped, spring])
 
   return (
     <animated.div
@@ -74,16 +56,19 @@ export const FlipCardScaled = (props: FlipCardProps) => {
       <animated.div
         className={classes.inner}
         style={{
-          transform: anim.y.to(
-            (y: number) => `rotate${mapper[dir]}${180 * y}deg)`
-          ),
+          transform: anim.y.to((y) => `rotate${mapper[dir]}${180 * y}deg)`),
           boxShadow: anim.z.to(
-            (z: number) => `0px ${15 * z}px ${30 * z}px 0px rgba(0, 0, 0, 0.7)`
+            (z) => `0px ${15 * z}px ${30 * z}px 0px rgba(0, 0, 0, 0.7)`
           ),
         }}
       >
-        {renderFront()}
-        {renderBack()}
+        <div className={classes.card({ active })}>{front}</div>
+        <div
+          className={classes.back({ active })}
+          style={{ transform: `rotate${mapper[dir]}180deg)` }}
+        >
+          {back}
+        </div>
       </animated.div>
     </animated.div>
   )

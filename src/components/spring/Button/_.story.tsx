@@ -1,8 +1,6 @@
-import React from 'react'
+import { ComponentStory } from '@storybook/react'
 
-import { number, radios, text } from '@storybook/addon-knobs'
-
-import Temp from '.'
+import Temp, { ResponsiveTextProps } from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
@@ -21,18 +19,19 @@ export default {
   ],
 }
 
-export const example = () => (
+const Test = ({ width, ...props }: ResponsiveTextProps & { width: number }) => (
   <div
     style={{
-      width: number('container width', 400),
+      width,
       background: 'red',
       display: 'flex',
       justifyContent: 'center',
     }}
   >
-    <Temp
-      variant={radios('variant', { bold: 'bold', regular: 'regular' }, 'bold')}
-      text={text('text', 'Hello world')}
-    />
+    <Temp {...props} />
   </div>
 )
+
+const Template1: ComponentStory<typeof Test> = (props) => <Test {...props} />
+export const button = Template1.bind({})
+button.args = { width: 400, text: 'Hello world' }

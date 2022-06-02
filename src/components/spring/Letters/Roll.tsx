@@ -1,8 +1,8 @@
-import React, { useMemo, Fragment, useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
-import { animated, useTrail, config } from '@react-spring/web'
+import { animated, config, useTrail } from '@react-spring/web'
 
-import useStyles from './Letters.styles'
+import classes from './_classes.css'
 
 export interface JumpProps {
   children: string
@@ -14,8 +14,6 @@ export const Roll = (props: JumpProps) => {
   const { children } = props
 
   const [flag, setFlag] = useState(false)
-
-  const classes = useStyles()
 
   useEffect(() => {
     const timer = setTimeout(() => setFlag((prev) => !prev), 1000)
@@ -36,15 +34,11 @@ export const Roll = (props: JumpProps) => {
       <animated.span
         key={index}
         className={classes.char}
-        style={{ transform: (props as any).x.to(trans) }}
+        style={{ transform: props.x.to(trans) }}
       >
         {chars[index]}
       </animated.span>
     ))
 
-  return (
-    <Fragment>
-      <div className={classes.text}>{renderLetters()}</div>
-    </Fragment>
-  )
+  return <div className={classes.text}>{renderLetters()}</div>
 }

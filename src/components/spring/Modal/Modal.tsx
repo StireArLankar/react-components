@@ -1,9 +1,9 @@
-import React, { MouseEvent, PropsWithChildren, useState } from 'react'
+import { MouseEvent, PropsWithChildren, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import { animated, useTransition } from '@react-spring/web'
 
-import useStyles from './Modal.styles'
+import classes from './_classes.css'
 
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 import { NeonButton } from '~/components/design/Neon/NeonButton'
@@ -16,6 +16,8 @@ export interface ModalProps {
 const BodyPortal = ({ children }: PropsWithChildren<{}>) =>
   createPortal(children, document.body)
 
+const stopProp = (evt: MouseEvent) => evt.stopPropagation()
+
 export const Modal = (props: PropsWithChildren<ModalProps>) => {
   const { show, onBackdropClick, children } = props
 
@@ -25,14 +27,10 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
     leave: { opacity: 0, pointerEvents: 'none' },
   })
 
-  const stopProp = (evt: MouseEvent) => evt.stopPropagation()
-
-  const classes = useStyles()
-
   return (
     <BodyPortal>
-      {modalTransition((props, item, _, key) => {
-        return item ? (
+      {modalTransition((props, item, _, key) =>
+        item ? (
           <animated.div
             className={classes.backdrop}
             key={key}
@@ -46,7 +44,7 @@ export const Modal = (props: PropsWithChildren<ModalProps>) => {
             </div>
           </animated.div>
         ) : null
-      })}
+      )}
     </BodyPortal>
   )
 }

@@ -1,4 +1,4 @@
-import React, {
+import {
   useEffect,
   PropsWithChildren,
   useState,
@@ -9,10 +9,9 @@ import React, {
 import { createPortal } from 'react-dom'
 
 import { useTransition, animated, useSpring } from '@react-spring/web'
-import clsx from 'clsx'
 import debounce from 'debounce'
 
-import useStyles from './FixedPopup.styles'
+import classes from '../PopupWithAnchor/_classes.css'
 
 export interface FixedPopupProps {
   isOpen: boolean
@@ -31,102 +30,99 @@ const trans = (o: number, pos: 'top' | 'bottom') =>
 const BodyPortal = ({ children }: PropsWithChildren<{}>) =>
   createPortal(children, document.body)
 
-export const FixedPopup = forwardRef<any, PropsWithChildren<FixedPopupProps>>(
-  (props, ref: any) => {
-    const { isOpen, children, onClose, position } = props
+type Props = PropsWithChildren<FixedPopupProps>
+export const FixedPopup = forwardRef<any, Props>((props, ref: any) => {
+  const { isOpen, children, onClose, position } = props
 
-    const [innerIsOpen, setInnerIsOpen] = useState(isOpen)
+  const [innerIsOpen, setInnerIsOpen] = useState(isOpen)
 
-    const contentRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
 
-    const classes = useStyles()
+  const isMounted = useRef(false)
 
-    const isMounted = useRef(false)
+  const [{ left, top }, setPos] = useSpring(() => ({
+    left: 0,
+    top: 0,
+  }))
 
-    const [{ left, top }, setPos] = useSpring(() => ({
-      left: 0,
-      top: 0,
-    }))
+  const updatePos = useCallback(() => {
+    const { x, y, width, height } = ref?.current?.getBoundingClientRect() || {}
 
-    const updatePos = useCallback(() => {
-      const { x, y, width, height } = ref.current?.getBoundingClientRect() || {}
+    const left = x + width / 2 + window.pageXOffset || 0
+    const my = y + window.pageYOffset || 0
+    const top = position === 'top' ? my : my + height
 
-      const left = x + width / 2 + window.pageXOffset || 0
-      const my = y + window.pageYOffset || 0
-      const top = position === 'top' ? my : my + height
+    setPos({ left, top })
+  }, [setPos, ref, position])
 
-      setPos({ left, top })
-    }, [setPos, ref, position])
+  useEffect(() => {
+    if (isMounted.current) {
+      return
+    }
 
-    useEffect(() => {
-      if (isMounted.current) {
-        return
+    let timer: ReturnType<typeof setTimeout>
+
+    const handler = () => {
+      if (ref.current) {
+        isMounted.current = true
+        updatePos()
+      } else {
+        timer = setTimeout(handler, 100)
       }
+    }
 
-      let timer: NodeJS.Timer
+    timer = setTimeout(handler, 100)
 
-      const handler = () => {
-        if (ref.current) {
-          isMounted.current = true
-          updatePos()
-        } else {
-          timer = setTimeout(handler, 100)
-        }
-      }
+    return () => clearTimeout(timer)
+  }, [ref, updatePos])
 
-      timer = setTimeout(handler, 100)
+  useEffect(() => {
+    setInnerIsOpen(isOpen)
 
-      return () => clearTimeout(timer)
-    }, [ref, updatePos])
+    const clickHandler = (evt: any) =>
+      !evt.path.includes(contentRef.current) && setInnerIsOpen(false)
 
-    useEffect(() => {
-      setInnerIsOpen(isOpen)
+    const resizeHandler = debounce(() => updatePos(), 100)
 
-      const clickHandler = (evt: any) =>
-        !evt.path.includes(contentRef.current) && setInnerIsOpen(false)
+    if (isOpen) {
+      document.addEventListener('click', clickHandler, true)
+      window.addEventListener('resize', resizeHandler)
+      resizeHandler()
+    }
 
-      const resizeHandler = debounce(() => updatePos(), 100)
+    return () => {
+      document.removeEventListener('click', clickHandler, true)
+      window.removeEventListener('resize', resizeHandler)
+    }
+  }, [isOpen, updatePos])
 
-      if (isOpen) {
-        document.addEventListener('click', clickHandler, true)
-        window.addEventListener('resize', resizeHandler)
-        resizeHandler()
-      }
+  const transition = useTransition(innerIsOpen, {
+    from: { o: 0 },
+    enter: { o: 1 },
+    leave: { o: 0 },
+    config: { tension: 250, clamp: true },
+    onRest: () => !innerIsOpen && onClose(),
+  })
 
-      return () => {
-        document.removeEventListener('click', clickHandler, true)
-        window.removeEventListener('resize', resizeHandler)
-      }
-    }, [isOpen, updatePos])
-
-    const transition = useTransition(innerIsOpen, {
-      from: { o: 0 },
-      enter: { o: 1 },
-      leave: { o: 0 },
-      config: { tension: 250, clamp: true },
-      onRest: () => !innerIsOpen && onClose(),
-    })
-
-    return (
-      <BodyPortal>
-        {transition(({ o }, item, _, key) =>
-          item ? (
-            <animated.div
-              className={clsx(classes.popup, classes[position])}
-              key={key}
-              style={{
-                opacity: o,
-                transform: o.to((o) => trans(o, position)),
-                left,
-                top,
-              }}
-              ref={contentRef}
-            >
-              {children}
-            </animated.div>
-          ) : null
-        )}
-      </BodyPortal>
-    )
-  }
-)
+  return (
+    <BodyPortal>
+      {transition(({ o }, item, _, key) =>
+        item ? (
+          <animated.div
+            className={classes.popup({ side: position })}
+            key={key}
+            ref={contentRef}
+            style={{
+              opacity: o,
+              transform: o.to((o) => trans(o, position)),
+              left,
+              top,
+            }}
+          >
+            {children}
+          </animated.div>
+        ) : null
+      )}
+    </BodyPortal>
+  )
+})

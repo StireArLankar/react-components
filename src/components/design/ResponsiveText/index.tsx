@@ -1,7 +1,7 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 
+import classes from './_classes.css'
 import { getTextWidth } from './helpers'
-import useStyles from './styles'
 
 type Variants = 'bold' | 'regular'
 
@@ -40,8 +40,6 @@ const variantToYHeight = (variant: Variants): number => {
 export default memo((props: ResponsiveTextProps) => {
   const { text, variant = 'bold' } = props
 
-  const classes = useStyles()
-
   const font = variantToFont(variant)
   const xpad = variantToXPadding(variant)
   const y = variantToYHeight(variant)
@@ -58,7 +56,7 @@ export default memo((props: ResponsiveTextProps) => {
         y='50%'
         textAnchor='middle'
         dominantBaseline='central'
-        className={classes[variant]}
+        className={classes.font[variant]}
       >
         {text}
       </text>

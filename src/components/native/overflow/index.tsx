@@ -1,23 +1,22 @@
-import React, { useState, memo } from 'react'
+import { useState, memo, CSSProperties } from 'react'
 import useMeasure from 'react-use-measure'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
-export interface OverflowProps {
+export type OverflowProps = {
   text: string
 }
 
 export const Overflow = memo((props: OverflowProps) => {
   const { text } = props
   const [isHovered, setIsHovered] = useState(false)
-  const classes = useStyles()
   const [ref, { width, height }] = useMeasure()
 
   const spanWidth = (text.length * height) / 1.6
 
   const duration = (spanWidth - width) / 140
 
-  const styles = {
+  const styles: CSSProperties = {
     transition: isHovered
       ? `transform ${duration}s cubic-bezier(0.17, 0.0, 0.50, 0.50)`
       : '',
@@ -32,9 +31,7 @@ export const Overflow = memo((props: OverflowProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className={classes.overflow} ref={ref}>
-        <span className={classes.content} style={styles}>
-          {text}
-        </span>
+        <span style={styles}>{text}</span>
       </div>
     </div>
   )

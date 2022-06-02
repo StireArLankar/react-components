@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import { useSpring, animated, config } from '@react-spring/web'
-import clsx from 'clsx'
+import { animated, config, useSpring } from '@react-spring/web'
 
+import classes from './_classes.css'
 import { ReactComponent as Close } from './close.svg'
 import { ReactComponent as Info } from './info.svg'
-import { useStyles } from './useStyles'
 
 export interface FlipCardProps {
   back: JSX.Element
@@ -23,16 +22,10 @@ export const FlipCard = (props: FlipCardProps) => {
     config: config.gentle,
   })
 
-  const classes = useStyles()
-
   const toggleFlipped = () => setIsFlipped((state) => !state)
 
-  const frontClass = clsx(classes.card, active && classes.active)
-
-  const backClass = clsx(classes.card, classes.back, active && classes.active)
-
   const renderFront = () => (
-    <div className={frontClass}>
+    <div className={classes.card({ active })}>
       {front}
 
       <button className={classes.buttonInfo} onClick={toggleFlipped}>
@@ -42,7 +35,7 @@ export const FlipCard = (props: FlipCardProps) => {
   )
 
   const renderBack = () => (
-    <div className={backClass}>
+    <div className={classes.back({ active })}>
       {back}
 
       <button className={classes.buttonInfo} onClick={toggleFlipped}>

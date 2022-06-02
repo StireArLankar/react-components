@@ -1,10 +1,9 @@
-import React from 'react'
 import useMeasure from 'react-use-measure'
 
 import { animated, config } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
-import useStyles from './useStyles'
+import classes from './_classes.css'
 
 import { useInertia } from '~/hook/useInertia'
 
@@ -24,8 +23,6 @@ export const Inertia = () => {
 
   const [ref, { height }] = useMeasure()
   const wHeight = window.innerHeight
-
-  const classes = useStyles()
 
   const bind = useGesture(
     {

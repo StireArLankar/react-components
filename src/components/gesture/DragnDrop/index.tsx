@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useSprings, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 import clamp from '~/utils/clamp'
 import swap from '~/utils/move'
@@ -42,8 +42,6 @@ const fn =
 const items = 'Lorem ipsum dolor sit'.split(' ')
 
 export const DragnDrop = () => {
-  const classes = useStyles()
-
   const [state, setState] = useState(items.map((_, index) => index))
 
   const [springs, setSprings] = useSprings(items.length, fn(state))
@@ -68,7 +66,7 @@ export const DragnDrop = () => {
 
   return (
     <div className={classes.wrapper} style={{ height: items.length * 100 }}>
-      {springs.map(({ zIndex, shadow, y, scale }, i: number) => (
+      {springs.map(({ zIndex, shadow, y, scale }, i) => (
         <animated.div
           {...bind(i)}
           key={i}

@@ -1,14 +1,19 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 
-import useStyles from './styles'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
 
-export default memo(() => {
-  const classes = useStyles()
+import classes, { iVar } from './_classes.css'
 
-  const renderBars = () =>
-    Array.from({ length: 5 }).map((_, i) => (
-      <div style={{ ['--i' as any]: i + 1 }} className={classes.box} key={i} />
-    ))
+const array = Array.from({ length: 5 })
 
-  return <div className={classes.wrapper}>{renderBars()}</div>
-})
+export default memo(() => (
+  <div className={classes.wrapper}>
+    {array.map((_, i) => (
+      <div
+        style={assignInlineVars({ [iVar]: `${i + 1}` })}
+        className={classes.box}
+        key={i}
+      />
+    ))}
+  </div>
+))

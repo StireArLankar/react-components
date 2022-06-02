@@ -1,15 +1,11 @@
-import React from 'react'
+import classes from './_classes.css'
 
-import useStyles from './useStyles'
-
-export interface BubbleSvgProps {
+export type BubbleSvgProps = {
   onClick: () => void
 }
 
 export const BubbleSvg = (props: BubbleSvgProps) => {
   const { onClick } = props
-
-  const classes = useStyles()
 
   return (
     <svg viewBox='0 0 200 200' onClick={onClick} className={classes.bubble}>

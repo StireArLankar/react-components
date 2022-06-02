@@ -4,13 +4,12 @@ import useMeasure from 'react-use-measure'
 import { useSpring, animated, interpolate } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import useStyles from './Range.styles'
+import classes from './_classes.css'
 
 import clamp from '~/utils/clamp'
 
 export const Range = () => {
-  const classes = useStyles()
-
+  // FIXME
   const [{ x, s }, set] = useSpring(() => ({ x: 0, s: 1 }))
 
   const draggingControl = useRef(false)

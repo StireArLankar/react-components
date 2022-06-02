@@ -1,4 +1,4 @@
-import { radios } from '@storybook/addon-knobs'
+import { ComponentStory } from '@storybook/react'
 
 import { Test } from './Test'
 
@@ -10,8 +10,5 @@ export default {
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const popup = () => (
-  <Test
-    position={radios('position', { top: 'top', bottom: 'bottom' }, 'top')}
-  />
-)
+const Template1: ComponentStory<typeof Test> = (props) => <Test {...props} />
+export const tooltip = Template1.bind({})

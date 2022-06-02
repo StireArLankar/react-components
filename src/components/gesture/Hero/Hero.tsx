@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 
 import {
   useSpring,
@@ -9,7 +9,7 @@ import {
 } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
-import useStyles from './useStyles'
+import classes from './_classes.css'
 
 const trans = (...p: number[]) => `translate3d(${p[0]}px, ${p[1]}px, 0)`
 
@@ -24,8 +24,6 @@ const initial = {
 const items = Array.from({ length: 5 }).map((_, i) => i)
 
 export const Hero = () => {
-  const classes = useStyles()
-
   const [isOpen, setIsOpen] = useState(false)
   const openRef = useRef(false)
 

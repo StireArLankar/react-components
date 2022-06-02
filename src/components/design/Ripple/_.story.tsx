@@ -1,5 +1,3 @@
-import React, { Fragment } from 'react'
-
 import { text, boolean } from '@storybook/addon-knobs'
 
 import { Ripple, RippleProps } from '.'
@@ -10,7 +8,7 @@ import { withTopLabel } from '~/_storybook/withTopLabel'
 import { themeColors } from '~/theme/theme.styles'
 
 const label = (
-  <Fragment>
+  <>
     <span>Credits to </span>
     <a
       href='https://www.youtube.com/watch?v=ueyRcYEmsrI'
@@ -18,7 +16,7 @@ const label = (
     >
       video
     </a>
-  </Fragment>
+  </>
 )
 
 export default {
@@ -30,7 +28,7 @@ export default {
   ],
 }
 
-export const button = () => {
+export const ripple = () => {
   const props: RippleProps = {
     children: text('text', 'Hello world'),
     secondary: boolean('secondary', false),

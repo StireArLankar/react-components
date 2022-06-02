@@ -1,15 +1,12 @@
-import React from 'react'
 import useMeasure from 'react-use-measure'
 
 import { useSpring, animated } from '@react-spring/web'
 import { useScroll } from '@use-gesture/react'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 export const ScrollInner = () => {
-  const classes = useStyles()
-
-  const [{ width }, set] = useSpring(() => ({ width: '0%' }))
+  const [{ width }, spring] = useSpring(() => ({ width: '0%' }))
 
   const [contentRef, { height: contentHeight }] = useMeasure()
   const [containerRef, { height: containerHeight }] = useMeasure()
@@ -17,7 +14,7 @@ export const ScrollInner = () => {
   const height = contentHeight - containerHeight
 
   const bind = useScroll(({ xy: [, y] }) =>
-    set({ width: (y / height) * 100 + '%' })
+    spring.start({ width: (y / height) * 100 + '%' })
   )
 
   return (

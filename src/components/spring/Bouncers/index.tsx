@@ -1,17 +1,13 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { animated, config, useSpring, useTrail } from '@react-spring/web'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 const trans = (x: number, y: number) =>
   `translate(${x}vw, ${y}vh) translate(-50%, -50%)`
 
-export interface BouncersProps {}
-
-export const Bouncers = (props: BouncersProps) => {
-  const classes = useStyles()
-
+export const Bouncers = () => {
   const [toggle, setToggle] = useState(false)
   const [isLeft, setIsLeft] = useState(true)
 

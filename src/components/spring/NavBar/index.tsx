@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import useMeasure from 'react-use-measure'
 
 import { useTransition, animated, useSpring } from '@react-spring/web'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
 export interface NavBarProps {
   items: NavBarItem[]
@@ -27,8 +27,6 @@ export const NavBar = (props: NavBarProps) => {
   const [contentRef, { height }] = useMeasure()
 
   const itemWidth = useMemo(() => width / items.length, [width, items.length])
-
-  const classes = useStyles()
 
   const contentSpring = useSpring({
     height: isOpen ? height : 0,
@@ -86,10 +84,10 @@ export const NavBar = (props: NavBarProps) => {
         className={classes.popover}
         style={{
           width: popoverWidth,
+          height: contentSpring.height,
           transform: contentSpring.x.to((val) =>
             transform(val, itemWidth, popoverWidth)
           ),
-          height: contentSpring.height,
         }}
       >
         <div ref={contentRef}>{renderContent()}</div>

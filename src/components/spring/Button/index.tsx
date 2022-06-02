@@ -1,13 +1,13 @@
-import React, { memo, useRef, useState } from 'react'
+import { memo, useRef, useState } from 'react'
 
 import { animated, useSpringRef, useChain, useSpring } from '@react-spring/web'
 
+import classes from './_classes.css'
 import { getTextWidth } from './helpers'
-import useStyles from './styles'
 
 type Variants = 'bold' | 'regular'
 
-type ResponsiveTextProps = {
+export type ResponsiveTextProps = {
   text: string
   variant?: Variants
 }
@@ -75,8 +75,6 @@ export default memo((props: ResponsiveTextProps) => {
     state ? [ref1, ref2, ref3] : [ref3, ref2, ref1],
     state ? [0, 0.3, 0.8] : [0, 0.6, 1.3]
   )
-
-  const classes = useStyles()
 
   const font = variantToFont(variant)
   const xpad = variantToXPadding(variant)

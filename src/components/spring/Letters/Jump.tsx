@@ -1,8 +1,8 @@
-import React, { useMemo, Fragment, useCallback } from 'react'
+import { useMemo, Fragment, useCallback } from 'react'
 
 import { animated, useTrail, config, useSprings } from '@react-spring/web'
 
-import useStyles from './Letters.styles'
+import classes from './_classes.css'
 
 export interface JumpProps {
   children: string
@@ -12,8 +12,6 @@ const trans = (y: number) => `translateY(${y * 50}px)`
 
 export const Jump = (props: JumpProps) => {
   const { children } = props
-
-  const classes = useStyles()
 
   const chars = useMemo(() => children.split(''), [children])
 
@@ -60,7 +58,7 @@ export const Jump = (props: JumpProps) => {
     to: { y: 1 },
     onRest: (key: any) => {
       if (i === 0) {
-        setTimeout(() => set2({ to: { y: key.y === 0 ? 1 : 0 } }))
+        setTimeout(() => set2.start({ to: { y: key.y === 0 ? 1 : 0 } }))
       }
     },
   }))
@@ -72,8 +70,8 @@ export const Jump = (props: JumpProps) => {
     config: { clamp: true, tension: 200, mass: 20 },
   }))
 
-  const renderArr = (arr: any[]) =>
-    arr.map<any>((props, index): any => (
+  const renderArr = (arr: typeof springs3) =>
+    arr.map((props, index) => (
       <animated.span
         key={index}
         className={classes.char}

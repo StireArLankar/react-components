@@ -1,17 +1,16 @@
-import React, { useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo, useEffect } from 'react'
 import useMeasure from 'react-use-measure'
 
-import { useSpring, animated, interpolate } from '@react-spring/web'
+import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import useStyles from './Range.styles'
+import classes from './_classes.css'
 
 import clamp from '~/utils/clamp'
 
 export const RangeSimple = () => {
-  const classes = useStyles()
-
-  const [{ x, s }, set] = useSpring(() => ({ x: 0, s: 1 }))
+  // FIXME
+  const [style, spring] = useSpring(() => ({ x: 0, scale: 1 }))
 
   const [scrubRef, { width, left }] = useMeasure({ debounce: 100 })
 
@@ -23,13 +22,13 @@ export const RangeSimple = () => {
     (relativePosition.current = v / width)
 
   useEffect(() => {
-    set({ x: relativePosition.current * width })
-  }, [set, width])
+    spring.start({ x: relativePosition.current * width })
+  }, [spring, width])
 
   const bind = useDrag(
     ({ down, xy: [px], movement: [mx], memo = px - left - width / 2 }) => {
       const x = clamp(memo + mx, limits[0], limits[1])
-      set({ x, s: down ? 1.4 : 1 })
+      spring.start({ x, scale: down ? 1.4 : 1 })
       setRelativePosition(x)
       return memo
     }
@@ -39,22 +38,14 @@ export const RangeSimple = () => {
     <animated.div
       className={classes.wrapper}
       style={{
-        color: x.to({
+        color: style.x.to({
           range: limits,
           output: ['#833ab4', '#fcb045'],
         }),
       }}
     >
       <div ref={scrubRef} className={classes.scrub} {...bind()}>
-        <animated.div
-          className={classes.control}
-          style={{
-            transform: interpolate(
-              [x, s],
-              (x, s) => `translateX(${x}px) scale(${s})`
-            ),
-          }}
-        />
+        <animated.div className={classes.control} style={style} />
       </div>
     </animated.div>
   )

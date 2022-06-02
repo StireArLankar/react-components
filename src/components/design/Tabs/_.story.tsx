@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Temp from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
@@ -19,4 +17,4 @@ export default {
   ],
 }
 
-export const example = () => <Temp />
+export const tabs = () => <Temp />

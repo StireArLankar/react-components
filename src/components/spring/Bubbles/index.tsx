@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { useTransition, animated, useSpring } from '@react-spring/web'
 
+import classes from './_classes.css'
 import { BubbleSvg } from './BubbleSvg'
-import useStyles from './useStyles'
 
 const initiaItems = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -19,36 +19,18 @@ export const Bubbles = () => {
   const destroyBubble = (index: number) => () =>
     setItems((prev) => prev.filter((item) => item !== index))
 
-  const classes = useStyles()
-
   const transitions = useTransition(items, {
-    initial: {
-      width: 100,
-      opacity: 1,
-    },
-    enter: {
-      width: 100,
-      opacity: 1,
-    },
-    from: {
-      width: 0,
-      opacity: 0,
-    },
-    leave: {
-      width: 0,
-      opacity: 0,
-    },
+    initial: { width: 100, opacity: 1 },
+    enter: { width: 100, opacity: 1 },
+    from: { width: 0, opacity: 0 },
+    leave: { width: 0, opacity: 0 },
     unique: true,
   })
 
   const spring = useSpring({
     x: counter,
-    from: {
-      x: 0,
-    },
-    config: {
-      duration: 30000,
-    },
+    from: { x: 0 },
+    config: { duration: 30000 },
     immediate: counter === 0,
     onRest: () => setCounter(counter > 1000 ? 0 : counter + 1),
   })

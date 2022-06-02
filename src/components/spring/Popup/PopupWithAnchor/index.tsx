@@ -1,11 +1,10 @@
-import React, { PropsWithChildren, useEffect, useRef, useState } from 'react'
+import { PropsWithChildren, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import useMeasure from 'react-use-measure'
 
 import { animated, useTransition, to } from '@react-spring/web'
-import clsx from 'clsx'
 
-import useStyles from './PopupWithAnchor.styles'
+import classes from './_classes.css'
 
 export interface PopupWithAnchorProps {
   isOpen: boolean
@@ -39,10 +38,6 @@ export const PopupWithAnchor = (
 
   const { x, y, width, height } = bounds
 
-  console.table(bounds)
-
-  const classes = useStyles()
-
   useEffect(() => {
     setInnerIsOpen(isOpen)
 
@@ -69,18 +64,17 @@ export const PopupWithAnchor = (
         {transition(({ o, x, y, width, height }, item, _, key) =>
           item ? (
             <animated.div
-              className={clsx(classes.popup, classes[position])}
+              className={classes.popup({ side: position })}
               key={key}
+              ref={contentRef}
               style={{
                 opacity: o,
-                transform: o.to((o: number) => trans(o, position)),
+                transform: o.to((o) => trans(o, position)),
                 left: to([x, width], (x, w) => x + w / 2),
                 top: to([y, height], (y, h) =>
                   position === 'top' ? y : y + h
                 ),
-                position: 'fixed',
               }}
-              ref={contentRef}
             >
               {children}
             </animated.div>
