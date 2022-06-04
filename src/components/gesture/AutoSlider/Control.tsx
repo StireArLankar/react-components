@@ -1,18 +1,12 @@
-import React from 'react'
-
 import { animated, useSpring } from '@react-spring/web'
 
-import useStyles from './Control.styles'
+import classes from './_classes.css'
 
-interface ControlProps {
+type ControlProps = {
   progress: number
 }
 
-export const Control = (props: ControlProps) => {
-  const { progress } = props
-
-  const classes = useStyles()
-
+export const Control = ({ progress }: ControlProps) => {
   const { x } = useSpring({ x: isNaN(progress) ? 0 : progress })
 
   return (

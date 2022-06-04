@@ -1,13 +1,7 @@
-import React from 'react'
+import classes from './_classes.css'
 
-import useStyles from './useStyles'
-
-export const NestedNeumorphism = () => {
-  const classes = useStyles()
-
-  return (
-    <div className={classes.nestedContainer}>
-      <div className={classes.nestedItem} />
-    </div>
-  )
-}
+export const NestedNeumorphism = () => (
+  <div className={classes.nestedContainer}>
+    <div className={classes.nestedItem} />
+  </div>
+)

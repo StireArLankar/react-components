@@ -1,11 +1,10 @@
-import React from 'react'
 import useMeasure from 'react-use-measure'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useWheel } from '@use-gesture/react'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 const wheel = (y: number, height: number, count: number) => {
   const start = y % (height * count)
@@ -14,7 +13,6 @@ const wheel = (y: number, height: number, count: number) => {
 }
 
 export const VerticalWheel = () => {
-  const classes = useStyles()
   const [ref, { height }] = useMeasure()
   const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
   const bind = useWheel(({ offset: [, y] }) => setWheel({ wheelY: y }))
@@ -25,9 +23,7 @@ export const VerticalWheel = () => {
         {...bind()}
         ref={ref}
         className={classes.inner}
-        style={{
-          transform: wheelY.to((val) => wheel(val, height, 5)),
-        }}
+        style={{ transform: wheelY.to((val) => wheel(val, height, 5)) }}
       >
         {imgs.map((img, i) => (
           <div

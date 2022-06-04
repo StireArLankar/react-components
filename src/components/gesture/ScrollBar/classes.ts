@@ -58,5 +58,6 @@ export default {
     background: 'red',
     marginLeft: 'auto',
   }),
+
   spacer: css({ height: 100, width: 100 }),
 }

@@ -1,20 +1,10 @@
-import React, { useEffect } from 'react'
-
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 import clamp from '~/utils/clamp'
-
-export interface TransitionSliderProps {
-  transform: (num: number) => string
-  int: (x: number, count: number, i: number) => number
-  // For consistence with more complex variants
-  step?: number
-  start?: number
-}
 
 const STEP = 100
 
@@ -44,12 +34,11 @@ const int = (x: number, count: number, i: number) => {
 export const TransitionSlider = () => {
   // const { transform, int } = props
 
-  const classes = useStyles()
-  const [{ x }, setX] = useSpring(() => ({ x: 0 }))
+  const [{ x }, spring] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
     ({ offset: [x] }) => {
-      setX({ x })
+      spring.start({ x })
     },
     // FIXME
     { target: window, axis: 'x' }

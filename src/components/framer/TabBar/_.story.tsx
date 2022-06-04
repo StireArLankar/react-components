@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Component from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
@@ -28,4 +26,4 @@ export default {
   ],
 }
 
-export const first = () => <Component />
+export const TabBar = () => <Component />

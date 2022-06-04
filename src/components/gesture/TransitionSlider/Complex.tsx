@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 import clamp from '~/utils/clamp'
 
@@ -13,9 +13,8 @@ const WIDTH = 200
 
 // range: [-100, 200]
 const trans = (num: number) =>
-  `translate3d(${(num * WIDTH) / STEP}px, 0, 0) scale(${
-    1.2 - (Math.abs(-50 + num) * 4) / (150 * 10)
-  })`
+  `translate3d(${(num * WIDTH) / STEP}px, 0, 0) ` +
+  `scale(${1.2 - (Math.abs(-50 + num) * 4) / (150 * 10)})`
 
 const int = (x: number, count: number, i: number) => {
   // Range of possible values
@@ -56,8 +55,7 @@ export interface ComplexSliderProps {
 export const ComplexSlider = (props: ComplexSliderProps) => {
   const { start = 0, overflow, hideValues } = props
 
-  const classes = useStyles()
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: start,
     config: { mass: 5, tension: 170, friction: 80 },
   }))
@@ -68,12 +66,12 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
   const bind = useDrag(
     ({ movement: [x], down, velocity: [vx] }) => {
       if (down) {
-        setX({ x: dragOffset.current + x })
-      } else {
-        dragOffset.current += x + vx * 200
-        // dragOffset.current += x
-        setX({ x: dragOffset.current })
+        spring.start({ x: dragOffset.current + x })
+        return
       }
+      dragOffset.current += x + vx * 200
+      // dragOffset.current += x
+      spring.start({ x: dragOffset.current })
     },
     // FIXME
     { target: window, axis: 'x' }

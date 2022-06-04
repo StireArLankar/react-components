@@ -1,9 +1,9 @@
-import React, { useCallback, Fragment } from 'react'
+import { useCallback } from 'react'
 
-import { useSpring, animated, config } from '@react-spring/web'
+import { animated, config, useSpring } from '@react-spring/web'
 
+import classes from './_classes.css'
 import { ReactComponent as Filter } from './filter.svg'
-import { useStyles } from './useStyles'
 
 const configY = {
   friction: 10,
@@ -21,9 +21,10 @@ export interface InnerProps {
   bump?: boolean
 }
 
+const array = Array.from({ length: 8 }, () => '')
+
 export const Inner = (props: InnerProps) => {
   const { bump } = props
-  const classes = useStyles()
 
   const handler = useCallback(async (next: any) => {
     while (1) {
@@ -32,20 +33,20 @@ export const Inner = (props: InnerProps) => {
     }
   }, [])
 
-  const { y, c }: any = useSpring({
+  const { y, c } = useSpring({
     from: { y: -1, c: `#f9f586` },
-    to: handler as any,
-    config: (key: string) => (key === 'y' ? configY : config.slow),
+    to: handler,
+    config: (key) => (key === 'y' ? configY : config.slow),
   })
 
   const renderPlancs = () =>
-    Array.from({ length: 8 }, () => '').map((_, index) => (
+    array.map((_, index) => (
       <animated.div
         style={{
           position: 'absolute',
           width: 40,
           height: 20,
-          transform: bump ? y.to((y: number) => rot1(y, index)) : rot2(index),
+          transform: bump ? y.to((y) => rot1(y, index)) : rot2(index),
           backgroundColor: 'currentColor',
           transformOrigin: 'left',
           top: '50%',
@@ -56,7 +57,7 @@ export const Inner = (props: InnerProps) => {
     ))
 
   return (
-    <Fragment>
+    <>
       <Filter style={{ display: 'none' }} />
       <animated.div
         style={{ filter: 'url(#goo)', color: c }}
@@ -65,7 +66,7 @@ export const Inner = (props: InnerProps) => {
         <animated.div
           style={{
             transform: y.to(
-              (y: number) => `translate(-50%, -50%) scale(${1 + y * 0.3})`
+              (y) => `translate(-50%, -50%) scale(${1 + y * 0.3})`
             ),
             backgroundColor: 'currentColor',
             top: '50%',
@@ -88,6 +89,6 @@ export const Inner = (props: InnerProps) => {
           }}
         />
       </animated.div>
-    </Fragment>
+    </>
   )
 }

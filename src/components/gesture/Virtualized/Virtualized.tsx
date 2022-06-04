@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 import clamp from '~/utils/clamp'
 
@@ -13,9 +13,8 @@ const WIDTH = 200
 
 // range: [-200, 400]
 const trans = (num: number) =>
-  `translate3d(${(num * WIDTH) / STEP}px, 0, 0) scale(${
-    1.2 - (Math.abs(-100 + num) * 4) / (200 * 10)
-  })`
+  `translate3d(${(num * WIDTH) / STEP}px, 0, 0) ` +
+  `scale(${1.2 - (Math.abs(-100 + num) * 4) / (200 * 10)})`
 
 const int = (x: number, i: number) => {
   const itemValue = x + STEP * i
@@ -41,7 +40,6 @@ export interface VirtualizedProps {
 export const Virtualized = (props: VirtualizedProps) => {
   const { start = 0, isVirt = false } = props
 
-  const classes = useStyles()
   const [{ x }, setX] = useSpring(() => ({
     x: start,
     config: { mass: 5, tension: 170, friction: 80 },
@@ -69,9 +67,7 @@ export const Virtualized = (props: VirtualizedProps) => {
       <animated.li
         key={obj.index}
         className={classes.container}
-        style={{
-          transform: x.to((val) => trans(int(val, obj.index))),
-        }}
+        style={{ transform: x.to((val) => trans(int(val, obj.index))) }}
       >
         <div
           className={classes.img}
@@ -81,7 +77,7 @@ export const Virtualized = (props: VirtualizedProps) => {
     ))
 
   return (
-    <div className={classes.wrapperBig}>
+    <div className={classes.wrapper}>
       <p className={classes.text}>
         {isVirt ? `Virtualized ${arr.length}` : 'Not virtualized'}
       </p>

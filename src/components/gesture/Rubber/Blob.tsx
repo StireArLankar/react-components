@@ -1,9 +1,9 @@
-import React, { Fragment, useCallback } from 'react'
+import { useCallback } from 'react'
 
-import { useSpring, animated, config } from '@react-spring/web'
+import { animated, config, useSpring } from '@react-spring/web'
 
+import classes from './_classes.css'
 import { ReactComponent as Filter } from './filter.svg'
-import useStyles from './useStyles'
 
 const configY = {
   friction: 10,
@@ -19,16 +19,14 @@ export const Blob = () => {
     }
   }, [])
 
-  const { y, c }: any = useSpring({
+  const { y, c } = useSpring({
     from: { y: -1, c: `#f9f586` },
-    to: handler as any,
-    config: (key: string) => (key === 'y' ? configY : config.slow),
+    to: handler,
+    config: (key) => (key === 'y' ? configY : config.slow),
   })
 
-  const classes = useStyles()
-
   return (
-    <Fragment>
+    <>
       <Filter style={{ display: 'none' }} />
       <animated.div style={{ filter: 'url(#goo)', color: c }}>
         <div
@@ -39,7 +37,7 @@ export const Blob = () => {
           className={classes.box}
           style={{
             transform: y.to(
-              (y: number) =>
+              (y) =>
                 `translate(-50%, -50%) scale(${1 + y * 0.3}, ${1 - y * 0.3})`
             ),
             backgroundColor: 'currentColor',
@@ -92,6 +90,6 @@ export const Blob = () => {
           }}
         />
       </animated.div>
-    </Fragment>
+    </>
   )
 }

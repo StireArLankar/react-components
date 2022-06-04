@@ -1,25 +1,20 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useState } from 'react'
 
-import { useSpring, animated, to } from '@react-spring/web'
+import { animated, to, useSpring } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
-import clsx from 'clsx'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 const wheel = (y: number) => {
   const imgHeight = window.innerWidth * 0.2 - 20
   return `translateY(${-imgHeight * (y < 0 ? 6 : 1) - (y % (imgHeight * 5))}px`
 }
 
-document.addEventListener('gesturestart', (e) => e.preventDefault())
-document.addEventListener('gesturechange', (e) => e.preventDefault())
+// document.addEventListener('gesturestart', (e) => e.preventDefault())
+// document.addEventListener('gesturechange', (e) => e.preventDefault())
 
 export const MultiCard = () => {
-  const classes = useStyles()
-
-  const domTarget = useRef(null)
-
   const [{ x, y, scale }, set] = useSpring(() => ({
     scale: 1,
     x: 0,
@@ -38,19 +33,16 @@ export const MultiCard = () => {
       onHover: ({ hovering }) => !hovering && set({ scale: 1 }),
       onWheel: ({ offset: [, y] }) => setWheel({ wheelY: y }),
     },
-    { domTarget, eventOptions: { passive: false } }
+    { eventOptions: { passive: false } }
   )
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(bind as any, [bind])
 
   return (
     <animated.div
-      ref={domTarget}
-      className={clsx(classes.card, drag && 'dragging')}
+      {...bind()}
+      className={classes.card({ drag })}
       style={{
         transform: to(
-          [x, y, scale as any],
+          [x, y, scale],
           (x, y, s) =>
             `perspective(600px) translate3d(${x}px, ${y}px, 0) scale(${s})`
         ),

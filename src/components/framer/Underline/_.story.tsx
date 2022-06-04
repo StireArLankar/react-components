@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Component from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
@@ -10,4 +8,4 @@ export default {
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 
-export const first = () => <Component />
+export const Underline = () => <Component />

@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useCallback, memo, useState } from 'react'
+import { useRef, useEffect, useCallback, memo, useState } from 'react'
 
 import { motion, useMotionValue, MotionValue } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './_classes.css'
 
 const t = (val: MotionValue<number>) => val.get().toFixed(0)
 
@@ -13,8 +13,6 @@ export default memo(() => {
 
   const constraintsRef1 = useRef(null)
   const constraintsRef2 = useRef(null)
-
-  const classes = useStyles()
 
   const x1 = useMotionValue(0)
   const y1 = useMotionValue(500)

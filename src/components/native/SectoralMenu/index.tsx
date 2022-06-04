@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon'
-import clsx from 'clsx'
 
-import { useStyles } from './useStyles'
+import classes from './_classes.css'
 
-export interface SectoralMenuProps {
+export type SectoralMenuProps = {
   buttons: SectoralButtonModel[]
 }
 
-export interface SectoralButtonModel {
+export type SectoralButtonModel = {
   onClick: () => void
   Icon: (props: SvgIconProps) => JSX.Element
 }
@@ -40,13 +39,11 @@ export const SectoralMenu = (props: SectoralMenuProps) => {
 
   const toggleMenu = () => setIsOpen((prev) => !prev)
 
-  const classes = useStyles()
-
   const renderButtons = () =>
     buttons.map(({ Icon, ...rest }, index) => (
       <li
         key={index}
-        className={classes.item}
+        className={classes.item()}
         style={getItemStyle(index, length)}
       >
         <button
@@ -59,17 +56,12 @@ export const SectoralMenu = (props: SectoralMenuProps) => {
       </li>
     ))
 
-  const listWrapperClass = clsx({
-    [classes.listWrapper]: true,
-    [classes.opened]: isOpen,
-  })
-
   return (
     <div className={classes.wrapper}>
       <button className={classes.button} onClick={toggleMenu}>
         +
       </button>
-      <div className={listWrapperClass}>
+      <div className={classes.listWrapper({ open: isOpen })}>
         <ul className={classes.list}>{renderButtons()}</ul>
       </div>
     </div>

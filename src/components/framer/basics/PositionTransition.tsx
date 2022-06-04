@@ -1,34 +1,30 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
-import { motion } from 'framer-motion'
+import { motion, Transition } from 'framer-motion'
 
-import useStyles from './Animation.styles'
+import classes from './_classes.css'
 
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
-const spring = {
+const spring: Transition = {
   type: 'spring',
   damping: 10,
   stiffness: 100,
 }
 
 // This component will animate position when `isOpen` is toggled.
-export const MyComponent1 = ({ isOpen }: { isOpen: boolean }) => {
-  const classes = useStyles()
-
-  return (
-    <motion.div
-      transition={spring}
-      animate
-      className={classes.box}
-      style={{
-        left: isOpen ? 100 : 200,
-        top: isOpen ? 150 : 100,
-        position: 'absolute',
-      }}
-    />
-  )
-}
+export const MyComponent1 = ({ isOpen }: { isOpen: boolean }) => (
+  <motion.div
+    transition={spring}
+    animate
+    className={classes.box}
+    style={{
+      left: isOpen ? 100 : 200,
+      top: isOpen ? 150 : 100,
+      position: 'absolute',
+    }}
+  />
+)
 
 export const PositionTransition = () => {
   const [isOpen, setIsOpen] = useState(false)

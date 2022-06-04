@@ -83,12 +83,12 @@ export const Slider = ({
 
   const restPos = useRef(0)
 
-  const [springs, set]: any = useSprings(children.length, () => ({
+  const [springs, set] = useSprings(children.length, () => ({
     x: 0,
     y: 0,
     s: 1,
     zIndex: 0,
-    immediate: (key: string) => key === 'zIndex',
+    immediate: (key) => key === 'zIndex',
   }))
 
   useEffect(() => {
@@ -125,7 +125,7 @@ export const Slider = ({
       swipe,
       movement,
       args: [pressedIndex],
-      memo = springs[pressedIndex][axis].getValue(),
+      memo = springs[pressedIndex][axis].get(),
     }) => {
       if (tap) {
         onTap && onTap(pressedIndex)
@@ -159,7 +159,7 @@ export const Slider = ({
 
         onDragEnd && onDragEnd(pressedIndex)
       } else {
-        set((i: number) => ({
+        set((i) => ({
           [axis]: mov + memo,
           s: draggedScale,
           config: draggedSpring,
@@ -179,7 +179,7 @@ export const Slider = ({
 
   return (
     <div ref={root} className={className} style={{ ...rootStyle, ...style }}>
-      {springs.map((styles: any, i: number) => (
+      {springs.map((styles, i) => (
         <animated.div
           {...bind(i)}
           key={i}
@@ -188,7 +188,7 @@ export const Slider = ({
             [vertical ? 'justifyContent' : 'alignItems']: slideAlign,
             display: 'flex',
             ...slideStyleFunc(i),
-            zIndex: styles.zIndex.to((val: number) => val.toFixed(0)),
+            zIndex: styles.zIndex.to((val) => val.toFixed(0)),
             transform: to(
               [styles[axis], styles.s],
               (x, s) => `translate${axis.toUpperCase()}(${x}px) scale(${s})`

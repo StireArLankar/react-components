@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 
 import { motion, useSpring, useTransform } from 'framer-motion'

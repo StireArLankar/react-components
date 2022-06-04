@@ -1,10 +1,10 @@
-import React, { useRef, useMemo } from 'react'
+import { useRef, useMemo } from 'react'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
 import imgsBase from './imgs'
-import useStyles from './useStyles'
 
 import clamp from '~/utils/clamp'
 
@@ -46,9 +46,7 @@ export interface RepeatedBoundsProps {
 export const RepeatedBounds = (props: RepeatedBoundsProps) => {
   const { start = 0, overflow, hideValues, number = 2 } = props
 
-  const classes = useStyles()
-
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: start,
     config: { mass: 5, tension: 170, friction: 80 },
   }))
@@ -57,6 +55,7 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
     const len = imgsBase.length
     let counter = number
     let result = [...imgsBase]
+
     while (counter > len) {
       counter = counter - len
       result = [...imgsBase, ...result]
@@ -71,12 +70,13 @@ export const RepeatedBounds = (props: RepeatedBoundsProps) => {
   const bind = useDrag(
     ({ movement: [x], down, velocity: [vx] }) => {
       if (down) {
-        setX({ x: dragOffset.current + x })
-      } else {
-        dragOffset.current += x + vx * 200
-        // dragOffset.current += x
-        setX({ x: dragOffset.current })
+        spring.start({ x: dragOffset.current + x })
+        return
       }
+
+      dragOffset.current += x + vx * 200
+      // dragOffset.current += x
+      spring.start({ x: dragOffset.current })
     },
     { axis: 'x' }
   )

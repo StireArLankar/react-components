@@ -1,8 +1,6 @@
-import { MuiThemeProvider, CssBaseline } from '@material-ui/core'
 import { globalCss } from '@stitches/react'
 import type { DecoratorFn } from '@storybook/react'
 
-import { defaultTheme } from '~/theme/theme.styles'
 import '~/theme/theme.css'
 
 const globalStyles = globalCss({
@@ -41,8 +39,4 @@ const globalStyles = globalCss({
 
 globalStyles()
 
-export const withCustomTheme: DecoratorFn = (storyfn) => (
-  <CssBaseline>
-    <MuiThemeProvider theme={defaultTheme}>{storyfn()}</MuiThemeProvider>
-  </CssBaseline>
-)
+export const withCustomTheme: DecoratorFn = (storyfn) => <>{storyfn()}</>

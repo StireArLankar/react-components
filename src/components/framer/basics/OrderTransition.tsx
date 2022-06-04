@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { motion } from 'framer-motion'
 
-import useStyles from './Animation.styles'
+import classes from './_classes.css'
 
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
@@ -13,25 +13,19 @@ const spring = {
 }
 
 // This component will animate items to their new position if its place in `items` changes order.
-export const MyComponent2 = ({ items }: { items: Array<{ id: string }> }) => {
-  const classes = useStyles()
-
-  return (
-    <div
-      style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridGap: 30 }}
-    >
-      {items.map((item) => (
-        <motion.div
-          className={classes.box}
-          key={item.id}
-          style={{ background: item.id === '1' ? 'teal' : 'pink' }}
-          transition={spring}
-          animate
-        />
-      ))}
-    </div>
-  )
-}
+export const MyComponent2 = ({ items }: { items: Array<{ id: string }> }) => (
+  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridGap: 30 }}>
+    {items.map((item) => (
+      <motion.div
+        className={classes.box}
+        key={item.id}
+        style={{ background: item.id === '1' ? 'teal' : 'pink' }}
+        transition={spring}
+        animate
+      />
+    ))}
+  </div>
+)
 
 export const OrderTransition = () => {
   const [items, setItems] = useState([{ id: '1' }, { id: '2' }])

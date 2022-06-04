@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 
 import clsx from 'clsx'
 
-import useStyles from './useStyles'
+import classes from './_classes.css'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string
@@ -11,12 +11,10 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const NeonButton = forwardRef<HTMLButtonElement, Props>((props, ref) => {
   const { className, color = '#03e9f4', children, ...rest } = props
 
-  const classes = useStyles({ color })
-
   const btnClass = clsx(classes.button, className)
 
   return (
-    <button {...rest} className={btnClass} ref={ref}>
+    <button {...rest} className={btnClass} style={{ color }} ref={ref}>
       <span className={classes.tail} />
       <span className={classes.tail} />
       <span className={classes.tail} />

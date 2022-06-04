@@ -1,13 +1,9 @@
-import React from 'react'
-
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './_classes.css'
 
 export default () => {
   const x = useMotionValue(0)
-
-  const classes = useStyles()
 
   const xInput = [-100, 0, 100]
 

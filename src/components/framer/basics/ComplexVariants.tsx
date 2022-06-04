@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { motion, Variants } from 'framer-motion'
 
-import useStyles from './Animation.styles'
+import classes from './_classes.css'
 
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
@@ -29,8 +29,6 @@ const items = {
 
 export const StaggerVariants = () => {
   const [count, setCount] = useState(0)
-
-  const classes = useStyles()
 
   return (
     <>

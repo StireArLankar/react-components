@@ -11,6 +11,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "noEmit": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./test/test1.json",
     "paths": {
       "~/*": ["./*"]
     },

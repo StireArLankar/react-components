@@ -1,12 +1,10 @@
-import React from 'react'
 import useMeasure from 'react-use-measure'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clsx from 'clsx'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 const wheel = (x: number, width: number, count: number) => {
   const start = x % (width * count)
@@ -15,7 +13,6 @@ const wheel = (x: number, width: number, count: number) => {
 }
 
 export const HorizontalDrag = () => {
-  const classes = useStyles()
   const [ref, { width }] = useMeasure()
   const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
 
@@ -27,10 +24,8 @@ export const HorizontalDrag = () => {
     <div className={classes.wrapper} {...bind()}>
       <animated.div
         ref={ref}
-        className={clsx(classes.inner, classes.horizontal)}
-        style={{
-          transform: wheelY.to((val) => wheel(val, width, 5)),
-        }}
+        className={classes.horizontal}
+        style={{ transform: wheelY.to((val) => wheel(val, width, 5)) }}
       >
         {imgs.map((img, i) => (
           <div

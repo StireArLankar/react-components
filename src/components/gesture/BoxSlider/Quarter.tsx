@@ -40,4 +40,6 @@ const int = (x: number, count: number, i: number) => {
   return clamp(itemValue, STEP * (-1 / 2), STEP * (3 / 2))
 }
 
-export const QuarterSlider = () => <BoxSlider rotate={rotate} int={int} />
+export const QuarterSlider = () => (
+  <BoxSlider step={STEP} rotate={rotate} int={int} />
+)

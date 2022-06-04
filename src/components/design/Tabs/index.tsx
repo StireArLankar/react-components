@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { List, Root, Tab } from '@radix-ui/react-tabs'
 import { AnimateSharedLayout, motion, Variants } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './_classes.css'
 
 const variantItem: Variants = {
   open: {},
@@ -11,12 +11,8 @@ const variantItem: Variants = {
 }
 
 const variantText: Variants = {
-  open: {
-    opacity: 1,
-  },
-  close: {
-    opacity: 0.6,
-  },
+  open: { opacity: 1 },
+  close: { opacity: 0.6 },
 }
 
 const variant: Variants = {
@@ -34,8 +30,6 @@ const variant: Variants = {
 
 export default () => {
   const [selected, setSelected] = useState('0')
-
-  const classes = useStyles()
 
   return (
     <div className={classes.card}>

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BoxSlider } from '.'
 
 import clamp from '~/utils/clamp'
@@ -29,4 +27,4 @@ const int = (x: number, count: number, i: number) => {
   return clamp(itemValue, 0, STEP)
 }
 
-export const HalfSlider = () => <BoxSlider rotate={rotate} int={int} />
+export const HalfSlider = () => <BoxSlider rotate={rotate} int={int} step={0} />

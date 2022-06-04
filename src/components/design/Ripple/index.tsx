@@ -1,21 +1,17 @@
-import React, { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, useState } from 'react'
 
 import clsx from 'clsx'
 
-import useStyles from './Ripple.styles'
+import classes, { Variants } from './_classes.css'
 
-export interface RippleProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
-  secondary?: boolean
-}
+export type RippleProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> &
+  Variants
 
 export const Ripple = (props: PropsWithChildren<RippleProps>) => {
-  const { children, onClick, secondary, className, ...rest } = props
-
-  const classes = useStyles()
+  const { children, onClick, variant, className, ...rest } = props
 
   const [ripples, setRipples] = useState<[number, number, number][]>([])
 
@@ -28,11 +24,7 @@ export const Ripple = (props: PropsWithChildren<RippleProps>) => {
     setTimeout(() => setRipples((prev) => prev.slice(1)), 1000)
   }
 
-  const buttonClass = clsx(
-    classes.button,
-    secondary && classes.secondary,
-    className
-  )
+  const buttonClass = clsx(classes.button({ variant }), className)
 
   return (
     <button {...rest} onClick={onButtonClick} className={buttonClass}>

@@ -1,15 +1,14 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { motion, AnimateSharedLayout, MotionConfig } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './_classes.css'
 
 function move(
   id: number,
   targetListId: number,
   [a, b]: [number[], number[]],
-  setLists: any
+  setLists: React.Dispatch<React.SetStateAction<[number[], number[]]>>
 ) {
   const targetList = targetListId === 0 ? a : b
   const originList = targetListId === 0 ? b : a
@@ -36,8 +35,6 @@ interface ListProps {
 }
 
 const List = ({ id, list, onItemClick, backgroundColor }: ListProps) => {
-  const classes = useStyles()
-
   return (
     <motion.ul
       // layoutId={id}
@@ -61,8 +58,6 @@ const List = ({ id, list, onItemClick, backgroundColor }: ListProps) => {
 }
 
 export default () => {
-  const classes = useStyles()
-
   const [lists, setLists] = useState<[number[], number[]]>([
     [0, 1, 2],
     [7, 8, 9],

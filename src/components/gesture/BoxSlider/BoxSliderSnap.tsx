@@ -1,22 +1,15 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
+import { BoxSliderProps } from './_types'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
-export interface BoxSliderSnapProps {
-  rotate: (num: number) => string
-  int: (x: number, count: number, i: number) => number
-  step: number
-  start?: number
-}
-
-export const BoxSliderSnap = (props: BoxSliderSnapProps) => {
+export const BoxSliderSnap = (props: BoxSliderProps) => {
   const { rotate, int, step, start = 0 } = props
 
-  const classes = useStyles()
   const [{ x }, setX] = useSpring(() => ({ x: start }))
 
   // Ref for memoizing value between drags
@@ -59,10 +52,7 @@ export const BoxSliderSnap = (props: BoxSliderSnapProps) => {
         key={index}
         className={classes.container}
         style={{
-          transform: x.to((val) =>
-            //@ts-ignore
-            rotate(int(val, imgs.length, index))
-          ),
+          transform: x.to((val) => rotate(int(val, imgs.length, index))),
         }}
       >
         <animated.div
@@ -75,7 +65,6 @@ export const BoxSliderSnap = (props: BoxSliderSnapProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {/* @ts-ignore */}
         {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))

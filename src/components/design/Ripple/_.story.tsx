@@ -1,6 +1,6 @@
-import { text, boolean } from '@storybook/addon-knobs'
+import { ComponentStory } from '@storybook/react'
 
-import { Ripple, RippleProps } from '.'
+import { Ripple } from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
@@ -28,11 +28,9 @@ export default {
   ],
 }
 
-export const ripple = () => {
-  const props: RippleProps = {
-    children: text('text', 'Hello world'),
-    secondary: boolean('secondary', false),
-  }
-
-  return <Ripple {...props} />
-}
+const Template1: ComponentStory<typeof Ripple> = (props) => (
+  <Ripple {...props} />
+)
+export const ripple = Template1.bind({})
+ripple.args = { children: 'Hello world', variant: 'primary' }
+ripple.parameters = { controls: { include: ['children', 'variant'] } }

@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import clsx from 'clsx'
 
+import classes from './_classes.css'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
 const WIDTH = 200
 
 export const SimpleSlider = () => {
-  const classes = useStyles()
-  const [{ x }, setX] = useSpring(() => ({ x: 0 }))
+  const [animStyles, spring] = useSpring(() => ({ x: 0 }))
 
   const [value, setValue] = useState(0)
 
@@ -24,16 +22,16 @@ export const SimpleSlider = () => {
     } else if (-value + WIDTH > width - WIDTH) {
       const offset = width - WIDTH + value
       setValue((prev) => prev - offset)
-      setX({ x: value - offset })
+      spring.start({ x: value - offset })
     } else {
       setValue((prev) => prev - WIDTH)
-      setX({ x: value - WIDTH })
+      spring.start({ x: value - WIDTH })
     }
   }
 
   const bind = useDrag(
     ({ movement: [x], down }) => {
-      setX({ x: value + x })
+      spring.start({ x: value + x })
 
       if (!down) {
         setValue((prev) => prev + x)
@@ -60,14 +58,12 @@ export const SimpleSlider = () => {
     ))
 
   return (
-    <div className={clsx(classes.wrapper, classes.simple)}>
+    <div className={classes.wrapper}>
       <animated.ul
         {...bind()}
         ref={ref}
         className={classes.list}
-        style={{
-          transform: x.to((val) => `translate3d(${val}px, 0, 0)`),
-        }}
+        style={animStyles}
       >
         {renderImages()}
       </animated.ul>

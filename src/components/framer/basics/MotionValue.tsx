@@ -1,16 +1,12 @@
-import React from 'react'
-
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 
-import useStyles from './Animation.styles'
+import classes from './_classes.css'
 
 export const MotionValue = () => {
   const x = useMotionValue(0)
   const input = [-200, 0, 200]
   const output = [0, 1, 0]
   const opacity = useTransform(x, input, output)
-
-  const classes = useStyles()
 
   return (
     <motion.div

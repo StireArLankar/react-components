@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 
 import { motion } from 'framer-motion'
 
-import useStyles from './Animation.styles'
+import classes from './_classes.css'
 
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
@@ -42,8 +42,6 @@ export const DragPropagation = () => {
 export const DragRefConstrains = () => {
   const ref = useRef<HTMLDivElement>(null)
 
-  const classes = useStyles()
-
   return (
     <div
       ref={ref}
@@ -56,6 +54,7 @@ export const DragRefConstrains = () => {
     >
       <motion.ul
         drag='x'
+        dragConstraints={ref}
         style={{
           display: 'grid',
           gridGap: 20,
@@ -64,7 +63,6 @@ export const DragRefConstrains = () => {
           padding: 10,
           margin: 0,
         }}
-        dragConstraints={ref}
       >
         <div className={classes.box} />
         <div className={classes.box} />

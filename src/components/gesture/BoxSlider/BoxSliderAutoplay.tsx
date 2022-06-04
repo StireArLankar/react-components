@@ -1,17 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
+import { BoxSliderProps } from './_types'
 import imgs from './imgs'
-import useStyles from './useStyles'
-
-export interface BoxSliderAutoplayProps {
-  rotate: (num: number) => string
-  int: (x: number, count: number, i: number) => number
-  step: number
-  start?: number
-}
 
 const updateValue = (x: number, step: number, current: number) => {
   const offset = x % step
@@ -23,12 +17,10 @@ const updateValue = (x: number, step: number, current: number) => {
   return current + x - offset
 }
 
-export const BoxSliderAutoplay = (props: BoxSliderAutoplayProps) => {
+export const BoxSliderAutoplay = (props: BoxSliderProps) => {
   const { rotate, int, step, start = 0 } = props
 
   const isAnimatingRef = useRef(false)
-
-  const classes = useStyles()
 
   const [{ x }, setX] = useSpring(() => ({
     x: start,

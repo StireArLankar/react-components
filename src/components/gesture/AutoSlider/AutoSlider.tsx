@@ -11,10 +11,10 @@ import useMeasure from 'react-use-measure'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import useStyles from './AutoSlider.styles'
+import classes from './_classes.css'
 import { Control } from './Control'
 
-export interface SliderProps {
+export type SliderProps = {
   interval?: number
 }
 
@@ -59,8 +59,6 @@ const getProgress = (selected: number, length: number) => {
 
 export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
   const { children, interval = 4000 } = props
-
-  const classes = useStyles()
 
   const [isHovered, setIsHovered] = useState(false)
 

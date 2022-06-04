@@ -1,23 +1,16 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
+import { BoxSliderProps } from './_types'
 import imgs from './imgs'
-import useStyles from './useStyles'
 
-export interface BoxSliderSnapProps {
-  rotate: (num: number) => string
-  int: (x: number, count: number, i: number) => number
-  step?: number
-  start?: number
-}
-
-export const BoxSliderInertial = (props: BoxSliderSnapProps) => {
+export const BoxSliderInertial = (props: BoxSliderProps) => {
   const { rotate, int, start = 0 } = props
 
-  const classes = useStyles()
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: start,
     config: { mass: 5, tension: 170, friction: 80 },
   }))
@@ -28,10 +21,10 @@ export const BoxSliderInertial = (props: BoxSliderSnapProps) => {
   const bind = useDrag(
     ({ movement: [x], down, velocity: [vx] }) => {
       if (down) {
-        setX({ x: dragOffset.current + x })
+        spring.start({ x: dragOffset.current + x })
       } else {
         dragOffset.current += x + vx * 200
-        setX({ x: dragOffset.current })
+        spring.start({ x: dragOffset.current })
       }
     },
     // FIXME
@@ -61,7 +54,6 @@ export const BoxSliderInertial = (props: BoxSliderSnapProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {/* @ts-ignore */}
         {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))

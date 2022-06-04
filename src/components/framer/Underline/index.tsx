@@ -1,34 +1,18 @@
-import React from 'react'
 import { useState } from 'react'
 
-import clsx from 'clsx'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 
-import useStyles from './styles'
+import classes from './_classes.css'
 
 const screens = [
-  {
-    title: 'One',
-    color: '#ff0055',
-  },
-  {
-    title: 'Two',
-    color: '#0099ff',
-  },
-  {
-    title: 'Threeeee',
-    color: '#22cc88',
-  },
-  {
-    title: 'Four',
-    color: '#ffaa00',
-  },
+  { title: 'One', color: '#ff0055' },
+  { title: 'Two', color: '#0099ff' },
+  { title: 'Threeeee', color: '#22cc88' },
+  { title: 'Four', color: '#ffaa00' },
 ]
 
 export default () => {
   const [selected, setSelected] = useState(0)
-
-  const classes = useStyles()
 
   return (
     <AnimateSharedLayout>
@@ -37,7 +21,7 @@ export default () => {
           <motion.li
             key={i}
             animate
-            className={clsx(classes.title, i === selected && classes.selected)}
+            className={classes.title({ selected: i === selected })}
             style={{ color: i === selected ? color : '#333' }}
             onClick={() => setSelected(i)}
           >

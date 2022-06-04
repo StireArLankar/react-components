@@ -1,23 +1,13 @@
-import React, { useEffect } from 'react'
-
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import classes from './_classes.css'
+import { BoxSliderProps } from './_types'
 import imgs from './imgs'
-import useStyles from './useStyles'
-
-export interface BoxSliderProps {
-  rotate: (num: number) => string
-  int: (x: number, count: number, i: number) => number
-  // For consistence with more complex variants
-  step?: number
-  start?: number
-}
 
 export const BoxSlider = (props: BoxSliderProps) => {
   const { rotate, int } = props
 
-  const classes = useStyles()
   const [{ x }, setX] = useSpring(() => ({ x: 0 }))
 
   const bind = useDrag(
@@ -38,10 +28,7 @@ export const BoxSlider = (props: BoxSliderProps) => {
         key={index}
         className={classes.container}
         style={{
-          transform: x.to((val) =>
-            //@ts-ignore
-            rotate(int(val, imgs.length, index))
-          ),
+          transform: x.to((val) => rotate(int(val, imgs.length, index))),
         }}
       >
         <animated.div
