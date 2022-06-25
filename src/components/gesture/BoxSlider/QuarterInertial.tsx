@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BoxSliderInertial } from './BoxSliderInertial'
 
 import clamp from '~/utils/clamp'

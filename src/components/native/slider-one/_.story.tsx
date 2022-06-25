@@ -1,8 +1,6 @@
-import React from 'react'
+import { ComponentStory } from '@storybook/react'
 
-import { text } from '@storybook/addon-knobs'
-
-import { Button, ButtonProps } from './Button'
+import { Button } from './Button'
 
 import Slider from '.'
 
@@ -19,10 +17,11 @@ export default {
 
 export const slider = () => <Slider />
 
-export const button = () => {
-  const props: ButtonProps = {
-    children: text('text', 'Inner text'),
-  }
+type Props = { children: string }
+const Asd = (props: Props) => <Button {...props} />
+const Template: ComponentStory<typeof Asd> = (props) => <Asd {...props} />
 
-  return <Button {...props} />
+export const button = Template.bind({})
+button.args = {
+  children: 'Inner text',
 }

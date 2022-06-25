@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { boolean } from '@storybook/addon-knobs'
+import { ComponentStory } from '@storybook/react'
 
 import { FilledDnDGrid } from './FilledDnDGrid'
 import { SwapDnDGrid } from './FilledDnDGrid/SwapDnDGrid'
@@ -31,12 +29,21 @@ export const dndGrid = () => <DnDGrid />
 export const statefulDndGrid = () => <StatefulDnDGrid />
 export const filledLazyDndGrid = () => <FilledDnDGrid lazy />
 export const filledDndGrid = () => <FilledDnDGrid />
-export const unfilledDndGrid = () => (
-  <UnfilledDnDGrid
-    lazy={boolean('lazy', false)}
-    full={boolean('full', false)}
-  />
+
+const Template: ComponentStory<typeof UnfilledDnDGrid> = (props) => (
+  <UnfilledDnDGrid {...props} />
 )
-export const swapDndGrid = () => (
-  <SwapDnDGrid lazy={boolean('lazy', false)} full={boolean('full', false)} />
+export const unfilledDndGrid = Template.bind({})
+unfilledDndGrid.args = {
+  full: false,
+  lazy: false,
+}
+
+const Template1: ComponentStory<typeof SwapDnDGrid> = (props) => (
+  <SwapDnDGrid {...props} />
 )
+export const swapDndGrid = Template1.bind({})
+swapDndGrid.args = {
+  full: false,
+  lazy: false,
+}

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Temp } from './first'
 import { Second } from './second'
 

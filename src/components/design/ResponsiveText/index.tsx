@@ -5,7 +5,7 @@ import { getTextWidth } from './helpers'
 
 type Variants = 'bold' | 'regular'
 
-type ResponsiveTextProps = {
+export type ResponsiveTextProps = {
   text: string
   variant?: Variants
 }

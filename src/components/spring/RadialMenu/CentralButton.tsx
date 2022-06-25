@@ -1,8 +1,8 @@
-import Adjust from '@material-ui/icons/Adjust'
-import HighlightOff from '@material-ui/icons/HighlightOff'
 import { useSpring, animated } from '@react-spring/web'
 
 import classes from './_classes.css'
+
+import { Adjust, HighlightOff } from '~/components/material-svgs'
 
 export interface CentralButtonProps {
   isOpen: boolean

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BoxSlider } from '.'
 
 import clamp from '~/utils/clamp'

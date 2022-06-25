@@ -1,10 +1,9 @@
-import CameraRounded from '@material-ui/icons/CameraRounded'
-
 import { Icon } from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
+import { CameraRounded } from '~/components/material-svgs'
 import { themeColors } from '~/theme/theme.styles'
 
 const label = (

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Temp from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'

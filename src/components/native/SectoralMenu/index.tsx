@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import { SvgIconProps } from '@material-ui/core/SvgIcon/SvgIcon'
-
 import classes from './_classes.css'
 
 export type SectoralMenuProps = {
@@ -10,7 +8,7 @@ export type SectoralMenuProps = {
 
 export type SectoralButtonModel = {
   onClick: () => void
-  Icon: (props: SvgIconProps) => JSX.Element
+  Icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
 }
 
 const getSkew = (length: number) => 90 - 190 / length

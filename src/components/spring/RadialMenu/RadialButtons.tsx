@@ -1,4 +1,3 @@
-import { SvgIconProps } from '@material-ui/core/SvgIcon'
 import { useSpring, animated, config } from '@react-spring/web'
 
 import classes from './_classes.css'
@@ -10,7 +9,7 @@ export interface RadialButtonsProps {
 
 export interface RadialButtonModel {
   onClick: () => void
-  Icon: (props: SvgIconProps) => JSX.Element
+  Icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element
   color: string
 }
 

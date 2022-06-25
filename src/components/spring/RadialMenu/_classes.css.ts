@@ -22,6 +22,8 @@ const baseButton = style({
 })
 
 const baseIcon = style({
+  fill: 'currentColor',
+
   selectors: {
     '&&': {
       width: '100%',

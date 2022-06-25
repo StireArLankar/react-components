@@ -1,24 +1,22 @@
-import Adjust from '@material-ui/icons/Adjust'
-import CameraRounded from '@material-ui/icons/CameraRounded'
-import EmojiEventsRounded from '@material-ui/icons/EmojiEventsRounded'
-import GroupWork from '@material-ui/icons/GroupWork'
-import MyLocationRounded from '@material-ui/icons/MyLocationRounded'
-import ViewComfyRounded from '@material-ui/icons/ViewComfyRounded'
 import { action } from '@storybook/addon-actions'
-import { boolean, number } from '@storybook/addon-knobs'
+import { ComponentStory } from '@storybook/react'
 
-import { CentralButton, CentralButtonProps } from './CentralButton'
-import {
-  RadialButtons,
-  RadialButtonsProps,
-  RadialButtonModel,
-} from './RadialButtons'
+import { CentralButton } from './CentralButton'
+import { RadialButtons, RadialButtonModel } from './RadialButtons'
 
 import { RadialMenu, RadialMenuProps } from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
+import {
+  Adjust,
+  CameraRounded,
+  EmojiEventsRounded,
+  GroupWork,
+  MyLocationRounded,
+  ViewComfyRounded,
+} from '~/components/material-svgs'
 import { vars } from '~/theme/theme.css'
 
 const label = (
@@ -75,35 +73,48 @@ const buttons: RadialButtonModel[] = [
   },
 ]
 
-export const radialMenu = () => {
-  const buttonsAmount = Math.max(number('buttonsAmount', buttons.length), 1)
-  const props: RadialMenuProps = {
-    isOpen: boolean('isOpen', false),
-    onClick: action('onClick'),
-    buttons: buttons.slice(0, buttonsAmount),
-  }
+const Asd = ({
+  buttonsAmount,
+  ...props
+}: RadialMenuProps & { buttonsAmount: number }) => (
+  <RadialMenu {...props} buttons={props.buttons.slice(0, buttonsAmount)} />
+)
+const Template2: ComponentStory<typeof Asd> = (props) => <Asd {...props} />
 
-  return <RadialMenu {...props} />
+export const radialMenu = Template2.bind({})
+radialMenu.args = {
+  buttons: buttons,
+  buttonsAmount: 6,
+  isOpen: false,
+  onClick: action('onClick'),
+}
+radialMenu.parameters = {
+  controls: { include: ['buttonsAmount', 'isOpen'] },
+}
+radialMenu.argTypes = {
+  buttonsAmount: {
+    control: { type: 'number', min: 0, max: 6, step: 1 },
+  },
 }
 
-export const centralButton = () => {
-  const props: CentralButtonProps = {
-    isOpen: boolean('isOpen', false),
-    onClick: action('onClick'),
-  }
-
-  return <CentralButton {...props} />
+const Template1: ComponentStory<typeof CentralButton> = (props) => (
+  <CentralButton {...props} />
+)
+export const centralButton = Template1.bind({})
+centralButton.args = {
+  onClick: action('onClick'),
+  isOpen: false,
 }
 
-export const radialButtons = () => {
-  const props: RadialButtonsProps = {
-    buttons,
-    isOpen: boolean('isOpen', false),
-  }
+const Template: ComponentStory<typeof RadialButtons> = (props) => (
+  <div style={{ position: 'relative' }}>
+    <RadialButtons {...props} />
+  </div>
+)
 
-  return (
-    <div style={{ position: 'relative' }}>
-      <RadialButtons {...props} />
-    </div>
-  )
+export const radialButtons = Template.bind({})
+radialButtons.args = {
+  buttons,
+  isOpen: false,
 }
+radialButtons.parameters = { controls: { include: ['isOpen'] } }

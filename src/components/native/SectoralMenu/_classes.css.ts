@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css'
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
 const item = style({
@@ -41,15 +41,12 @@ const openVariants = styleVariants({
   false: {},
 })
 
+const wrapper = style({ position: 'relative' })
+
+globalStyle(`${wrapper} *`, { outline: 'none' })
+
 export default {
-  wrapper: style({
-    position: 'relative',
-    selectors: {
-      '& *': {
-        outline: 'none',
-      },
-    },
-  }),
+  wrapper,
 
   button: style({
     border: 'none',
@@ -68,6 +65,7 @@ export default {
     borderRadius: '50%',
     cursor: 'pointer',
     zIndex: 11,
+    transform: 'translate3d(0, 0, 0)',
 
     selectors: {
       '&:hover, &:active, &:focus': {
@@ -141,5 +139,6 @@ export default {
     display: 'inline-block',
     width: '1.25em',
     textAlign: 'center',
+    fill: 'currentColor',
   }),
 }
