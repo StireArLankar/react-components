@@ -4,7 +4,7 @@ import { useLayer } from 'react-laag'
 import { useSelect } from 'downshift'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 export interface SelectProps {
   value: string
@@ -84,7 +84,7 @@ export const Select = (props: SelectProps) => {
       <button
         type='button'
         {...getToggleButtonProps(triggerProps)}
-        className={classes.label()}
+        className={classes.label}
       >
         <span>{getLabel(selectedItem) || '--'}</span>
         <svg width='16' height='16' viewBox='0 0 16 16'>
@@ -94,13 +94,13 @@ export const Select = (props: SelectProps) => {
           />
         </svg>
       </button>
-      <div {...getMenuProps()}>
+      <div {...getMenuProps}>
         {renderLayer(
           <AnimatePresence>
             {showMenu && (
               <motion.div
                 ref={layerProps.ref}
-                className={classes.wrapper()}
+                className={classes.wrapper}
                 variants={variants}
                 initial='initial'
                 animate='animate'
@@ -115,7 +115,7 @@ export const Select = (props: SelectProps) => {
                 <motion.ul
                   variants={variantsList}
                   transition={{ duration: 0.2 }}
-                  className={classes.list()}
+                  className={classes.list}
                 >
                   {items.map((item, index) => (
                     <li

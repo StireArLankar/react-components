@@ -4,12 +4,12 @@ import { Overflow, OverflowProps } from '.'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
-import { themeColors } from '~/theme/theme.styles'
+import { vars } from '~/theme/theme.css'
 
 export default {
   title: 'Native/Overflow',
   decorators: [
-    withCenteredStyle({ width: 'auto', backgroundColor: themeColors.text }),
+    withCenteredStyle({ width: 'auto', backgroundColor: vars.color.text }),
     withCustomTheme,
   ],
 }

@@ -7,15 +7,12 @@ import { SvgMorph } from '.'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink, vars } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Morph svgs here </span>
-    <a
-      href='https://shapeshifter.design'
-      style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
-    >
+    <a className={storyLink} href='https://shapeshifter.design'>
       https://shapeshifter.design
     </a>
   </>
@@ -24,7 +21,7 @@ const label = (
 export default {
   title: 'Spring/SvgMorph',
   decorators: [
-    withCenteredStyle({ color: themeColors.text }),
+    withCenteredStyle({ color: vars.color.text }),
     withCustomTheme,
     withTopLabel(label),
   ],

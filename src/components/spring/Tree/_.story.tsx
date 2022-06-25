@@ -1,20 +1,15 @@
-import React from 'react'
-
 import V2 from './v2'
 
 import Component from '.'
 
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink, vars } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Credits to </span>
-    <a
-      href='https://www.react-spring.io'
-      style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
-    >
+    <a className={storyLink} href='https://www.react-spring.io'>
       docs
     </a>
   </>
@@ -28,7 +23,7 @@ export default {
 export const tree = () => (
   <div
     style={{
-      background: themeColors.dark,
+      background: vars.color.dark,
       position: 'fixed',
       top: 0,
       left: 0,
@@ -46,7 +41,7 @@ export const tree = () => (
 export const version2 = () => (
   <div
     style={{
-      background: themeColors.dark,
+      background: vars.color.dark,
       position: 'fixed',
       top: 0,
       left: 0,

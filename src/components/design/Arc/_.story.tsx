@@ -5,15 +5,12 @@ import Temp from '.'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Credits to </span>
-    <a
-      href='https://www.youtube.com/watch?v=UKS03yRWYgY'
-      style={{ color: themeColors.orange, textDecoration: 'none' }}
-    >
+    <a className={storyLink} href='https://www.youtube.com/watch?v=UKS03yRWYgY'>
       video
     </a>
   </>

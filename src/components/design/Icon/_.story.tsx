@@ -4,15 +4,12 @@ import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { CameraRounded } from '~/components/material-svgs'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Credits to </span>
-    <a
-      href='https://www.youtube.com/watch?v=YRp8kSUZiss'
-      style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
-    >
+    <a className={storyLink} href='https://www.youtube.com/watch?v=YRp8kSUZiss'>
       video
     </a>
   </>

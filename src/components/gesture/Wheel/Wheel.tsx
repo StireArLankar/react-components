@@ -66,7 +66,7 @@ export const Wheel = () => {
     Array.from({ length: Math.floor(width / 40) }, (_, i) => (
       <animated.li
         key={i}
-        className={classes.item()}
+        className={classes.item}
         style={{
           transform: x.to((x) => scaleY(x, i, width, Math.floor(width / 40))),
         }}
@@ -75,9 +75,9 @@ export const Wheel = () => {
 
   return (
     <>
-      <animated.div className={classes.wheel()} {...bind()} style={{ x }}>
+      <animated.div className={classes.wheel} {...bind()} style={{ x }}>
         <animated.svg
-          className={classes.svg()}
+          className={classes.svg}
           style={{ transform: x.to(rotZ) }}
           viewBox='0 0 60 60'
         >
@@ -85,7 +85,7 @@ export const Wheel = () => {
         </animated.svg>
       </animated.div>
 
-      <ul className={classes.list()} ref={ref}>
+      <ul className={classes.list} ref={ref}>
         {renderItems()}
       </ul>
     </>

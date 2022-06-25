@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo, useEffect } from 'react'
 
 import { produce } from 'immer'
 
-import classes from '../classes'
+import classes from '../_classes.css'
 
 import { Item } from './Item'
 import { LazyItem } from './LazyItem'
@@ -109,7 +109,7 @@ export const UnfilledDnDGrid = (props: UnfilledDnDGridProps) => {
   )
 
   const renderCells = () =>
-    counts.map((_, index) => <div key={index} className={classes.gridItem()} />)
+    counts.map((_, index) => <div key={index} className={classes.gridItem} />)
 
   const renderItems = () =>
     items.map((item, index) => (
@@ -124,7 +124,7 @@ export const UnfilledDnDGrid = (props: UnfilledDnDGridProps) => {
     ))
 
   return (
-    <div className={classes.grid()}>
+    <div className={classes.grid}>
       {renderCells()}
       {renderItems()}
     </div>

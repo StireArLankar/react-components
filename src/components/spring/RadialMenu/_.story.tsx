@@ -17,15 +17,12 @@ import {
   MyLocationRounded,
   ViewComfyRounded,
 } from '~/components/material-svgs'
-import { vars } from '~/theme/theme.css'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Credits to </span>
-    <a
-      href='https://www.youtube.com/watch?v=MhQI-ysRyrk'
-      style={{ color: vars.color.darkBlue, textDecoration: 'none' }}
-    >
+    <a className={storyLink} href='https://www.youtube.com/watch?v=MhQI-ysRyrk'>
       Awesome Content by fireship
     </a>
   </>

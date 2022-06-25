@@ -1,19 +1,19 @@
-import { css } from '@stitches/react'
+import { style } from '@vanilla-extract/css'
 
-import { themeColors } from '~/theme/theme.styles'
+import { vars } from '~/theme/theme.css'
 
 export default {
-  container: css({
+  container: style({
     height: 400,
     width: 300,
     position: 'relative',
     overflow: 'hidden',
     userSelect: 'none',
-    backgroundColor: themeColors.light,
+    backgroundColor: vars.color.light,
     touchAction: 'none',
   }),
 
-  content: css({
+  content: style({
     position: 'absolute',
     top: 0,
     left: 0,
@@ -21,7 +21,7 @@ export default {
     willChange: 'transform',
   }),
 
-  progressWrapper: css({
+  progressWrapper: style({
     position: 'absolute',
     overflow: 'hidden',
     right: 2,
@@ -29,21 +29,21 @@ export default {
     bottom: 2,
     borderRadius: 5,
     width: 5,
-    backgroundColor: themeColors.dark,
+    backgroundColor: vars.color.dark,
   }),
 
-  progress: css({
+  progress: style({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    backgroundColor: themeColors.orange,
+    backgroundColor: vars.color.orange,
     top: '0',
     borderRadius: 5,
     transformOrigin: 'top',
     willChange: 'transform',
   }),
 
-  counter: css({
+  counter: style({
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -52,12 +52,12 @@ export default {
     fontSize: 30,
   }),
 
-  block: css({
+  block: style({
     height: 100,
     width: 100,
     background: 'red',
     marginLeft: 'auto',
   }),
 
-  spacer: css({ height: 100, width: 100 }),
+  spacer: style({ height: 100, width: 100 }),
 }

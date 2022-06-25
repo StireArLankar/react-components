@@ -1,9 +1,31 @@
-import { css } from '@stitches/react'
+import { style } from '@vanilla-extract/css'
 
-import { themeColors } from '~/theme/theme.styles'
+import { vars } from '~/theme/theme.css'
+
+const baseCard = style({
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  willChange: 'transform',
+  backfaceVisibility: 'hidden',
+  overflow: 'hidden',
+  borderRadius: 4,
+})
+
+const backCardStyle = style({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  transform: `rotateY(-180deg)`,
+})
 
 export default {
-  grid: css({
+  grid: style({
     position: 'relative',
     userSelect: 'none',
     display: 'grid',
@@ -12,16 +34,16 @@ export default {
     placeItems: 'center',
   }),
 
-  gridItem: css({
+  gridItem: style({
     width: '95%',
     height: '95%',
-    background: themeColors.light,
+    background: vars.color.light,
     border: '1px solid #f5576c',
     display: 'grid',
     placeItems: 'center',
   }),
 
-  item: css({
+  item: style({
     width: 86,
     height: 86,
     top: 7,
@@ -35,7 +57,7 @@ export default {
     touchAction: 'none',
   }),
 
-  inner: css({
+  inner: style({
     position: 'relative',
     width: '100%',
     height: '100%',
@@ -44,34 +66,10 @@ export default {
     borderRadius: 4,
   }),
 
-  card: css({
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    willChange: 'transform',
-    backfaceVisibility: 'hidden',
-    overflow: 'hidden',
-    borderRadius: 4,
+  frontCard: baseCard,
+  backCard: style([baseCard, backCardStyle]),
 
-    variants: {
-      side: {
-        front: {},
-        back: {
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          transform: `rotateY(-180deg)`,
-        },
-      },
-    },
-  }),
-
-  side: css({
+  side: style({
     width: '100%',
     height: '100%',
     display: 'grid',

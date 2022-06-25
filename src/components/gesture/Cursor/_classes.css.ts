@@ -1,7 +1,24 @@
-import { css } from '@stitches/react'
+import { style, styleVariants } from '@vanilla-extract/css'
+import { recipe } from '@vanilla-extract/recipes'
+
+const activeVariants = styleVariants({
+  true: { color: 'white' },
+  false: {},
+})
+
+const baseNavItem = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: 0,
+  fontSize: 20,
+  zIndex: 11,
+  color: 'black',
+  transition: 'color 0.5s ease',
+})
 
 export default {
-  wrapper: css({
+  wrapper: style({
     position: 'fixed',
     paddingTop: 50,
     top: 0,
@@ -13,7 +30,7 @@ export default {
     flexDirection: 'column',
   }),
 
-  cursor: css({
+  cursor: style({
     width: '3rem',
     height: '3rem',
     border: '2px solid black',
@@ -28,7 +45,7 @@ export default {
     backdropFilter: 'grayscale(1)',
   }),
 
-  nav: css({
+  nav: style({
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -38,29 +55,18 @@ export default {
     listStyle: 'none',
   }),
 
-  navItem: css({
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 0,
-    fontSize: 20,
-    zIndex: 11,
-    color: 'black',
-    transition: 'color 0.5s ease',
+  navItem: recipe({
+    base: baseNavItem,
 
-    variants: {
-      active: {
-        true: { color: 'white' },
-      },
-    },
+    variants: { active: activeVariants },
   }),
 
-  section: css({
+  section: style({
     flexGrow: 1,
     position: 'relative',
   }),
 
-  imgWrapper: css({
+  imgWrapper: style({
     position: 'absolute',
     height: '100%',
     top: '50%',
@@ -68,7 +74,7 @@ export default {
     transform: 'translate(-50%, -50%)',
   }),
 
-  img: css({
+  img: style({
     objectFit: 'contain',
     height: '100%',
   }),

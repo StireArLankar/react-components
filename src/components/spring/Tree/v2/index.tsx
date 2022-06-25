@@ -4,7 +4,7 @@ import useMeasure from 'react-use-measure'
 
 import { animated, useSpring } from '@react-spring/web'
 
-import classes from '../classes'
+import classes from '../_classes.css'
 import * as Icons from '../icons'
 
 type Base = {
@@ -224,7 +224,7 @@ const Tree = memo((props: TreeProps) => {
   const Icon = getIcon(canExpand, isOpen)
 
   return (
-    <div className={classes.frame()}>
+    <div className={classes.frame}>
       <div
         onClick={canExpand ? toggle : undefined}
         style={{
@@ -238,18 +238,18 @@ const Tree = memo((props: TreeProps) => {
         {props.type === 'leaf' ? (
           <Table />
         ) : (
-          <Icon className={classes.toggle()} />
+          <Icon className={classes.toggle} />
         )}
         {props.type === 'leaf' && <Table />}
         {props.type === 'leaf' && <Table />}
-        <span className={classes.title()} style={style}>
+        <span className={classes.title} style={style}>
           {props.title}
         </span>
         {props.meta ? <M /> : null}
       </div>
 
       <animated.div
-        className={classes.content()}
+        className={classes.content}
         style={{
           opacity,
           height: isOpen && previous === isOpen ? 'auto' : height,

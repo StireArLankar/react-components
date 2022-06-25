@@ -2,7 +2,7 @@ import React from 'react'
 
 import * as Checkbox from '@radix-ui/react-checkbox'
 
-import classes from './classes'
+import classes from './_classes.css'
 import InputHelper from './helper'
 
 type InputProps = React.DetailedHTMLProps<
@@ -36,11 +36,11 @@ const Component = (props: CheckboxProps) => {
 
   return (
     <div>
-      <div className={classes.wrapper()}>
+      <div className={classes.wrapper}>
         <Checkbox.Root
           {...(rest as any)}
           checked={checked}
-          className={classes.root()}
+          className={classes.root}
           style={{ color }}
           onCheckedChange={props.onChange}
         >
@@ -63,7 +63,7 @@ const Component = (props: CheckboxProps) => {
         <label
           htmlFor={props.id}
           onSelect={(e) => e.preventDefault()}
-          className={classes.label()}
+          className={classes.label}
         >
           {label}
         </label>

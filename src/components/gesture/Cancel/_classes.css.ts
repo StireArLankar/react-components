@@ -1,7 +1,7 @@
-import { css } from '@stitches/react'
+import { style } from '@vanilla-extract/css'
 
 export default {
-  box: css({
+  box: style({
     background: '#91c9f9',
     borderRadius: 16,
     height: 80,

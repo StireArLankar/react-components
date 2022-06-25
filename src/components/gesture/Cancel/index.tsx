@@ -1,7 +1,7 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 const colors = {
   cancel: '#ffb6c1',
@@ -30,5 +30,5 @@ export const Cancel = () => {
     spring.start({ x: active ? mx : 0, immediate: active })
   })
 
-  return <animated.div className={classes.box()} {...bind()} style={style} />
+  return <animated.div className={classes.box} {...bind()} style={style} />
 }

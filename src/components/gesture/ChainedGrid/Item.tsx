@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState, memo } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
+import classes from './_classes.css'
 import { Child } from './Child'
-import classes from './classes'
 
 import clamp from '~/utils/clamp'
 
@@ -109,7 +109,7 @@ export const Item = memo((props: ItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item()}
+      className={classes.item}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(

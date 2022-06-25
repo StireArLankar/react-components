@@ -7,8 +7,8 @@ import { useMultipleSelection, useSelect } from 'downshift'
 
 import Checkbox from '../Checkbox'
 
+import classes from './_classes.css'
 import { ReactComponent as Arrow } from './arrow.svg'
-import classes from './classes'
 
 export interface ComboboxProps {
   values: string[]
@@ -145,10 +145,7 @@ export const Combobox = (props: ComboboxProps) => {
           ...triggerProps,
           disabled: props.disabled,
         })}
-        className={classes.label({
-          fit: props.fit,
-          secondary: props.variant === 'secondary',
-        })}
+        className={classes.label({ fit: props.fit, variant: props.variant })}
         disabled={props.disabled}
       >
         <span {...getDropdownProps()}>{renderLabel()}</span>
@@ -167,13 +164,11 @@ export const Combobox = (props: ComboboxProps) => {
           style={{
             ...layerProps.style,
             width: props.layerWidth ?? refWidth.current,
-            clipPath: anim.c.interpolate(
+            clipPath: anim.c.to(
               layerSide === 'top' ? clipFromBottom : clipFromTop
             ),
-            pointerEvents: anim.c.interpolate((val) =>
-              val > 50 ? 'auto' : 'none'
-            ),
-            opacity: anim.c.interpolate((val) => val / 100),
+            pointerEvents: anim.c.to((val) => (val > 50 ? 'auto' : 'none')),
+            opacity: anim.c.to((val) => val / 100),
             backgroundColor: 'white',
             borderRadius: 12,
             overflow: 'hidden',
@@ -195,7 +190,7 @@ export const Combobox = (props: ComboboxProps) => {
             enabled={false}
             {...getMenuProps()}
           >
-            <ul className={classes.list()}>
+            <ul className={classes.list}>
               {items.map((item, index) => (
                 <li
                   key={item.value}

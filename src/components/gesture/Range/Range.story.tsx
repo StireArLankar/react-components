@@ -1,23 +1,21 @@
-import React, { Fragment } from 'react'
-
 import { Range } from './Range'
 import { RangeSimple } from './RangeSimple'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
-  <Fragment>
+  <>
     <span>Credits to </span>
     <a
+      className={storyLink}
       href='https://spectrum.chat/react-spring/general/is-it-possible-to-initiate-dragging-from-a-different-component~88af3c28-0ee7-4e92-9015-df9a61552d07'
-      style={{ color: themeColors.orange, textDecoration: 'none' }}
     >
       issue
     </a>
-  </Fragment>
+  </>
 )
 
 export default {

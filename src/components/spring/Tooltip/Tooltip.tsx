@@ -2,7 +2,7 @@ import { PropsWithChildren, useRef } from 'react'
 
 import { animated, useTransition } from '@react-spring/web'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 export interface TooltipProps {
   isOpen: boolean
@@ -26,14 +26,12 @@ export const Tooltip = (props: PropsWithChildren<TooltipProps>) => {
       {transition((props, item, _, key) =>
         item ? (
           <animated.div
-            className={classes.popup({ side }).className}
+            className={classes.popup({ side })}
             key={key}
             style={props}
             ref={ref}
           >
-            <div className={classes.content({ side }).className}>
-              {children}
-            </div>
+            <div className={classes.content({ side })}>{children}</div>
           </animated.div>
         ) : null
       )}

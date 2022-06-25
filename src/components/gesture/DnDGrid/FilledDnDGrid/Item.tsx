@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from '../classes'
+import classes from '../_classes.css'
 
 import clamp from '~/utils/clamp'
 
@@ -93,7 +93,7 @@ export const Item = (props: ItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item()}
+      className={classes.item}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(
@@ -105,7 +105,7 @@ export const Item = (props: ItemProps) => {
         ),
       }}
     >
-      <span className={classes.count()}>{index}</span>
+      <span className={classes.count}>{index}</span>
     </animated.div>
   )
 }

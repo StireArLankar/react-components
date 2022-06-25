@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 import clamp from '~/utils/clamp'
 
@@ -22,6 +22,7 @@ const updateAxis = (
   } else if (offset < -step / 2) {
     return clamp(current + diff - 1, 0, max)
   }
+
   return clamp(current + diff, 0, max)
 }
 
@@ -80,7 +81,7 @@ export const ConnectedItem = (props: ConnectedItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item()}
+      className={classes.item}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(

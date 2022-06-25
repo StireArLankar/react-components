@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useSpring, animated } from '@react-spring/web'
 import { useMove } from '@use-gesture/react'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 export const Cursor = () => {
   const [active, setActive] = useState('')
@@ -31,21 +31,21 @@ export const Cursor = () => {
     ))
 
   return (
-    <div className={classes.wrapper()}>
+    <div className={classes.wrapper}>
       <animated.div
-        className={classes.cursor()}
+        className={classes.cursor}
         style={{
           ...styles,
           background: styles.scale.to((s) => `rgba(0, 0, 0, ${s - 1})`),
         }}
       />
 
-      <ul className={classes.nav()}>{renderItems()}</ul>
+      <ul className={classes.nav}>{renderItems()}</ul>
 
-      <div className={classes.section()}>
-        <div className={classes.imgWrapper()}>
+      <div className={classes.section}>
+        <div className={classes.imgWrapper}>
           <img
-            className={classes.img()}
+            className={classes.img}
             src='https://images.alphacoders.com/720/thumb-1920-720915.png'
             alt='Nepu'
           />

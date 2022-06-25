@@ -2,7 +2,7 @@ import { memo, useEffect } from 'react'
 
 import { animated, to, useSpring } from '@react-spring/web'
 
-import classes from './classes'
+import classes from './_classes.css'
 import { data } from './data'
 
 export interface ChildProps {
@@ -34,16 +34,16 @@ export const Child = memo((props: ChildProps) => {
   }, [active, spring])
 
   const renderFront = () => (
-    <div className={classes.card({ side: 'front' })}>
-      <div className={classes.side()} style={{ background: data[index].css }}>
+    <div className={classes.frontCard}>
+      <div className={classes.side} style={{ background: data[index].css }}>
         {index}
       </div>
     </div>
   )
 
   const renderBack = () => (
-    <div className={classes.card({ side: 'back' })}>
-      <div className={classes.side()} style={{ background: data[index].css }}>
+    <div className={classes.backCard}>
+      <div className={classes.side} style={{ background: data[index].css }}>
         {data[index].name}
       </div>
     </div>
@@ -51,7 +51,7 @@ export const Child = memo((props: ChildProps) => {
 
   return (
     <animated.div
-      className={classes.inner()}
+      className={classes.inner}
       style={{
         transform: to(
           [y, z],

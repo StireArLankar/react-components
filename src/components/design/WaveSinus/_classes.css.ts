@@ -1,4 +1,4 @@
-import { css, keyframes } from '@stitches/react'
+import { style, keyframes } from '@vanilla-extract/css'
 
 export const size = 120
 export const color = '#ffab00'
@@ -18,7 +18,7 @@ const skew = keyframes({
 })
 
 export default {
-  wrapper: css({
+  wrapper: style({
     position: 'relative',
     display: 'flex',
     justifyContent: 'center',
@@ -28,7 +28,7 @@ export default {
     overflow: 'hidden',
   }),
 
-  bar: css({
+  bar: style({
     position: 'absolute',
     top: 10,
     width: size / 10,
@@ -37,7 +37,7 @@ export default {
     animation: `${motion} 1.25s ease-in-out infinite`,
   }),
 
-  barInner: css({
+  barInner: style({
     width: '100%',
     height: '100%',
     transform: 'skewY(0deg)',

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { motion, Variants } from 'framer-motion'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 type Props = { helperText?: string }
 
@@ -30,13 +30,13 @@ const Component = ({ helperText }: Props) => {
 
   return (
     <motion.div
-      className={classes.helperWrapper()}
+      className={classes.helperWrapper}
       variants={helperVariants}
       initial={helperText ? 'show' : 'hide'}
       animate={helperText ? 'show' : 'hide'}
     >
       <div style={{ height: 4 }} />
-      <div className={classes.helper()}>
+      <div className={classes.helper}>
         <motion.span variants={helperTextVariants}>{state}</motion.span>
       </div>
     </motion.div>

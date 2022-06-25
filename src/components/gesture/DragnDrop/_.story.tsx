@@ -3,14 +3,14 @@ import { DragnDrop } from '.'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Credits to </span>
     <a
+      className={storyLink}
       href='https://github.com/react-spring/react-use-gesture'
-      style={{ color: themeColors.orange, textDecoration: 'none' }}
     >
       docs
     </a>

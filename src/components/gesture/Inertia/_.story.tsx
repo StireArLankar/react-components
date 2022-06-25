@@ -3,13 +3,13 @@ import { Inertia } from './Inertia'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Thx to </span>
     <a
-      style={{ color: themeColors.orange, textDecoration: 'none' }}
+      className={storyLink}
       href='https://github.com/react-spring/react-use-gesture/issues/132'
     >
       demonstration

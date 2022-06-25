@@ -2,6 +2,7 @@ import {
   createThemeContract,
   createGlobalTheme,
   style,
+  globalStyle,
 } from '@vanilla-extract/css'
 
 export const vars = createThemeContract({
@@ -99,4 +100,34 @@ export const customScroll = style({
       backgroundColor: '#959595',
     },
   },
+})
+
+globalStyle(':root', {
+  vars: { '--bg-color': 'rgb(145, 181, 240)' },
+})
+
+globalStyle('html', { height: '100%', boxSizing: 'border-box' })
+
+globalStyle('body', {
+  backgroundColor: 'var(--bg-color)',
+  transition: 'background-color 0.3s ease-in-out',
+  minWidth: 320,
+  display: 'flex',
+  minHeight: '100%',
+  padding: '0 !important',
+})
+
+globalStyle('*', { boxSizing: 'inherit' })
+
+globalStyle('#root', {
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+})
+
+globalStyle('.overflow', { overflowY: 'hidden', overflowX: 'hidden' })
+
+export const storyLink = style({
+  color: vars.color.orange,
+  textDecoration: 'none',
 })

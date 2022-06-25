@@ -13,14 +13,14 @@ import {
   MyLocationRounded,
   ViewComfyRounded,
 } from '~/components/material-svgs'
-import { themeColors } from '~/theme/theme.styles'
+import { storyLink } from '~/theme/theme.css'
 
 const label = (
   <>
     <span>Credits to </span>
     <a
+      className={storyLink}
       href='https://tympanus.net/Tutorials/CircularNavigation/index.html'
-      style={{ color: themeColors.darkBlue, textDecoration: 'none' }}
     >
       Nice guide
     </a>

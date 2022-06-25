@@ -4,7 +4,7 @@ import NumberFormat from 'react-number-format'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -63,7 +63,7 @@ const Component = memo((props: Props) => {
   }
 
   const renderChildren = () =>
-    children ? <div className={classes.children()}>{children}</div> : null
+    children ? <div className={classes.children}>{children}</div> : null
 
   const onValueChange = (e: any) => {
     if (disabled) {
@@ -82,7 +82,7 @@ const Component = memo((props: Props) => {
       disabled={disabled}
       id={id}
       onChange={onValueChange}
-      className={classes.input()}
+      className={classes.input}
       value={value}
       onFocus={onFocus}
       onBlur={onBlur}
@@ -93,8 +93,8 @@ const Component = memo((props: Props) => {
   )
 
   return (
-    <div className={classes.container()}>
-      <label className={classes.label()} htmlFor={id}>
+    <div className={classes.container}>
+      <label className={classes.label} htmlFor={id}>
         {label}
       </label>
       <div
@@ -109,7 +109,7 @@ const Component = memo((props: Props) => {
         <AnimatePresence>
           {helperText && (
             <motion.div
-              className={classes.helper()}
+              className={classes.helper}
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

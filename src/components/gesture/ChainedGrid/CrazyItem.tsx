@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState, memo } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
-import classes from './classes'
+import classes from './_classes.css'
 import { data } from './data'
 
 import clamp from '~/utils/clamp'
@@ -144,7 +144,7 @@ export const CrazyItem = memo((props: ItemProps) => {
   return (
     <animated.div
       {...bind()}
-      className={classes.item()}
+      className={classes.item}
       style={{
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(
@@ -160,7 +160,7 @@ export const CrazyItem = memo((props: ItemProps) => {
         right,
       }}
     >
-      <div className={classes.side()} style={{ background: data[index].css }}>
+      <div className={classes.side} style={{ background: data[index].css }}>
         {data[index].name}
       </div>
     </animated.div>

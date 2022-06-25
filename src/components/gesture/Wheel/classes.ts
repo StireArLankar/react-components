@@ -1,9 +1,9 @@
-import { css } from '@stitches/react'
+import { style } from '@vanilla-extract/css'
 
-import { themeColors } from '~/theme/theme.styles'
+import { vars } from '~/theme/theme.css'
 
 export default {
-  wheel: css({
+  wheel: style({
     borderRadius: '50%',
     height: 120,
     width: 120,
@@ -12,13 +12,13 @@ export default {
     touchAction: 'none',
   }),
 
-  svg: css({
+  svg: style({
     width: '100%',
     height: '100%',
-    color: themeColors.border,
+    color: vars.color.border,
   }),
 
-  list: css({
+  list: style({
     position: 'absolute',
     padding: 0,
     margin: '0 auto',
@@ -33,7 +33,7 @@ export default {
     overflow: 'hidden',
   }),
 
-  item: css({
+  item: style({
     height: '100%',
     width: 20,
     transformOrigin: 'bottom',
@@ -41,20 +41,22 @@ export default {
     borderTopRightRadius: 10,
     opacity: 0.8,
 
-    '&:nth-child(5n)': {
-      background: 'linear-gradient(180deg, #f093fb 0%, #f5576c 100%)',
-    },
-    '&:nth-child(5n + 1)': {
-      background: 'linear-gradient(180deg, #a8edea 0%, #fed6e3 100%)',
-    },
-    '&:nth-child(5n + 2)': {
-      background: 'linear-gradient(180deg, #d299c2 0%, #fef9d7 100%)',
-    },
-    '&:nth-child(5n + 3)': {
-      background: 'linear-gradient(180deg, #ebc0fd 0%, #d9ded8 100%)',
-    },
-    '&:nth-child(5n + 4)': {
-      background: 'linear-gradient(180deg, #f6d365 0%, #fda085 100%)',
+    selectors: {
+      '&:nth-child(5n)': {
+        background: 'linear-gradient(180deg, #f093fb 0%, #f5576c 100%)',
+      },
+      '&:nth-child(5n + 1)': {
+        background: 'linear-gradient(180deg, #a8edea 0%, #fed6e3 100%)',
+      },
+      '&:nth-child(5n + 2)': {
+        background: 'linear-gradient(180deg, #d299c2 0%, #fef9d7 100%)',
+      },
+      '&:nth-child(5n + 3)': {
+        background: 'linear-gradient(180deg, #ebc0fd 0%, #d9ded8 100%)',
+      },
+      '&:nth-child(5n + 4)': {
+        background: 'linear-gradient(180deg, #f6d365 0%, #fda085 100%)',
+      },
     },
   }),
 }

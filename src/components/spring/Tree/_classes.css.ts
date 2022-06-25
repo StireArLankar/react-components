@@ -1,7 +1,7 @@
-import { css } from '@stitches/react'
+import { style } from '@vanilla-extract/css'
 
 export default {
-  frame: css({
+  frame: style({
     position: 'relative',
     padding: '4px 0px 0px 0px',
     textOverflow: 'ellipsis',
@@ -13,11 +13,11 @@ export default {
     fontSize: 14,
   }),
 
-  title: css({
+  title: style({
     verticalAlign: 'middle',
   }),
 
-  content: css({
+  content: style({
     willChange: 'transform, opacity, height',
     marginLeft: 7,
     padding: '0px 0px 0px 14px',
@@ -25,7 +25,7 @@ export default {
     overflow: 'hidden',
   }),
 
-  toggle: css({
+  toggle: style({
     width: 15,
     height: 15,
     marginRight: 10,

@@ -4,7 +4,7 @@ import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
-import classes from './classes'
+import classes from './_classes.css'
 
 const getWheelBounds = (height: number, val: number) => ({
   top: height <= 0 ? 0 : -val,
@@ -97,9 +97,9 @@ export const ScrollBar = memo((props: { itemsAmount: number }) => {
   )
 
   const renderScrollBar = () => (
-    <div className={classes.progressWrapper()}>
+    <div className={classes.progressWrapper}>
       <animated.div
-        className={classes.progress()}
+        className={classes.progress}
         style={{
           transform: y.to((val) =>
             interpolateScroll(contentHeight, containerHeight, val)
@@ -111,20 +111,20 @@ export const ScrollBar = memo((props: { itemsAmount: number }) => {
 
   const renderItems = (amount: number) => (
     <>
-      <div onClick={increaseCounter} className={classes.block()} />
+      <div onClick={increaseCounter} className={classes.block} />
       {Array.from({ length: amount - 1 }).map((_, index) => (
         <Fragment key={index}>
-          <div className={classes.spacer()} />
-          <div onClick={increaseCounter} className={classes.block()} />
+          <div className={classes.spacer} />
+          <div onClick={increaseCounter} className={classes.block} />
         </Fragment>
       ))}
     </>
   )
 
   return (
-    <div className={classes.container()} {...bind()} ref={containerRef}>
+    <div className={classes.container} {...bind()} ref={containerRef}>
       <animated.div
-        className={classes.content()}
+        className={classes.content}
         ref={contentRef}
         style={{
           paddingRight: height > 0 ? 9 : 0,
@@ -133,7 +133,7 @@ export const ScrollBar = memo((props: { itemsAmount: number }) => {
       >
         {renderItems(itemsAmount)}
       </animated.div>
-      <div className={classes.counter()}>{counter}</div>
+      <div className={classes.counter}>{counter}</div>
       {height > 0 && renderScrollBar()}
     </div>
   )

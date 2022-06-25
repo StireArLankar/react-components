@@ -1,7 +1,7 @@
-import { css } from '@stitches/react'
+import { style } from '@vanilla-extract/css'
 
 export default {
-  grid: css({
+  grid: style({
     position: 'relative',
     userSelect: 'none',
     display: 'grid',
@@ -9,7 +9,8 @@ export default {
     gridTemplateRows: 'repeat(4, 100px)',
     placeItems: 'center',
   }),
-  gridItem: css({
+
+  gridItem: style({
     width: '95%',
     height: '95%',
     background: 'linear-gradient(-45deg, #c3cfe2 0%, #9cb8e4 100%)',
@@ -17,7 +18,8 @@ export default {
     display: 'grid',
     placeItems: 'center',
   }),
-  item: css({
+
+  item: style({
     width: 86,
     height: 86,
     top: 7,
@@ -28,7 +30,8 @@ export default {
     placeItems: 'center',
     background: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
   }),
-  count: css({
+
+  count: style({
     fontSize: 30,
     zIndex: 0,
     pointerEvents: 'none',

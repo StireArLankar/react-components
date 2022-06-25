@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from 'react'
 
 import { produce } from 'immer'
 
-import classes from './classes'
+import classes from './_classes.css'
 import { CrazyItem } from './CrazyItem'
 import { data } from './data'
 import { Item } from './Item'
@@ -76,7 +76,7 @@ export const ChainedGrid = ({ isCrazy }: ChainedGridProps) => {
   }, [])
 
   const renderCells = () =>
-    arr.map((_, index) => <div key={index} className={classes.gridItem()} />)
+    arr.map((_, index) => <div key={index} className={classes.gridItem} />)
 
   const Component = useMemo(() => (isCrazy ? CrazyItem : Item), [isCrazy])
 
@@ -96,7 +96,7 @@ export const ChainedGrid = ({ isCrazy }: ChainedGridProps) => {
     ))
 
   return (
-    <div className={classes.grid()}>
+    <div className={classes.grid}>
       {renderCells()}
       {renderItems()}
     </div>

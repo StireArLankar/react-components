@@ -5,8 +5,8 @@ import { RemoveScroll } from 'react-remove-scroll'
 import { animated, useSpring } from '@react-spring/web'
 import { useSelect } from 'downshift'
 
+import classes from './_classes.css'
 import { ReactComponent as Arrow } from './arrow.svg'
-import classes from './classes'
 
 export interface SelectProps {
   value: string
@@ -62,10 +62,7 @@ const Mobile = (props: SelectProps) => {
   return (
     <div style={{ position: 'relative', display: 'flex' }}>
       <select
-        className={classes.label({
-          fit: props.fit,
-          secondary: props.variant === 'secondary',
-        })}
+        className={classes.label({ fit: props.fit, variant: props.variant })}
         value={props.value}
         ref={ref}
         disabled={props.disabled}
@@ -86,10 +83,7 @@ const Mobile = (props: SelectProps) => {
         ))}
       </select>
       <button
-        className={classes.label({
-          fit: props.fit,
-          secondary: props.variant === 'secondary',
-        })}
+        className={classes.label({ fit: props.fit, variant: props.variant })}
         type='button'
         onClick={() => ref.current?.click()}
         style={{
@@ -166,10 +160,7 @@ export const Temp = (props: SelectProps) => {
           ...triggerProps,
           disabled: props.disabled,
         })}
-        className={classes.label({
-          fit: props.fit,
-          secondary: props.variant === 'secondary',
-        })}
+        className={classes.label({ fit: props.fit, variant: props.variant })}
         disabled={props.disabled}
       >
         <span>{selectedItem?.label || '--'}</span>
@@ -215,7 +206,7 @@ export const Temp = (props: SelectProps) => {
             enabled={false}
             {...menuProps}
           >
-            <ul className={classes.list()}>
+            <ul className={classes.list}>
               {items.map((item, index) => (
                 <li
                   key={item.value}
