@@ -1,31 +1,45 @@
-//@ts-nocheck
 import React, { useState, useRef } from 'react'
 
 import style from './slider.module.scss'
 
-const Slider = (props) => {
-  const [transform, setTransform] = useState(0)
-  const ref = useRef()
+type Props = {
+  width: number
+  components: React.ReactNode[]
+}
 
-  const moveIt = (move, up) => {
-    return (evt) => {
-      if (evt.type === 'mousedown' && evt.buttons !== 1) {
+const Slider = (props: Props) => {
+  const [transform, setTransform] = useState(0)
+  const ref = useRef<HTMLUListElement>(null)
+
+  const moveIt =
+    (move: 'touchmove' | 'mousemove', up: 'touchend' | 'mouseup') =>
+    (evt: React.MouseEvent | React.TouchEvent) => {
+      if (evt.type === 'mousedown' && 'buttons' in evt && evt.buttons !== 1) {
         return
       }
+
       if (evt.type === 'mousedown') {
         evt.preventDefault()
       }
+
       const list = ref.current
 
-      const startX = evt.clientX || evt.touches[0].clientX
+      if (!list) {
+        return
+      }
+
+      const startX = 'touches' in evt ? evt.touches[0].clientX : evt.clientX
       const width = list.offsetWidth
-      const length = list.children.length * width - list.parentNode.offsetWidth
+      const length =
+        list.children.length * width - (list.parentNode as any).offsetWidth
 
       let diff = 0
       list.style.transition = ``
 
-      const onMove = (moveEvt) => {
-        const x = moveEvt.clientX || moveEvt.touches[0].clientX
+      const onMove = (moveEvt: MouseEvent | TouchEvent) => {
+        const x =
+          'touches' in moveEvt ? moveEvt.touches[0].clientX : moveEvt.clientX
+
         diff = startX - x
         const temp = transform + diff
         list.style.transform =
@@ -47,7 +61,6 @@ const Slider = (props) => {
       document.addEventListener(move, onMove)
       document.addEventListener(up, onUp)
     }
-  }
 
   const onTouchStart = moveIt('touchmove', 'touchend')
   const onMouseDown = moveIt('mousemove', 'mouseup')

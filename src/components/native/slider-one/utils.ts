@@ -1,15 +1,18 @@
-//@ts-nocheck
-const incElement = (elementValue, componentsLength) => {
+const incElement = (elementValue: number, componentsLength: number) => {
   const maxValue = componentsLength - 1
   return elementValue === maxValue ? 0 : elementValue + 1
 }
 
-const decElement = (elementValue, componentsLength) => {
+const decElement = (elementValue: number, componentsLength: number) => {
   const maxValue = componentsLength - 1
   return elementValue === 0 ? maxValue : elementValue - 1
 }
 
-const findIndexOfFirstElement = (array, componentsLength, listLength) => {
+const findIndexOfFirstElement = (
+  array: number[],
+  componentsLength: number,
+  listLength: number
+): number => {
   const max = Math.max(...array)
   const min = Math.min(...array)
   const diff = max - min
@@ -23,7 +26,11 @@ const findIndexOfFirstElement = (array, componentsLength, listLength) => {
   return array.indexOf(max)
 }
 
-const findIndexOfLastElement = (array, componentsLength, listLength) => {
+const findIndexOfLastElement = (
+  array: number[],
+  componentsLength: number,
+  listLength: number
+): number => {
   const max = Math.max(...array)
   const min = Math.min(...array)
   const diff = max - min
@@ -37,7 +44,11 @@ const findIndexOfLastElement = (array, componentsLength, listLength) => {
   return array.indexOf(min)
 }
 
-export const incLastElement = (array, componentsLength, listLength) => {
+export const incLastElement = (
+  array: number[],
+  componentsLength: number,
+  listLength: number
+): number[] => {
   // ищем минимальный индекс в массиве
   const indexOfLast = findIndexOfLastElement(
     array,
@@ -58,7 +69,11 @@ export const incLastElement = (array, componentsLength, listLength) => {
   return temp
 }
 
-export const decFirstElement = (array, componentsLength, listLength) => {
+export const decFirstElement = (
+  array: number[],
+  componentsLength: number,
+  listLength: number
+): number[] => {
   const indexOfLast = findIndexOfLastElement(
     array,
     componentsLength,

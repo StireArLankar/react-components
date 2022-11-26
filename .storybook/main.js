@@ -1,6 +1,6 @@
 const { loadConfigFromFile, mergeConfig } = require('vite')
 const svgr = require('vite-plugin-svgr').default
-const {vanillaExtractPlugin} = require("@vanilla-extract/vite-plugin")
+const { vanillaExtractPlugin } = require('@vanilla-extract/vite-plugin')
 
 /**
  * @type {import('@storybook/builder-vite').StorybookViteConfig}
