@@ -47,6 +47,7 @@ export default {
       },
 
       '&::before, &::after': {
+        boxSizing: 'inherit',
         content: '""',
         position: 'absolute',
         width: '200%',

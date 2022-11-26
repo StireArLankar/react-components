@@ -1,27 +1,42 @@
-//@ts-nocheck
 import React, { useRef } from 'react'
 
 import style from './lense.module.scss'
 
-const Handler = (props) => {
-  const ref = useRef()
+type Props = {
+  x: number
+  y: number
+  url: string
+  lenseSize: number
 
-  const onMouseDown = (downE) => {
+  changeCoords: (x: number, y: number) => void
+}
+
+const Handler = (props: Props) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  const onMouseDown = (downE: React.MouseEvent<HTMLDivElement>) => {
     downE.preventDefault()
     const handler = ref.current
+
+    if (!handler) {
+      return
+    }
+
     const { x: handlerX, y: handlerY } = handler.getBoundingClientRect()
     const { clientHeight, clientWidth } = handler
 
     const width = clientWidth - props.lenseSize
     const height = clientHeight - props.lenseSize
 
-    const getX = (e) => (e.clientX - handlerX - props.lenseSize / 2) / width
-    const getY = (e) => (e.clientY - handlerY - props.lenseSize / 2) / height
+    const getX = (e: MouseEvent) =>
+      (e.clientX - handlerX - props.lenseSize / 2) / width
+    const getY = (e: MouseEvent) =>
+      (e.clientY - handlerY - props.lenseSize / 2) / height
 
-    let x = getX(downE)
-    let y = getY(downE)
+    let x = getX(downE as unknown as MouseEvent)
+    let y = getY(downE as unknown as MouseEvent)
 
-    const onMouseMove = (moveE) => {
+    const onMouseMove = (moveE: MouseEvent) => {
       x = getX(moveE)
       y = getY(moveE)
 
@@ -41,7 +56,8 @@ const Handler = (props) => {
   }
 
   const { url, x, y } = props
-  const dynamicStyle = {
+
+  const dynamicStyle: React.CSSProperties = {
     top: `${y * 100}%`,
     left: `${x * 100}%`,
   }

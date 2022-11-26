@@ -30,6 +30,7 @@ const baseBox = style({
 
   selectors: {
     '&::before': {
+      boxSizing: 'inherit',
       content: "''",
       position: 'absolute',
       width: 30,

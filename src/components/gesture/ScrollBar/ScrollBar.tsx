@@ -76,8 +76,7 @@ export const ScrollBar = memo((props: { itemsAmount: number }) => {
       onClickCapture: (evt) => {
         if (!isTap.current) {
           evt.event.stopPropagation()
-          evt.event.nativeEvent.preventDefault()
-          evt.event.nativeEvent.stopPropagation()
+          evt.event.preventDefault()
         }
       },
     },

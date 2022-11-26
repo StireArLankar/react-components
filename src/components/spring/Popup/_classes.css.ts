@@ -41,6 +41,7 @@ export const basePopup = style({
   justifyContent: 'space-between',
 
   '::before': {
+    boxSizing: 'inherit',
     content: "''",
     position: 'absolute',
     left: '50%',

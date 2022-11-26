@@ -22,6 +22,7 @@ const helper = style({
 
   selectors: {
     '&::before': {
+      boxSizing: 'inherit',
       content: "''",
       position: 'absolute',
       top: 0,
@@ -72,6 +73,7 @@ const baseInputWrapper = style({
 
   selectors: {
     '&::before': {
+      boxSizing: 'inherit',
       content: '""',
       borderRadius: 12,
       position: 'absolute',

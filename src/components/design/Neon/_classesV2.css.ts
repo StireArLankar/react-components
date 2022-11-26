@@ -23,6 +23,7 @@ const button = style({
   },
 
   '::before': {
+    boxSizing: 'inherit',
     content: '""',
     position: 'absolute',
     width: 10,

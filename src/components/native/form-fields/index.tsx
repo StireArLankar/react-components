@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react'
+import React, { useState } from 'react'
 
 import Fields from './Fields'
 import { defaultFields as types, FieldType } from './fields.types'
@@ -25,7 +25,7 @@ export const FormFields = () => {
   }
 
   const addField =
-    (name: 'text' | 'textarea' | 'select') => (e: MouseEvent) => {
+    (name: 'text' | 'textarea' | 'select') => (e: React.MouseEvent) => {
       e.preventDefault()
       const { options } = types[name]
       const newField: any = {
@@ -37,7 +37,7 @@ export const FormFields = () => {
       setFields([...fields, newField])
     }
 
-  const removeField = (index: number) => (e: MouseEvent) => {
+  const removeField = (index: number) => (e: React.MouseEvent) => {
     e.preventDefault()
     const updatedFields = [
       ...fields.slice(0, index),

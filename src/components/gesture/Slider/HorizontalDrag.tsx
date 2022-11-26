@@ -39,13 +39,11 @@ export const HorizontalDrag = () => {
                 top: '50%',
                 left: '50%',
                 display: 'block',
-                background: 'grey',
                 transform: 'translate(-50%, -50%)',
                 fontSize: '16px',
               }}
-              onMouseDown={(evt) => {
-                evt.stopPropagation()
-              }}
+              onPointerDown={(evt) => evt.stopPropagation()}
+              onMouseDown={(evt) => evt.stopPropagation()}
             >
               Hello
             </button>

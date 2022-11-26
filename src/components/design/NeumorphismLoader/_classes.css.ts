@@ -34,6 +34,7 @@ export default {
     overflow: 'hidden',
 
     '::before': {
+      boxSizing: 'inherit',
       content: `""`,
       position: 'absolute',
       top: 0,

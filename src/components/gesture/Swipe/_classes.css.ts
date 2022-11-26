@@ -10,6 +10,7 @@ const baseBackground = style({
   border: `1px solid ${vars.color.border}`,
 
   '::before': {
+    boxSizing: 'inherit',
     content: '""',
     position: 'absolute',
     top: 0,

@@ -43,6 +43,7 @@ export default {
     },
 
     '::before': {
+      boxSizing: 'inherit',
       content: '""',
       position: 'absolute',
       top: 0,

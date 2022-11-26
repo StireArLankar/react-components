@@ -48,6 +48,7 @@ const baseContent = style({
   position: 'relative',
 
   '::before': {
+    boxSizing: 'inherit',
     content: "''",
     position: 'absolute',
     left: '50%',

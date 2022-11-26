@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useMemo, useCallback } from 'react'
+import useMeasure from 'react-use-measure'
 
 import { useSprings, animated, SpringConfig, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import useResizeObserver from 'use-resize-observer'
 
 export interface SliderProps extends DefaultProps {
   children: React.ReactNode[]
@@ -66,7 +66,8 @@ export const Slider = ({
   )
 
   const root = useRef<HTMLInputElement>(null)
-  const { width, height } = useResizeObserver({ ref: root })
+  const [ref, { width, height }] = useMeasure({ debounce: 100 })
+  ref(root.current)
 
   const axis = vertical ? 'y' : 'x'
 
@@ -194,6 +195,7 @@ export const Slider = ({
               (x, s) => `translate${axis.toUpperCase()}(${x}px) scale(${s})`
             ),
             willChange: 'transform',
+            touchAction: 'none',
           }}
         >
           {children[i]}

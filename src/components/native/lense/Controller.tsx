@@ -1,19 +1,24 @@
-//@ts-nocheck
 import React, { useState } from 'react'
 
 import Handler from './Handler'
 import style from './lense.module.scss'
 import View from './View'
 
-const Controller = (props) => {
+type Props = {
+  size: number
+  lenseSize: number
+  url: string
+}
+
+const Controller = (props: Props) => {
   const [coords, setCoords] = useState({ x: 0, y: 0 })
   const { size, lenseSize, url } = props
 
-  const changeCoords = (x, y) => setCoords({ x, y })
+  const changeCoords = (x: number, y: number) => setCoords({ x, y })
 
-  const dynamicStyle = {
-    '--size': `${size}px`,
-    '--lense-size': `${lenseSize}px`,
+  const dynamicStyle: React.CSSProperties = {
+    ['--size' as any]: `${size}px`,
+    ['--lense-size' as any]: `${lenseSize}px`,
   }
 
   return (

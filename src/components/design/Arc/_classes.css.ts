@@ -38,6 +38,7 @@ export const container = style({
 
   selectors: {
     '&::before': {
+      boxSizing: 'inherit',
       position: 'fixed',
       content: "''",
       top: 0,

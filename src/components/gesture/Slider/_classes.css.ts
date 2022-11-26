@@ -17,6 +17,7 @@ export default {
     border: '10px solid white',
     boxSizing: 'content-box',
     overflow: 'hidden',
+    touchAction: 'none',
   }),
 
   inner: baseContent,

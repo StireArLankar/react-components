@@ -1,22 +1,26 @@
-//@ts-nocheck
 import React from 'react'
+
+import { TextAreaField } from '../fields.types'
 
 import classes from './fields.module.scss'
 
-const TextareaInput = (props) => {
-  const onChange = (e) => {
+export type TextareaInputProps = TextAreaField & {
+  onChange: (value: string) => void
+}
+
+const TextareaInput = (props: TextareaInputProps) => {
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target
     props.onChange(value)
   }
 
   return (
     <textarea
-      type='text'
       name={props.name}
       id={props.name}
       value={props.value}
       onChange={onChange}
-      placeholder={props.placeholder}
+      placeholder={props.options.placeholder}
       className={classes.textarea}
       rows={4}
     />

@@ -1,6 +1,6 @@
 import { ComponentStory } from '@storybook/react'
 
-import Slide from './Slide'
+import Slide from './slide1'
 
 import { SliderTwo } from '.'
 

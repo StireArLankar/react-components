@@ -23,6 +23,7 @@ const button = style({
 
   selectors: {
     '&::before, &::after': {
+      boxSizing: 'inherit',
       content: '""',
       position: 'absolute',
       backgroundColor: '#b1b1b1',

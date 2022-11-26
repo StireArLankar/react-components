@@ -1,8 +1,13 @@
-//@ts-nocheck
 import React from 'react'
 
-const TextInput = (props) => {
-  const onChange = (e) => {
+import { TextField } from '../fields.types'
+
+export type TextInputProps = TextField & {
+  onChange: (value: string) => void
+}
+
+const TextInput = (props: TextInputProps) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     props.onChange(value)
   }
@@ -14,7 +19,7 @@ const TextInput = (props) => {
       id={props.name}
       value={props.value}
       onChange={onChange}
-      placeholder={props.placeholder}
+      placeholder={props.options.placeholder}
     />
   )
 }

@@ -21,7 +21,7 @@ export const HorizontalDragSnap = () => {
 
   const bind = useDrag(({ movement: [x], down }) => {
     if (down) {
-      setWheel({ wheelY: dragOffset.current - x })
+      setWheel.start({ wheelY: dragOffset.current - x })
     } else {
       const offset = -x % width
       if (offset > width / 2) {
@@ -31,7 +31,7 @@ export const HorizontalDragSnap = () => {
       } else {
         dragOffset.current += -x - offset
       }
-      setWheel({ wheelY: dragOffset.current })
+      setWheel.start({ wheelY: dragOffset.current })
     }
   })
 
@@ -54,13 +54,14 @@ export const HorizontalDragSnap = () => {
                 top: '50%',
                 left: '50%',
                 display: 'block',
-                background: 'grey',
                 transform: 'translate(-50%, -50%)',
                 fontSize: '16px',
               }}
-              onMouseDown={(evt) => {
-                evt.stopPropagation()
+              onClick={() => {
+                console.log('hello')
               }}
+              onPointerDown={(evt) => evt.stopPropagation()}
+              onMouseDown={(evt) => evt.stopPropagation()}
             >
               Hello
             </button>

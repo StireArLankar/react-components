@@ -14,6 +14,7 @@ const wrapper = style({
 
   selectors: {
     '&::before, &::after': {
+      boxSizing: 'inherit',
       content: '""',
       zIndex: -1,
       position: 'absolute',
@@ -25,11 +26,13 @@ const wrapper = style({
       transition: 'opacity 0.5s ease',
     },
     '&::before': {
+      boxSizing: 'inherit',
       background: 'linear-gradient(0deg, #E3EDF7, #E3EDF7)',
       boxShadow: raisedShadow,
       opacity: 1,
     },
     '&::after': {
+      boxSizing: 'inherit',
       background: '#E3EDF7',
       boxShadow:
         'inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF',

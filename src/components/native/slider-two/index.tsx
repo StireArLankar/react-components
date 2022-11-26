@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Slide from './Slide'
+import Slide from './slide1'
 import Slider from './Slider'
 import style from './slider.module.scss'
 

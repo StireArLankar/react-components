@@ -1,8 +1,13 @@
-//@ts-nocheck
 import React from 'react'
 
-const SelectInput = (props) => {
-  const onChange = (e) => {
+import { SelectField } from '../fields.types'
+
+export type SelectInputProps = SelectField & {
+  onChange: (value: string) => void
+}
+
+const SelectInput = (props: SelectInputProps) => {
+  const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target
     props.onChange(value)
   }
