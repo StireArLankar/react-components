@@ -1,10 +1,5 @@
-import { style, styleVariants } from '@vanilla-extract/css'
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-
-const activeVariants = styleVariants({
-  true: { color: 'darkblue' },
-  false: {},
-})
 
 const baseItem = style({
   whiteSpace: 'nowrap',
@@ -17,37 +12,43 @@ const baseItem = style({
   display: 'flex',
 })
 
-export default {
-  label: style({
-    background: 'none',
-    padding: '6px 12px',
-    margin: 0,
-    color: 'black',
-    border: '1px solid transparent',
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
-    outline: 'none',
-    backgroundColor: 'white',
-    borderRadius: 12,
+const activeVariants = styleVariants({
+  true: { color: 'darkblue' },
+  false: {},
+})
 
-    fontSize: 14,
-    fontWeight: 700,
-    textTransform: 'uppercase',
+const label = style({
+  background: 'none',
+  padding: '6px 12px',
+  margin: 0,
+  color: 'black',
+  border: '1px solid transparent',
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  outline: 'none',
+  backgroundColor: 'white',
+  borderRadius: 12,
 
-    transition: 'color 0.3s ease, border-color 0.3s ease',
+  fontSize: 14,
+  fontWeight: 700,
+  textTransform: 'uppercase',
 
-    selectors: {
-      '&:hover, &:focus': {
-        color: 'blue',
-        borderColor: 'currentColor',
-      },
+  transition: 'color 0.3s ease, border-color 0.3s ease',
 
-      '& span': { minWidth: '3ch' },
-
-      '& svg': { marginLeft: 2 },
+  selectors: {
+    '&:hover, &:focus': {
+      color: 'blue',
+      borderColor: 'currentColor',
     },
-  }),
+  },
+})
+
+globalStyle(`${label} span`, { minWidth: '3ch' })
+globalStyle(`${label} svg`, { marginLeft: 2 })
+
+export default {
+  label,
 
   wrapper: style({
     paddingRight: 24,

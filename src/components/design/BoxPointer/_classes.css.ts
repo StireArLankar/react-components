@@ -1,21 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
-const sideVariants = styleVariants({
-  bottom: {
-    '::before': { bottom: -15, transform: 'rotate(45deg)' },
-  },
-  left: {
-    '::before': { left: -15, transform: 'rotate(135deg)' },
-  },
-  right: {
-    '::before': { right: -15, transform: 'rotate(315deg)' },
-  },
-  top: {
-    '::before': { top: -15, transform: 'rotate(225deg)' },
-  },
-})
-
 const baseBox = style({
   minHeight: 200,
   position: 'relative',
@@ -50,6 +35,21 @@ const baseBox = style({
     '&:hover::before': {
       background: '#262626',
     },
+  },
+})
+
+const sideVariants = styleVariants({
+  bottom: {
+    '::before': { bottom: -15, transform: 'rotate(45deg)' },
+  },
+  left: {
+    '::before': { left: -15, transform: 'rotate(135deg)' },
+  },
+  right: {
+    '::before': { right: -15, transform: 'rotate(315deg)' },
+  },
+  top: {
+    '::before': { top: -15, transform: 'rotate(225deg)' },
   },
 })
 

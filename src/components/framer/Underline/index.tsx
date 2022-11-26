@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import classes from './_classes.css'
 
@@ -14,28 +14,36 @@ const screens = [
 export default () => {
   const [selected, setSelected] = useState(0)
 
+  const prevColor = useRef('#ff0055')
+
   return (
-    <AnimateSharedLayout>
-      <ol className={classes.list}>
-        {screens.map(({ title, color }, i) => (
-          <motion.li
-            key={i}
-            animate
-            className={classes.title({ selected: i === selected })}
-            style={{ color: i === selected ? color : '#333' }}
-            onClick={() => setSelected(i)}
-          >
-            {i === selected && (
-              <motion.div
-                layoutId='_'
-                className={classes.underline}
-                style={{ backgroundColor: color }}
-              />
-            )}
-            {title}
-          </motion.li>
-        ))}
-      </ol>
-    </AnimateSharedLayout>
+    <ol className={classes.list}>
+      {screens.map(({ title, color }, i) => (
+        <motion.li
+          key={i}
+          animate={{
+            fontSize: i === selected ? '64px' : '32px',
+            color: i === selected ? color : '#333',
+          }}
+          className={classes.title({ selected: i === selected })}
+          onClick={() => {
+            prevColor.current = screens[selected].color
+            setSelected(i)
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          {i === selected && (
+            <motion.div
+              layoutId='_'
+              className={classes.underline}
+              animate={{ backgroundColor: color }}
+              transition={{ duration: 0.5 }}
+              initial={{ backgroundColor: prevColor.current }}
+            />
+          )}
+          {title}
+        </motion.li>
+      ))}
+    </ol>
   )
 }

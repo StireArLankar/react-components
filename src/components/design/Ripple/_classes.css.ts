@@ -1,11 +1,6 @@
 import { keyframes, style, styleVariants } from '@vanilla-extract/css'
 import { recipe, RecipeVariants } from '@vanilla-extract/recipes'
 
-const ripple = keyframes({
-  from: { width: 0, height: 0, opacity: 0.5 },
-  to: { width: 500, height: 500, opacity: 0 },
-})
-
 const baseButton = style({
   cursor: 'pointer',
   border: 'none',
@@ -31,6 +26,11 @@ const button = recipe({
   base: baseButton,
   variants: { variant: buttonVariants },
   defaultVariants: { variant: 'primary' },
+})
+
+const ripple = keyframes({
+  from: { width: 0, height: 0, opacity: 0.5 },
+  to: { width: '500px', height: '500px', opacity: 0 },
 })
 
 export type Variants = RecipeVariants<typeof button>

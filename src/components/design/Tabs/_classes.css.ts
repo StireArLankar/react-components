@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { style, globalStyle } from '@vanilla-extract/css'
 
 const title = style({
   fontFamily: 'inherit',
@@ -19,6 +19,25 @@ const title = style({
     },
   },
 })
+
+const center = style({
+  display: 'grid',
+  gridTemplateColumns: '1fr min(60ch, 100%) 1fr',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'center',
+  minWidth: 0,
+  width: '100%',
+
+  '@media': {
+    '(min-width: 768px)': {
+      textAlign: 'left',
+    },
+  },
+})
+
+globalStyle(`${title} > * `, { gridColumn: '2/-2' })
+globalStyle(`${title} * `, { textAlign: 'inherit' })
 
 export default {
   card: style({
@@ -58,31 +77,7 @@ export default {
     },
   }),
 
-  center: style({
-    display: 'grid',
-    gridTemplateColumns: '1fr min(60ch, 100%) 1fr',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    minWidth: 0,
-    width: '100%',
-
-    selectors: {
-      '& > *': {
-        gridColumn: '2/-2',
-      },
-
-      '& *': {
-        textAlign: 'inherit',
-      },
-    },
-
-    '@media': {
-      '(min-width: 768px)': {
-        textAlign: 'left',
-      },
-    },
-  }),
+  center,
 
   subtitle: style({
     margin: '16px 0 0',

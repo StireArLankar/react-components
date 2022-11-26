@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { List, Root, Tab } from '@radix-ui/react-tabs'
-import { AnimateSharedLayout, motion, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 import classes from './_classes.css'
 
@@ -35,36 +35,34 @@ export default () => {
     <div className={classes.card}>
       <Root value={selected} onValueChange={setSelected}>
         <List className={classes.list} as='ol'>
-          <AnimateSharedLayout>
-            <Tab
-              value='0'
-              as={motion.li}
-              className={classes.title}
-              variants={variantItem}
-              animate={selected === '0' ? 'open' : 'close'}
-            >
-              {'0' === selected && (
-                <motion.div layoutId='_' className={classes.underline} />
-              )}
-              <motion.span animate variants={variantText}>
-                1
-              </motion.span>
-            </Tab>
-            <Tab
-              value='1'
-              as={motion.li}
-              className={classes.title}
-              variants={variantItem}
-              animate={selected === '1' ? 'open' : 'close'}
-            >
-              {'1' === selected && (
-                <motion.div layoutId='_' className={classes.underline} />
-              )}
-              <motion.span animate variants={variantText}>
-                2
-              </motion.span>
-            </Tab>
-          </AnimateSharedLayout>
+          <Tab
+            value='0'
+            as={motion.li}
+            className={classes.title}
+            variants={variantItem}
+            animate={selected === '0' ? 'open' : 'close'}
+          >
+            {'0' === selected && (
+              <motion.div layoutId='_' className={classes.underline} />
+            )}
+            <motion.span animate variants={variantText}>
+              1
+            </motion.span>
+          </Tab>
+          <Tab
+            value='1'
+            as={motion.li}
+            className={classes.title}
+            variants={variantItem}
+            animate={selected === '1' ? 'open' : 'close'}
+          >
+            {'1' === selected && (
+              <motion.div layoutId='_' className={classes.underline} />
+            )}
+            <motion.span animate variants={variantText}>
+              2
+            </motion.span>
+          </Tab>
         </List>
       </Root>
 

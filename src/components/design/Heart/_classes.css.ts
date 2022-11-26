@@ -6,6 +6,15 @@ const heartBlast = keyframes({
   to: { backgroundPosition: 'right' },
 })
 
+const baseHeart = style({
+  position: 'absolute',
+  backgroundPosition: 'left',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: '2900%',
+  height: '100%',
+  width: '100%',
+})
+
 const openVariants = styleVariants({
   true: {
     animationName: heartBlast,
@@ -15,17 +24,6 @@ const openVariants = styleVariants({
     backgroundPosition: 'right',
   },
   false: {},
-})
-
-const baseHeart = style({
-  position: 'absolute',
-  backgroundPosition: 'left',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: '2900%',
-  height: 300,
-  width: 300,
-  left: '-100%',
-  top: '-100%',
 })
 
 export default {

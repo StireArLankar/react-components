@@ -1,16 +1,16 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
-const selectedVariants = styleVariants({
-  true: { fontSize: 64 },
-  false: {},
-})
-
 const title = style({
   fontSize: 32,
   marginLeft: 20,
   position: 'relative',
   cursor: 'pointer',
+})
+
+const selectedVariants = styleVariants({
+  true: { fontSize: 64 },
+  false: {},
 })
 
 export default {

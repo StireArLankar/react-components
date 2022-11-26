@@ -1,15 +1,15 @@
 import { style, styleVariants, globalStyle } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
-const checkedVariants = styleVariants({
-  true: { opacity: 1 },
-  false: { opacity: 0 },
-})
-
 const baseIndicator = style({
   display: 'flex',
   opacity: 0,
   transition: 'opacity 0.3s ease-in-out',
+})
+
+const checkedVariants = styleVariants({
+  true: { opacity: 1 },
+  false: { opacity: 0 },
 })
 
 const helper = style({

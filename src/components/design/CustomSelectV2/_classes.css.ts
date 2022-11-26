@@ -1,27 +1,5 @@
-import { style, styleVariants } from '@vanilla-extract/css'
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-
-const labelFitVariants = styleVariants({
-  true: { padding: `0px 12px`, height: '100%' },
-  false: {},
-})
-
-const labelVariants = styleVariants({
-  primary: {},
-  secondary: {
-    color: 'white',
-    background: '#3D89EB',
-
-    selectors: {
-      '& svg': { fill: 'white' },
-
-      '&:not(:disabled):hover, &:not(:disabled):focus': {
-        opacity: 0.8,
-        color: 'white',
-      },
-    },
-  },
-})
 
 const baseLabel = style({
   display: 'flex',
@@ -58,30 +36,46 @@ const baseLabel = style({
     '&:disabled': {
       background: '#0E1221',
     },
+  },
+})
 
-    '& span': {
-      minWidth: '4ch',
-    },
+globalStyle(`${baseLabel} span`, { minWidth: '4ch' })
+globalStyle(`${baseLabel} svg`, { marginLeft: 2 })
 
-    '& svg': {
-      marginLeft: 2,
+const labelFitVariants = styleVariants({
+  true: { padding: `0px 12px`, height: '100%' },
+  false: {},
+})
+
+const labelVariants = styleVariants({
+  primary: {},
+  secondary: {
+    color: 'white',
+    background: '#3D89EB',
+
+    selectors: {
+      '&:not(:disabled):hover, &:not(:disabled):focus': {
+        opacity: 0.8,
+        color: 'white',
+      },
     },
   },
 })
 
-const activeVariants = styleVariants({
-  true: { color: '#3D89EB' },
-  false: {},
-})
+globalStyle(`${labelVariants.secondary} svg`, { fill: 'white' })
 
 const baseItem = style({
-  color: 'inherit',
   fontFamily: 'inherit',
   fontWeight: 'bold',
   fontSize: 14,
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
+})
+
+const activeVariants = styleVariants({
+  true: { color: '#3D89EB' },
+  false: {},
 })
 
 export default {

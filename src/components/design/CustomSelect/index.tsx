@@ -94,7 +94,7 @@ export const Select = (props: SelectProps) => {
           />
         </svg>
       </button>
-      <div {...getMenuProps}>
+      <div {...getMenuProps()}>
         {renderLayer(
           <AnimatePresence>
             {showMenu && (

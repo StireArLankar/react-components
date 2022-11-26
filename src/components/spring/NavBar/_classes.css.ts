@@ -1,6 +1,22 @@
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 
 import { vars } from '~/theme/theme.css'
+
+const popover = style({
+  position: 'absolute',
+  top: '100%',
+  left: 0,
+  transformOrigin: 'top',
+  backgroundColor: vars.color.border,
+  borderRadius: 10,
+  overflow: 'hidden',
+})
+
+globalStyle(`${popover} > *`, {
+  padding: `8px 0`,
+  margin: `0 8px`,
+  position: 'relative',
+})
 
 export default {
   nav: style({
@@ -24,21 +40,5 @@ export default {
     },
   }),
 
-  popover: style({
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    transformOrigin: 'top',
-    backgroundColor: vars.color.border,
-    borderRadius: 10,
-    overflow: 'hidden',
-
-    selectors: {
-      '& > *': {
-        padding: `8px 0`,
-        margin: `0 8px`,
-        position: 'relative',
-      },
-    },
-  }),
+  popover,
 }

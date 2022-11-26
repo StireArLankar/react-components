@@ -1,14 +1,5 @@
-import { style, styleVariants } from '@vanilla-extract/css'
+import { style, styleVariants, globalStyle } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
-
-const dragVariants = styleVariants({
-  true: { cursor: 'grabbing' },
-  false: {},
-})
-const disabledVariants = styleVariants({
-  true: { opacity: 0.5, cursor: 'default' },
-  false: {},
-})
 
 const baseCard = style({
   position: 'relative',
@@ -29,24 +20,34 @@ const baseCard = style({
   },
 })
 
+const dragVariants = styleVariants({
+  true: { cursor: 'grabbing' },
+  false: {},
+})
+
+const disabledVariants = styleVariants({
+  true: { opacity: 0.5, cursor: 'default' },
+  false: {},
+})
+
+const inner = style({
+  willChange: 'transform',
+  height: '100%',
+  margin: '0vw 0',
+})
+
+globalStyle(`${inner} > *`, {
+  height: '100%',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center center',
+  margin: '0vw 0',
+})
+
 export default {
   card: recipe({
     base: baseCard,
     variants: { drag: dragVariants, disabled: disabledVariants },
   }),
 
-  inner: style({
-    willChange: 'transform',
-    height: '100%',
-    margin: '0vw 0',
-
-    selectors: {
-      '& > *': {
-        height: '100%',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        margin: '0vw 0',
-      },
-    },
-  }),
+  inner,
 }
