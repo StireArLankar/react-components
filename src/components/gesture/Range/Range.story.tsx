@@ -1,10 +1,10 @@
-import { Range } from './Range'
-import { RangeSimple } from './RangeSimple'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
+
+import { Range } from './Range'
+import { RangeSimple } from './RangeSimple'
 
 const label = (
   <>

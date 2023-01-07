@@ -8,19 +8,9 @@ import imgs from './imgs'
 export const BoxSlider = (props: BoxSliderProps) => {
   const { rotate, int } = props
 
-  const [{ x }, setX] = useSpring(() => ({ x: 0 }))
+  const [{ x }, spring] = useSpring(() => ({ x: 0 }))
 
-  const bind = useDrag(
-    ({ offset: [x] }) => {
-      setX({ x })
-    },
-    // FIXME
-    { target: window }
-  )
-
-  // useEffect(() => {
-  //   bind()
-  // }, [bind])
+  useDrag(({ offset: [x] }) => void spring.start({ x }), { target: window })
 
   const renderImages = () =>
     imgs.map((img, index) => (
@@ -41,7 +31,6 @@ export const BoxSlider = (props: BoxSliderProps) => {
   const renderValues = () =>
     imgs.map((_, index) => (
       <animated.p className={classes.value}>
-        {/* @ts-ignore */}
         {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))

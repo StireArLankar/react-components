@@ -1,9 +1,9 @@
 import { ComponentStory } from '@storybook/react'
 
-import { Test } from './Test'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Test } from './Test'
 
 export default {
   title: 'Spring/Tooltip',

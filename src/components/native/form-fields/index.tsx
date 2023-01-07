@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
+import useBGColor from '~/hook/useBgColor'
+
 import Fields from './Fields'
 import { defaultFields as types, FieldType } from './fields.types'
 import FieldsSelect from './FieldsSelect'
 import style from './form.module.scss'
 import TextDisplay from './TextDisplay'
-
-import useBGColor from '~/hook/useBgColor'
 
 export const FormFields = () => {
   const [fields, setFields] = useState<FieldType[]>([])

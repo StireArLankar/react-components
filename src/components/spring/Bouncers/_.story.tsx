@@ -1,8 +1,8 @@
 import { ComponentMeta } from '@storybook/react'
 
-import { Bouncers } from '.'
-
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Bouncers } from '.'
 
 export default {
   title: 'Spring/Bouncers',

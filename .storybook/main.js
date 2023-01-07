@@ -1,5 +1,5 @@
 const { loadConfigFromFile, mergeConfig } = require('vite')
-const svgr = require('vite-plugin-svgr').default
+const svgr = require('vite-plugin-svgr')
 const { vanillaExtractPlugin } = require('@vanilla-extract/vite-plugin')
 
 /**

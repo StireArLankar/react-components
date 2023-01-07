@@ -2,9 +2,8 @@ import { useState } from 'react'
 
 import { motion } from 'framer-motion'
 
-import classes from './_classes.css'
-
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
+import classes from '~/components/framer/basics/_classes.css'
 
 const spring = {
   type: 'spring',
@@ -19,9 +18,9 @@ export const MyComponent2 = ({ items }: { items: Array<{ id: string }> }) => (
       <motion.div
         className={classes.box}
         key={item.id}
-        style={{ background: item.id === '1' ? 'teal' : 'pink' }}
+        animate={{ background: item.id === '1' ? 'teal' : 'pink' }}
         transition={spring}
-        animate
+        layout
       />
     ))}
   </div>

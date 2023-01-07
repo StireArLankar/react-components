@@ -2,10 +2,10 @@ import React from 'react'
 
 import { ComponentStory } from '@storybook/react'
 
-import { ScrollBar as Component } from './ScrollBar'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { ScrollBar as Component } from './ScrollBar'
 
 export default {
   title: 'Gesture/ScrollBar',

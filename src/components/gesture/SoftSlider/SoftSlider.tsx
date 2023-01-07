@@ -109,7 +109,7 @@ export const Slider = ({
       restPos.current = Math.round(-offsetLeft + (width - offsetWidth) / 2)
     }
 
-    set(() => ({
+    set.start(() => ({
       [axis]: restPos.current,
       s: 1,
       config: releaseSpring,
@@ -151,7 +151,7 @@ export const Slider = ({
         if (index !== indexRef.current) {
           requestAnimationFrame(() => onIndexChange(indexRef.current))
         } else {
-          set(() => ({
+          set.start(() => ({
             [axis]: restPos.current,
             s: 1,
             config: releaseSpring,
@@ -160,7 +160,7 @@ export const Slider = ({
 
         onDragEnd && onDragEnd(pressedIndex)
       } else {
-        set((i) => ({
+        set.start((i) => ({
           [axis]: mov + memo,
           s: draggedScale,
           config: draggedSpring,

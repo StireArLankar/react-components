@@ -32,44 +32,50 @@ export default ({ children }: React.PropsWithChildren<{}>) => {
 
   const dragOptions = isOpen ? dragOptions1 : dragOptions2
 
-  const bind = useDrag(({ movement: [, y], down }) => {
-    switch (true) {
-      // если палец / мышка нажаты
-      case down:
-        // если открыта, то считаем y возле верхнего края
-        // если закрыта, то у нижнего
-        spring.start({ y: isOpen ? height - y : -y, y2: -y - 20 })
-        break
+  const bind = useDrag(
+    ({ movement: [, y], down }) => {
+      switch (true) {
+        // если палец / мышка нажаты
+        case down:
+          // если открыта, то считаем y возле верхнего края
+          // если закрыта, то у нижнего
+          spring.start({ y: isOpen ? height - y : -y, y2: -y - 20 })
+          break
 
-      // когда отжимается палец:
+        // когда отжимается палец:
 
-      // модалка развернута и смещение вниз больше 30
-      // закрываем модалку
-      case isOpen === true && y > 30:
-        setIsOpen(false)
-        spring.start(initialState)
-        break
+        // модалка развернута и смещение вниз больше 30
+        // закрываем модалку
+        case isOpen === true && y > 30:
+          setIsOpen(false)
+          spring.start(initialState)
+          break
 
-      // модалка развернута и смещения недостаточно
-      // оставляем модалку раскрытой
-      case isOpen === true:
-        spring.start({ y: height, y2: -20 })
-        break
+        // модалка развернута и смещения недостаточно
+        // оставляем модалку раскрытой
+        case isOpen === true:
+          spring.start({ y: height, y2: -20 })
+          break
 
-      // модалка закрыта и смещение вверх больше 30
-      // открываем модалку
-      case isOpen === false && y < -30:
-        setIsOpen(true)
-        spring.start({ y: height, y2: -20 })
-        break
+        // модалка закрыта и смещение вверх больше 30
+        // открываем модалку
+        case isOpen === false && y < -30:
+          setIsOpen(true)
+          spring.start({ y: height, y2: -20 })
+          break
 
-      // модалка закрыта и смещения недостаточно
-      // оставляем модалку закрытой
-      case isOpen === false:
-        spring.start(initialState)
-        break
+        // модалка закрыта и смещения недостаточно
+        // оставляем модалку закрытой
+        case isOpen === false:
+          spring.start(initialState)
+          break
+      }
+    },
+    {
+      bounds: dragOptions.bounds,
+      from: () => [y.get(), 0],
     }
-  }, dragOptions)
+  )
 
   return (
     <>
@@ -85,7 +91,10 @@ export default ({ children }: React.PropsWithChildren<{}>) => {
         <div className={classes.wrapperFilter}>
           <animated.div
             className={classes.box}
-            style={{ transform: y2.to((y) => trans(y, 0.3)) }}
+            style={{
+              transform: y2.to((y) => trans(y, 0.3)),
+              touchAction: 'none',
+            }}
             {...bind()}
           />
           <animated.div className={classes.planc} style={{ height: '100%' }} />
@@ -97,6 +106,8 @@ export default ({ children }: React.PropsWithChildren<{}>) => {
             position: 'relative',
             padding: `15px 20px 35px`,
             display: 'flex',
+            background: 'white',
+            borderRadius: 20,
           }}
         >
           <div

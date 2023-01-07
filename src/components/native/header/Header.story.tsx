@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Header, HeaderProps } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Header, HeaderProps } from '.'
 
 export default {
   title: 'Native/Header With Sidebar',

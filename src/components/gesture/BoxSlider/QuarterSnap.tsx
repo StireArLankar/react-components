@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { BoxSliderSnap } from './BoxSliderSnap'
-
 import clamp from '~/utils/clamp'
+
+import { BoxSliderSnap } from './BoxSliderSnap'
 
 const STEP = 100
 

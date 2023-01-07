@@ -1,7 +1,7 @@
-import BottomSheet from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import BottomSheet from '.'
 
 export default {
   title: 'Gesture/BottomSheet',

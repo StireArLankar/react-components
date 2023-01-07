@@ -3,25 +3,6 @@ import { recipe } from '@vanilla-extract/recipes'
 
 import { vars } from '~/theme/theme.css'
 
-const sideVariants = styleVariants({
-  top: {
-    bottom: `calc(100% +16px)`,
-    '::before': {
-      top: 'calc(100% - 1px)',
-      borderBottomWidth: 0,
-      borderTopColor: vars.color.light,
-    },
-  },
-  bottom: {
-    top: `calc(100% +16px)`,
-    '::before': {
-      bottom: 'calc(100% - 1px)',
-      borderTopWidth: 0,
-      borderBottomColor: vars.color.light,
-    },
-  },
-})
-
 export const basePopup = style({
   position: 'absolute',
   left: '50%',
@@ -47,6 +28,25 @@ export const basePopup = style({
     left: '50%',
     transform: 'translateX(-50%)',
     border: `10px solid transparent`,
+  },
+})
+
+const sideVariants = styleVariants({
+  top: {
+    bottom: `calc(100% + 16px)`,
+    '::before': {
+      top: 'calc(100% - 1px)',
+      borderBottomWidth: 0,
+      borderTopColor: vars.color.light,
+    },
+  },
+  bottom: {
+    top: `calc(100% + 16px)`,
+    '::before': {
+      bottom: 'calc(100% - 1px)',
+      borderTopWidth: 0,
+      borderBottomColor: vars.color.light,
+    },
   },
 })
 

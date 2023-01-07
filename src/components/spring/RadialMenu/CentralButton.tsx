@@ -1,8 +1,8 @@
 import { useSpring, animated } from '@react-spring/web'
 
-import classes from './_classes.css'
-
 import { Adjust, HighlightOff } from '~/components/material-svgs'
+
+import classes from './_classes.css'
 
 export interface CentralButtonProps {
   isOpen: boolean

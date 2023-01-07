@@ -1,9 +1,9 @@
-import { Inertia } from './Inertia'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
+
+import { Inertia } from './Inertia'
 
 const label = (
   <>

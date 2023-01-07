@@ -1,14 +1,14 @@
 import { ComponentStory } from '@storybook/react'
 
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { FilledDnDGrid } from './FilledDnDGrid'
 import { SwapDnDGrid } from './FilledDnDGrid/SwapDnDGrid'
 import { UnfilledDnDGrid } from './FilledDnDGrid/UnfilledDnDGrid'
 import { StatefulDnDGrid } from './StatefulDnDGrid'
 
 import { DnDGrid } from '.'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Gesture/DnDGrid',

@@ -1,6 +1,6 @@
-import { BoxSlider } from '.'
-
 import clamp from '~/utils/clamp'
+
+import { BoxSlider } from '.'
 
 const STEP = 100
 

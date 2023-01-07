@@ -15,9 +15,9 @@ export const Toggle = () => {
   }, [])
 
   const transitions = useTransition(toggle, {
-    from: { opacity: 0, transform: 'translateY(-10px)' },
-    enter: { opacity: 1, transform: 'translateY(0)' },
-    leave: { opacity: 0, transform: 'translateY(-10px)' },
+    from: { opacity: 0, y: -10 },
+    enter: { opacity: 1, y: 0 },
+    leave: { opacity: 0, y: -10 },
   })
 
   const renderAnimation = () =>

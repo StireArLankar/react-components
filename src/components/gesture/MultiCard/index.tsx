@@ -15,23 +15,23 @@ const wheel = (y: number) => {
 // document.addEventListener('gesturechange', (e) => e.preventDefault())
 
 export const MultiCard = () => {
-  const [{ x, y, scale }, set] = useSpring(() => ({
+  const [{ x, y, scale }, spring] = useSpring(() => ({
     scale: 1,
     x: 0,
     y: 0,
     config: { mass: 5, tension: 350, friction: 40 },
   }))
 
-  const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
+  const [{ wheelY }, wheelSpring] = useSpring(() => ({ wheelY: 0 }))
   const [drag, setDrag] = useState(false)
 
   const bind = useGesture(
     {
       onDragStart: () => setDrag(true),
-      onDrag: ({ offset: [x, y] }) => set({ x, y, scale: 1 }),
+      onDrag: ({ offset: [x, y] }) => spring.start({ x, y, scale: 1 }),
       onDragEnd: () => setDrag(false),
-      onHover: ({ hovering }) => !hovering && set({ scale: 1 }),
-      onWheel: ({ offset: [, y] }) => setWheel({ wheelY: y }),
+      onHover: ({ hovering }) => !hovering && spring.start({ scale: 1 }),
+      onWheel: ({ offset: [, y] }) => wheelSpring.start({ wheelY: y }),
     },
     { eventOptions: { passive: false } }
   )
@@ -48,7 +48,7 @@ export const MultiCard = () => {
         ),
         // x,
         // y,
-        // scale: interpolate([scale as any, zoom as any] as any, (s, z) => s + z),
+        // scale: to([scale as any, zoom as any] as any, (s, z) => s + z),
       }}
     >
       <animated.div

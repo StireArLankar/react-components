@@ -1,8 +1,8 @@
-import { SvgPath } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { vars } from '~/theme/theme.css'
+
+import { SvgPath } from '.'
 
 export default {
   title: 'Spring/SvgPath',

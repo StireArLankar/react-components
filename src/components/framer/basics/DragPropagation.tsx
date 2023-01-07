@@ -2,9 +2,8 @@ import { useRef } from 'react'
 
 import { motion } from 'framer-motion'
 
-import classes from './_classes.css'
-
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
+import classes from '~/components/framer/basics/_classes.css'
 
 export const DragPropagation = () => {
   const isDragging = useRef(false)

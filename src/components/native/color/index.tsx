@@ -6,11 +6,11 @@ import React, {
   ChangeEvent,
 } from 'react'
 
+import useBGColor from '~/hook/useBgColor'
+
 import classes from './color.module.scss'
 import ColorDisplay from './ColorDisplay'
 import FileInput from './FileInput'
-
-import useBGColor from '~/hook/useBgColor'
 
 export const Color = () => {
   const [moveColor, setMoveColor] = useState<[number, number, number]>([

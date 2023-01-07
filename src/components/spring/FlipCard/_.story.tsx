@@ -1,11 +1,11 @@
 import { ComponentStory } from '@storybook/react'
 
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { FlipCardScaled } from './FlipCardScaled'
 
 import { FlipCard } from '.'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/FlipCard',

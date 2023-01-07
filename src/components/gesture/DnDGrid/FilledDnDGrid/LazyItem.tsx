@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from '../_classes.css'
-
 import clamp from '~/utils/clamp'
+
+import classes from '../_classes.css'
 
 const updateAxis = (
   val: number,
@@ -39,7 +39,7 @@ export const LazyItem = (props: LazyItemProps) => {
 
   const update = (x: number, y: number) => updatePosition(index, x, y)
 
-  const [{ x, y, scalE, zIndeX, shadow }, set] = useSpring(() => ({
+  const [{ x, y, scalE, zIndeX, shadow }, spring] = useSpring(() => ({
     x: position[0] * step,
     y: position[1] * step,
     scalE: 1,
@@ -48,18 +48,18 @@ export const LazyItem = (props: LazyItemProps) => {
   }))
 
   useEffect(() => {
-    set({
+    spring.start({
       x: position[0] * step,
       y: position[1] * step,
       scalE: 1,
       zIndeX: 0,
       shadow: 1,
     })
-  }, [position, set, step])
+  }, [position, spring, step])
 
   const bind = useDrag(({ down, movement: [x, y] }) => {
     if (down) {
-      set({
+      spring.start({
         x: position[0] * step + x,
         y: position[1] * step + y,
         scalE: 1.1,
@@ -71,7 +71,7 @@ export const LazyItem = (props: LazyItemProps) => {
       const newY = updateAxis(y, step, position[1], max)
 
       if (newX === position[0] && newY === position[1]) {
-        set({
+        spring.start({
           x: position[0] * step,
           y: position[1] * step,
           scalE: 1,

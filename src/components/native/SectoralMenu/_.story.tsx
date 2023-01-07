@@ -1,7 +1,5 @@
 import { ComponentStory } from '@storybook/react'
 
-import { SectoralMenu, SectoralButtonModel } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
@@ -14,6 +12,8 @@ import {
   ViewComfyRounded,
 } from '~/components/material-svgs'
 import { storyLink } from '~/theme/theme.css'
+
+import { SectoralMenu, SectoralButtonModel } from '.'
 
 const label = (
   <>

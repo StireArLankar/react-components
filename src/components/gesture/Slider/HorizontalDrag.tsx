@@ -14,10 +14,10 @@ const wheel = (x: number, width: number, count: number) => {
 
 export const HorizontalDrag = () => {
   const [ref, { width }] = useMeasure()
-  const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
+  const [{ wheelY }, spring] = useSpring(() => ({ wheelY: 0 }))
 
-  const bind = useDrag(({ offset: [x], velocity: [vx] }) => {
-    setWheel({ wheelY: -x })
+  const bind = useDrag(({ offset: [x] }) => {
+    spring.start({ wheelY: -x })
   })
 
   return (

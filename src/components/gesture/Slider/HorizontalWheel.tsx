@@ -15,9 +15,9 @@ const wheel = (x: number, width: number, count: number) => {
 
 export const HorizontalWheel = () => {
   const [ref, { width }] = useMeasure()
-  const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
+  const [{ wheelY }, spring] = useSpring(() => ({ wheelY: 0 }))
   const bind = useWheel(({ offset: [, y] }) => {
-    setWheel({ wheelY: y })
+    spring.start({ wheelY: y })
   })
 
   const ref2 = useRef<HTMLDivElement>(null)

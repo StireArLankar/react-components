@@ -2,9 +2,8 @@ import { useState } from 'react'
 
 import { motion } from 'framer-motion'
 
-import classes from './_classes.css'
-
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
+import classes from '~/components/framer/basics/_classes.css'
 
 const variants = {
   visible: { opacity: 1, scale: 0.5 },

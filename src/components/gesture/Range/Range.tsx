@@ -1,16 +1,15 @@
 import React, { useRef, useMemo, useEffect } from 'react'
 import useMeasure from 'react-use-measure'
 
-import { useSpring, animated, interpolate } from '@react-spring/web'
+import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-
-import classes from './_classes.css'
 
 import clamp from '~/utils/clamp'
 
+import classes from './_classes.css'
+
 export const Range = () => {
-  // FIXME
-  const [{ x, s }, set] = useSpring(() => ({ x: 0, s: 1 }))
+  const [{ x, s }, spring] = useSpring(() => ({ x: 0, s: 1 }))
 
   const draggingControl = useRef(false)
 
@@ -25,17 +24,17 @@ export const Range = () => {
   }
 
   useEffect(() => {
-    set({ x: relativePosition.current * width })
-  }, [set, width])
+    spring.start({ x: relativePosition.current * width })
+  }, [spring, width])
 
   const bindControl = useDrag(
-    ({ down, movement: [x] }) => {
+    ({ down, offset: [x] }) => {
       draggingControl.current = down
-      set({ x, s: down ? 1.4 : 1 })
+      spring.start({ x, s: down ? 1.4 : 1 })
       setRelativePosition(x)
     },
     {
-      initial: () => [x.get(), 0],
+      from: () => [x.get(), 0],
       bounds: { left: limits[0], right: limits[1] },
     }
   )
@@ -46,7 +45,7 @@ export const Range = () => {
         return
       }
       const x = clamp(memo + mx, limits[0], limits[1])
-      set({ x })
+      spring.start({ x })
       setRelativePosition(x)
       return memo
     }
@@ -64,10 +63,7 @@ export const Range = () => {
           className={classes.control}
           {...bindControl()}
           style={{
-            transform: interpolate(
-              [x, s],
-              (x, s) => `translateX(${x}px) scale(${s})`
-            ),
+            transform: to([x, s], (x, s) => `translateX(${x}px) scale(${s})`),
           }}
         />
       </div>

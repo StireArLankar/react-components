@@ -22,7 +22,7 @@ export const BoxSliderAutoplay = (props: BoxSliderProps) => {
 
   const isAnimatingRef = useRef(false)
 
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: start,
     onStart: () => (isAnimatingRef.current = true),
     onRest: () => (isAnimatingRef.current = false),
@@ -31,23 +31,22 @@ export const BoxSliderAutoplay = (props: BoxSliderProps) => {
   const [isDragging, setIsDragging] = useState(false)
   const [offset, setOffset] = useState(start)
 
-  const bind = useDrag(
+  useDrag(
     ({ movement: [x], down }) => {
       if (down) {
         setIsDragging(true)
-        setX({ x: offset + x })
+        spring.start({ x: offset + x })
       } else {
         setIsDragging(false)
         setOffset((prev) => updateValue(x, step, prev))
       }
     },
-    // FIXME
     { target: window, filterTaps: true }
   )
 
   useEffect(() => {
-    setX({ x: offset })
-  }, [offset, setX, isDragging])
+    spring.start({ x: offset })
+  }, [offset, spring, isDragging])
 
   useEffect(() => {
     let timer: NodeJS.Timer
@@ -61,15 +60,11 @@ export const BoxSliderAutoplay = (props: BoxSliderProps) => {
       timer = setTimeout(timerHandler, 5000)
     }
     return () => clearTimeout(timer)
-  }, [step, setX, isDragging])
+  }, [step, isDragging])
 
   useEffect(() => {
     setTimeout(() => (isAnimatingRef.current = false), 100)
   }, [])
-
-  // useEffect(() => {
-  //   bind()
-  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (

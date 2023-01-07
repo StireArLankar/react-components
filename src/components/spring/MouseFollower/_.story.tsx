@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { MouseFollower as MouseFollowerV2 } from './V2'
 
 import { MouseFollower } from '.'
-
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Mouse Followers',

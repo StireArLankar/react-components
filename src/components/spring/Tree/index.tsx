@@ -1,5 +1,11 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { FC, memo, useEffect, useRef, useState } from 'react'
+import React, {
+  memo,
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import useMeasure from 'react-use-measure'
 
 import { animated, useSpring } from '@react-spring/web'
@@ -23,7 +29,7 @@ const getIcon = (children: any, isOpen?: boolean) => {
 
 const trans = (val: number) => `translate3d(${20 - 20 * val}px,0,0)`
 
-const Tree: FC<TreeProps> = memo((props) => {
+const Tree = memo((props: PropsWithChildren<TreeProps>) => {
   const { children, name, style, defaultOpen = false } = props
 
   const [isOpen, setOpen] = useState(defaultOpen)

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 
 import { animated, useSpring } from '@react-spring/web'
@@ -10,42 +9,31 @@ import imgs from './imgs'
 const WIDTH = 200
 
 export const SimpleSlider = () => {
-  const [animStyles, spring] = useSpring(() => ({ x: 0 }))
-
-  const [value, setValue] = useState(0)
+  const [{ x }, spring] = useSpring(() => ({ x: 0 }))
 
   const [ref, { width }] = useMeasure()
 
   const onClick = () => {
+    const value = x.get()
+
     if (-value === width - WIDTH) {
       return
-    } else if (-value + WIDTH > width - WIDTH) {
+    }
+
+    if (-value + WIDTH > width - WIDTH) {
       const offset = width - WIDTH + value
-      setValue((prev) => prev - offset)
       spring.start({ x: value - offset })
     } else {
-      setValue((prev) => prev - WIDTH)
       spring.start({ x: value - WIDTH })
     }
   }
 
-  const bind = useDrag(
-    ({ movement: [x], down }) => {
-      spring.start({ x: value + x })
-
-      if (!down) {
-        setValue((prev) => prev + x)
-      }
-    },
-    {
-      bounds: {
-        left: -width + WIDTH - value,
-        right: -value,
-      },
-      rubberband: true,
-      axis: 'x',
-    }
-  )
+  const bind = useDrag(({ offset: [x] }) => spring.start({ x }), {
+    bounds: { left: -width + WIDTH, right: 0 },
+    from: () => [x.get(), 0],
+    rubberband: true,
+    axis: 'x',
+  })
 
   const renderImages = () =>
     imgs.slice(0, 3).map((img, index) => (
@@ -63,7 +51,7 @@ export const SimpleSlider = () => {
         {...bind()}
         ref={ref}
         className={classes.list}
-        style={animStyles}
+        style={{ x, touchAction: 'none' }}
       >
         {renderImages()}
       </animated.ul>

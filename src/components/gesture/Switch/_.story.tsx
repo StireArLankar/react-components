@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Switch } from './Switch'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Switch } from './Switch'
 
 export default {
   title: 'Gesture/Switch',

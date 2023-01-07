@@ -66,7 +66,7 @@ export const ListSlider = (props: PropsWithChildren<SliderProps>) => {
 
   const [selected, setSelected] = useState(0)
 
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: 0,
     onStart: () => {
       isAnimating.current = true
@@ -84,14 +84,17 @@ export const ListSlider = (props: PropsWithChildren<SliderProps>) => {
 
     if (down) {
       setIsDragging(true)
-      setX({ x: selected + (x * 2) / width })
+      spring.start({ x: selected + (x * 2) / width })
     } else {
       setIsDragging(false)
       setSelected((prev) => updateCurrentIndex(x * 2, width, prev))
     }
   })
 
-  useEffect(() => void setX({ x: selected }), [setX, selected, isDragging])
+  useEffect(
+    () => void spring.start({ x: selected }),
+    [spring, selected, isDragging]
+  )
 
   useEffect(() => {
     let timer: NodeJS.Timeout

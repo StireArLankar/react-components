@@ -4,12 +4,11 @@ import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './_classes.css'
-
 import clamp from '~/utils/clamp'
 
+import classes from './_classes.css'
+
 export const RangeSimple = () => {
-  // FIXME
   const [style, spring] = useSpring(() => ({ x: 0, scale: 1 }))
 
   const [scrubRef, { width, left }] = useMeasure({ debounce: 100 })

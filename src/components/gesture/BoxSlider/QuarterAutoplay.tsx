@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { BoxSliderAutoplay } from './BoxSliderAutoplay'
-
 import clamp from '~/utils/clamp'
+
+import { BoxSliderAutoplay } from './BoxSliderAutoplay'
 
 const STEP = 100
 

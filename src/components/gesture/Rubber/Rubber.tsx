@@ -15,9 +15,15 @@ const dragOptions = {
 export const Rubber = () => {
   const [{ y }, spring] = useSpring(() => ({ y: -20 }))
 
-  const bind = useDrag(({ movement: [, y], down }) => {
-    spring.start({ y: down ? -y - 20 : -20 })
-  }, dragOptions)
+  const bind = useDrag(
+    ({ movement: [, y], down }) => {
+      spring.start({ y: down ? -y - 20 : -20 })
+    },
+    {
+      bounds: dragOptions.bounds,
+      from: () => [y.get(), 0],
+    }
+  )
 
   return (
     <>
@@ -39,7 +45,7 @@ export const Rubber = () => {
         />
         <animated.div
           className={classes.box}
-          style={{ transform: y.to((y) => trans(y, 0.3)) }}
+          style={{ transform: y.to((y) => trans(y, 0.3)), touchAction: 'none' }}
           {...bind()}
         />
         <animated.div

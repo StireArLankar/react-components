@@ -109,6 +109,14 @@ globalStyle(':root', {
 globalStyle('html', { height: '100%', boxSizing: 'border-box' })
 
 globalStyle('body', {
+  color: 'rgba(0, 0, 0, 0.87)',
+  margin: 0,
+  fontSize: '0.875rem',
+  fontFamily: 'Roboto, sans-serif',
+  fontWeight: 400,
+  lineHeight: 1.43,
+  letterSpacing: '0.01071em',
+
   backgroundColor: 'var(--bg-color)',
   transition: 'background-color 0.3s ease-in-out',
   minWidth: 320,

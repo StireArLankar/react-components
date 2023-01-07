@@ -1,9 +1,9 @@
 import { ComponentMeta } from '@storybook/react'
 
-import { Cancel } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Cancel } from '.'
 
 export default {
   title: 'Gesture/Cancel',

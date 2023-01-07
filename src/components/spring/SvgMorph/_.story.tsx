@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { SvgMorph as Gradiented } from './Gradiented'
-
-import { SvgMorph } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink, vars } from '~/theme/theme.css'
+
+import { SvgMorph as Gradiented } from './Gradiented'
+
+import { SvgMorph } from '.'
 
 const label = (
   <>

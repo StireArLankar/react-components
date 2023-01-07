@@ -3,10 +3,10 @@ import { useRef } from 'react'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import clamp from '~/utils/clamp'
+
 import classes from './_classes.css'
 import imgs from './imgs'
-
-import clamp from '~/utils/clamp'
 
 const STEP = 100
 const WIDTH = 200
@@ -63,27 +63,24 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
   // Ref for memoizing value between drags
   const dragOffset = useRef(start)
 
-  const bind = useDrag(
-    ({ movement: [x], down, velocity: [vx] }) => {
+  useDrag(
+    ({ movement: [x], down, velocity: [vx], direction: [dx] }) => {
       if (down) {
         spring.start({ x: dragOffset.current + x })
         return
       }
-      dragOffset.current += x + vx * 200
+
+      dragOffset.current += x + vx * dx * 200
       // dragOffset.current += x
       spring.start({ x: dragOffset.current })
     },
-    // FIXME
     { target: window, axis: 'x' }
   )
-
-  // useEffect(() => {
-  //   bind()
-  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (
       <animated.li
+        key={index}
         className={classes.container}
         style={{
           transform: x.to((val) => trans(int(val, imgs.length, index))),
@@ -98,7 +95,7 @@ export const ComplexSlider = (props: ComplexSliderProps) => {
 
   const renderValues = () =>
     imgs.map((_, index) => (
-      <animated.p className={classes.value}>
+      <animated.p className={classes.value} key={index}>
         {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))

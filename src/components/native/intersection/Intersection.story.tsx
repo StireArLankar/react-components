@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Intersection } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Intersection } from '.'
 
 export default {
   title: 'Native/Intersection',

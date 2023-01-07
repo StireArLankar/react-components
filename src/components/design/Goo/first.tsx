@@ -81,6 +81,7 @@ export const Temp = () => {
             transform: xy.to(trans),
             userSelect: 'none',
             position: 'fixed',
+            touchAction: 'none',
           }}
         />
         <div

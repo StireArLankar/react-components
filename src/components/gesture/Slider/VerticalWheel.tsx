@@ -14,8 +14,8 @@ const wheel = (y: number, height: number, count: number) => {
 
 export const VerticalWheel = () => {
   const [ref, { height }] = useMeasure()
-  const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
-  const bind = useWheel(({ offset: [, y] }) => setWheel({ wheelY: y }))
+  const [{ wheelY }, spring] = useSpring(() => ({ wheelY: 0 }))
+  const bind = useWheel(({ offset: [, y] }) => spring.start({ wheelY: y }))
 
   return (
     <div className={classes.wrapper}>

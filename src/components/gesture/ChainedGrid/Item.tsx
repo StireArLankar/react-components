@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState, memo } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useGesture } from '@use-gesture/react'
 
+import clamp from '~/utils/clamp'
+
 import classes from './_classes.css'
 import { Child } from './Child'
-
-import clamp from '~/utils/clamp'
 
 export interface ItemProps {
   index: number
@@ -69,16 +69,16 @@ export const Item = memo((props: ItemProps) => {
   const isDragging = useRef(false)
   const [oldPos, setOldPos] = useState([...position])
 
-  const [{ x, y, scalE, zIndeX, shadow }, set] = useSpring(() =>
+  const [{ x, y, scalE, zIndeX, shadow }, spring] = useSpring(() =>
     setStable(position[0] * step, position[1] * step)
   )
 
   useEffect(() => {
     if (!isDragging.current) {
       setOldPos([...position])
-      set(setStable(position[0] * step, position[1] * step, active))
+      spring.start(setStable(position[0] * step, position[1] * step, active))
     }
-  }, [position, set, step, active])
+  }, [position, spring, step, active])
 
   const bind = useGesture(
     {
@@ -94,10 +94,10 @@ export const Item = memo((props: ItemProps) => {
         const newX = updateAxis(x, step, oldPos[0], max)
         const newY = updateAxis(y, step, oldPos[1], max)
         if (down) {
-          set(setDragging(oldPos[0] * step + x, oldPos[1] * step + y))
+          spring.start(setDragging(oldPos[0] * step + x, oldPos[1] * step + y))
         } else {
           setOldPos([newX, newY])
-          set(setStable(newX * step, newY * step, active))
+          spring.start(setStable(newX * step, newY * step, active))
         }
 
         updatePosition(index, newX, newY)
@@ -111,6 +111,7 @@ export const Item = memo((props: ItemProps) => {
       {...bind()}
       className={classes.item}
       style={{
+        touchAction: 'none',
         zIndex: zIndeX.to((val) => Number(val.toFixed(0))),
         boxShadow: shadow.to(
           (s) => `0px ${s}px ${2 * s}px 0px rgba(0, 0, 0, 0.3)`

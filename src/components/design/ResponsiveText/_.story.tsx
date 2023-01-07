@@ -1,9 +1,9 @@
 import { ComponentStory } from '@storybook/react'
 
-import Temp, { ResponsiveTextProps } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import Temp, { ResponsiveTextProps } from '.'
 
 export default {
   title: 'Design/ResponsiveText',
@@ -17,6 +17,7 @@ export default {
       placeItems: 'center',
     }),
   ],
+  argTypes: { variant: { control: 'radio', options: ['bold', 'regular'] } },
 }
 
 const Template: ComponentStory<typeof Asd> = (props) => <Asd {...props} />

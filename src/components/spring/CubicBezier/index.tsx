@@ -17,29 +17,29 @@ const boundsInner = { bottom: 500, left: 0, right: 500, top: 0 }
 const boundOuter = { bottom: 590, left: -90, right: 590, top: -90 }
 
 export default memo(() => {
-  const [{ p1, p2, p3, p4 }, set] = useSpring(() => ({
+  const [{ p1, p2, p3, p4 }, spring] = useSpring(() => ({
     p1: [0, 500] as Tuple<number>,
     p2: [100, 400] as Tuple<number>,
     p3: [400, 100] as Tuple<number>,
     p4: [500, 0] as Tuple<number>,
   }))
 
-  const bind1 = useDrag(({ offset: [x, y] }) => set.start({ p1: [x, y] }), {
+  const bind1 = useDrag(({ offset }) => spring.start({ p1: offset }), {
     from: () => p1.get(),
     bounds: boundsInner,
   })
 
-  const bind2 = useDrag(({ offset: [x, y] }) => set.start({ p2: [x, y] }), {
+  const bind2 = useDrag(({ offset }) => spring.start({ p2: offset }), {
     from: () => p2.get(),
     bounds: boundOuter,
   })
 
-  const bind3 = useDrag(({ offset: [x, y] }) => set.start({ p3: [x, y] }), {
+  const bind3 = useDrag(({ offset }) => spring.start({ p3: offset }), {
     from: () => p3.get(),
     bounds: boundOuter,
   })
 
-  const bind4 = useDrag(({ offset: [x, y] }) => set.start({ p4: [x, y] }), {
+  const bind4 = useDrag(({ offset }) => spring.start({ p4: offset }), {
     from: () => p4.get(),
     bounds: boundsInner,
   })

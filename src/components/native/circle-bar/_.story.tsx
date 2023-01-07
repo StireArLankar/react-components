@@ -1,12 +1,12 @@
 import { ComponentStory } from '@storybook/react'
 
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { Ring } from './progress-ring'
 import Result from './result'
 
 import { CircleBar } from '.'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Native/Circle Bar',

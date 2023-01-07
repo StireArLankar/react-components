@@ -1,11 +1,11 @@
 import { ComponentStory } from '@storybook/react'
 
-import { Ripple } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
+
+import { Ripple } from '.'
 
 const label = (
   <>
@@ -23,6 +23,9 @@ export default {
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
+  argTypes: {
+    variant: { control: 'radio', options: ['primary', 'secondary'] },
+  },
 }
 
 const Template1: ComponentStory<typeof Ripple> = (props) => (

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
+import useBGColor from '~/hook/useBgColor'
+
 import Ring from './progress-ring'
 import Result from './result'
 
-import useBGColor from '~/hook/useBgColor'
 import './style.scss'
 
 export const CircleBar = () => {

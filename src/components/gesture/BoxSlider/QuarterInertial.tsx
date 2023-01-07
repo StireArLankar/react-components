@@ -1,6 +1,6 @@
-import { BoxSliderInertial } from './BoxSliderInertial'
-
 import clamp from '~/utils/clamp'
+
+import { BoxSliderInertial } from './BoxSliderInertial'
 
 const STEP = 100
 

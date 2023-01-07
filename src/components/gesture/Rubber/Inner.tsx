@@ -42,6 +42,7 @@ export const Inner = (props: InnerProps) => {
   const renderPlancs = () =>
     array.map((_, index) => (
       <animated.div
+        key={index}
         style={{
           position: 'absolute',
           width: 40,

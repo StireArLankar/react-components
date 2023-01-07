@@ -1,9 +1,9 @@
 import { ComponentMeta } from '@storybook/react'
 
-import { Wheel } from './Wheel'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Wheel } from './Wheel'
 
 export default {
   title: 'Gesture/Wheel',

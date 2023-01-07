@@ -40,20 +40,21 @@ export const FixedPopup = forwardRef<any, Props>((props, ref: any) => {
 
   const isMounted = useRef(false)
 
-  const [{ left, top }, setPos] = useSpring(() => ({
+  const [{ left, top }, spring] = useSpring(() => ({
     left: 0,
     top: 0,
   }))
 
   const updatePos = useCallback(() => {
-    const { x, y, width, height } = ref?.current?.getBoundingClientRect() || {}
+    const data = ref?.current?.getBoundingClientRect() || {}
+    const { left: x, top: y, width, height } = data
 
-    const left = x + width / 2 + window.pageXOffset || 0
-    const my = y + window.pageYOffset || 0
+    const left = x + width / 2
+    const my = y
     const top = position === 'top' ? my : my + height
 
-    setPos({ left, top })
-  }, [setPos, ref, position])
+    spring.start({ left, top })
+  }, [spring, ref, position])
 
   useEffect(() => {
     if (isMounted.current) {

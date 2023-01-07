@@ -18,22 +18,17 @@ export const BoxSliderInertial = (props: BoxSliderProps) => {
   // Ref for memoizing value between drags
   const dragOffset = useRef(start)
 
-  const bind = useDrag(
-    ({ movement: [x], down, velocity: [vx] }) => {
+  useDrag(
+    ({ movement: [x], down, velocity: [vx], direction: [dx] }) => {
       if (down) {
         spring.start({ x: dragOffset.current + x })
       } else {
-        dragOffset.current += x + vx * 200
+        dragOffset.current += x + vx * dx * 200
         spring.start({ x: dragOffset.current })
       }
     },
-    // FIXME
     { target: window }
   )
-
-  // useEffect(() => {
-  //   bind()
-  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (
@@ -53,7 +48,7 @@ export const BoxSliderInertial = (props: BoxSliderProps) => {
 
   const renderValues = () =>
     imgs.map((_, index) => (
-      <animated.p className={classes.value}>
+      <animated.p className={classes.value} key={index}>
         {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))

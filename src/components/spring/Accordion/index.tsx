@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { useState, PropsWithChildren } from 'react'
 import useMeasure from 'react-use-measure'
 
 import { useSpring, animated } from '@react-spring/web'
@@ -12,7 +12,7 @@ export interface AccordionProps {
   arrowComponent?: (props: ArrowProps) => JSX.Element
 }
 
-export const Accordion: FC<AccordionProps> = (props) => {
+export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
   const { title, children, hideArrow, arrowComponent } = props
 
   const [isOpened, setIsOpened] = useState(true)

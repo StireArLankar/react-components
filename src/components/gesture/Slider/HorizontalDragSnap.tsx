@@ -15,13 +15,13 @@ const wheel = (x: number, width: number, count: number) => {
 
 export const HorizontalDragSnap = () => {
   const [ref, { width }] = useMeasure()
-  const [{ wheelY }, setWheel] = useSpring(() => ({ wheelY: 0 }))
+  const [{ wheelY }, spring] = useSpring(() => ({ wheelY: 0 }))
 
   const dragOffset = useRef(0)
 
   const bind = useDrag(({ movement: [x], down }) => {
     if (down) {
-      setWheel.start({ wheelY: dragOffset.current - x })
+      spring.start({ wheelY: dragOffset.current - x })
     } else {
       const offset = -x % width
       if (offset > width / 2) {
@@ -31,7 +31,8 @@ export const HorizontalDragSnap = () => {
       } else {
         dragOffset.current += -x - offset
       }
-      setWheel.start({ wheelY: dragOffset.current })
+
+      spring.start({ wheelY: dragOffset.current })
     }
   })
 

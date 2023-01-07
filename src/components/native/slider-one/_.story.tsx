@@ -1,11 +1,11 @@
 import { ComponentStory } from '@storybook/react'
 
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { Button } from './Button'
 
 import Slider from '.'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Native/SliderOne',

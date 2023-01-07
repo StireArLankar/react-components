@@ -1,12 +1,12 @@
 import { ComponentStory } from '@storybook/react'
 
-import Slide from './slide1'
-
-import { SliderTwo } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { vars } from '~/theme/theme.css'
+
+import Slide from './slide1'
+
+import { SliderTwo } from '.'
 
 export default {
   title: 'Native/SliderTwo',

@@ -3,10 +3,10 @@ import useMeasure from 'react-use-measure'
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './classes'
-import path from './path'
-
 import clamp from '~/utils/clamp'
+
+import classes from './classes.css'
+import path from './path'
 
 const constrains = (val: number, max: number) =>
   val > 0 ? Math.min(val, max) : Math.max(val, -max)

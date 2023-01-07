@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { MorphArrow } from './Arrow'
 
 import { Accordion } from '.'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Spring/Accordion',

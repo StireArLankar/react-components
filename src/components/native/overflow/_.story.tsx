@@ -1,10 +1,10 @@
 import { ComponentStory } from '@storybook/react'
 
-import { Overflow, OverflowProps } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { vars } from '~/theme/theme.css'
+
+import { Overflow, OverflowProps } from '.'
 
 export default {
   title: 'Native/Overflow',

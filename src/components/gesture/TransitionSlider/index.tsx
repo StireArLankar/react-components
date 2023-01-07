@@ -1,10 +1,10 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import clamp from '~/utils/clamp'
+
 import classes from './_classes.css'
 import imgs from './imgs'
-
-import clamp from '~/utils/clamp'
 
 const STEP = 100
 

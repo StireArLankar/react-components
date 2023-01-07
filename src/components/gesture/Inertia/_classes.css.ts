@@ -4,6 +4,7 @@ export default {
   wrapper: style({
     width: '100%',
     userSelect: 'none',
+    touchAction: 'none',
   }),
   box: style({
     marginBottom: 20,

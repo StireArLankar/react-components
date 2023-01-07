@@ -39,7 +39,7 @@ const Autocomplete = (props: AutocompleteProps) => {
     return (
       <ul className={style.list}>
         {suggestion.map((item) => (
-          <li className={style.item} onClick={onItemClick(item)}>
+          <li className={style.item} key={item} onClick={onItemClick(item)}>
             {item}
           </li>
         ))}

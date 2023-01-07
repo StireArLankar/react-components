@@ -1,9 +1,9 @@
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { Blob } from './Blob'
 import { Inner } from './Inner'
 import { Rubber } from './Rubber'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Gesture/Rubber',

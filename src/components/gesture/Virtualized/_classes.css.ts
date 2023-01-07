@@ -19,6 +19,7 @@ export default {
     listStyle: 'none',
     height: 200,
     width: 200,
+    touchAction: 'none',
   }),
 
   container: style({
@@ -29,6 +30,7 @@ export default {
     placeItems: 'center',
     willChange: 'transform',
     position: 'absolute',
+    touchAction: 'none',
   }),
 
   img: style({

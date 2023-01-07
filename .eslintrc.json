@@ -28,6 +28,10 @@
             "position": "after"
           },
           {
+            "pattern": "~/**",
+            "group": "internal"
+          },
+          {
             "pattern": "react**",
             "group": "external",
             "position": "before"

@@ -1,10 +1,10 @@
-import V2 from './v2'
-
-import Component from '.'
-
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink, vars } from '~/theme/theme.css'
+
+import V2 from './v2'
+
+import Component from '.'
 
 const label = (
   <>

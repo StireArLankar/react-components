@@ -3,9 +3,9 @@ import React, { useEffect } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './_classes.css'
-
 import clamp from '~/utils/clamp'
+
+import classes from './_classes.css'
 
 const updateAxis = (
   val: number,
@@ -40,7 +40,7 @@ export const ConnectedItem = (props: ConnectedItemProps) => {
 
   const update = (x: number, y: number) => updatePosition(index, x, y)
 
-  const [{ x, y, scalE, zIndeX, shadow, opacity }, set] = useSpring(() => ({
+  const [{ x, y, scalE, zIndeX, shadow, opacity }, spring] = useSpring(() => ({
     x: position[0] * step,
     y: position[1] * step,
     scalE: 1,
@@ -50,7 +50,7 @@ export const ConnectedItem = (props: ConnectedItemProps) => {
   }))
 
   useEffect(() => {
-    set({
+    spring.start({
       x: position[0] * step,
       y: position[1] * step,
       scalE: 1,
@@ -58,11 +58,11 @@ export const ConnectedItem = (props: ConnectedItemProps) => {
       shadow: 1,
       opacity: 0.6,
     })
-  }, [position, set, step])
+  }, [position, spring, step])
 
   const bind = useDrag(({ down, movement: [x, y] }) => {
     if (down) {
-      set({
+      spring.start({
         x: position[0] * step + x,
         y: position[1] * step + y,
         scalE: 1.1,

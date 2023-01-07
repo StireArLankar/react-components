@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { NavBar, NavBarItem } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { NavBar, NavBarItem } from '.'
 
 const items: NavBarItem[] = [
   {

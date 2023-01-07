@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 import { motion } from 'framer-motion'
 
-import classes from './_classes.css'
-
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
+
+import classes from './_classes.css'
 
 export const Animation = () => {
   const [count, setCount] = useState(0)

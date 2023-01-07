@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from '../_classes.css'
-
 import clamp from '~/utils/clamp'
+
+import classes from '../_classes.css'
 
 const updateAxis = (
   val: number,
@@ -42,7 +42,7 @@ export const Item = (props: ItemProps) => {
   const isDragging = useRef(false)
   const [oldPos, setOldPos] = useState([...position])
 
-  const [{ x, y, scalE, zIndeX, shadow }, set] = useSpring(() => ({
+  const [{ x, y, scalE, zIndeX, shadow }, spring] = useSpring(() => ({
     x: position[0] * step,
     y: position[1] * step,
     scalE: 1,
@@ -53,7 +53,7 @@ export const Item = (props: ItemProps) => {
   useEffect(() => {
     if (!isDragging.current) {
       setOldPos([...position])
-      set({
+      spring.start({
         x: position[0] * step,
         y: position[1] * step,
         scalE: 1,
@@ -61,14 +61,14 @@ export const Item = (props: ItemProps) => {
         shadow: 1,
       })
     }
-  }, [position, set, step])
+  }, [position, spring, step])
 
   const bind = useDrag(({ down, movement: [x, y] }) => {
     const newX = updateAxis(x, step, oldPos[0], max)
     const newY = updateAxis(y, step, oldPos[1], max)
     if (down) {
       isDragging.current = true
-      set({
+      spring.start({
         x: oldPos[0] * step + x,
         y: oldPos[1] * step + y,
         scalE: 1.1,
@@ -78,7 +78,7 @@ export const Item = (props: ItemProps) => {
     } else {
       isDragging.current = false
       setOldPos([newX, newY])
-      set({
+      spring.start({
         x: newX * step,
         y: newY * step,
         scalE: 1,

@@ -1,7 +1,7 @@
-import { Toggle } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { Toggle } from '.'
 
 export default {
   title: 'Spring/Toggle',

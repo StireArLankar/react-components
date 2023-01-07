@@ -7,11 +7,10 @@ import classes from './_classes.css'
 
 const OFFSET = 200
 
-// FIXME
 export const Swipe = () => {
   const [position, setPosition] = useState(0)
 
-  const animStyle = useSpring({ x: position * OFFSET })
+  const { x } = useSpring({ x: position * OFFSET })
 
   const renderSlots = () =>
     [-1, 0, 1].map((pos) => (
@@ -22,21 +21,18 @@ export const Swipe = () => {
       />
     ))
 
-  const bind = useDrag(({ down, velocity: [vx], cancel }) => {
-    // const bind = useDrag(({ swipe: [swipeX] }) => {
-    // setPosition((p) => Math.min(Math.max(-1, p + swipeX), 1))
-
-    // Workaround as swipe will appear in next version
-    if (Math.abs(vx) > 0.5 && down) {
-      setPosition((p) => Math.min(Math.max(-1, p + Math.sign(vx)), 1))
-      cancel && cancel()
-    }
+  const bind = useDrag(({ swipe: [swipeX] }) => {
+    setPosition((p) => Math.min(Math.max(-1, p + swipeX), 1))
   })
 
   return (
     <div className={classes.wrapper}>
       {renderSlots()}
-      <animated.div className={classes.box} {...bind()} style={animStyle} />
+      <animated.div
+        className={classes.box}
+        {...bind()}
+        style={{ x, touchAction: 'none' }}
+      />
     </div>
   )
 }

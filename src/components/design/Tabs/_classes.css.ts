@@ -17,6 +17,9 @@ const title = style({
     '&:hover, &:focus': {
       color: '#6ad1f8',
     },
+    '&:focus': {
+      transitionDuration: '0s',
+    },
   },
 })
 
@@ -106,8 +109,7 @@ export default {
     height: 2,
     position: 'absolute',
     bottom: 0,
-    color: 'white',
-    transition: 'color 0.3s ease',
+    // transition: 'color 0.3s ease',
     backgroundColor: 'currentColor',
   }),
 

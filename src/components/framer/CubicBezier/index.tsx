@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, memo, useState } from 'react'
+import { useRef, useEffect, useCallback, memo } from 'react'
 
 import { motion, useMotionValue, MotionValue } from 'framer-motion'
 
@@ -6,11 +6,10 @@ import classes from './_classes.css'
 
 const t = (val: MotionValue<number>) => val.get().toFixed(0)
 
-export default memo(() => {
-  // fixing strange constrains calculations
-  const [, setState] = useState(0)
-  useEffect(() => void setState(1), [])
+const constraints1 = { left: 0, top: 0, right: 500, bottom: 500 }
+const constraints2 = { left: -100, top: -100, right: 600, bottom: 600 }
 
+export default memo(() => {
   const constraintsRef1 = useRef(null)
   const constraintsRef2 = useRef(null)
 
@@ -74,7 +73,8 @@ export default memo(() => {
       drag
       dragMomentum={false}
       dragElastic={0.1}
-      dragConstraints={inner ? constraintsRef1 : constraintsRef2}
+      // dragConstraints={inner ? constraintsRef1 : constraintsRef2}
+      dragConstraints={inner ? constraints1 : constraints2}
       stroke='none'
       fill='red'
     />

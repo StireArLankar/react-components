@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { NeonButton } from './NeonButton'
-import { NeonButtonV2 } from './NeonV2'
-
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
+
+import { NeonButton } from './NeonButton'
+import { NeonButtonV2 } from './NeonV2'
 
 const label = (
   <>
@@ -37,7 +37,11 @@ export default {
   ],
   argTypes: {
     color: {
-      control: { type: 'color', presetsColors: ['#03e9f4'] },
+      control: {
+        type: 'color',
+        presetsColors: ['#03e9f4', 'red', 'green'],
+        defaultValue: '#03e9f4',
+      },
     },
   },
 

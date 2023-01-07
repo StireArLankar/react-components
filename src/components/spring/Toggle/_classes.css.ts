@@ -5,7 +5,6 @@ export default {
     position: 'relative',
     width: 36,
     height: 36,
-    marginRight: 16,
   }),
 
   img: style({

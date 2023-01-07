@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { AutoSlider } from './AutoSlider'
-import { ListSlider } from './ListSlider'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { AutoSlider } from './AutoSlider'
+import { ListSlider } from './ListSlider'
 
 const slides = ['red', 'blue', 'yellow', 'orange']
 const style = { width: '100%', height: '100%', opacity: 0.7 }

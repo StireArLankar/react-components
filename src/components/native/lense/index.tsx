@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent, Fragment } from 'react'
 
+import useBGColor from '~/hook/useBgColor'
+
 import Controller from './Controller'
 import classes from './lense.module.scss'
-
-import useBGColor from '~/hook/useBgColor'
 
 export const LenseContainer = () => {
   const [size, setSize] = useState(200)

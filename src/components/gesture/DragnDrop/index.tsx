@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { useSprings, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './_classes.css'
-
 import clamp from '~/utils/clamp'
 import swap from '~/utils/move'
+
+import classes from './_classes.css'
 
 const immediate = (key: string) => key === 'y' || key === 'zIndex'
 const notImmediate = () => false
@@ -57,7 +57,7 @@ export const DragnDrop = () => {
 
     const newOrder = swap(state, curIndex, curRow)
 
-    setSprings(fn(newOrder, down, originalIndex, curIndex, y))
+    setSprings.start(fn(newOrder, down, originalIndex, curIndex, y))
 
     if (!down) {
       setState(newOrder)
@@ -72,6 +72,7 @@ export const DragnDrop = () => {
           key={i}
           className={classes.item}
           style={{
+            touchAction: 'none',
             zIndex: zIndex.to((val) => Number(val.toFixed(0))),
             boxShadow: shadow.to(
               (s) => `0px ${s}px ${2 * s}px 0px rgba(0, 0, 0, 0.3) `

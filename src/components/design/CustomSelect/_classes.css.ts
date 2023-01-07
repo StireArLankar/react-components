@@ -5,7 +5,7 @@ const baseItem = style({
   whiteSpace: 'nowrap',
   color: 'inherit',
 
-  fontFamily: 'inherit',
+  fontFamily: 'Roboto, sans-serif',
   fontWeight: 'bold',
   fontSize: 14,
   cursor: 'pointer',

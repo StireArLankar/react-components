@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { LenseContainer } from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { LenseContainer } from '.'
 
 export default {
   title: 'Native/Lense',

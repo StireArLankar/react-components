@@ -75,7 +75,7 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
 
   const [selected, setSelected] = useState(0)
 
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: 0,
     onStart: () => {
       isAnimating.current = true
@@ -89,12 +89,12 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
       isAnimating.current = false
       if (Math.abs(p) > length) {
         const res = p < 0 ? ((p % length) + length) % length : p % length
-        setX({ x: width * res, immediate: true })
+        spring.start({ x: width * res, immediate: true })
         return res
       }
       return p
     },
-    [length, setX, width]
+    [length, spring, width]
   )
 
   const bind = useDrag(({ movement: [x], down, cancel }) => {
@@ -106,7 +106,7 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
 
     if (down) {
       setIsDragging(true)
-      setX({ x: selected * width + x * 2 })
+      spring.start({ x: selected * width + x * 2 })
     } else {
       setIsDragging(false)
       setSelected((prev) => updateCurrentIndex(x * 2, width, prev))
@@ -115,12 +115,12 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
 
   useEffect(() => {
     console.log({ selected })
-    setX({
+    spring.start({
       x: width * selected,
       immediate: false,
       onRest: () => setSelected(recalcIndex),
     })
-  }, [width, setX, selected, isDragging, recalcIndex])
+  }, [width, spring, selected, isDragging, recalcIndex])
 
   useEffect(() => {
     let timer: NodeJS.Timeout

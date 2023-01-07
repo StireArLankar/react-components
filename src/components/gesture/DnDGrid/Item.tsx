@@ -3,9 +3,9 @@ import { useRef } from 'react'
 import { useSpring, animated, to } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
-import classes from './_classes.css'
-
 import clamp from '~/utils/clamp'
+
+import classes from './_classes.css'
 
 const updateVal = (val: number, step: number, current: number, max: number) => {
   const offset = val % step
@@ -21,7 +21,7 @@ const updateVal = (val: number, step: number, current: number, max: number) => {
 export const Item = (props: { index: number; step: number; max: number }) => {
   const { index, step, max } = props
 
-  const [{ x, y, scalE, zIndeX, shadow }, set] = useSpring(() => ({
+  const [{ x, y, scalE, zIndeX, shadow }, spring] = useSpring(() => ({
     x: index * step,
     y: 0,
     scalE: 1,
@@ -33,7 +33,7 @@ export const Item = (props: { index: number; step: number; max: number }) => {
 
   const bind = useDrag(({ down, movement: [x, y] }) => {
     if (down) {
-      set({
+      spring.start({
         x: dragOffset.current.x + x,
         y: dragOffset.current.y + y,
         scalE: 1.1,
@@ -44,7 +44,7 @@ export const Item = (props: { index: number; step: number; max: number }) => {
       dragOffset.current.x = updateVal(x, step, dragOffset.current.x, max)
       dragOffset.current.y = updateVal(y, step, dragOffset.current.y, max)
 
-      set({
+      spring.start({
         x: dragOffset.current.x,
         y: dragOffset.current.y,
         scalE: 1,

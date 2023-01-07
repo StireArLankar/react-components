@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import { Popup } from './Popup'
-
 import { NeonButton } from '~/components/design/Neon/NeonButton'
+
+import { Popup } from './Popup'
 
 export const Test = (props: { position: 'top' | 'bottom' }) => {
   const { position = 'top' } = props
@@ -10,6 +10,8 @@ export const Test = (props: { position: 'top' | 'bottom' }) => {
 
   const onClose = () => setIsOpen(false)
   const onOpen = () => setIsOpen(true)
+
+  console.log(props, position)
 
   return (
     <div style={{ position: 'relative' }}>

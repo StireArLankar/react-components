@@ -1,9 +1,9 @@
 import { ComponentMeta } from '@storybook/react'
 
-import Temp from '.'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import Temp from '.'
 
 export default {
   title: 'Design/BoxPointer',

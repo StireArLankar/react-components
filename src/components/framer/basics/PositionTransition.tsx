@@ -2,9 +2,8 @@ import { useState } from 'react'
 
 import { motion, Transition } from 'framer-motion'
 
-import classes from './_classes.css'
-
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
+import classes from '~/components/framer/basics/_classes.css'
 
 const spring: Transition = {
   type: 'spring',
@@ -16,13 +15,12 @@ const spring: Transition = {
 export const MyComponent1 = ({ isOpen }: { isOpen: boolean }) => (
   <motion.div
     transition={spring}
-    animate
-    className={classes.box}
-    style={{
+    animate={{
       left: isOpen ? 100 : 200,
       top: isOpen ? 150 : 100,
-      position: 'absolute',
     }}
+    className={classes.box}
+    style={{ position: 'absolute' }}
   />
 )
 

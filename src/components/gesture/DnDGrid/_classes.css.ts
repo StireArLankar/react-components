@@ -29,6 +29,7 @@ export default {
     display: 'grid',
     placeItems: 'center',
     background: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)',
+    touchAction: 'none',
   }),
 
   count: style({

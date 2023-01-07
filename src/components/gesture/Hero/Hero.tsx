@@ -32,11 +32,9 @@ export const Hero = () => {
     setIsOpen(value)
   }
 
-  const [isDragging, setIsDragging] = useState(false)
-
   const ref = useRef<HTMLDivElement>(null)
 
-  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }))
+  const [{ xy }, spring] = useSpring(() => ({ xy: [0, 0] }))
 
   const [vals, setVals] = useState(() => ({ ...initial }))
 
@@ -78,18 +76,11 @@ export const Hero = () => {
 
   const bind = useGesture(
     {
-      onDragStart: () => setIsDragging(true),
-      // If its not a drag (===click) then open hero
-      onDragEnd: () => {
-        if (!isDragging) {
-          setOpen(true)
-        } else {
-          setIsDragging(false)
-        }
-      },
+      onClick: () => setOpen(true),
+      onDoubleClick: () => setOpen(false),
       onDrag: ({ offset: [x, y], cancel }) => {
         // If closed - then can move, otherwive cancel drag
-        !isOpen ? set({ xy: [x, y] }) : cancel && cancel()
+        !isOpen ? spring.start({ xy: [x, y] }) : cancel && cancel()
       },
     },
     { drag: { filterTaps: true } }
@@ -145,7 +136,7 @@ export const Hero = () => {
       className={classes.box}
       {...bind()}
       ref={ref}
-      style={{ transform: xy.to(trans) }}
+      style={{ transform: xy.to(trans), touchAction: 'none' }}
     >
       <animated.div
         className={classes.inner}

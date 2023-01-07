@@ -1,3 +1,6 @@
+import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
+import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
 import { Animation, AnimationV2 } from './Animation'
 import { AnimationHelpers, AnimationHelpersVariants } from './AnimationHelpers'
 import { AutoSizeWrapper } from './Autosize'
@@ -17,9 +20,6 @@ import { MotionValue } from './MotionValue'
 import { OrderTransition } from './OrderTransition'
 import { PositionTransition } from './PositionTransition'
 import { Variants, NestedVariants } from './Variants'
-
-import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
-import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 export default {
   title: 'Framer Motion/Basics',

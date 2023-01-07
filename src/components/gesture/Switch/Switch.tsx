@@ -35,7 +35,7 @@ export const Switch = () => {
     <animated.div
       {...bind()}
       className={classes.container}
-      style={{ background: x.to(bgInterpolate) }}
+      style={{ background: x.to(bgInterpolate), touchAction: 'none' }}
     >
       <animated.div className={classes.box} style={{ x }}>
         <animated.svg

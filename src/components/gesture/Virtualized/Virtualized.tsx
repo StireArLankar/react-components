@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
+import clamp from '~/utils/clamp'
+
 import classes from './_classes.css'
 import imgs from './imgs'
-
-import clamp from '~/utils/clamp'
 
 const STEP = 200
 const WIDTH = 200
@@ -40,7 +40,7 @@ export interface VirtualizedProps {
 export const Virtualized = (props: VirtualizedProps) => {
   const { start = 0, isVirt = false } = props
 
-  const [{ x }, setX] = useSpring(() => ({
+  const [{ x }, spring] = useSpring(() => ({
     x: start,
     config: { mass: 5, tension: 170, friction: 80 },
   }))
@@ -48,16 +48,13 @@ export const Virtualized = (props: VirtualizedProps) => {
   const [active, setActive] = useState(5)
 
   const bind = useDrag(
-    ({ movement: [x] }) => {
-      setX({ x: x })
+    ({ offset: [x] }) => {
+      spring.start({ x })
       isVirt && setActive(Math.floor(-x / STEP) + 3)
     },
     {
-      initial: () => [x.get(), 0],
-      bounds: {
-        right: 0,
-        left: -STEP * (arr.length - 2),
-      },
+      from: () => [x.get(), 0],
+      bounds: { right: 0, left: -STEP * (arr.length - 2) },
       rubberband: 0.3,
     }
   )

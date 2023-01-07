@@ -1,9 +1,9 @@
 import { ComponentMeta } from '@storybook/react'
 
-import { ChainedGrid } from './ChainedGrid'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
+
+import { ChainedGrid } from './ChainedGrid'
 
 export default {
   title: 'Gesture/ChainedDnDGrid',

@@ -1,9 +1,9 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 import { recipe } from '@vanilla-extract/recipes'
 
-import { basePopup } from '../_classes.css'
-
 import { vars } from '~/theme/theme.css'
+
+import { basePopup } from '../_classes.css'
 
 const sideVariants = styleVariants({
   top: {

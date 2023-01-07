@@ -10,41 +10,39 @@ import imgs from './imgs'
 export const BoxSliderSnap = (props: BoxSliderProps) => {
   const { rotate, int, step, start = 0 } = props
 
-  const [{ x }, setX] = useSpring(() => ({ x: start }))
+  const [{ x }, spring] = useSpring(() => ({ x: start }))
 
   // Ref for memoizing value between drags
   const dragOffset = useRef(start)
 
-  const bind = useDrag(
+  useDrag(
     ({ movement: [x], down }) => {
       if (down) {
-        setX({ x: dragOffset.current + x })
-      } else {
-        const offset = x % step
-        if (offset > step / 2) {
-          // If remainder is more than half step,
-          // then substract remainder and add step (rotate to next item)
-          dragOffset.current += x - offset + step
-        } else if (offset < -step / 2) {
-          // If abs of remainder is more than half step and
-          // its sign is negative, then substract remainder and
-          // remove step (rotate to previous item)
-          dragOffset.current += x - offset - step
-        } else {
-          // Else stay in current state (as its more valuable)
-          // thru substracting remainder
-          dragOffset.current += x - offset
-        }
-        setX({ x: dragOffset.current })
+        spring.start({ x: dragOffset.current + x })
+        return
       }
+
+      const offset = x % step
+
+      if (offset > step / 2) {
+        // If remainder is more than half step,
+        // then substract remainder and add step (rotate to next item)
+        dragOffset.current += x - offset + step
+      } else if (offset < -step / 2) {
+        // If abs of remainder is more than half step and
+        // its sign is negative, then substract remainder and
+        // remove step (rotate to previous item)
+        dragOffset.current += x - offset - step
+      } else {
+        // Else stay in current state (as its more valuable)
+        // thru substracting remainder
+        dragOffset.current += x - offset
+      }
+
+      spring.start({ x: dragOffset.current })
     },
-    // FIXME
     { target: window }
   )
-
-  // useEffect(() => {
-  //   bind()
-  // }, [bind])
 
   const renderImages = () =>
     imgs.map((img, index) => (
@@ -64,7 +62,7 @@ export const BoxSliderSnap = (props: BoxSliderProps) => {
 
   const renderValues = () =>
     imgs.map((_, index) => (
-      <animated.p className={classes.value}>
+      <animated.p className={classes.value} key={index}>
         {x.to((val) => int(val, imgs.length, index).toFixed(0))}
       </animated.p>
     ))
