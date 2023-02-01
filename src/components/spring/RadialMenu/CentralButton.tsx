@@ -1,6 +1,6 @@
 import { useSpring, animated } from '@react-spring/web'
 
-import { Adjust, HighlightOff } from '~/components/material-svgs'
+import { Adjust, HighlightOff } from '~/components/materialSvgs'
 
 import classes from './_classes.css'
 

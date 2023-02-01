@@ -4,7 +4,7 @@ import useBGColor from '~/hook/useBgColor'
 
 import { Button } from './Button'
 import ImgSlide from './ImgSlide'
-import Slider from './slider'
+import Slider from './Slider'
 import classes from './slider.module.scss'
 
 const url = `https://stirearlankar.github.io/54729-kekstagram/photos/1.jpg`

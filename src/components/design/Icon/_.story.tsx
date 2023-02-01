@@ -1,7 +1,7 @@
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
-import { CameraRounded } from '~/components/material-svgs'
+import { CameraRounded } from '~/components/materialSvgs'
 import { storyLink } from '~/theme/theme.css'
 
 import { Icon } from '.'

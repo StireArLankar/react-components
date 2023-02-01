@@ -4,7 +4,7 @@ import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { vars } from '~/theme/theme.css'
 
-import Slide from './slide1'
+import Slide from './Slide1'
 
 import { SliderTwo } from '.'
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import './style.scss'
-import { Ctx } from '.'
+import { Ctx } from './index'
 
 const numbers = []
 

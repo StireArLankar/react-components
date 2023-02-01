@@ -1,6 +1,6 @@
 import React, { Fragment, PropsWithChildren } from 'react'
 
-import Header from '../header'
+import Header from '../Header'
 
 import classes from './layout.module.scss'
 

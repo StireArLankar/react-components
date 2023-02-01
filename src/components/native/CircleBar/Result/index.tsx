@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-import Presenter from './presenter'
+import Presenter from './Presenter'
 
 const charDict = {
   A: 11,

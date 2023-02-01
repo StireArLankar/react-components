@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import useBGColor from '~/hook/useBgColor'
 
-import Ring from './progress-ring'
-import Result from './result'
+import Ring from './ProgressRing'
+import Result from './Result'
 
 import './style.scss'
 

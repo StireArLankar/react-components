@@ -11,7 +11,7 @@ import {
   GroupWork,
   MyLocationRounded,
   ViewComfyRounded,
-} from '~/components/material-svgs'
+} from '~/components/materialSvgs'
 import { storyLink } from '~/theme/theme.css'
 
 import { CentralButton } from './CentralButton'

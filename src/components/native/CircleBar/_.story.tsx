@@ -3,8 +3,8 @@ import { ComponentStory } from '@storybook/react'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import { Ring } from './progress-ring'
-import Result from './result'
+import { Ring } from './ProgressRing'
+import Result from './Result'
 
 import { CircleBar } from '.'
 

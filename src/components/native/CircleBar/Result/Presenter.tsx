@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-import Slider from './slider'
+import Slider from './Slider'
 
 interface PresenterProps {
   array: string[]

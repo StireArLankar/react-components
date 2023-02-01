@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Input from './input'
+import Input from './Input'
 import style from './pagination.module.scss'
 
 interface InputsProps {

@@ -2,7 +2,7 @@ import React from 'react'
 
 import useBGColor from '~/hook/useBgColor'
 
-import Slide from './slide1'
+import Slide from './Slide1'
 import Slider from './Slider'
 import style from './slider.module.scss'
 

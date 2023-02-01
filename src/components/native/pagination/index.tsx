@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import useBGColor from '~/hook/useBgColor'
 
-import Inputs from './inputs'
+import Inputs from './Inputs'
 import Pagination from './Pagination'
 import style from './pagination.module.scss'
 
