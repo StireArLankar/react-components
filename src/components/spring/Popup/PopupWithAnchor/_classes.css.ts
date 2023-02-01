@@ -7,7 +7,7 @@ import { basePopup } from '../_classes.css'
 
 const sideVariants = styleVariants({
   top: {
-    bottom: `calc(100% +16px)`,
+    bottom: `calc(100% + 16px)`,
     '::before': {
       top: 'calc(100% - 1px)',
       borderBottomWidth: 0,
@@ -15,7 +15,7 @@ const sideVariants = styleVariants({
     },
   },
   bottom: {
-    top: `calc(100% +16px)`,
+    top: `calc(100% + 16px)`,
     '::before': {
       bottom: 'calc(100% - 1px)',
       borderTopWidth: 0,

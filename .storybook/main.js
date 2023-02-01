@@ -2,10 +2,13 @@ const { loadConfigFromFile, mergeConfig } = require('vite')
 const svgr = require('vite-plugin-svgr')
 const { vanillaExtractPlugin } = require('@vanilla-extract/vite-plugin')
 
+const base = '/react-components/'
+
 /**
  * @type {import('@storybook/builder-vite').StorybookViteConfig}
  */
 const config = {
+  staticDirs: ['../public'],
   stories: ['../src/**/*.story.@(ts|tsx|mdx)'],
   addons: [
     '@storybook/addon-links',
@@ -23,6 +26,10 @@ const config = {
     const { config: userConfig } = await loadConfigFromFile(
       require('path').resolve(__dirname, '../vite.config.ts')
     )
+
+    if (configType === 'PRODUCTION') {
+      config.base = base
+    }
 
     return mergeConfig(config, {
       ...userConfig,

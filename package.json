@@ -2,7 +2,7 @@
   "name": "react-components",
   "version": "3.0.0",
   "private": true,
-  "homepage": "https://stirearlankar.github.io/react-components",
+  "homepage": "https://stirearlankar.github.io/react-components/",
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-tabs": "^1.0.1",
