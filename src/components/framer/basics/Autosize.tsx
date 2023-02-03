@@ -4,20 +4,26 @@ import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 import { LiquidButton } from '~/components/design/Liquid/LiquidButton'
 
-const style = { padding: 20, width: 300, background: 'teal' }
+const style = {
+  padding: 20,
+  width: 300,
+  background: 'teal',
+  overflow: 'hidden',
+}
 
 // This component will animate between sizes when `isVisible` is toggled.
 export const Autosize = ({ isVisible }: { isVisible: boolean }) => (
   <AnimateSharedLayout>
-    <motion.div style={style} animate>
+    <motion.div style={style} animate layout>
       <AnimatePresence>
         {isVisible && (
           <motion.div
             style={{ background: 'red', willChange: 'opacity' }}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 1, transition: { delay: 0.2 } }}
             exit={{ opacity: 0 }}
             key='modal'
+            layout
           >
             Hello world
             <div>asd</div>
