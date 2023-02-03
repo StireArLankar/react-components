@@ -25,6 +25,7 @@ export default () => {
             fontSize: i === selected ? '64px' : '32px',
             color: i === selected ? color : '#333',
           }}
+          initial={false}
           className={classes.title({ selected: i === selected })}
           onClick={() => {
             prevColor.current = screens[selected].color
