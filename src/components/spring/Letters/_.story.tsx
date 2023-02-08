@@ -18,6 +18,6 @@ export default {
   ],
 }
 
-export const jump = () => <Jump>Hello world</Jump>
+export const _Jump = () => <Jump>Hello world</Jump>
 
-export const roll = () => <Roll>Hello world</Roll>
+export const _Roll = () => <Roll>Hello world</Roll>

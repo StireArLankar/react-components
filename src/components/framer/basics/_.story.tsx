@@ -34,24 +34,24 @@ export default {
   ],
 }
 
-export const animation = () => <Animation />
-export const animationV2 = () => <AnimationV2 />
-export const damping = () => <Damping />
-export const keyframes = () => <Keyframes />
-export const autoSize = () => <AutoSizeWrapper />
-export const positionTransition = () => <PositionTransition />
-export const orderTransition = () => <OrderTransition />
-export const variants = () => <Variants />
-export const nestedVariants = () => <NestedVariants />
-export const staggerVariants = () => <StaggerVariants />
-export const animationHelpers = () => <AnimationHelpers />
-export const animationHelpersVariants = () => <AnimationHelpersVariants />
-export const drag = () => <Drag />
-export const dragAxis = () => <DragAxis />
-export const dragElastic = () => <DragElastic />
-export const dragNoMomentum = () => <DragNoMomentum />
-export const dragControls = () => <DragControls />
-export const dragPropagation = () => <DragPropagation />
-export const dragRefConstrains = () => <DragRefConstrains />
-export const cycle = () => <Cycle />
-export const motionValue = () => <MotionValue />
+export const _Animation = () => <Animation />
+export const _AnimationV2 = () => <AnimationV2 />
+export const _Damping = () => <Damping />
+export const _Keyframes = () => <Keyframes />
+export const _AutoSize = () => <AutoSizeWrapper />
+export const _PositionTransition = () => <PositionTransition />
+export const _OrderTransition = () => <OrderTransition />
+export const _Variants = () => <Variants />
+export const _NestedVariants = () => <NestedVariants />
+export const _StaggerVariants = () => <StaggerVariants />
+export const _AnimationHelpers = () => <AnimationHelpers />
+export const _AnimationHelpersVariants = () => <AnimationHelpersVariants />
+export const _Drag = () => <Drag />
+export const _DragAxis = () => <DragAxis />
+export const _DragElastic = () => <DragElastic />
+export const _DragNoMomentum = () => <DragNoMomentum />
+export const _DragControls = () => <DragControls />
+export const _DragPropagation = () => <DragPropagation />
+export const _DragRefConstrains = () => <DragRefConstrains />
+export const _Cycle = () => <Cycle />
+export const _MotionValue = () => <MotionValue />

@@ -1,4 +1,4 @@
-import { ComponentMeta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
@@ -18,6 +18,7 @@ const label = (
 
 export default {
   title: 'Design/Arc Loader',
+  component: Temp,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -29,7 +30,6 @@ export default {
     }),
     withTopLabel(label),
   ],
-  component: Temp,
-} as ComponentMeta<typeof ArcLoader>
+} satisfies Meta<typeof Temp>
 
-export const ArcLoader = () => <Temp />
+export const ArcLoader = {}

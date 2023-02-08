@@ -78,17 +78,17 @@ const Asd = ({
 )
 const Template2: ComponentStory<typeof Asd> = (props) => <Asd {...props} />
 
-export const radialMenu = Template2.bind({})
-radialMenu.args = {
+export const _RadialMenu = Template2.bind({})
+_RadialMenu.args = {
   buttons: buttons,
   buttonsAmount: 6,
   isOpen: false,
   onClick: action('onClick'),
 }
-radialMenu.parameters = {
+_RadialMenu.parameters = {
   controls: { include: ['buttonsAmount', 'isOpen'] },
 }
-radialMenu.argTypes = {
+_RadialMenu.argTypes = {
   buttonsAmount: {
     control: { type: 'number', min: 0, max: 6, step: 1 },
   },
@@ -97,8 +97,8 @@ radialMenu.argTypes = {
 const Template1: ComponentStory<typeof CentralButton> = (props) => (
   <CentralButton {...props} />
 )
-export const centralButton = Template1.bind({})
-centralButton.args = {
+export const _CentralButton = Template1.bind({})
+_CentralButton.args = {
   onClick: action('onClick'),
   isOpen: false,
 }
@@ -109,9 +109,9 @@ const Template: ComponentStory<typeof RadialButtons> = (props) => (
   </div>
 )
 
-export const radialButtons = Template.bind({})
-radialButtons.args = {
+export const _RadialButtons = Template.bind({})
+_RadialButtons.args = {
   buttons,
   isOpen: false,
 }
-radialButtons.parameters = { controls: { include: ['isOpen'] } }
+_RadialButtons.parameters = { controls: { include: ['isOpen'] } }

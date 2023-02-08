@@ -9,5 +9,5 @@ export default {
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 
-export const first = () => <Temp />
-export const second = () => <Second />
+export const First = () => <Temp />
+export const _Second = () => <Second />

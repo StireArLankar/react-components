@@ -45,9 +45,9 @@ const Template1: ComponentStory<typeof NavBar> = (props) => (
   <NavBar {...props} />
 )
 
-export const navBar = Template1.bind({})
-navBar.argTypes = {
+export const _NavBar = Template1.bind({})
+_NavBar.argTypes = {
   popoverWidth: { control: { type: 'number', min: 0, step: 1 } },
 }
-navBar.args = { popoverWidth: 300, items }
-navBar.parameters = { controls: { include: ['popoverWidth'] } }
+_NavBar.args = { popoverWidth: 300, items }
+_NavBar.parameters = { controls: { include: ['popoverWidth'] } }

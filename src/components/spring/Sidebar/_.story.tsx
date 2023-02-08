@@ -36,27 +36,27 @@ const children = [
 const Template: ComponentStory<typeof Sidebar> = (props) => (
   <Sidebar {...props}>{children}</Sidebar>
 )
-export const sidebar = Template.bind({})
-sidebar.args = { isOpen: false, right: false }
-sidebar.parameters = { controls: { include: ['isOpen', 'right'] } }
+export const _Sidebar = Template.bind({})
+_Sidebar.args = { isOpen: false, right: false }
+_Sidebar.parameters = { controls: { include: ['isOpen', 'right'] } }
 
 const Template1: ComponentStory<typeof Sidebar> = (props) => (
   <Sidebar {...props} />
 )
-export const withoutChildren = Template1.bind({})
-withoutChildren.args = { isOpen: false, right: false }
-withoutChildren.parameters = { controls: { include: ['isOpen', 'right'] } }
+export const _WithoutChildren = Template1.bind({})
+_WithoutChildren.args = { isOpen: false, right: false }
+_WithoutChildren.parameters = { controls: { include: ['isOpen', 'right'] } }
 
 const Template2: ComponentStory<typeof MountedSidebar> = (props) => (
   <MountedSidebar {...props}>{children}</MountedSidebar>
 )
-export const mountedSidebar = Template2.bind({})
-mountedSidebar.args = { isOpen: false, right: false }
-mountedSidebar.parameters = { controls: { include: ['isOpen', 'right'] } }
+export const _MountedSidebar = Template2.bind({})
+_MountedSidebar.args = { isOpen: false, right: false }
+_MountedSidebar.parameters = { controls: { include: ['isOpen', 'right'] } }
 
 const Template3: ComponentStory<typeof TransitionSidebar> = (props) => (
   <TransitionSidebar {...props}>{children}</TransitionSidebar>
 )
-export const transitionSidebar = Template3.bind({})
-transitionSidebar.args = { isOpen: false, right: false }
-transitionSidebar.parameters = { controls: { include: ['isOpen', 'right'] } }
+export const _TransitionSidebar = Template3.bind({})
+_TransitionSidebar.args = { isOpen: false, right: false }
+_TransitionSidebar.parameters = { controls: { include: ['isOpen', 'right'] } }

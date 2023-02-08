@@ -5,7 +5,8 @@ import Component from '.'
 
 export default {
   title: 'Framer Motion/Switch',
+  component: Component,
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 
-export const first = () => <Component />
+export const Switch = {}

@@ -52,13 +52,13 @@ export default {
 const Template1: ComponentStory<typeof NeonButton> = (props) => (
   <NeonButton {...props} />
 )
-export const button = Template1.bind({})
+export const Button = Template1.bind({})
 // button.args = { children: 'Button' }
 // button.parameters = { controls: { include: ['color'] } }
 
 const Template2: ComponentStory<typeof NeonButtonV2> = (props) => (
   <NeonButtonV2 {...props} />
 )
-export const buttonV2 = Template2.bind({})
+export const ButtonV2 = Template2.bind({})
 // buttonV2.args = { children: 'Button' }
 // buttonV2.parameters = { controls: { include: ['color'] } }

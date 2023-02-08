@@ -11,4 +11,4 @@ export default {
 }
 
 const Template1: ComponentStory<typeof Test> = (props) => <Test {...props} />
-export const tooltip = Template1.bind({})
+export const Tooltip = Template1.bind({})

@@ -13,22 +13,22 @@ export default {
   decorators: [withCenteredStyle({ width: 500 }), withCustomTheme],
 }
 
-export const circleBar = () => <CircleBar />
+export const _CircleBar = () => <CircleBar />
 
 const Template: ComponentStory<typeof Result> = (props) => <Result {...props} />
-export const result = Template.bind({})
-result.args = {
+export const _Result = Template.bind({})
+_Result.args = {
   progress: 0,
 }
-result.argTypes = {
+_Result.argTypes = {
   progress: { control: { type: 'range', min: -10, max: 110, step: 1 } },
 }
 
 const Template1: ComponentStory<typeof Ring> = (props) => <Ring {...props} />
-export const ring = Template1.bind({})
-ring.args = {
+export const _Ring = Template1.bind({})
+_Ring.args = {
   progress: 0,
   radius: 200,
   stroke: 30,
 }
-ring.argTypes = { onRingClick: { action: 'onRingClick' } }
+_Ring.argTypes = { onRingClick: { action: 'onRingClick' } }

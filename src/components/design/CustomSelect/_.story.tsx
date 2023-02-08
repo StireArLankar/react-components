@@ -74,4 +74,4 @@ const Controlled = () => {
   )
 }
 
-export const example = () => <Controlled />
+export const Example = () => <Controlled />

@@ -1,7 +1,7 @@
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import Temp from '.'
+import Component from '.'
 
 export default {
   title: 'Design/Wave Sinus Loader',
@@ -17,4 +17,4 @@ export default {
   ],
 }
 
-export const example = () => <Temp />
+export const Example = () => <Component />

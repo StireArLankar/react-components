@@ -5,7 +5,7 @@ import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
 
-import Temp from '.'
+import Component from '.'
 
 const label = (
   <>
@@ -36,7 +36,7 @@ const Example = () => {
   const [value, setValue] = useState('')
 
   return (
-    <Temp
+    <Component
       value={value}
       onChange={setValue}
       id='phone'
@@ -46,4 +46,4 @@ const Example = () => {
   )
 }
 
-export const phone = () => <Example />
+export const Phone = () => <Example />

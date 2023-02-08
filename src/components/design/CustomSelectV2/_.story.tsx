@@ -84,7 +84,7 @@ const Controlled = () => {
   )
 }
 
-export const exampleV2 = () => <Controlled />
+export const ExampleV2 = () => <Controlled />
 
 const items = ['132', '229', '9993', '0934'].map((value) => ({
   value,
@@ -100,4 +100,4 @@ const MultiTest = () => {
   )
 }
 
-export const multi = () => <MultiTest />
+export const Multi = () => <MultiTest />

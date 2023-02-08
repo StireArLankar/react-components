@@ -30,7 +30,7 @@ export default {
 const Template: ComponentStory<typeof Neumorphism> = (props) => (
   <Neumorphism {...props} />
 )
-export const example = Template.bind({})
-example.args = { isActive: false }
+export const Example = Template.bind({})
+Example.args = { isActive: false }
 
-export const nested = () => <NestedNeumorphism />
+export const Nested = () => <NestedNeumorphism />

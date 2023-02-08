@@ -5,10 +5,11 @@ import Component from '.'
 
 export default {
   title: 'Framer Motion/List Flip',
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%', boxSizing: 'border-box' }),
   ],
 }
 
-export const flip = () => <Component />
+export const Flip = {}

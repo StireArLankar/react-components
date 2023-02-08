@@ -16,3 +16,5 @@ export const Heart = () => {
     </div>
   )
 }
+
+export default Heart

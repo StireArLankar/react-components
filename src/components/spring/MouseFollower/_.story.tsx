@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof MouseFollower> = (props) => (
   <MouseFollower {...props} />
 )
 
-export const mouseFollowers = Template.bind({})
+export const _MouseFollowers = Template.bind({})
 
 // ------------
 
@@ -28,6 +28,6 @@ const Template1: ComponentStory<typeof MouseFollowerV2> = (props) => (
   <MouseFollowerV2 {...props} />
 )
 
-export const another = Template1.bind({})
-another.argTypes = { skew: { control: { type: 'number', min: 5, step: 1 } } }
-another.args = { skew: 5 }
+export const _Another = Template1.bind({})
+_Another.argTypes = { skew: { control: { type: 'number', min: 5, step: 1 } } }
+_Another.args = { skew: 5 }

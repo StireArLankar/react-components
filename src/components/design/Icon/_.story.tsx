@@ -24,4 +24,4 @@ export default {
   ],
 }
 
-export const button = () => <Icon Icon={CameraRounded} />
+export const Icons = () => <Icon Icon={CameraRounded} />

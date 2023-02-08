@@ -35,15 +35,16 @@ export default {
       right: 0,
       bottom: 0,
       overflow: 'auto',
+      justifyContent: 'unset',
     }),
     withTopLabel(label),
   ],
 }
 
-export const initial = () => <JSONPretty data={json} />
-export const rewritten = () => <Json json={json} />
-export const acaiTheme = () => <Json json={json} theme={acai} />
-export const nestedJson = () => (
+export const Initial = () => <JSONPretty data={json} />
+export const Rewritten = () => <Json json={json} />
+export const AcaiTheme = () => <Json json={json} theme={acai} />
+export const NestedJson = () => (
   <Json
     json={{
       hello1: 'world',

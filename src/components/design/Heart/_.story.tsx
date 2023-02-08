@@ -1,13 +1,12 @@
-import React from 'react'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import { Heart } from './Heart'
+import Component from './Heart'
 
 export default {
   title: 'Design/Heart',
+  component: Component,
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 
-export const heart = () => <Heart />
+export const Heart = {}

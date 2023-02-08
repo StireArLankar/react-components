@@ -20,7 +20,7 @@ export default {
   decorators: [withCustomTheme, withTopLabel(label)],
 }
 
-export const tree = () => (
+export const Tree = () => (
   <div
     style={{
       background: vars.color.dark,
@@ -38,7 +38,7 @@ export const tree = () => (
   </div>
 )
 
-export const version2 = () => (
+export const Version2 = () => (
   <div
     style={{
       background: vars.color.dark,

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
@@ -16,20 +16,22 @@ const label = (
   </>
 )
 
-export default {
+const meta = {
   title: 'Design/Liquid',
+  component: LiquidButton,
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
-} as ComponentMeta<typeof LiquidButton>
+} satisfies Meta<typeof LiquidButton>
 
-const Template: ComponentStory<typeof LiquidButton> = (props) => (
-  <LiquidButton {...props} />
-)
+export default meta
 
-export const button = Template.bind({})
-button.args = { children: 'Hello world' }
-button.argTypes = { children: { type: 'string' } }
-button.parameters = { controls: { include: ['children'] } }
+type Story = StoryObj<typeof meta>
+
+export const Button: Story = {
+  args: { children: 'Hello world' },
+  argTypes: { children: { type: 'string' } },
+  parameters: { controls: { include: ['children'] } },
+}

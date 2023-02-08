@@ -46,3 +46,5 @@ export const SvgPath = () => {
     </animated.svg>
   )
 }
+
+export default SvgPath

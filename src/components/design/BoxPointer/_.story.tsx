@@ -1,12 +1,13 @@
-import { ComponentMeta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import Temp from '.'
+import Component from '.'
 
 export default {
   title: 'Design/BoxPointer',
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -17,6 +18,6 @@ export default {
       placeItems: 'center',
     }),
   ],
-} as ComponentMeta<typeof BoxPointer>
+} as Meta<typeof Component>
 
-export const BoxPointer = () => <Temp />
+export const BoxPointer = {}

@@ -34,4 +34,4 @@ export default {
   ],
 }
 
-export const framerMotion = () => <Calendar />
+export const FramerMotion = () => <Calendar />

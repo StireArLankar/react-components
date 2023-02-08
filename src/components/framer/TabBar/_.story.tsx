@@ -21,6 +21,7 @@ export default {
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
+  component: Component,
 }
 
-export const TabBar = () => <Component />
+export const TabBar = {}

@@ -33,5 +33,5 @@ const Test = ({ width, ...props }: ResponsiveTextProps & { width: number }) => (
 )
 
 const Template1: ComponentStory<typeof Test> = (props) => <Test {...props} />
-export const button = Template1.bind({})
-button.args = { width: 400, text: 'Hello world' }
+export const Button = Template1.bind({})
+Button.args = { width: 400, text: 'Hello world' }

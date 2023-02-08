@@ -65,4 +65,4 @@ const Test = () => {
   return <Component caption={value} onSelect={onSelect} items={items} />
 }
 
-export const framerMotion = () => <Test />
+export const FramerMotion = () => <Test />
