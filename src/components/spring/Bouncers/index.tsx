@@ -56,3 +56,5 @@ export const Bouncers = () => {
     </div>
   )
 }
+
+export default Bouncers

@@ -10,12 +10,10 @@ export default {
   decorators: [withCustomTheme],
 }
 
-export const scroll = () => <Scroll />
+export const _Scroll = () => <Scroll />
+_Scroll.decorators = [withCenteredStyle({ width: '100%', minHeight: '200vh' })]
 
-scroll.decorators = [withCenteredStyle({ width: '100%', minHeight: '200vh' })]
-
-export const innerScroll = () => <ScrollInner />
-
-innerScroll.decorators = [
+export const _InnerScroll = () => <ScrollInner />
+_InnerScroll.decorators = [
   withCenteredStyle({ width: '100%', position: 'absolute', top: 0, left: 0 }),
 ]

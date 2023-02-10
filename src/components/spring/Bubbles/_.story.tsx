@@ -8,4 +8,4 @@ export default {
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const bubbles = () => <Bubbles />
+export const _Bubbles = () => <Bubbles />

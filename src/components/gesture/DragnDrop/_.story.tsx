@@ -32,4 +32,4 @@ export default {
   ],
 }
 
-export const dragnDrop = () => <DragnDrop />
+export const _DragnDrop = () => <DragnDrop />

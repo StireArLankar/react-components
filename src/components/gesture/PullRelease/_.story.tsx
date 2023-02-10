@@ -8,4 +8,4 @@ export default {
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const pullRelease = () => <PullRelease />
+export const _PullRelease = () => <PullRelease />

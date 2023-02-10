@@ -1,11 +1,18 @@
+import { Meta, StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import { Card } from '.'
+import Component from '.'
 
-export default {
+const meta = {
   title: 'Spring/Card',
+  component: Component,
   decorators: [withCenteredStyle({ width: 200 }), withCustomTheme],
-}
+} satisfies Meta<typeof Component>
 
-export const card = () => <Card />
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Card: Story = {}

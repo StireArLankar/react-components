@@ -11,7 +11,7 @@ export default {
   ],
 }
 
-export const virtualizedSlider = () => (
+export const VirtualizedSlider = () => (
   <div
     style={{
       display: 'grid',

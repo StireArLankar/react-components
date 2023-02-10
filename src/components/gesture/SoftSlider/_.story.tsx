@@ -26,4 +26,4 @@ export default {
   ],
 }
 
-export const softSlider = () => <Test />
+export const SoftSlider = () => <Test />

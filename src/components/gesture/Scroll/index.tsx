@@ -8,7 +8,8 @@ export const Scroll = () => {
 
   const height = document.documentElement.scrollHeight
 
-  const bind = useScroll(
+  // const bind = useScroll(
+  useScroll(
     ({ xy: [, y] }) => spring.start({ width: (y / height) * 100 + '%' }),
     // FIXME
     { target: window }

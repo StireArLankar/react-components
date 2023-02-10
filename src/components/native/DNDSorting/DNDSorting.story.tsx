@@ -13,4 +13,4 @@ export default {
   ],
 }
 
-export const example = () => <DnDSorting />
+export const Example = () => <DnDSorting />

@@ -19,6 +19,7 @@ const getDragBounds = (height: number, val: number) => ({
 const interpolateScroll = (content: number, container: number, val: number) =>
   `scaleY(${container / content}) translateY(${(val * 100) / container}%)`
 
+// FIXME something is not working
 export const ScrollBar = memo((props: { itemsAmount: number }) => {
   const { itemsAmount } = props
 

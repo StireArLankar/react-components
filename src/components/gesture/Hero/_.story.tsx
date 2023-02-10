@@ -17,4 +17,4 @@ export default {
   ],
 }
 
-export const hero = () => <Hero />
+export const _Hero = () => <Hero />

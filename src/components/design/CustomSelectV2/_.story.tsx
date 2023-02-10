@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'

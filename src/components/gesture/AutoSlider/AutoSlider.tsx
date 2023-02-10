@@ -84,14 +84,17 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
     immediate: false,
   }))
 
-  const recalcIndex: (n: number) => number = useCallback(
-    (p: number) => {
+  type A = (n: number) => number
+  const recalcIndex: A = useCallback(
+    (p) => {
       isAnimating.current = false
+
       if (Math.abs(p) > length) {
         const res = p < 0 ? ((p % length) + length) % length : p % length
         spring.start({ x: width * res, immediate: true })
         return res
       }
+
       return p
     },
     [length, spring, width]
@@ -123,21 +126,25 @@ export const AutoSlider = (props: PropsWithChildren<SliderProps>) => {
   }, [width, spring, selected, isDragging, recalcIndex])
 
   useEffect(() => {
-    let timer: NodeJS.Timeout
+    // If cursor is inside of slider, user is  dragging slider or slides amount <= 1,
+    // then return
+    if (isHovered || isDragging || length <= 1) {
+      return
+    }
+
+    let timer: ReturnType<typeof setTimeout>
 
     // If cursor is outside of slider, user is not dragging slider and slides amount > 1,
     // then start timer
-    if (!isHovered && !isDragging && length > 1) {
-      const handler = () => {
-        if (!isAnimating.current) {
-          setSelected((prev) => prev - 1)
-        }
-
-        timer = setTimeout(handler, interval)
+    const handler = () => {
+      if (!isAnimating.current) {
+        setSelected((prev) => prev - 1)
       }
 
       timer = setTimeout(handler, interval)
     }
+
+    timer = setTimeout(handler, interval)
 
     return () => clearTimeout(timer)
   }, [isHovered, isDragging, interval, length])

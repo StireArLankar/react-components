@@ -39,3 +39,5 @@ export const Ripple = (props: PropsWithChildren<RippleProps>) => {
     </button>
   )
 }
+
+export default Ripple

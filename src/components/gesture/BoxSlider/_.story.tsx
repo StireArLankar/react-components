@@ -12,8 +12,8 @@ export default {
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const halfSlider = () => <HalfSlider />
-export const quarterSlider = () => <QuarterSlider />
-export const quarterSnapSlider = () => <QuarterSnapSlider />
-export const quarterInertialSlider = () => <QuarterInertialSlider />
-export const quarterAutoplaySlider = () => <QuarterAutoplaySlider />
+export const _HalfSlider = () => <HalfSlider />
+export const _QuarterSlider = () => <QuarterSlider />
+export const _QuarterSnapSlider = () => <QuarterSnapSlider />
+export const _QuarterInertialSlider = () => <QuarterInertialSlider />
+export const _QuarterAutoplaySlider = () => <QuarterAutoplaySlider />

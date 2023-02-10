@@ -17,13 +17,13 @@ export default {
   ],
 }
 
-export const smallContent = () => (
+export const SmallContent = () => (
   <BottomSheet>
     <div>small content</div>
   </BottomSheet>
 )
 
-export const largeContent = () => (
+export const LargeContent = () => (
   <BottomSheet>
     <div style={{ height: 1500 }}>large content</div>
   </BottomSheet>

@@ -13,4 +13,4 @@ export default {
   ],
 }
 
-export const example = () => <FormFields />
+export const Example = () => <FormFields />

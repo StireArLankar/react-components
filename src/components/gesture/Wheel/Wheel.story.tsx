@@ -1,13 +1,18 @@
-import { ComponentMeta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import { Wheel } from './Wheel'
+import Component from './Wheel'
 
-export default {
+const meta = {
   title: 'Gesture/Wheel',
+  component: Component,
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
-} as ComponentMeta<typeof Wheel>
+} satisfies Meta<typeof Component>
 
-export const wheel = () => <Wheel />
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Wheel: Story = {}

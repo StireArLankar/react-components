@@ -6,6 +6,7 @@ export const getTextWidth: GetTextWidth = (text, font) => {
   const canvas =
     getTextWidth.canvas ||
     (getTextWidth.canvas = document.createElement('canvas'))
+
   const context = canvas.getContext('2d')
 
   if (!context) {

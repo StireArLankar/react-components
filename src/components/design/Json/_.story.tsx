@@ -1,3 +1,5 @@
+import { Meta, StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
@@ -21,8 +23,9 @@ const label = (
   </>
 )
 
-export default {
+const meta = {
   title: 'Design/Json',
+  component: Json,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -39,10 +42,35 @@ export default {
     }),
     withTopLabel(label),
   ],
+} satisfies Meta<typeof Json>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Initial: StoryObj<typeof JSONPretty> = {
+  render: () => <JSONPretty data={json} />,
 }
 
-export const Initial = () => <JSONPretty data={json} />
-export const Rewritten = () => <Json json={json} />
+const themes = { default: undefined, acai }
+
+export const Rewritten: Story = {
+  args: { json, space: 2 },
+  argTypes: {
+    theme: {
+      options: Object.keys(themes),
+      mapping: themes,
+      control: {
+        type: 'select',
+        labels: {
+          default: 'default',
+          acai: 'acai',
+        },
+      },
+    },
+  },
+}
+
 export const AcaiTheme = () => <Json json={json} theme={acai} />
 export const NestedJson = () => (
   <Json

@@ -36,7 +36,8 @@ export const TransitionSlider = () => {
 
   const [{ x }, spring] = useSpring(() => ({ x: 0 }))
 
-  const bind = useDrag(
+  // const bind = useDrag(
+  useDrag(
     ({ offset: [x] }) => {
       spring.start({ x })
     },

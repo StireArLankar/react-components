@@ -17,4 +17,4 @@ export default {
   ],
 }
 
-export const tabs = () => <Temp />
+export const Tabs = () => <Temp />

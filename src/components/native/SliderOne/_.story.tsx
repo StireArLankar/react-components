@@ -15,13 +15,13 @@ export default {
   ],
 }
 
-export const slider = () => <Slider />
+export const _Slider = () => <Slider />
 
 type Props = { children: string }
 const Asd = (props: Props) => <Button {...props} />
 const Template: ComponentStory<typeof Asd> = (props) => <Asd {...props} />
 
-export const button = Template.bind({})
-button.args = {
+export const _Button = Template.bind({})
+_Button.args = {
   children: 'Inner text',
 }

@@ -11,7 +11,7 @@ export default {
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const verticalWheel = () => <VerticalWheel />
-export const horizontalWheel = () => <HorizontalWheel />
-export const horizontalDrag = () => <HorizontalDrag />
-export const horizontalDragWithSnap = () => <HorizontalDragSnap />
+export const _VerticalWheel = () => <VerticalWheel />
+export const _HorizontalWheel = () => <HorizontalWheel />
+export const _HorizontalDrag = () => <HorizontalDrag />
+export const _HorizontalDragWithSnap = () => <HorizontalDragSnap />

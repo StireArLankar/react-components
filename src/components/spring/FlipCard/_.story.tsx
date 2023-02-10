@@ -15,7 +15,7 @@ export default {
   ],
 }
 
-export const card = () => <FlipCard {...props} />
+export const Card = () => <FlipCard {...props} />
 
 const front = (
   <div
@@ -56,9 +56,9 @@ const Template1: ComponentStory<typeof FlipCardScaled> = (props) => (
   <FlipCardScaled {...props} />
 )
 
-export const cardScaled = Template1.bind({})
-cardScaled.argTypes = {
+export const CardScaled = Template1.bind({})
+CardScaled.argTypes = {
   dir: { control: 'radio', options: ['+x', '-x', '+y', '-y'] },
 }
-cardScaled.args = { ...props, dir: '+x' }
-cardScaled.parameters = { controls: { include: ['dir'] } }
+CardScaled.args = { ...props, dir: '+x' }
+CardScaled.parameters = { controls: { include: ['dir'] } }

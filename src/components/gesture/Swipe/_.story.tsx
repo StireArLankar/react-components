@@ -8,4 +8,4 @@ export default {
   decorators: [withCenteredStyle({ width: '100%' }), withCustomTheme],
 }
 
-export const swipe = () => <Swipe />
+export const _Swipe = () => <Swipe />

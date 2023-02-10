@@ -26,4 +26,4 @@ export default {
   ],
 }
 
-export const multiCard = () => <MultiCard />
+export const _MultiCard = () => <MultiCard />

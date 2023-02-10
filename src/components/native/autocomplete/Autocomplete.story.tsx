@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
@@ -13,4 +11,4 @@ export default {
   ],
 }
 
-export const autocomplete = () => <AutocompleteContainer />
+export const Autocomplete = () => <AutocompleteContainer />

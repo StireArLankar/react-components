@@ -27,5 +27,5 @@ export default {
   ],
 }
 
-export const range = () => <Range />
-export const rangeSimle = () => <RangeSimple />
+export const _Range = () => <Range />
+export const _RangeSimle = () => <RangeSimple />

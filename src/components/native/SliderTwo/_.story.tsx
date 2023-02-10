@@ -16,7 +16,7 @@ export default {
   ],
 }
 
-export const slider = () => <SliderTwo />
+export const _Slider = () => <SliderTwo />
 
 const Template: ComponentStory<typeof Slide> = (props) => (
   <div style={{ width: 300 }}>
@@ -24,8 +24,8 @@ const Template: ComponentStory<typeof Slide> = (props) => (
   </div>
 )
 
-export const slide = Template.bind({})
-slide.args = {
+export const _Slide = Template.bind({})
+_Slide.args = {
   content:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi fugit omnis accusamus dolorem dolore eligendi! Nulla adipisci odio corrupti quasi fugit suscipit soluta possimus rerum tempore? Dicta cumque fugiat sed.',
   title: 'Random title',

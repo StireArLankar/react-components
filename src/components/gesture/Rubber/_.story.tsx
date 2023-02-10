@@ -19,7 +19,7 @@ export default {
   ],
 }
 
-export const rubber = () => <Rubber />
-export const blob = () => <Blob />
-export const inner = () => <Inner />
-export const innerBump = () => <Inner bump />
+export const _Rubber = () => <Rubber />
+export const _Blob = () => <Blob />
+export const _Inner = () => <Inner />
+export const _InnerBump = () => <Inner bump />

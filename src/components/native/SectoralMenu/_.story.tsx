@@ -65,8 +65,8 @@ const Temp = ({ buttonsAmount }: Props) => (
   <SectoralMenu buttons={buttons.slice(0, buttonsAmount)} />
 )
 const Template1: ComponentStory<typeof Temp> = (props) => <Temp {...props} />
-export const sectoralMenu = Template1.bind({})
-sectoralMenu.args = { buttonsAmount: buttons.length }
-sectoralMenu.argTypes = {
+export const _SectoralMenu = Template1.bind({})
+_SectoralMenu.args = { buttonsAmount: buttons.length }
+_SectoralMenu.argTypes = {
   buttonsAmount: { control: { type: 'range', min: 1, max: buttons.length } },
 }

@@ -25,4 +25,4 @@ export default {
   ],
 } as ComponentMeta<typeof Cursor>
 
-export const cursor = () => <Cursor />
+export const _Cursor = () => <Cursor />

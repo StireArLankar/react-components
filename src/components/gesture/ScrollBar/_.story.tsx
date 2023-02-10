@@ -1,23 +1,20 @@
-import React from 'react'
-
-import { ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 import { ScrollBar as Component } from './ScrollBar'
 
-export default {
+const meta = {
   title: 'Gesture/ScrollBar',
+  component: Component,
   decorators: [withCustomTheme, withCenteredStyle({})],
-}
+} satisfies Meta<typeof Component>
 
-const Template: ComponentStory<typeof Component> = ({ ...rest }) => (
-  <Component {...rest} />
-)
+export default meta
 
-export const ScrollBar = Template.bind({})
+type Story = StoryObj<typeof meta>
 
-ScrollBar.args = {
-  itemsAmount: 5,
+export const ScrollBar: Story = {
+  args: { itemsAmount: 5 },
 }

@@ -1,11 +1,11 @@
-import { ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
 
-import { Ripple } from '.'
+import Component from '.'
 
 const label = (
   <>
@@ -16,21 +16,26 @@ const label = (
   </>
 )
 
-export default {
+const meta = {
   title: 'Design/Ripple',
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
+  args: { children: 'Hello world' },
   argTypes: {
-    variant: { control: 'radio', options: ['primary', 'secondary'] },
+    variant: {
+      control: 'radio',
+      options: ['primary', 'secondary'],
+      defaultValue: 'primary',
+    },
   },
-}
+} satisfies Meta<typeof Component>
 
-const Template1: ComponentStory<typeof Ripple> = (props) => (
-  <Ripple {...props} />
-)
-export const ripple = Template1.bind({})
-ripple.args = { children: 'Hello world', variant: 'primary' }
-ripple.parameters = { controls: { include: ['children', 'variant'] } }
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Ripple: Story = {}

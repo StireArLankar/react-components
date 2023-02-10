@@ -1,3 +1,5 @@
+import { Meta, StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
@@ -14,8 +16,9 @@ const label = (
   </>
 )
 
-export default {
+const meta: Meta<typeof Calendar> = {
   title: 'Design/Calendar',
+  component: Calendar,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -34,4 +37,8 @@ export default {
   ],
 }
 
-export const FramerMotion = () => <Calendar />
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const FramerMotion: Story = {}

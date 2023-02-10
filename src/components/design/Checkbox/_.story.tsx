@@ -1,14 +1,15 @@
 import { useState } from 'react'
 
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import Temp from '.'
+import Checkbox from '.'
 
-export default {
+const meta = {
   title: 'Design/Checkbox',
+  component: Checkbox,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -19,7 +20,11 @@ export default {
       placeItems: 'center',
     }),
   ],
-} as ComponentMeta<typeof Asd>
+} satisfies Meta<typeof Checkbox>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 type Props = {
   err: boolean
@@ -43,7 +48,7 @@ const Asd = (props: Props) => {
     >
       <a href='#11'>for accessible</a>
 
-      <Temp
+      <Checkbox
         id='tmep'
         value={value}
         label={label}
@@ -57,16 +62,17 @@ const Asd = (props: Props) => {
   )
 }
 
-const Template: ComponentStory<typeof Asd> = ({ ...rest }) => <Asd {...rest} />
-
-export const Example = Template.bind({})
-
-Example.argTypes = {
-  helper: { control: 'text', if: { arg: 'err' } },
+export const Controlled: StoryObj<typeof Asd> = {
+  render: (props) => <Asd {...props} />,
+  args: {
+    label: 'label',
+    err: false,
+    helper: 'helper',
+  },
+  argTypes: { helper: { control: 'text', if: { arg: 'err' } } },
 }
 
-Example.args = {
-  label: 'label',
-  err: false,
-  helper: 'helper',
+export const Base: Story = {
+  args: { id: '123', value: true },
+  argTypes: { onChange: { action: 'onChange' } },
 }

@@ -11,4 +11,4 @@ export default {
   component: Cancel,
 } as ComponentMeta<typeof Cancel>
 
-export const cancel = () => <Cancel />
+export const _Cancel = () => <Cancel />

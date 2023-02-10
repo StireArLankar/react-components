@@ -26,4 +26,4 @@ export default {
   ],
 }
 
-export const inertia = () => <Inertia />
+export const _Inertia = () => <Inertia />

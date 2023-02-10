@@ -1,3 +1,5 @@
+import { StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
@@ -9,5 +11,10 @@ export default {
   decorators: [withCustomTheme, withCenteredStyle({ width: '100%' })],
 }
 
-export const First = () => <Temp />
-export const _Second = () => <Second />
+export const First: StoryObj<typeof Temp> = {
+  render: () => <Temp />,
+}
+
+export const _Second: StoryObj<typeof Second> = {
+  render: () => <Second />,
+}

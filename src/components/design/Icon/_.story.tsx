@@ -1,3 +1,5 @@
+import { Meta, StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
@@ -15,13 +17,20 @@ const label = (
   </>
 )
 
-export default {
+const meta = {
   title: 'Design/Icons',
+  component: Icon,
   decorators: [
     withCustomTheme,
     withCenteredStyle({ width: '100%' }),
     withTopLabel(label),
   ],
-}
+} satisfies Meta<typeof Icon>
 
-export const Icons = () => <Icon Icon={CameraRounded} />
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Icons: Story = {
+  args: { Icon: CameraRounded },
+}

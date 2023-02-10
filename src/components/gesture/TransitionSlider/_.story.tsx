@@ -20,20 +20,20 @@ export default {
   ],
 }
 
-export const simpleSlider = () => <SimpleSlider />
+export const _SimpleSlider = () => <SimpleSlider />
 
 // -----------------
 
 const Template: ComponentStory<typeof ComplexSlider> = (props) => (
   <ComplexSlider {...props} />
 )
-export const complexSlider = Template.bind({})
-complexSlider.args = { hideValues: false, start: 50, overflow: false }
+export const _ComplexSlider = Template.bind({})
+_ComplexSlider.args = { hideValues: false, start: 50, overflow: false }
 
 // -----------------
 
 const Template1: ComponentStory<typeof RepeatedBounds> = (props) => (
   <RepeatedBounds {...props} />
 )
-export const repeatedBounds = Template1.bind({})
-repeatedBounds.args = { hideValues: false, number: 4, overflow: false }
+export const _RepeatedBounds = Template1.bind({})
+_RepeatedBounds.args = { hideValues: false, number: 4, overflow: false }

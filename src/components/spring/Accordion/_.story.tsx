@@ -30,10 +30,10 @@ const Template: ComponentStory<typeof Accordion> = ({ ...rest }) => (
   </>
 )
 
-export const accordion = Template.bind({})
-accordion.args = { title: 'title', hideArrow: false }
-accordion.parameters = { controls: { include: ['title', 'hideArrow'] } }
+export const _Accordion = Template.bind({})
+_Accordion.args = { title: 'title', hideArrow: false }
+_Accordion.parameters = { controls: { include: ['title', 'hideArrow'] } }
 
-export const accordionWithMorph = Template.bind({})
-accordionWithMorph.args = { title: 'title', arrowComponent: MorphArrow }
-accordionWithMorph.parameters = { controls: { include: ['title'] } }
+export const _AccordionWithMorph = Template.bind({})
+_AccordionWithMorph.args = { title: 'title', arrowComponent: MorphArrow }
+_AccordionWithMorph.parameters = { controls: { include: ['title'] } }

@@ -18,4 +18,4 @@ export default {
   ],
 }
 
-export const example = () => <Select />
+export const Example = () => <Select />

@@ -20,14 +20,14 @@ export default {
 }
 
 const Template1: ComponentStory<typeof Test> = (props) => <Test {...props} />
-export const popup = Template1.bind({})
-popup.decorators = [withCenteredStyle({ width: '100%' })]
+export const Popup = Template1.bind({})
+Popup.decorators = [withCenteredStyle({ width: '100%' })]
 
 const Template2: ComponentStory<typeof FixedTest> = (props) => (
   <FixedTest {...props} />
 )
-export const fixedPopup = Template2.bind({})
-fixedPopup.decorators = [
+export const FixedPopup = Template2.bind({})
+FixedPopup.decorators = [
   withCenteredStyle({
     width: '100%',
     minHeight: '200vh',
@@ -39,8 +39,8 @@ fixedPopup.decorators = [
 const Template3: ComponentStory<typeof AnchorTest> = (props) => (
   <AnchorTest {...props} />
 )
-export const popupWithAnchor = Template3.bind({})
-popupWithAnchor.decorators = [
+export const PopupWithAnchor = Template3.bind({})
+PopupWithAnchor.decorators = [
   withCenteredStyle({
     width: '100%',
     minHeight: '200vh',

@@ -1,9 +1,11 @@
+import { Meta, StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
 
-import Temp from '.'
+import Component from '.'
 
 const label = (
   <>
@@ -14,8 +16,9 @@ const label = (
   </>
 )
 
-export default {
+const meta = {
   title: 'Design/Neumorphism Loader',
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -28,6 +31,10 @@ export default {
     }),
     withTopLabel(label),
   ],
-}
+} satisfies Meta<typeof Component>
 
-export const example = () => <Temp />
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Example: Story = {}

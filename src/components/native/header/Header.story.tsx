@@ -13,7 +13,7 @@ export default {
   ],
 }
 
-export const example = () => {
+export const Example = () => {
   const props: HeaderProps = {
     items: [
       {

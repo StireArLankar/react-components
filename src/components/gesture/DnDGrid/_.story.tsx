@@ -25,16 +25,16 @@ export default {
   ],
 }
 
-export const dndGrid = () => <DnDGrid />
-export const statefulDndGrid = () => <StatefulDnDGrid />
-export const filledLazyDndGrid = () => <FilledDnDGrid lazy />
-export const filledDndGrid = () => <FilledDnDGrid />
+export const _DndGrid = () => <DnDGrid />
+export const _StatefulDndGrid = () => <StatefulDnDGrid />
+export const _FilledLazyDndGrid = () => <FilledDnDGrid lazy />
+export const _FilledDndGrid = () => <FilledDnDGrid />
 
 const Template: ComponentStory<typeof UnfilledDnDGrid> = (props) => (
   <UnfilledDnDGrid {...props} />
 )
-export const unfilledDndGrid = Template.bind({})
-unfilledDndGrid.args = {
+export const _UnfilledDndGrid = Template.bind({})
+_UnfilledDndGrid.args = {
   full: false,
   lazy: false,
 }
@@ -42,8 +42,8 @@ unfilledDndGrid.args = {
 const Template1: ComponentStory<typeof SwapDnDGrid> = (props) => (
   <SwapDnDGrid {...props} />
 )
-export const swapDndGrid = Template1.bind({})
-swapDndGrid.args = {
+export const _SwapDndGrid = Template1.bind({})
+_SwapDndGrid.args = {
   full: false,
   lazy: false,
 }

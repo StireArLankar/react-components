@@ -33,5 +33,4 @@ type Story = StoryObj<typeof meta>
 export const Button: Story = {
   args: { children: 'Hello world' },
   argTypes: { children: { type: 'string' } },
-  parameters: { controls: { include: ['children'] } },
 }

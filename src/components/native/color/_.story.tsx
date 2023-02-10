@@ -15,7 +15,7 @@ export default {
   ],
 }
 
-export const colorPicker = () => <Color />
+export const ColorPicker = () => <Color />
 
 type Props = {
   red: number
@@ -28,8 +28,8 @@ const Asd = (props: Props) => (
 )
 
 const Template: ComponentStory<typeof Asd> = (props) => <Asd {...props} />
-export const display = Template.bind({})
-display.args = {
+export const Display = Template.bind({})
+Display.args = {
   red: 0,
   green: 0,
   blue: 0,

@@ -1,12 +1,13 @@
-import { ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import Temp, { ResponsiveTextProps } from '.'
+import Component, { ResponsiveTextProps } from '.'
 
-export default {
+const meta = {
   title: 'Design/ResponsiveText',
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -17,17 +18,21 @@ export default {
       placeItems: 'center',
     }),
   ],
-  argTypes: { variant: { control: 'radio', options: ['bold', 'regular'] } },
-}
+  args: {
+    text: 'Hello world',
+  },
+  argTypes: {
+    variant: {
+      control: 'radio',
+      options: ['bold', 'regular'],
+      defaultValue: 'bold',
+    },
+  },
+} satisfies Meta<typeof Component>
 
-const Template: ComponentStory<typeof Asd> = (props) => <Asd {...props} />
+export default meta
 
-export const Example = Template.bind({})
-Example.args = {
-  text: 'Hello world',
-  variant: 'bold',
-  width: 200,
-}
+type Story = StoryObj<typeof meta>
 
 const Asd = (props: ResponsiveTextProps & { width: number }) => (
   <div
@@ -38,6 +43,13 @@ const Asd = (props: ResponsiveTextProps & { width: number }) => (
       justifyContent: 'center',
     }}
   >
-    <Temp {...props} />
+    <Component {...props} />
   </div>
 )
+
+export const Base: Story = {}
+
+export const WithBackground: StoryObj<typeof Asd> = {
+  render: (props) => <Asd {...props} />,
+  args: { width: 200 },
+}

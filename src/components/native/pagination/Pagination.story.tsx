@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
@@ -11,6 +9,6 @@ export default {
   ],
 }
 
-export const example = () => (
+export const Example = () => (
   <div style={{ color: 'white', fontSize: 30 }}>BROKEN IN STORYBOOK</div>
 )

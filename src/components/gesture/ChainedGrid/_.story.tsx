@@ -21,6 +21,6 @@ export default {
   component: ChainedGrid,
 } as ComponentMeta<typeof ChainedGrid>
 
-export const chainedGrid = () => <ChainedGrid />
+export const _ChainedGrid = () => <ChainedGrid />
 
-export const heroChainedGrid = () => <ChainedGrid isCrazy />
+export const _HeroChainedGrid = () => <ChainedGrid isCrazy />
