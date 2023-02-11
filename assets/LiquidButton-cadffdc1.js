@@ -1,0 +1,2 @@
+import{j as s}from"./withCustomTheme-ab58be2d.js";import{c}from"./clsx.m-1229b3e0.js";const t={button:"_6lx2pd1",text:"_6lx2pd2",liquid:"_6lx2pd3"},i=({children:a,...o})=>s.jsxs("button",{...o,className:c(t.button,o.className),children:[s.jsx("span",{className:t.text,children:a}),s.jsx("div",{className:t.liquid})]});try{i.displayName="LiquidButton",i.__docgenInfo={description:"",displayName:"LiquidButton",props:{}}}catch{}export{i as L};
+//# sourceMappingURL=LiquidButton-cadffdc1.js.map

@@ -1,0 +1,2 @@
+import"./withCustomTheme-ab58be2d.js";var u="u6n3uqd",a={color:{orange:"var(--u6n3uq0)",red:"var(--u6n3uq1)",blue:"var(--u6n3uq2)",darkBlue:"var(--u6n3uq3)",main:"var(--u6n3uq4)",light:"var(--u6n3uq5)",border:"var(--u6n3uq6)",dark:"var(--u6n3uq7)",text:"var(--u6n3uq8)",darkGreen:"var(--u6n3uq9)",green:"var(--u6n3uqa)",online:"var(--u6n3uqb)"}};export{u as s,a as v};
+//# sourceMappingURL=theme.css-ff310367.js.map
