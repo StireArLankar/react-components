@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import Temp from '.'
+import Component from '.'
 
 export default {
   title: 'Design/CustomSelect',
@@ -17,6 +17,7 @@ export default {
       placeItems: 'center',
     }),
   ],
+  component: Component,
 }
 
 const options = [
@@ -55,7 +56,7 @@ const Controlled = () => {
       }}
     >
       <a href='#11'>for accessible</a>
-      <Temp value={value} onChange={setValue} items={options} />
+      <Component value={value} onChange={setValue} items={options} />
 
       <a href='#11'>for accessible</a>
 
@@ -68,7 +69,7 @@ const Controlled = () => {
           transform: 'translate(-50%)',
         }}
       >
-        <Temp value={value} onChange={setValue} items={options} />
+        <Component value={value} onChange={setValue} items={options} />
       </div>
     </div>
   )

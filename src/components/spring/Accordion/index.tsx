@@ -19,7 +19,7 @@ export const Accordion = (props: PropsWithChildren<AccordionProps>) => {
 
   const [ref, { height }] = useMeasure()
 
-  const adjustedHeight = isOpened && height === 0 ? 'auto' : height
+  const adjustedHeight = isOpened && height === 0 ? undefined : height
 
   const onToggleClick = () => setIsOpened((prev) => !prev)
 

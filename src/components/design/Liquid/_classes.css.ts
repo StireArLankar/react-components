@@ -17,6 +17,7 @@ export default {
     display: 'flex',
     border: 'none',
     outline: 'none',
+    cursor: 'pointer',
   }),
 
   text: style({

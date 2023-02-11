@@ -25,7 +25,7 @@ const item = style({
 
 globalStyle(`${item} span`, {
   willChange: 'transform',
-  transform: 'scale(1.048)',
+  // transform: 'scale(1.048)',
   backfaceVisibility: 'hidden',
   WebkitFontSmoothing: 'subpixel-antialiased',
   display: 'block',
