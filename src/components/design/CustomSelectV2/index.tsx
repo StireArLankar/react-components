@@ -9,6 +9,7 @@ import classes from './_classes.css'
 import { ReactComponent as Arrow } from './arrow.svg'
 
 export interface SelectProps {
+  id?: string
   value: string
   items: { value: string; label: ReactNode }[]
   onChange: (val: string) => void
@@ -62,6 +63,7 @@ const Mobile = (props: SelectProps) => {
   return (
     <div style={{ position: 'relative', display: 'flex' }}>
       <select
+        id={props.id}
         className={classes.label({ fit: props.fit, variant: props.variant })}
         value={props.value}
         ref={ref}

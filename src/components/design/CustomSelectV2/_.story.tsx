@@ -5,7 +5,7 @@ import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
 import { Combobox } from './multi'
 
-import Temp from '.'
+import Component from '.'
 
 export default {
   title: 'Design/CustomSelectV2',
@@ -51,7 +51,7 @@ const Controlled = () => {
           transform: 'translate(-50%)',
         }}
       >
-        <Temp
+        <Component
           value={value}
           onChange={setValue}
           items={options}
@@ -60,7 +60,7 @@ const Controlled = () => {
       </div>
 
       <a href='#11'>for accessible</a>
-      <Temp value={value} onChange={setValue} items={options} />
+      <Component value={value} onChange={setValue} items={options} />
 
       <a href='#11'>for accessible</a>
 
@@ -73,7 +73,7 @@ const Controlled = () => {
           transform: 'translate(-50%)',
         }}
       >
-        <Temp
+        <Component
           value={value}
           onChange={setValue}
           items={options}

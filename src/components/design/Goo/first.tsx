@@ -51,7 +51,7 @@ export const Goo = () => (
   </svg>
 )
 
-export const Temp = () => {
+export default () => {
   const [{ xy }, spring] = useSpring(() => ({ xy: [0, 0] as [number, number] }))
 
   const bind = useDrag(({ offset: xy }) => {

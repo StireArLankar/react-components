@@ -1,10 +1,13 @@
+import { Meta, StoryObj } from '@storybook/react'
+
 import { withCenteredStyle } from '~/_storybook/withCenteredStyle'
 import { withCustomTheme } from '~/_storybook/withCustomTheme'
 
-import Temp from '.'
+import Component from '.'
 
-export default {
+const meta = {
   title: 'Design/Tabs',
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -15,6 +18,10 @@ export default {
       placeItems: 'center',
     }),
   ],
-}
+} satisfies Meta<typeof Component>
 
-export const Tabs = () => <Temp />
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Tabs: Story = {}

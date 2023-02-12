@@ -5,7 +5,7 @@ import { withCustomTheme } from '~/_storybook/withCustomTheme'
 import { withTopLabel } from '~/_storybook/withTopLabel'
 import { storyLink } from '~/theme/theme.css'
 
-import Temp from '.'
+import Component from '.'
 
 const label = (
   <>
@@ -18,7 +18,7 @@ const label = (
 
 const meta = {
   title: 'Design/Arc Loader',
-  component: Temp,
+  component: Component,
   decorators: [
     withCustomTheme,
     withCenteredStyle({
@@ -30,7 +30,7 @@ const meta = {
     }),
     withTopLabel(label),
   ],
-} satisfies Meta<typeof Temp>
+} satisfies Meta<typeof Component>
 
 export default meta
 
