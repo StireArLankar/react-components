@@ -74,7 +74,7 @@
 
 .prev:hover .link,
 .prev .link:focus {
-  transform: skew(10deg, 10deg);
+  transform: skew(5deg, 5deg);
 }
 
 .next {
@@ -84,7 +84,7 @@
 
 .next:hover .link,
 .next .link:focus {
-  transform: skew(10deg, 10deg);
+  transform: skew(5deg, 5deg);
 }
 
 .disabled {
