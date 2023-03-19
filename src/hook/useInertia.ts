@@ -30,7 +30,8 @@ export type UseInertia<T extends {}> = [
 export const useInertia = <T extends Record<string, any>>(
   initialProps: UseSpringProps<T & { config: IConfig<T> }>
 ): UseInertia<T> => {
-  const [props, spring] = useSpring(() => initialProps)
+  //@ts-ignore
+  const [props, spring] = useSpring(() => initialProps) as any
 
   const setInertia = useCallback<SpringRef<T & { config: IConfig<T> }>['set']>(
     ({ config = {}, ...to }) => {
@@ -43,7 +44,7 @@ export const useInertia = <T extends Record<string, any>>(
 
       spring.start({
         ...to,
-        onChange: (values) => {
+        onChange: (values: any) => {
           Object.entries(values.value as any).forEach(([key, v]: any) => {
             const vel = (props as any)[key].velocity
             const bound =
